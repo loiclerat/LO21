@@ -17,6 +17,7 @@ public :
 
     littEntiere& operator+(littEntiere& b);
     littEntiere& operator-(littEntiere& b);
+    littEntiere& operator*(littEntiere& b);
     //DIV
 };
 #endif LITTENTIERE_H

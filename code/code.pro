@@ -12,9 +12,11 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    littententiere.cpp
+    littententiere.cpp \
+    littreelle.cpp
 
 HEADERS += \
     litterale.h \
     littentiere.h \
-    littnumerique.h
+    littnumerique.h \
+    littreelle.h

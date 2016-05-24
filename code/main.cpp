@@ -1,4 +1,4 @@
-
+#include "littreelle.h"
 #include"littentiere.h"
 
 using namespace std;
@@ -18,6 +18,8 @@ int main(){
     n=m-l;
     n.affichage();
     cout<<"\n";
+
+    littReelle r(8,25);
 
     return 0;
 }

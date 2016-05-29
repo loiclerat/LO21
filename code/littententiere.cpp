@@ -13,8 +13,14 @@ littEntiere& littEntiere::operator -(littEntiere& b){
     return (*res); // int - int = int
 }
 
+
+littEntiere&  littEntiere::operator*(littEntiere& b){
+    littEntiere* res=new littEntiere(this->valeur*b.valeur);
+    return (*res); //int*int = int
+}
 /*
-littEntiere& operator*(littEntiere& b){
-    littEntiere*
+littEntiere&  littEntiere::operator/(littEntiere& b){
+    littEntiere* res=new littEntiere(this->valeur/b.valeur);
+    return (*res); //int/int = rationnel ou entiere
 }*/
 

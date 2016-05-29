@@ -31,7 +31,7 @@ public :
     void NEG(){valeur=valeur*(-1); entiere=entiere*(-1);}
 
     littReelle& operator+(littReelle& b);
-    //littReelle& operator-(littReelle& b);
+    littReelle& operator-(littReelle& b);
     //littRelle& operator*(littEntiere& b);
     //DIV
 };

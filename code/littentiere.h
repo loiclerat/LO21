@@ -2,6 +2,7 @@
 #define LITTENTIERE_H
 #include"littnumerique.h"
 
+
 class littEntiere: public littNumerique{
     int valeur;
 public :
@@ -18,6 +19,7 @@ public :
     littEntiere& operator+(littEntiere& b);
     littEntiere& operator-(littEntiere& b);
     littEntiere& operator*(littEntiere& b);
+    littEntiere& operator/(littEntiere& b);
     //DIV
 };
 #endif LITTENTIERE_H

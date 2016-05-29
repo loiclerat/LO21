@@ -2,6 +2,7 @@
 #define LITTENTIERE_H
 #include"littnumerique.h"
 
+
 class littEntiere: public littNumerique{
     int valeur;
 public :

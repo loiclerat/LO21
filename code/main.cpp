@@ -17,9 +17,19 @@ int main(){
     cout<<"\n****************\n";
     n=m-l;
     n.affichage();
-    cout<<"\n";
+    cout<<"\n****************\n";
 
-    littReelle r(8,25);
+    littReelle r(8,0.25);
+    littReelle j(0.93);
+    littReelle i=j;
+
+    cout<<"\n****************\n";
+    cout<<j.getValeur()<<"\n";
+    cout<<j.getEntiere()<<"\n";
+    cout<<j.getDecimale()<<"\n";
+    cout<<"\n****************\n";
+    cout<<(j+r).getDecimale()<<"\n";
+
 
     return 0;
 }

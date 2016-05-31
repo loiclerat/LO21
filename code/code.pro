@@ -1,12 +1,9 @@
 
 QT += core
 QT -= gui
-<<<<<<< HEAD
 QT += core gui widgets
 
-=======
 QT       += core gui widgets
->>>>>>> 75df8adad885e4d5b0684670cfd2d116152bafe4
 CONFIG += c++11
 
 TARGET = code
@@ -21,7 +18,12 @@ SOURCES += \
     littreelle.cpp \
     computer.cpp \
     littrat.cpp \
-    qcomputer.cpp
+    qcomputer.cpp \
+    controleur.cpp \
+    item.cpp \
+    littcomplexe.cpp \
+    litteralemanager.cpp \
+    pile.cpp
 
 HEADERS += \
     litterale.h \
@@ -32,4 +34,10 @@ HEADERS += \
     littrat.h \
     operateur_numerique.h \
     operateur.h \
-    qcomputer.h
+    qcomputer.h \
+    controleur.h \
+    exceptions.h \
+    item.h \
+    littcomplexe.h \
+    litteralemanager.h \
+    pile.h

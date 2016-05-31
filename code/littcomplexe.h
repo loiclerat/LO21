@@ -17,9 +17,7 @@ public:
     littNumerique* getPartRe()const { return partRe; }
     littNumerique* getPartIm()const { return partIm; }
 
-    virtual QString getText(){
-        return "Test";
-    };
+
     ostream& affichage(ostream& f=cout)const{
         partRe->affichage();
         f<<" $ ";

@@ -1,12 +1,7 @@
 
 QT += core
 QT -= gui
-<<<<<<< HEAD
 QT += core gui widgets
-
-=======
-QT       += core gui widgets
->>>>>>> 75df8adad885e4d5b0684670cfd2d116152bafe4
 CONFIG += c++11
 
 TARGET = code
@@ -17,11 +12,11 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    littententiere.cpp \
     littreelle.cpp \
     computer.cpp \
     littrat.cpp \
-    qcomputer.cpp
+    qcomputer.cpp \
+    littentiere.cpp
 
 HEADERS += \
     litterale.h \

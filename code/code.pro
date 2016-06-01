@@ -23,7 +23,8 @@ SOURCES += \
     item.cpp \
     littcomplexe.cpp \
     litteralemanager.cpp \
-    pile.cpp
+    pile.cpp \
+    littatome.cpp
 
 HEADERS += \
     litterale.h \
@@ -40,4 +41,5 @@ HEADERS += \
     item.h \
     littcomplexe.h \
     litteralemanager.h \
-    pile.h
+    pile.h \
+    littatome.h

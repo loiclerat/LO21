@@ -34,6 +34,18 @@ int main(){
     cout<<(j+r).getDecimale()<<"\n";
     cout<<"\n****************\n";
     cout<<(j-r).getDecimale()<<"\n";
+    (r*j).affichage();
+    cout<<"\n****************\n";
+    try{
+        littReelle b(0);
+        littReelle a(8);
+    }
+    catch(Exception e){
+        cout<<e.getInfo();
+        if(e.getInfo()=="entier")
+            littEntiere b(0);
+    }
+    //b.affichage();
 
 
     return 0;

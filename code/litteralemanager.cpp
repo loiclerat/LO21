@@ -23,6 +23,11 @@ void litteraleManager::agrandissementCapacite() {
     delete old;
 }
 
+litterale& litteraleManager::addLitterale(int v){       //Ajout Littérale Entière
+    if (nb==nbMax) agrandissementCapacite();
+        litts[nb++]=new littEntiere(v);
+    return *litts[nb-1];
+}
 
 void litteraleManager::removelitterale(litterale& l){
     unsigned int i=0;

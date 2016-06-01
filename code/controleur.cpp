@@ -17,10 +17,8 @@ void Controleur::commande(const QString& c){
 
     operateur* op;
 
-    if (estLitterale(c)){
-        // Suivant le type de littérale, switch pour créer le bon type
-        // ajout à littMng
-        // push
+    if (estLitterale(c)=="entiere"){
+        littAff.push(littMng.addLitterale(c.toInt()));
     }
     else if ((op = estOperateur(c)) != 0){
         if (op->getArite()==1){
@@ -52,5 +50,7 @@ operateur* Controleur::estOperateur(const QString s){
 
 QString estLitterale(const QString s){
 
-    //Déterminer le type de littérale
+    bool ok=false;
+    c.toInt(&ok);
+    if (ok) return "entiere";
 }

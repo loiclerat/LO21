@@ -1,5 +1,7 @@
 #include "littreelle.h"
 #include "littentiere.h"
+#include "littrat.h"
+#include "add.h"
 
 using namespace std;
 int main(){
@@ -46,6 +48,9 @@ int main(){
             littEntiere b(0);
     }
     //b.affichage();
+
+    littrat rat1(1,3);
+    littrat rat2(3,4);
 
 
     return 0;

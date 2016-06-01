@@ -21,7 +21,7 @@ public :
 
     virtual ostream& affichage(ostream& f=cout)const=0;//a definir
     virtual void simplifier(){}/*permet de simplifier les litt num
-    *dès leur création, éventuellement les transformer en une autre litt num
+    *dï¿½s leur crï¿½ation, ï¿½ventuellement les transformer en une autre litt num
     *si possible.
     */
 };

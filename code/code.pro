@@ -22,7 +22,9 @@ SOURCES += \
     littcomplexe.cpp \
     litteralemanager.cpp \
     pile.cpp \
-    littatome.cpp
+    littatome.cpp \
+    alitt.cpp \
+    aoperateur.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -40,5 +42,8 @@ HEADERS += \
     littcomplexe.h \
     litteralemanager.h \
     pile.h \
-    littatome.h
+    littatome.h \
+    add.h \
+    alitt.h \
+    aoperateur.h
     qcomputer.h

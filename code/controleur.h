@@ -8,13 +8,19 @@
 
 #include "pile.h"
 #include "litteralemanager.h"
+#include "operateurmanager.h"
 
 class Controleur {
     litteraleManager& littMng;
     Pile& littAff;
+    operateurManager& opeMng;
 public:
-    Controleur(litteraleManager& m, Pile& v):littMng(m), littAff(v){}
+    Controleur(litteraleManager& m, operateurManager& o, Pile& v):littMng(m), littAff(v), opeMng(o){}
     void commande(const QString& c);
+
+    operateur* Controleur::estOperateur(const QString s);
+    QString estLitterale(const QString s);
+
 
 };
 

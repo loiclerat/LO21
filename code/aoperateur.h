@@ -4,9 +4,9 @@
 
 class aoperateur : public littatome
 {
-    operateur* opa;
+    aoperateur* opa;
 public:
-    aoperateur(QString a, operateur* b):littatome(a),opa(b){};
+    aoperateur(QString a, aoperateur* b):littatome(a),opa(b){};
 };
 
 #endif // AOPERATEUR_H

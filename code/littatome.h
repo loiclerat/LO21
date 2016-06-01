@@ -6,7 +6,7 @@ class littatome
 {
     QString identificateur;
 public:
-    littatome(QString i):identificateur(i);
+    littatome(QString i):identificateur(i){}
 };
 
 #endif // LITTATOME_H

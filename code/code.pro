@@ -24,7 +24,8 @@ SOURCES += \
     pile.cpp \
     littatome.cpp \
     alitt.cpp \
-    aoperateur.cpp
+    aoperateur.cpp \
+    add.cpp
     qcomputer.cpp
 
 HEADERS += \

@@ -16,7 +16,7 @@ public:
         den = d;
         simplifier();
     };
-    ~littrat(){}
+    ~littrat(){};
     void simplifier();
     int getNum()const { return num; }
     int getDen()const { return den; }
@@ -25,6 +25,7 @@ public:
         return f;
     }
     littrat& operator+(littrat& b);
+    //littrat* operator+(littrat* a, littrat* b);
     littrat& operator-(littrat& b);
     littrat& operator*(littrat& b);
     littrat& operator/(littrat& b);

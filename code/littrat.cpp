@@ -14,6 +14,12 @@ void littrat::simplifier(){
     }
 }
 
+/*littrat* littrat::operator+(littrat* a, littrat* b){
+    littrat* res=new littrat(a->getNum()*b->getDen()+a->getDen()*b->getNum(),a->getDen()*b->getDen());
+    res->simplifier();
+    return res;
+}*/
+
 littrat& littrat::operator+(littrat& b){
         littrat* res=new littrat(this->getNum()*b.den+this->getDen()*b.num,this->getDen()*b.den);
         res->simplifier();

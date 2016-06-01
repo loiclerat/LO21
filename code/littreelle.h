@@ -9,13 +9,17 @@
 *de chiffres après la virgule et on pourra transformer en int puis faire i itération du int*0.1 et stocker dans la partie entière
 */
 
+/*Dans les littReelles on n'aura de signe négatif que dans les parties entières
+*
+*/
+
 class littReelle : public littNumerique{
     float valeur;
     int entiere;
     float decimale;
 public :
-    littReelle(int e, float d): valeur(e+d), entiere(e), decimale(d){}
-    littReelle(float d): valeur (d), entiere(0), decimale(d){}//ne prend que les .45 et le traduit directement comme un 0.45
+    littReelle(int e, float d): valeur(e+d), entiere(e), decimale(d){simplifier();}
+    littReelle(float d): valeur (d), entiere(0), decimale(d){simplifier();}//Ex : ne prend que les .45 et le traduit directement comme un 0.45
 
     //pas de constructeur avec seulement e sinon on a un entier
 
@@ -25,14 +29,14 @@ public :
     float getValeur() const{return valeur;}
     int getEntiere() const{return entiere;}
     float getDecimale() const{return decimale;}
-    //void simplifier();
+    void simplifier();
 
     ostream& affichage(ostream& f=cout)const{f<<getValeur(); return f;}
     void NEG(){valeur=valeur*(-1); entiere=entiere*(-1);}
 
     littReelle& operator+(littReelle& b);
     littReelle& operator-(littReelle& b);
-    //littRelle& operator*(littEntiere& b);
+    littReelle& operator*(littReelle& b);
     //DIV
 };
 

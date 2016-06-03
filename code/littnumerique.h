@@ -2,6 +2,8 @@
 #define LITTNUMERIQUE_H
 #include "litterale.h"
 
+using namespace std;
+
 class littNumerique : public litterale{
 
 public :
@@ -10,9 +12,10 @@ public :
     virtual ostream& affichage(ostream& f=cout)const=0;//a definir
     virtual void simplifier(){}
 
-    //surchage des opérateurs qui peuvent être utilisés avec toutes les litérales numériques
+    //surchage des opï¿½rateurs qui peuvent ï¿½tre utilisï¿½s avec toutes les litï¿½rales numï¿½riques
     //virtual littNumerique& operator+(littNumerique& b)=0;
     virtual void NEG()=0;
+    virtual littNumerique* operator+(littNumerique* a)=0;
 };
 
 #endif // LITTNUMERIQUE_H

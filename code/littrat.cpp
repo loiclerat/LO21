@@ -14,16 +14,36 @@ void littrat::simplifier(){
     }
 }
 
-/*littrat* littrat::operator+(littrat* a, littrat* b){
-    littrat* res=new littrat(a->getNum()*b->getDen()+a->getDen()*b->getNum(),a->getDen()*b->getDen());
-    res->simplifier();
-    return res;
-}*/
+littNumerique* littrat::operator+(littNumerique* a)
+{
 
-littrat& littrat::operator+(littrat& b){
-        littrat* res=new littrat(this->getNum()*b.den+this->getDen()*b.num,this->getDen()*b.den);
+        littEntiere* ent1 = dynamic_cast<littEntiere*>(a);
+
+        littrat* rat1 = dynamic_cast<littrat*>(a);
+
+        littReelle* ree1 = dynamic_cast<littReelle*>(a);
+
+        if(ent1!=nullptr)
+        {
+            littrat* res = new littrat(this->getNum()+ent1->getValeur(),this->getDen());
+            return res;
+
+        }else if(rat1!=nullptr){
+            littrat* res = new littrat(0,0);
+            res=*this+rat1;
+            return res;
+        }else if(ree1!=nullptr){
+            float val = this->getNum()/this->getDen();
+            littReelle* a = new littReelle(val);
+            littReelle* res(*a+ree1);
+            return res;
+        }
+    }
+
+littrat* littrat::operator+(littrat* b){
+        littrat* res=new littrat(this->getNum()*b->den+this->getDen()*b->num,this->getDen()*b->den);
         res->simplifier();
-        return (*res);
+        return (res);
 }
 
 

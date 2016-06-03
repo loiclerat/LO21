@@ -2,7 +2,7 @@
 #include "littentiere.h"
 #include "littrat.h"
 #include "add.h"
-
+#include "exceptions.h"
 using namespace std;
 int main(){
     littEntiere l(6);
@@ -49,8 +49,27 @@ int main(){
     }
     //b.affichage();
 
-    littrat rat1(1,3);
-    littrat rat2(3,4);
+    littrat rat1(2,1);
+    littrat rat2(2,1);
+
+    littEntiere x(3);
+    littEntiere y(3);
+
+    littReelle w(3.44);
+    littReelle z(5.8);
+    add plus("ADD");
+
+
+
+    try{
+        litterale& resultat = plus.traitement(w,z);
+        resultat.affichage();
+    }
+    catch(ComputerException& e){
+        std::cout<<e.getInfo().toStdString();
+    }
+
+
 
 
     return 0;

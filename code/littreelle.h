@@ -2,14 +2,15 @@
 #define LITTREELLE_H
 
 #include"littnumerique.h"
+#include "littentiere.h"
 #include <math.h>
 
 
-/*avec de la manipulation de char on va réussir à obtenir le nombre (i)
-*de chiffres après la virgule et on pourra transformer en int puis faire i itération du int*0.1 et stocker dans la partie entière
+/*avec de la manipulation de char on va r×™ussir × obtenir le nombre (i)
+*de chiffres apr×˜s la virgule et on pourra transformer en int puis faire i it×™ration du int*0.1 et stocker dans la partie enti×˜re
 */
 
-/*Dans les littReelles on n'aura de signe négatif que dans les parties entières
+/*Dans les littReelles on n'aura de signe n×™gatif que dans les parties enti×˜res
 *
 */
 
@@ -34,7 +35,9 @@ public :
     ostream& affichage(ostream& f=cout)const{f<<getValeur(); return f;}
     void NEG(){valeur=valeur*(-1); entiere=entiere*(-1);}
 
+    littReelle* operator+(littReelle* b);
     littReelle& operator+(littReelle& b);
+    littNumerique* operator+(littNumerique* b);
     littReelle& operator-(littReelle& b);
     littReelle& operator*(littReelle& b);
     //DIV

@@ -1,7 +1,9 @@
 #ifndef LITTENTIERE_H
 #define LITTENTIERE_H
-#include"littnumerique.h"
 
+#include"littnumerique.h"
+#include"littrat.h"
+#include"littreelle.h"
 
 class littEntiere: public littNumerique{
     int valeur;
@@ -17,6 +19,7 @@ public :
     void NEG(){valeur=(-valeur);}
 
     littEntiere& operator+(littEntiere& b);
+    littNumerique* operator+(littNumerique* a);
     littEntiere& operator-(littEntiere& b);
     littEntiere& operator*(littEntiere& b);
     littEntiere& operator/(littEntiere& b);

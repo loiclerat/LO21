@@ -2,9 +2,7 @@
 #define LITTRAT_H
 
 #include"littnumerique.h"
-#include"littentiere.h"
-#include"litterale.h"
-using namespace std;
+#include "littentiere.h"
 
 class littrat : public littNumerique
 {
@@ -15,8 +13,8 @@ public:
         num = n;
         den = d;
         simplifier();
-    };
-    ~littrat(){};
+    }
+    ~littrat(){}
     void simplifier();
     int getNum()const { return num; }
     int getDen()const { return den; }
@@ -24,8 +22,10 @@ public:
         f<<getNum()<<"/"<<getDen()<<"\n";
         return f;
     }
-    littrat& operator+(littrat& b);
-    //littrat* operator+(littrat* a, littrat* b);
+
+
+    littrat* operator+(littrat* b);
+    littNumerique* operator+(littNumerique* a);
     littrat& operator-(littrat& b);
     littrat& operator*(littrat& b);
     littrat& operator/(littrat& b);

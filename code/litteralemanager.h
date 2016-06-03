@@ -39,6 +39,8 @@ public:
 
     // === ITERATEURS ===
 
+    // Vérifier l'utilité du constructeur privé et du friend
+
     class iterator {
         litterale** current;
         iterator(litterale** u):current(u){}

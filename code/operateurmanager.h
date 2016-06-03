@@ -34,6 +34,8 @@ public:
 
     // === ITERATEURS ===
 
+    // Vérifier l'utilité du constructeur privé et du friend
+
     class iterator {
         operateur** current;
         iterator(operateur** u):current(u){}

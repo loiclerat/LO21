@@ -18,7 +18,7 @@ class operateurManager {
     struct Handler{
         operateurManager* instance;
         Handler():instance(0){}
-        // destructeur appelé à la fin du programme
+        // destructeur appelé �  la fin du programme
         ~Handler(){ delete instance; }
     };
     static Handler handler;
@@ -57,8 +57,8 @@ public:
         bool operator!=(const_iterator it) const { return current!=it.current; }
         const_iterator& operator++(){ ++current; return *this; }
     };
-    const_iterator begin() const { return const_iterator(ops); }
-    const_iterator end() const { return const_iterator(ops+nb); }
+    const_iterator begin_const() const { return const_iterator(ops); }
+    const_iterator end_const() const { return const_iterator(ops+nb); }
 
 };
 

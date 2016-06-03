@@ -25,7 +25,8 @@ SOURCES += \
     littatome.cpp \
     alitt.cpp \
     aoperateur.cpp \
-    add.cpp
+    add.cpp \
+    operateurmanager.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -46,5 +47,7 @@ HEADERS += \
     littatome.h \
     add.h \
     alitt.h \
-    aoperateur.h
+    aoperateur.h \
+    num.h \
+    operateurmanager.h
     qcomputer.h

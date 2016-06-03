@@ -8,7 +8,8 @@ protected:
 public:
     operateur(int a):arite(a){};
     virtual litterale& traitement(litterale& a, litterale& b)=0;
-    //virtual litterale* traitement(litterale* a)=0;
+    virtual litterale& traitement(litterale& a)=0;
+    int getArite(){return arite;}
 };
 
 #endif // OPERATEUR_H

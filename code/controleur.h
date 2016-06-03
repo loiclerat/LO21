@@ -18,6 +18,7 @@ public:
     Controleur(litteraleManager& m, operateurManager& o, Pile& v):littMng(m), littAff(v), opeMng(o){}
     void commande(const QString& c);
 
+
     operateur* estOperateur(const QString s);
     QString estLitterale(const QString s);
 

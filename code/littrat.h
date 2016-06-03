@@ -15,8 +15,8 @@ public:
         num = n;
         den = d;
         simplifier();
-    };
-    ~littrat(){};
+    }
+    ~littrat(){}
     void simplifier();
     int getNum()const { return num; }
     int getDen()const { return den; }

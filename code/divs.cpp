@@ -60,7 +60,3 @@ litterale& divs::traitement(litterale &a, litterale &b){
                 }
 
 }
-
-litterale& divs::traitement(litterale& a){
-
-}

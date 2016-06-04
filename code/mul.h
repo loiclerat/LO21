@@ -6,15 +6,15 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
+#include "opebinaire.h"
 
 
-class mul : public operateur_numerique
+class mul : public operateur_numerique, public binaire
 {
     QString symbol;
 public:
     mul(QString s):symbol(s),operateur_numerique(2){}
     litterale& traitement(litterale &a, litterale &b);
-    litterale& traitement(litterale &a);
 };
 
 #endif // MUL_H

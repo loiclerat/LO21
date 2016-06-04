@@ -2,6 +2,8 @@
 #define OPERATEURMANAGER_H
 
 #include "operateur.h"
+#include "opebinaire.h"
+#include "opeunaire.h"
 
 class operateurManager {
     operateur** ops;           //Liste des littérales

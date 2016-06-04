@@ -59,5 +59,7 @@ HEADERS += \
     littnumber.h \
     sous.h \
     divs.h \
-    divent.h
+    divent.h \
+    opeunaire.h \
+    opebinaire.h
     qcomputer.h

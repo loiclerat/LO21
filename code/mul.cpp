@@ -59,6 +59,3 @@ litterale& mul::traitement(litterale &a, litterale &b){
                 }
 
 }
-litterale& mul::traitement(litterale& a){
-
-}

@@ -24,9 +24,9 @@ public:
     int getNum()const { return num; }
     int getDen()const { return den; }
     QString& affichage(QString f="")const{
-        f.append(getNum());
+        f.append(QString::number(getNum()));
         f.append("/");
-        f.append(getDen());
+        f.append(QString::number(getDen()));
         return f;
     }
 

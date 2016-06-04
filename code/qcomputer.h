@@ -71,6 +71,25 @@ class QComputer : public QWidget{
     QPushButton* clear;
 
 
+    QVBoxLayout* paveNum;
+    QHBoxLayout* paveNum1;
+    QHBoxLayout* paveNum2;
+    QHBoxLayout* paveNum3;
+    QHBoxLayout* paveNum4;
+
+    QPushButton* un;
+    QPushButton* deux;
+    QPushButton* trois;
+    QPushButton* quatre;
+    QPushButton* cinq;
+    QPushButton* six;
+    QPushButton* sept;
+    QPushButton* huit;
+    QPushButton* neuf;
+    QPushButton* zero;
+
+
+
 public :
     explicit QComputer(QWidget *parent = 0);
 public slots:

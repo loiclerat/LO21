@@ -1,4 +1,4 @@
-#include "littreelle.h"
+/*#include "littreelle.h"
 #include "littentiere.h"
 #include "littrat.h"
 #include "add.h"
@@ -66,7 +66,7 @@ int main(){
     add plus("ADD");
 
 
-/*
+
     try{
         litterale& resultat = plus.traitement(w,z);
         resultat.affichage();
@@ -74,7 +74,7 @@ int main(){
     catch(ComputerException& e){
         std::cout<<e.getInfo().toStdString();
     }
-*/
+
     std::cout<<"\n****************\n";
     std::cout<<"\nTEST MUL\n";
     std::cout<<"\n****************\n";
@@ -92,8 +92,8 @@ int main(){
 
     return 0;
 }
+*/
 
-/*
 #include <QApplication>
 #include <QWidget>
 #include <QLineEdit>
@@ -109,4 +109,4 @@ int main(int argc, char *argv[]) {
     fenetre.show();
     return app.exec();
 
-}*/
+}

@@ -1,7 +1,7 @@
 #include "qcomputer.h"
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
-    this->setFixedSize(900, 700);
+    this->setFixedSize(700, 650);
 
     /** Layout principal **/
 
@@ -118,8 +118,64 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oppile->addWidget(redo);
     oppile->addWidget(clear);
 
+
+    /** Layout du pavé numérique **/
+
+    //Ligne 1
+    paveNum1 = new QHBoxLayout(this);
+    un = new QPushButton("1", this);
+    un->setFixedSize(30,30);
+    deux = new QPushButton("2", this);
+    deux->setFixedSize(30,30);
+    trois = new QPushButton("3", this);
+    trois->setFixedSize(30,30);
+
+    paveNum1->addWidget(un);
+    paveNum1->addWidget(deux);
+    paveNum1->addWidget(trois);
+
+    //Ligne 2
+    paveNum2 = new QHBoxLayout(this);
+    quatre = new QPushButton("4", this);
+    quatre->setFixedSize(30,30);
+    cinq = new QPushButton("5", this);
+    cinq->setFixedSize(30,30);
+    six = new QPushButton("6", this);
+    six->setFixedSize(30,30);
+
+    paveNum2->addWidget(quatre);
+    paveNum2->addWidget(cinq);
+    paveNum2->addWidget(six);
+
+    //Ligne 3
+    paveNum3 = new QHBoxLayout(this);
+    sept = new QPushButton("7", this);
+    sept->setFixedSize(30,30);
+    huit = new QPushButton("8", this);
+    huit->setFixedSize(30,30);
+    neuf = new QPushButton("9", this);
+    neuf->setFixedSize(30,30);
+
+    paveNum3->addWidget(sept);
+    paveNum3->addWidget(huit);
+    paveNum3->addWidget(neuf);
+
+    //Ligne 4
+    paveNum4 = new QHBoxLayout(this);
+    zero = new QPushButton("0", this);
+    //zero->setFixedSize(30,30);
+    paveNum4->addWidget(zero);
+
+    //PAVE complet
+    paveNum = new QVBoxLayout(this);
+    paveNum->addLayout(paveNum1);
+    paveNum->addLayout(paveNum2);
+    paveNum->addLayout(paveNum3);
+    paveNum->addLayout(paveNum4);
+
     /** Construction des layouts **/
 
+    couchebas->addLayout(paveNum);
     couchebas->addLayout(opbasique);
     couchebas->addLayout(opnum);
     couchebas->addLayout(oplog);

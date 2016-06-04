@@ -139,6 +139,12 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
                            "selection-background-color: blue;");
 
 
+    /*connecter que la commande emet signal return pressed
+     * getnext commande */
+        connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
+        connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
+
+
     setLayout(boxcomplete);
     setWindowTitle("UTComputer");
 }
@@ -169,6 +175,6 @@ void QComputer::refresh(){
 void QComputer::getNextCommande(){
     //si c'est un nombre empile si operateur on applique
     QString c=commande->text();
-    //controleur->commande(c);
+    controleur->commande(c);
     commande->clear();
 }

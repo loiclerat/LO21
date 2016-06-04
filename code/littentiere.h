@@ -15,7 +15,7 @@ public :
     int getValeur() const{return valeur;}
     void simplifier(){};
 
-    ostream& affichage(ostream& f=cout)const{f<<getValeur(); return f;}
+    QString& affichage(QString f="")const{f.append(getValeur()); return f;}
     void NEG(){valeur=(-valeur);}
 
     littEntiere& operator+(littEntiere& b);

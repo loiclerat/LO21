@@ -9,7 +9,7 @@ class littNumerique : public litterale{
 public :
     littNumerique(){}
     virtual ~littNumerique(){}
-    virtual ostream& affichage(ostream& f=cout)const=0;//a definir
+    virtual QString& affichage(QString f="")const=0;//a definir
     virtual void simplifier(){}
 
     //surchage des op�rateurs qui peuvent �tre utilis�s avec toutes les lit�rales num�riques

@@ -21,7 +21,7 @@ Description de la classe Pile ainsi que ses itérateurs et signaux
 
 /**
   \class Pile
-  \brief La classe Pile est chargée de l'affichage des littérales ainsi que des messages destinés à l'utilisateur
+  \brief La classe Pile est chargée de l'affichage des littérales ainsi que des messages destinés �  l'utilisateur
  */
 
 class Pile : public QObject {
@@ -33,9 +33,9 @@ class Pile : public QObject {
     unsigned int nb;    
     //! \brief Capacité de la Pile
     unsigned int nbMax;    
-    //! \brief Message destiné à l'utilisateur
+    //! \brief Message destiné �  l'utilisateur
     QString message;
-    //! \brief Nombre d'Items à afficher
+    //! \brief Nombre d'Items �  afficher
     unsigned int nbAffiche;
 
     //! \brief Agrandissement de la Pile lorsque l'on dépasse la capacité actuelle
@@ -57,17 +57,17 @@ public:
     //! \brief Nombre d'Items dans la pile
     unsigned int taille() const { return nb; }
     //! \brief Afficher la pile
-    //! \n L'affichage s'effectue dans un QTextStream selon le nombre d'éléments à afficher
+    //! \n L'affichage s'effectue dans un QTextStream selon le nombre d'éléments �  afficher
     void affiche(QTextStream& f) const;
     //! \brief Retourne une référence vers la littérale au sommet de la Pile
     litterale& top() const;
-    //! \brief Définir le nombre d'éléments de la Pile à afficher
+    //! \brief Définir le nombre d'éléments de la Pile �  afficher
     void setNbItemsToAffiche(unsigned int n) { nb=n; }
-    //! \brief Nombre d'Items à afficher
+    //! \brief Nombre d'Items �  afficher
     unsigned int getNbItemsToAffiche() const { return nbAffiche; }
-    //! \brief Définir le message à afficher à l'utilisateur
+    //! \brief Définir le message �  afficher �  l'utilisateur
     void setMessage(const QString& m) { message=m; modificationEtat(); }
-    //! \brief Message à afficher
+    //! \brief Message �  afficher
     QString getMessage() const { return message; }
 
 
@@ -86,7 +86,7 @@ public:
     public:
 
         //! \brief Constructeur
-        iterator():current(Item* u=0){}
+        iterator(Item* u=0):current(u){}
         //! \brief Surcharge de l'opérateur * pour récupérer la littérale pointée par l'Item courant
         litterale& operator*() const { return current->getLitterale(); }
         //! \brief Surcharge de l'opréateur != pour comparer deux itérateurs
@@ -113,7 +113,7 @@ public:
     public:
 
         //! \brief Constructeur
-        const_iterator():current(Item* u=0){}
+        const_iterator(Item* u=0):current(u){}
         //! \brief Surcharge de l'opérateur * pour récupérer la littérale pointée par l'Item courant
         const litterale& operator*() const { return current->getLitterale(); }
         //! \brief Surcharge de l'opréateur != pour comparer deux itérateurs

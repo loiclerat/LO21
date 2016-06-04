@@ -9,9 +9,16 @@
 #include <QHeaderView>
 #include <QDebug>
 #include <QPushButton>
+#include "pile.h"
+#include "controleur.h"
+#include "operateurmanager.h"
+#include "litteralemanager.h"
 
 class QComputer : public QWidget{
     Q_OBJECT
+
+    Pile* pile;
+    Controleur* controleur;
     QVBoxLayout* boxcomplete;
     QLineEdit* message;
     QLineEdit* commande;
@@ -66,6 +73,8 @@ class QComputer : public QWidget{
 
 public :
     explicit QComputer(QWidget *parent = 0);
+public slots:
+    void refresh();
     void getNextCommande();
 };
 

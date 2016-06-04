@@ -32,7 +32,7 @@ public :
     float getDecimale() const{return decimale;}
     void simplifier();
 
-    ostream& affichage(ostream& f=cout)const{f<<getValeur(); return f;}
+    QString& affichage(QString f="")const{f.append(QString::number(getValeur())); return f;}
     void NEG(){valeur=valeur*(-1); entiere=entiere*(-1);}
 
     littReelle* operator+(littReelle* b);

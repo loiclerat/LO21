@@ -18,11 +18,10 @@ public:
     littNumerique* getPartIm()const { return partIm; }
 
 
-    ostream& affichage(ostream& f=cout)const{
-        partRe->affichage();
-        f<<" $ ";
-        partIm->affichage();
-        f<<" \n ";
+    QString& affichage(QString f="")const{
+        f.append(partRe->affichage());
+        f.append(" $ ");
+        f.append(partIm->affichage());
         return f;
     }
 

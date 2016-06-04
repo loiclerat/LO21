@@ -13,6 +13,8 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     message = new QLineEdit(this);
     commande = new QLineEdit(this);
+    pile=new Pile;
+    controleur = new Controleur(litteraleManager::getInstance(), operateurManager::getInstance(), *pile);
     //clavier= new QVBoxLayout;//ajouter clavier ï¿½ la couche
 
     vuepile = new QTableWidget(9,2,this);
@@ -139,6 +141,28 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     setLayout(boxcomplete);
     setWindowTitle("UTComputer");
+}
+
+ //! \brief la fonction refresh() permet de mettre à jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
+void QComputer::refresh(){
+    //affichage etat pile
+
+    //lÃ  on efface tout ce qu'il y a dans l'affichage la pile
+    for(unsigned int i=0;i<pile->getNbItemsToAffiche(); i++){
+        vuepile->item(i,0)->setText("");
+    }
+    unsigned int nb=0;
+
+    /*ici le item est une fonction de Qt et pas notre classe item:
+    *"Returns the item for the given row and column if one has been set; otherwise returns 0."
+    * setText a besoin d'un string
+    */
+    for (Pile::iterator it=pile->begin(); nb<pile->getNbItemsToAffiche() && it!=pile->end();++it, ++nb)
+        vuepile->item(pile->getNbItemsToAffiche()-nb-1,0)->setText((*it).affichage());
+
+    //.. et message utilisateur
+    message->setText(pile->getMessage());
+
 }
 
 

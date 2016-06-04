@@ -1,4 +1,4 @@
-#include "littreelle.h"
+/*#include "littreelle.h"
 #include "littentiere.h"
 #include "littrat.h"
 #include "add.h"
@@ -57,7 +57,7 @@ int main(){
 
     littReelle w(3.44);
     littReelle z(5.8);
-    add plus("ADD");
+    //add plus("ADD");
 
 
 
@@ -73,9 +73,9 @@ int main(){
 
 
     return 0;
-}
+}*/
 
-/*
+
 #include <QApplication>
 #include <QWidget>
 #include <QLineEdit>
@@ -91,4 +91,4 @@ int main(int argc, char *argv[]) {
     fenetre.show();
     return app.exec();
 
-}*/
+}

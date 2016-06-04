@@ -18,8 +18,10 @@ public:
     void simplifier();
     int getNum()const { return num; }
     int getDen()const { return den; }
-    ostream& affichage(ostream& f=cout)const{
-        f<<getNum()<<"/"<<getDen()<<"\n";
+    QString& affichage(QString f="")const{
+        f.append(getNum());
+        f.append("/");
+        f.append(getDen());
         return f;
     }
 

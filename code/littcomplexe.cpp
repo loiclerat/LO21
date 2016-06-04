@@ -15,15 +15,15 @@ littnumber* littcomplexe::operator+(littnumber* a){
 
            littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-           if(ent1!=nullptr)
+           if(ent1!=0)
            {
                littNumerique* res1 = *(this->getPartRe())+ent1;
                littcomplexe* r = new littcomplexe(res1,this->getPartIm());
                return r;
-           }else if(rat1!=nullptr){
+           }else if(rat1!=0){
                littcomplexe* r = new littcomplexe(*(this->getPartRe())+rat1,this->getPartIm());
                return r;
-           }else if(ree1!=nullptr){
+           }else if(ree1!=0){
                littcomplexe* r = new littcomplexe(*(this->getPartRe())+ree1,this->getPartIm());
                return r;
            }
@@ -38,14 +38,14 @@ littnumber* littcomplexe::operator-(littnumber* a){
 
    littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-   if(ent1!=nullptr)
+   if(ent1!=0)
    {
        littcomplexe* r = new littcomplexe(*(this->getPartRe())-ent1,this->getPartIm());
        return r;
-   }else if(rat1!=nullptr){
+   }else if(rat1!=0){
        littcomplexe* r = new littcomplexe(*(this->getPartRe())-rat1,this->getPartIm());
        return r;
-   }else if(ree1!=nullptr){
+   }else if(ree1!=0){
        littcomplexe* r = new littcomplexe(*(this->getPartRe())-ree1,this->getPartIm());
        return r;
    }
@@ -58,14 +58,14 @@ littnumber* littcomplexe::operator*(littnumber* a){
 
    littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-   if(ent1!=nullptr)
+   if(ent1!=0)
    {
        littcomplexe* r = new littcomplexe(*(this->getPartRe())*ent1,*(this->getPartIm())*ent1);
        return r;
-   }else if(rat1!=nullptr){
+   }else if(rat1!=0){
        littcomplexe* r = new littcomplexe(*(this->getPartRe())*rat1,*(this->getPartIm())*rat1);
        return r;
-   }else if(ree1!=nullptr){
+   }else if(ree1!=0){
        littcomplexe* r = new littcomplexe(*(this->getPartRe())*ree1,*(this->getPartIm())*ree1);
        return r;
    }
@@ -78,15 +78,15 @@ littnumber* littcomplexe::operator/(littnumber* a){
 
    littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-   if(ent1!=nullptr)
+   if(ent1!=0)
    {
 
        littcomplexe* r = new littcomplexe(*(this->getPartRe())/ent1,*(this->getPartIm())/ent1);
        return r;
-   }else if(rat1!=nullptr){
+   }else if(rat1!=0){
        littcomplexe* r = new littcomplexe(*(this->getPartRe())/rat1,*(this->getPartIm())/rat1);
        return r;
-   }else if(ree1!=nullptr){
+   }else if(ree1!=0){
        littcomplexe* r = new littcomplexe(*(this->getPartRe())/ree1,*(this->getPartIm())/ree1);
        return r;
    }

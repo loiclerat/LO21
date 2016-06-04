@@ -24,7 +24,7 @@ littnumber* littEntiere::operator+(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)+ltb;
         return res;
     }
@@ -43,14 +43,14 @@ littNumerique* littEntiere::operator+(littNumerique* a)
 
         littrat* rat1 = dynamic_cast<littrat*>(a);
 
-        if(ent1!=nullptr)
+        if(ent1!=0)
         {
             valeur=valeur+ent1->getValeur();
             return this;
-        }else if(rat1!=nullptr){
+        }else if(rat1!=0){
             littrat* r = new littrat(this->valeur+rat1->getNum(),rat1->getDen());
             return r;
-        }else if(ree1!=nullptr){
+        }else if(ree1!=0){
             littReelle* r = new littReelle(this->getValeur()+ree1->getEntiere(),ree1->getDecimale());
             return r;
         }
@@ -61,7 +61,7 @@ littnumber* littEntiere::operator-(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)-ltb;
         return res;
     }
@@ -80,14 +80,14 @@ littNumerique* littEntiere::operator-(littNumerique* a)
 
         littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-        if(ent1!=nullptr)
+        if(ent1!=0)
         {
             valeur=valeur-ent1->getValeur();
             return this;
-        }else if(rat1!=nullptr){
+        }else if(rat1!=0){
             littrat* r = new littrat(this->valeur-rat1->getNum(),rat1->getDen());
             return r;
-        }else if(ree1!=nullptr){
+        }else if(ree1!=0){
             littReelle* r = new littReelle(this->getValeur()-ree1->getEntiere(),0.0-ree1->getDecimale());
             return r;
         }
@@ -104,7 +104,7 @@ littnumber* littEntiere::operator*(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)*ltb;
         return res;
     }
@@ -127,14 +127,14 @@ littNumerique* littEntiere::operator*(littNumerique* a)
 
         littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-        if(ent1!=nullptr)
+        if(ent1!=0)
         {
             valeur=valeur*ent1->getValeur();
             return this;
-        }else if(rat1!=nullptr){
+        }else if(rat1!=0){
             littrat* r = new littrat(this->valeur*rat1->getNum(),rat1->getDen());
             return r;
-        }else if(ree1!=nullptr){
+        }else if(ree1!=0){
             littReelle* r = new littReelle(this->getValeur()*ree1->getEntiere(),this->getValeur()*ree1->getDecimale());
             return r;
         }
@@ -149,7 +149,7 @@ littnumber* littEntiere::operator/(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)/ltb;
         return res;
     }
@@ -172,14 +172,14 @@ littNumerique* littEntiere::operator/(littNumerique* a)
 
         littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-        if(ent1!=nullptr)
+        if(ent1!=0)
         {
             littrat* r = new littrat(valeur,ent1->getValeur());
             return r;
-        }else if(rat1!=nullptr){
+        }else if(rat1!=0){
             littrat* r = new littrat(this->valeur*rat1->getDen(),rat1->getNum());
             return r;
-        }else if(ree1!=nullptr){
+        }else if(ree1!=0){
             littReelle* r = new littReelle((valeur/ree1->getValeur()));
             return r;
         }

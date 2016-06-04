@@ -33,9 +33,9 @@ void Controleur::commande(const QString& c){
 
     operateur* op;
 
-    /*
     if (estLitterale(c)=="entiere"){
-        littAff.push(littMng.addLitterale(c.toInt()));
+        littEntiere l(c.toInt());
+        littAff.push(littMng.addLitterale(l));
     }
     else if ((op = estOperateur(c)) != 0){
         if (op->getArite()==1){
@@ -58,7 +58,7 @@ void Controleur::commande(const QString& c){
         }
     }
     else littAff.setMessage("Erreur : commande inconnue");
-*/
+
 
 }
 

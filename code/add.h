@@ -6,15 +6,15 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
-#include "opebinaire.h"
 
 
-class add : public operateur_numerique, public binaire
-{
-    QString symbol;
+class add : public operateur_numerique{
 public:
-    add(QString s):symbol(s),operateur_numerique(2){}
-    litterale& traitement(litterale &a, litterale &b);
+    add():operateur_numerique(2, "+"){}
+    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
+    litterale& traitement(litteraleManager& mng, litterale& a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");
+    }
 };
 
 #endif // ADD_H

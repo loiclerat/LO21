@@ -1,5 +1,5 @@
 /**
-\file operateur_manager.h
+\file operateurmanager.h
 \date 03/06/2016
 \author Loïc Lerat, Andréa Vibert, Théo Hordequin
 \version 1.0
@@ -16,10 +16,11 @@ Description de la classe operateurManager et de ses itérateurs
 #include "operateur.h"
 #include "opebinaire.h"
 #include "opeunaire.h"
+#include "add.h"
 
 /**
   \class operateurManager
-  \brief La classe operateurManager est chargée de la gestion les operateurs et de leur cycle de vie
+  \brief La classe operateurManager est chargée de la gestion les operateurs
  */
 
 class operateurManager {
@@ -27,14 +28,13 @@ class operateurManager {
     operateur** ops;
     //! \brief Nombre d'operateur dans la liste
     unsigned int nb;
-    //! \brief Capacité de la liste d'operateur
-    unsigned int nbMax;
 
-    //! \brief Agrandissement de la liste lorsque l'on dépasse la capacité actuelle
-    void agrandissementCapacite();
+    //! \brief Opérateur d'addition
+    static add addition;
+
 
     //! \brief Constructeur
-    operateurManager():ops(0),nb(0),nbMax(0){}
+    operateurManager();
     //! \brief Destructeur
     ~operateurManager();
     //! \brief Constructeur par recopie
@@ -57,11 +57,6 @@ class operateurManager {
     static Handler handler;
 
 public:
-
-    // MÃ©thode addoperateur
-
-    //! \brief Supprimer un opérateur de la liste
-    void removeoperateur(operateur& o);
 
     //! \brief Récupérer l'instance unique d'operateurManager
     static operateurManager& getInstance();

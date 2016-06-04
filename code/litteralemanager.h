@@ -30,7 +30,7 @@ public:
 
     // Méthode addlitterale : surcharges pour chaque type de littérale
     // avec les bons paramètres pour les créer
-    litterale& addLitterale(int v);     //littentiere
+    litterale& addLitterale(littEntiere l);     //littentiere
 
     void removelitterale(litterale& l);
 

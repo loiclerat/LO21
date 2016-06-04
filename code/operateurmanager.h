@@ -1,3 +1,15 @@
+/**
+\file operateur_manager.h
+\date 03/06/2016
+\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\version 1.0
+\brief  Operateur Manager
+
+Description de la classe operateurManager et de ses itérateurs
+
+**/
+
+
 #ifndef OPERATEURMANAGER_H
 #define OPERATEURMANAGER_H
 
@@ -5,63 +17,110 @@
 #include "opebinaire.h"
 #include "opeunaire.h"
 
+/**
+  \class operateurManager
+  \brief La classe operateurManager est chargée de la gestion les operateurs et de leur cycle de vie
+ */
+
 class operateurManager {
-    operateur** ops;           //Liste des littÃ©rales
+    //! \brief Liste des operateurs
+    operateur** ops;
+    //! \brief Nombre d'operateur dans la liste
     unsigned int nb;
+    //! \brief Capacité de la liste d'operateur
     unsigned int nbMax;
 
+    //! \brief Agrandissement de la liste lorsque l'on dépasse la capacité actuelle
     void agrandissementCapacite();
 
+    //! \brief Constructeur
     operateurManager():ops(0),nb(0),nbMax(0){}
+    //! \brief Destructeur
     ~operateurManager();
+    //! \brief Constructeur par recopie
     operateurManager(const operateurManager& m);
+    //! \brief Opérateur d'affectation
     operateurManager& operator=(const operateurManager& m);
 
+    //! \struct Handler
+    //! \brief Handler responsable du cycle de vie de operateur Manager (Singleton)
     struct Handler{
+        //! \brief Unique instance d'operateurManager
         operateurManager* instance;
+        //! \brief Constructeur
         Handler():instance(0){}
-        // destructeur appelÃ© Ã  la fin du programme
+        //! \brief Destructeur appelé à la fin du programme
         ~Handler(){ delete instance; }
     };
+
+    //! \brief Handler static pour faire d'operateurManager une classe singleton
     static Handler handler;
 
 public:
 
     // MÃ©thode addoperateur
 
+    //! \brief Supprimer un opérateur de la liste
     void removeoperateur(operateur& o);
 
+    //! \brief Récupérer l'instance unique d'operateurManager
     static operateurManager& getInstance();
+    //! \brief Libération de l'instance
     static void libererInstance();
+
 
     // === ITERATEURS ===
 
     // Vérifier l'utilité du constructeur privé et du friend
 
+    /**
+      \class iterator
+      \brief iterateur sur les objets operateur de operateurManager
+      \n iterator permet un parcours séquentiel des éléments du manager en lecture et écriture
+     */
     class iterator {
+        //! \brief élément courant, sur lequel est positionné l'itérateur
         operateur** current;
-        iterator(operateur** u):current(u){}
-        friend class operateurManager;
+
     public:
-        iterator():current(0){}
+
+        //! \brief Constructeur
+        iterator(operateur** u):current(u){}
+        //! \brief Surcharge de l'opérateur " * " pour récupérer l'operateur pointé par l'élément courant
         operateur& operator*() const { return **current; }
+        //! \brief Surcharge de l'opréateur " != " pour comparer deux itérateurs
         bool operator!=(iterator it) const { return current!=it.current; }
+        //! \brief Surcharge de l'opérateur " ++ " pour avancer vers l'élément suivant
         iterator& operator++(){ ++current; return *this; }
     };
+    //! \brief Retourne un itérateur positionné sur le premier operateur de la liste
     iterator begin() { return iterator(ops); }
+    //! \brief Retourne un itérateur positionné après le dernier operateur de la liste
     iterator end() { return iterator(ops+nb); }
 
+    /**
+      \class const_iterator
+      \brief iterateur const sur les objets operateur de operateurManager
+      \n const_iterator permet un parcours séquentiel des éléments du manager en lecture seule
+     */
     class const_iterator {
+        //! \brief Constructeur
         operateur** current;
-        const_iterator(operateur** u):current(u){}
-        friend class operateurManager;
+
     public:
-        const_iterator():current(0){}
+
+        //! \brief Constructeur
+        const_iterator(operateur** u):current(u){}
+        //! \brief Surcharge de l'opérateur " * " pour récupérer l'operateur pointé par l'élément courant
         operateur& operator*() const { return **current; }
+        //! \brief Surcharge de l'opréateur " != " pour comparer deux itérateurs
         bool operator!=(const_iterator it) const { return current!=it.current; }
+        //! \brief Surcharge de l'opérateur " ++ " pour avancer vers l'élément suivant
         const_iterator& operator++(){ ++current; return *this; }
     };
+    //! \brief Retourne un itérateur positionné sur le premier operateur de la liste
     const_iterator begin_const() const { return const_iterator(ops); }
+    //! \brief Retourne un itérateur positionné après le dernier operateur de la liste
     const_iterator end_const() const { return const_iterator(ops+nb); }
 
 };

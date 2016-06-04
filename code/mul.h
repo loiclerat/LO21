@@ -6,10 +6,9 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
-#include "opebinaire.h"
 
 
-class mul : public operateur_numerique, public binaire
+class mul : public operateur_numerique
 {
     QString symbol;
 public:

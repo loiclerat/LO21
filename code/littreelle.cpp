@@ -46,7 +46,7 @@ littnumber* littReelle::operator+(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)+ltb;
         return res;
     }
@@ -66,7 +66,7 @@ littNumerique* littReelle::operator+(littNumerique* a)
 
         littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-        if(ent1!=nullptr)
+        if(ent1!=0)
         {
             float c = 0.0 + ent1->getValeur();
             c = c + this->getValeur();
@@ -74,14 +74,14 @@ littNumerique* littReelle::operator+(littNumerique* a)
             return res;
 
         }else
-            if(rat1!=nullptr){
+            if(rat1!=0){
                 float c = rat1->getNum()/rat1->getDen();
                 c = c + this->getValeur();
                 littReelle* res = new littReelle(c);
                 return res;
 
             }else
-                if(ree1!=nullptr){
+                if(ree1!=0){
                     littReelle* res(*this+ree1);
                     return res;
             }
@@ -92,7 +92,7 @@ littnumber* littReelle::operator-(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)-ltb;
         return res;
     }
@@ -111,7 +111,7 @@ littNumerique* littReelle::operator-(littNumerique* a)
 
         littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-        if(ent1!=nullptr)
+        if(ent1!=0)
         {
             float c = 0.0 + ent1->getValeur();
             c = this->getValeur() - c;
@@ -119,14 +119,14 @@ littNumerique* littReelle::operator-(littNumerique* a)
             return res;
 
         }else
-            if(rat1!=nullptr){
+            if(rat1!=0){
                 float c = rat1->getNum()/rat1->getDen();
                 c = this->getValeur() - c;
                 littReelle* res = new littReelle(c);
                 return res;
 
             }else
-                if(ree1!=nullptr){
+                if(ree1!=0){
                     littReelle* res(*this-ree1);
                     return res;
             }
@@ -144,7 +144,7 @@ littnumber* littReelle::operator*(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)*ltb;
         return res;
     }
@@ -167,7 +167,7 @@ littNumerique* littReelle::operator*(littNumerique* a)
 
     littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-    if(ent1!=nullptr)
+    if(ent1!=0)
     {
         float c = 0.0 + ent1->getValeur();
         c = this->getValeur() * c;
@@ -175,14 +175,14 @@ littNumerique* littReelle::operator*(littNumerique* a)
         return res;
 
     }else
-        if(rat1!=nullptr){
+        if(rat1!=0){
             float c = rat1->getNum()/rat1->getDen();
             c = this->getValeur() * c;
             littReelle* res = new littReelle(c);
             return res;
 
         }else
-            if(ree1!=nullptr){
+            if(ree1!=0){
                 littReelle* res(*this*ree1);
                 return res;
         }
@@ -241,7 +241,7 @@ littnumber* littReelle::operator/(littnumber* a){
 
     littcomplexe* ltc = dynamic_cast<littcomplexe*>(a);
 
-    if(ltb!=nullptr){
+    if(ltb!=0){
         littNumerique* res = *(this)/ltb;
         return res;
     }
@@ -264,7 +264,7 @@ littNumerique* littReelle::operator/(littNumerique* a)
 
     littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
-    if(ent1!=nullptr)
+    if(ent1!=0)
     {
         float c = 0.0 + ent1->getValeur();
         c = this->getValeur() / c;
@@ -272,14 +272,14 @@ littNumerique* littReelle::operator/(littNumerique* a)
         return res;
 
     }else
-        if(rat1!=nullptr){
+        if(rat1!=0){
             float c = rat1->getNum()/rat1->getDen();
             c = this->getValeur() / c;
             littReelle* res = new littReelle(c);
             return res;
 
         }else
-            if(ree1!=nullptr){
+            if(ree1!=0){
                 littReelle* res(*this/ree1);
                 return res;
         }

@@ -1,5 +1,6 @@
-#ifndef ADD_H
-#define ADD_H
+#ifndef DIVENT_H
+#define DIVENT_H
+
 #include <QString>
 #include "operateur_numerique.h"
 #include "litterale.h"
@@ -8,13 +9,14 @@
 #include "littreelle.h"
 
 
-class add : public operateur_numerique
+class divent : public operateur_numerique
 {
     QString symbol;
 public:
-    add(QString s):symbol(s),operateur_numerique(2){}
+    divent(QString s):symbol(s),operateur_numerique(2){}
     litterale& traitement(litterale &a, litterale &b);
-    litterale& traitement(litterale& a);
+    litterale& traitement(litterale &a);
 };
 
-#endif // ADD_H
+
+#endif // DIVENT_H

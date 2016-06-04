@@ -30,7 +30,8 @@ SOURCES += \
     mul.cpp \
     littnumber.cpp \
     sous.cpp \
-    divs.cpp
+    divs.cpp \
+    divent.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -57,5 +58,6 @@ HEADERS += \
     mul.h \
     littnumber.h \
     sous.h \
-    divs.h
+    divs.h \
+    divent.h
     qcomputer.h

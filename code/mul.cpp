@@ -4,7 +4,6 @@
 
 litterale& mul::traitement(litterale &a, litterale &b){
 
-
     littEntiere* ent1 = dynamic_cast<littEntiere*>(&a);
     littrat* rat1 = dynamic_cast<littrat*>(&a);
     littReelle* ree1 = dynamic_cast<littReelle*>(&a);

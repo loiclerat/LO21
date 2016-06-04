@@ -29,9 +29,9 @@ public:
     void simplifier(){}
 
     QString& affichage(QString f="")const{
-        f.append(partRe->affichage());
+        f.append(getPartRe()->affichage());
         f.append(" $ ");
-        f.append(partIm->affichage());
+        f.append(getPartIm()->affichage());
         return f;
     }
 

@@ -1,7 +1,8 @@
-/*#include "littreelle.h"
+#include "littreelle.h"
 #include "littentiere.h"
 #include "littrat.h"
 #include "add.h"
+#include "mul.h"
 #include "exceptions.h"
 using namespace std;
 int main(){
@@ -52,15 +53,20 @@ int main(){
     littrat rat1(2,1);
     littrat rat2(2,1);
 
-    littEntiere x(3);
-    littEntiere y(3);
+    littEntiere x(1);
+    littEntiere y(2);
+    littEntiere t1(20);
 
+    x.affichage();
     littReelle w(3.44);
     littReelle z(5.8);
-    //add plus("ADD");
+
+    littnumber* C = new littcomplexe(&x,&y);
+
+    add plus("ADD");
 
 
-
+/*
     try{
         litterale& resultat = plus.traitement(w,z);
         resultat.affichage();
@@ -68,14 +74,26 @@ int main(){
     catch(ComputerException& e){
         std::cout<<e.getInfo().toStdString();
     }
+*/
+    std::cout<<"\n****************\n";
+    std::cout<<"\nTEST MUL\n";
+    std::cout<<"\n****************\n";
+    mul mult("MUL");
+    C->affichage();
 
-
+    try{
+        litterale& resmul = mult.traitement(x,y);
+        resmul.affichage();
+    }
+    catch(ComputerException& e){
+        std::cout<<e.getInfo().toStdString();
+    }
 
 
     return 0;
-}*/
+}
 
-
+/*
 #include <QApplication>
 #include <QWidget>
 #include <QLineEdit>
@@ -91,4 +109,4 @@ int main(int argc, char *argv[]) {
     fenetre.show();
     return app.exec();
 
-}
+}*/

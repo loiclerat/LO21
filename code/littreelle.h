@@ -1,7 +1,7 @@
 #ifndef LITTREELLE_H
 #define LITTREELLE_H
 
-#include"littnumerique.h"
+#include "littnumerique.h"
 #include "littentiere.h"
 #include <math.h>
 
@@ -35,12 +35,27 @@ public :
     QString& affichage(QString f="")const{f.append(QString::number(getValeur())); return f;}
     void NEG(){valeur=valeur*(-1); entiere=entiere*(-1);}
 
+    /*==========*/
     littReelle* operator+(littReelle* b);
     littReelle& operator+(littReelle& b);
     littNumerique* operator+(littNumerique* b);
+    littnumber* operator+(littnumber* b);
+    /*==========*/
     littReelle& operator-(littReelle& b);
+    littReelle* operator-(littReelle* b);
+    littNumerique* operator-(littNumerique* b);
+    littnumber* operator-(littnumber* b);
+    /*==========*/
     littReelle& operator*(littReelle& b);
-    //DIV
+    littReelle* operator*(littReelle* b);
+    littNumerique* operator*(littNumerique* b);
+    littnumber* operator*(littnumber* b);
+    /*==========*/
+    littReelle& operator/(littReelle& b);
+    littReelle* operator/(littReelle* b);
+    littNumerique* operator/(littNumerique* b);
+    littnumber* operator/(littnumber* b);
+    /*==========*/
 };
 
 #endif // LITTREELLE_H

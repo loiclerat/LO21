@@ -26,7 +26,11 @@ SOURCES += \
     alitt.cpp \
     aoperateur.cpp \
     add.cpp \
-    operateurmanager.cpp
+    operateurmanager.cpp \
+    mul.cpp \
+    littnumber.cpp \
+    sous.cpp \
+    divs.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -49,5 +53,9 @@ HEADERS += \
     alitt.h \
     aoperateur.h \
     num.h \
-    operateurmanager.h
+    operateurmanager.h \
+    mul.h \
+    littnumber.h \
+    sous.h \
+    divs.h
     qcomputer.h

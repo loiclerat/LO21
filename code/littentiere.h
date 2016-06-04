@@ -1,9 +1,11 @@
 #ifndef LITTENTIERE_H
 #define LITTENTIERE_H
 
-#include"littnumerique.h"
+
 #include"littrat.h"
+#include"littnumerique.h"
 #include"littreelle.h"
+#include"littcomplexe.h"
 
 class littEntiere: public littNumerique{
     int valeur;
@@ -13,16 +15,29 @@ public :
     littEntiere(const littEntiere&){}
     ~littEntiere(){}
     int getValeur() const{return valeur;}
-    void simplifier(){};
+    void simplifier(){}
 
-    QString& affichage(QString f="")const{f.append(getValeur()); return f;}
+    QString& affichage(QString f="")const{f.append(QString::number(getValeur())); return f;}
     void NEG(){valeur=(-valeur);}
 
+    /*==========*/
     littEntiere& operator+(littEntiere& b);
     littNumerique* operator+(littNumerique* a);
+    littnumber* operator+(littnumber* a);
+    /*==========*/
     littEntiere& operator-(littEntiere& b);
+    littNumerique* operator-(littNumerique* a);
+    littnumber* operator-(littnumber* a);
+    /*==========*/
     littEntiere& operator*(littEntiere& b);
-    littEntiere& operator/(littEntiere& b);
-    //DIV
+    littNumerique* operator*(littNumerique* a);
+    littnumber* operator*(littnumber* a);
+    /*==========*/
+    littNumerique* operator/(littEntiere* b);
+    littNumerique* operator/(littNumerique* a);
+    littnumber* operator/(littnumber* a);
+    /*==========*/
 };
+
+
 #endif //LITTENTIERE_H

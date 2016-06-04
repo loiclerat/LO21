@@ -1,3 +1,15 @@
+/**
+\file litteralemanager.h
+\date 03/06/2016
+\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\version 1.0
+\brief  Littérale Manager
+
+Description de la classe litteraleManager et de ses itérateurs
+
+**/
+
+
 #ifndef litteraleMANAGER_H
 #define litteraleMANAGER_H
 

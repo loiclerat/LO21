@@ -1,5 +1,5 @@
 /**
-\file operateur_manager.cpp
+\file operateurmanager.cpp
 \date 03/06/2016
 \author Loïc Lerat, Andréa Vibert, Théo Hordequin
 \version 1.0

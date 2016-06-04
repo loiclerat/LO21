@@ -61,6 +61,3 @@ litterale& sous::traitement(litterale &a, litterale &b){
 
 }
 
-litterale& sous::traitement(litterale& a){
-
-}

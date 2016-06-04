@@ -58,7 +58,3 @@ litterale& add::traitement(litterale &a, litterale &b){
                 }
 
 }
-
-litterale& add::traitement(litterale& a){
-
-}

@@ -1,5 +1,7 @@
-#ifndef NUM_H
-#define NUM_H
+#ifndef NEG_H
+#define NEG_H
+
+
 
 
 #include <QString>
@@ -11,11 +13,13 @@
 #include "opeunaire.h"
 
 
-class num : public operateur_numerique, public unaire
+class neg : public operateur_numerique, public unaire
 {
     QString symbol;
 public:
-    num(QString s):symbol(s),operateur_numerique(2){}
+    neg(QString s):symbol(s),operateur_numerique(2){}
     litterale& traitement(litterale &a);
 };
-#endif // NUM_H
+
+
+#endif // NEG_H

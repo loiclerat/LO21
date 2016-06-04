@@ -31,7 +31,10 @@ SOURCES += \
     littnumber.cpp \
     sous.cpp \
     divs.cpp \
-    divent.cpp
+    divent.cpp \
+    mod.cpp \
+    neg.cpp \
+    num.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -61,5 +64,7 @@ HEADERS += \
     divs.h \
     divent.h \
     opeunaire.h \
-    opebinaire.h
+    opebinaire.h \
+    mod.h \
+    neg.h
     qcomputer.h

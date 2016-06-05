@@ -59,7 +59,7 @@ public:
     //! \brief Retourne une référence vers la littérale au sommet de la Pile
     litterale& top() const;
     //! \brief Définir le nombre d'éléments de la Pile à afficher
-    void setNbItemsToAffiche(unsigned int n) { nb=n; }
+    void setNbItemsToAffiche(unsigned int n) { nbAffiche=n; }
     //! \brief Nombre d'Items à afficher
     unsigned int getNbItemsToAffiche() const { return nbAffiche; }
     //! \brief Définir le message à afficher à l'utilisateur

@@ -283,6 +283,9 @@ void QComputer::refresh(){//affichage etat pile
 
     //.. et message utilisateur
     message->setText(pile->getMessage());
+    if(pile->getMessage()!=""){
+        QSound bells("mysounds/bells.wav");
+        bells.play();}
 
 }
 

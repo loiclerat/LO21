@@ -9,6 +9,7 @@
 #include <QHeaderView>
 #include <QDebug>
 #include <QPushButton>
+#include <QSound>
 #include "pile.h"
 #include "controleur.h"
 #include "operateurmanager.h"

@@ -15,6 +15,8 @@ class mod : public operateur_numerique
 public:
     mod(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 
 #endif // MOD_H

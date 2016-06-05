@@ -13,6 +13,8 @@ class mul : public operateur_numerique
 public:
     mul(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 
 #endif // MUL_H

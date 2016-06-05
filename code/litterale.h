@@ -25,6 +25,8 @@ public :
     *d�s leur cr�ation, �ventuellement les transformer en une autre litt num
     *si possible.
     */
+    virtual bool isNull()=0;
+
 };
 
 // A BOUGER !

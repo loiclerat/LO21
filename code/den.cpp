@@ -6,7 +6,7 @@ litterale& den::traitement(litteraleManager& mng, litterale &a){
 
     littrat* b = dynamic_cast<littrat*>(&a);
 
-    if(b != nullptr)
+    if(b != 0)
     {
         littEntiere t(b->getDen());
         return mng.addLitterale(&t);

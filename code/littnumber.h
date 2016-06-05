@@ -12,7 +12,7 @@ public:
 
     virtual QString affichage(QString f="")const=0;//a definir
     virtual void simplifier(){}
-    virtual void NEG()=0;
+    virtual bool isNull()=0;
 
     virtual littnumber* operator+(littnumber* a)=0;
     virtual littnumber* operator-(littnumber* a)=0;

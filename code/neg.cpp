@@ -5,7 +5,7 @@ litterale& neg::traitement(litteraleManager& mng, litterale &a){
     littnumber* b = dynamic_cast<littnumber*>(&a);
     littEntiere x(-2);
 
-    if(b != nullptr)
+    if(b != 0)
     {
         littnumber* res = x*b;
         return mng.addLitterale(res);

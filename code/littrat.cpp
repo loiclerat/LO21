@@ -52,6 +52,9 @@ littNumerique* littrat::operator+(littNumerique* a)
             littReelle* res(*a+ree1);
             return res;
         }
+        else {
+            return 0;
+        }
 }
 
 littnumber* littrat::operator-(littnumber* a){
@@ -61,9 +64,15 @@ littnumber* littrat::operator-(littnumber* a){
 
     if(ltb!=0){
         littNumerique* res = *(this)-ltb;
+        return res;
+    }
+    else
+    if (ltc!=0){
+        littcomplexe* res2 = new littcomplexe((*this)-ltc->getPartRe(),ltc->getPartIm());
+        return res2;
     }
     else {
-        littcomplexe* res2 = new littcomplexe((*this)-ltc->getPartRe(),ltc->getPartIm());
+        return 0;
     }
 }
 
@@ -91,6 +100,9 @@ littNumerique* littrat::operator-(littNumerique* a)
             littReelle* res(*a-ree1);
             return res;
         }
+        else {
+            return 0;
+        }
 }
 
 
@@ -108,9 +120,11 @@ littnumber* littrat::operator*(littnumber* a){
 
     if(ltb!=0){
         littNumerique* res = *(this)*ltb;
+        return res;
     }
     else {
         littcomplexe* res2 = new littcomplexe((*this)*ltc->getPartRe(),(*this)*ltc->getPartIm());
+        return res2;
     }
 }
 
@@ -145,6 +159,9 @@ littNumerique* littrat::operator*(littNumerique* a)
         littReelle* res(*a*ree1);
         return res;
     }
+    else {
+        return 0;
+    }
 }
 littnumber* littrat::operator/(littnumber* a){
     if(this->getNum()==0){
@@ -157,9 +174,11 @@ littnumber* littrat::operator/(littnumber* a){
 
     if(ltb!=0){
         littNumerique* res = *(this)/ltb;
+        return res;
     }
     else {
         littcomplexe* res2 = new littcomplexe((*this)/ltc->getPartRe(),(*this)/ltc->getPartIm());
+        return res2;
     }
 }
 
@@ -190,6 +209,9 @@ littNumerique* littrat::operator/(littNumerique* a)
         littReelle* a = new littReelle(val);
         littReelle* res(*a/ree1);
         return res;
+    }
+    else {
+        return 0;
     }
 }
 

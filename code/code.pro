@@ -36,7 +36,11 @@ SOURCES += \
     mod.cpp \
     neg.cpp \
     num.cpp \
-    den.cpp
+    den.cpp \
+    dollar.cpp \
+    opre.cpp \
+    opim.cpp \
+    opegal.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -69,5 +73,10 @@ HEADERS += \
     opebinaire.h \
     mod.h \
     neg.h \
-    den.h
+    den.h \
+    dollar.h \
+    opre.h \
+    opim.h \
+    opegal.h \
+    operateur_logique.h
     qcomputer.h

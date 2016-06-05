@@ -16,9 +16,9 @@ class neg : public operateur_numerique
 {
 public:
     neg(QString s):operateur_numerique(1,s){}
-    litterale& traitement(litterale &a, litterale &b){
+    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
-    litterale& traitement(litterale &a);
+    litterale& traitement(litteraleManager& mng, litterale &a);
 };
 
 

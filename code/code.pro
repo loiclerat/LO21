@@ -35,7 +35,8 @@ SOURCES += \
     divent.cpp \
     mod.cpp \
     neg.cpp \
-    num.cpp
+    num.cpp \
+    den.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -67,5 +68,6 @@ HEADERS += \
     opeunaire.h \
     opebinaire.h \
     mod.h \
-    neg.h
+    neg.h \
+    den.h
     qcomputer.h

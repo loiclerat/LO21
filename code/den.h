@@ -1,5 +1,5 @@
-#ifndef NUM_H
-#define NUM_H
+#ifndef DEN_H
+#define DEN_H
 
 
 
@@ -11,10 +11,10 @@
 #include "littreelle.h"
 
 
-class num : public operateur_numerique
+class den : public operateur_numerique
 {
 public:
-    num(QString s):operateur_numerique(1,s){}
+    den(QString s):operateur_numerique(1,s){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
     litterale& traitement(litteraleManager& mng, litterale &a);
@@ -22,4 +22,4 @@ public:
 
 
 
-#endif // NUM_H
+#endif // DEN_H

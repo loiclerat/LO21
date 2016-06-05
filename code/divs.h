@@ -13,8 +13,8 @@ class divs : public operateur_numerique
 {
 public:
     divs(QString s):operateur_numerique(2,s){}
-    litterale& traitement(litterale &a, litterale &b);
-    litterale& traitement(litterale &a){
+    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
+    litterale& traitement(litteraleManager& mng, litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 

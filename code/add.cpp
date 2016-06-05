@@ -16,8 +16,8 @@ litterale& add::traitement(litteraleManager& mng, litterale &a, litterale &b){
     littNumerique* lta1 = dynamic_cast<littNumerique*>(&b);
     littcomplexe* lta2 = dynamic_cast<littcomplexe*>(&b);
 
-    if(ent1 != nullptr){
-        if(lta1!=nullptr){
+    if(ent1 != 0){
+        if(lta1!=0){
             littNumerique* res =  *(ent1)+lta1;
             return mng.addLitterale(res);
         }
@@ -27,9 +27,9 @@ litterale& add::traitement(litteraleManager& mng, litterale &a, litterale &b){
         }
     }
     else
-        if(rat1 != nullptr)
+        if(rat1 != 0)
         {
-            if(lta1!=nullptr){
+            if(lta1!=0){
                 littNumerique* res =  *(rat1)+lta1;
                 return mng.addLitterale(res);
             }else{
@@ -38,8 +38,8 @@ litterale& add::traitement(litteraleManager& mng, litterale &a, litterale &b){
             }
         }
         else
-            if(ree1 != nullptr){
-                if(lta1!=nullptr){
+            if(ree1 != 0){
+                if(lta1!=0){
                     littNumerique* res =  *(ree1)+lta1;
                     return mng.addLitterale(res);
                 }else{
@@ -48,8 +48,8 @@ litterale& add::traitement(litteraleManager& mng, litterale &a, litterale &b){
                 }
             }
             else
-                if(comp1 != nullptr){
-                    if(lta1!=nullptr){
+                if(comp1 != 0){
+                    if(lta1!=0){
                         littnumber* res =  *(comp1)+lta1;
                         return mng.addLitterale(res);
                     }else{

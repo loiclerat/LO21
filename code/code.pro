@@ -40,7 +40,12 @@ SOURCES += \
     dollar.cpp \
     opre.cpp \
     opim.cpp \
-    opegal.cpp
+    opegal.cpp \
+    opdiff.cpp \
+    opegalinf.cpp \
+    opegalsup.cpp \
+    opsup.cpp \
+    opinf.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -78,5 +83,10 @@ HEADERS += \
     opre.h \
     opim.h \
     opegal.h \
-    operateur_logique.h
+    operateur_logique.h \
+    opdiff.h \
+    opegalinf.h \
+    opegalsup.h \
+    opsup.h \
+    opinf.h
     qcomputer.h

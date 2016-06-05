@@ -36,6 +36,17 @@ public:
         else return false;
     }
 
+    bool isPos(){
+        if(partRe->isPos()==true){
+            if(partIm->isPos()==true){
+                return true;
+            }else return false;
+        }
+        else return false;
+    }
+
+
+
     QString affichage(QString f = "") const
     {
         f.append(getPartRe()->affichage());

@@ -1,6 +1,6 @@
-#include "opegal.h"
+#include "opegalsup.h"
 
-litterale& opegal::traitement(litteraleManager& mng, litterale& a, litterale& b)
+litterale& opegalsup::traitement(litteraleManager& mng, litterale& a, litterale& b)
 {
 
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
@@ -8,7 +8,7 @@ litterale& opegal::traitement(litteraleManager& mng, litterale& a, litterale& b)
 
     if (num1 != 0 && num2 != 0) {
         littnumber* res = (*(num1)-num2);
-        if (res->isNull() == true) {
+        if (res->isPos() == true || res->isNull()==true) {
             littEntiere ret(1);
             return mng.addLitterale(ret);
         }

@@ -33,6 +33,15 @@ public:
         else return false;
     }
 
+    bool isPos(){
+        if(num>0){
+            return true;
+        }
+        else return false;
+    }
+
+
+
     QString affichage(QString f = "") const
     {
         f.append(QString::number(getNum()));

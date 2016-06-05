@@ -51,6 +51,13 @@ public:
         else return false;
     }
 
+    bool isPos(){
+        if(valeur>0){
+            return true;
+        }
+        else return false;
+    }
+
     QString affichage(QString f = "") const
     {
         f.append(QString::number(getValeur()));

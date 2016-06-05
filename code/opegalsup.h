@@ -1,6 +1,5 @@
-#ifndef OPEGAL_H
-#define OPEGAL_H
-
+#ifndef OPEGALSUP_H
+#define OPEGALSUP_H
 
 #include <QString>
 #include "operateur_logique.h"
@@ -10,10 +9,10 @@
 #include "littreelle.h"
 
 
-class opegal : public operateur_logique
+class opegalsup : public operateur_logique
 {
 public:
-    opegal(QString s):operateur_logique(2,"="){}
+    opegalsup(QString s):operateur_logique(2,">="){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
     litterale& traitement(litteraleManager& mng, litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
@@ -21,4 +20,4 @@ public:
 
 
 
-#endif // OPEGAL_H
+#endif // OPEGALSUP_H

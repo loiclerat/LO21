@@ -29,12 +29,4 @@ public :
 
 };
 
-// A BOUGER !
-class Exception {
-    string info;
-public:
-    Exception(const string& str):info(str){}
-    string getInfo() const { return info; }
-};
-
 #endif // LITTERALE_H

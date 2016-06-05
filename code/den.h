@@ -14,7 +14,7 @@
 class den : public operateur_numerique
 {
 public:
-    den(QString s):operateur_numerique(1,s){}
+    den():operateur_numerique(1,"DEN"){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
     litterale& traitement(litteraleManager& mng, litterale &a);

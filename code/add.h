@@ -10,7 +10,7 @@
 
 class add : public operateur_numerique{
 public:
-    add():operateur_numerique(2, "+"){}
+    add():operateur_numerique(2,"+"){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
     litterale& traitement(litteraleManager& mng, litterale& a){
         throw ComputerException("Arité incorrecte pour cet opérateur");

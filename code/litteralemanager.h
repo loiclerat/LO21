@@ -33,7 +33,7 @@ class litteraleManager {
     struct Handler{
         litteraleManager* instance;
         Handler():instance(0){}
-        // destructeur appelé à la fin du programme
+        // destructeur appelé �  la fin du programme
         ~Handler(){ delete instance; }
     };
     static Handler handler;
@@ -42,8 +42,7 @@ public:
 
     // Méthode addlitterale : surcharges pour chaque type de littérale
     // avec les bons paramètres pour les créer
-    litterale& addLitterale(littEntiere l);     //littentiere
-
+    litterale& addLitterale(litterale* l);
     void removelitterale(litterale& l);
 
     static litteraleManager& getInstance();

@@ -8,7 +8,7 @@ protected:
     int arite;
     QString symbol;
 public:
-    operateur(int a, QString s):arite(a), symbol(s){};
+    operateur(int a, QString s):arite(a), symbol(s){}
     int getArite(){return arite;}
 
     virtual litterale& traitement(litteraleManager& mng, litterale& a, litterale& b)=0;

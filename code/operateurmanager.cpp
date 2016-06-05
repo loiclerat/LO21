@@ -17,8 +17,15 @@
 
 
 
-operateurManager::operateurManager():ops(new operateur*[1]),nb(1){
-    ops[0] = &addition;
+operateurManager::operateurManager():ops(new operateur*[2]),nb(2){
+
+    //! \brief Opérateur d'addition
+    add* addition=new add();
+    //! \brief Opérateur de soustraction
+    sous* soustraction= new sous();
+
+    ops[0] = addition;
+    ops[1] = soustraction;
 }
 
 

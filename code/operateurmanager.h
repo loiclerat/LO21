@@ -15,6 +15,8 @@ Description de la classe operateurManager et de ses itérateurs
 
 #include "operateur.h"
 #include "add.h"
+#include "sous.h"
+#include <QString>
 
 /**
   \class operateurManager
@@ -27,10 +29,6 @@ class operateurManager {
     //! \brief Nombre d'operateur dans la liste
     unsigned int nb;
 public:
-    //! \brief Opérateur d'addition
-    add addition;
-
-
     //! \brief Constructeur
     operateurManager();
     //! \brief Destructeur

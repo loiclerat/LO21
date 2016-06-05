@@ -1,10 +1,10 @@
-#include "qcomputer.h"
+﻿#include "qcomputer.h"
 
 /****
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
  * si l'on veut valider la ligne par notre propre clavier
  *
- * Commenc� pour le + � prendre en compte le fait qu'une fois cliqu� on empile direct, � voir si �a marche
+ * Commencé pour le + à prendre en compte le fait qu'une fois cliqué on empile direct, à voir si ça marche
  ****/
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
@@ -23,10 +23,25 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     pile=new Pile;
     controleur = new Controleur(litteraleManager::getInstance(), operateurManager::getInstance(), *pile);
 
-    vuepile = new QTableWidget(9,2,this);
+    vuepile = new QTableWidget(pile->getNbItemsToAffiche(),1,this);
     vuepile->horizontalHeader()->setVisible(false);
     vuepile->horizontalHeader()->setStretchLastSection(true);
     vuepile->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    QStringList liste;
+        for (unsigned int i=pile->getNbItemsToAffiche() ; i>0 ; i--){
+            QString str = QString::number(i);                            //liste de string
+            str+=" :";
+            liste<<str;
+        }
+    vuepile->setVerticalHeaderLabels(liste);                        //on redéfini les labels pour mettre les ":"
+
+
+    // Allocation des cases du TableWidget
+
+    for (unsigned int i=0 ; i<pile->getNbItemsToAffiche() ; i++)
+        vuepile->setItem(i, 0, new QTableWidgetItem(""));
+
 
     couchehaut = new QVBoxLayout(this);
     couchehaut->addWidget(message);
@@ -38,13 +53,13 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     couchebas = new QHBoxLayout(this);
 
-    /** Layout des opérateurs de bases **/
+    /** Layout des opÃ©rateurs de bases **/
 
     plus = new QPushButton("+",this);
     moins = new QPushButton("-",this);
     div = new QPushButton("/",this);
     mul = new QPushButton("*",this);
-    entree = new QPushButton("Entrée",this);
+    entree = new QPushButton("EntrÃ©e",this);
 
     opbasique = new QVBoxLayout(this);
     opbasique->addWidget(plus);
@@ -53,7 +68,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(mul);
     opbasique->addWidget(entree);
 
-    /** Connexion des op�rateurs de base **/
+    /** Connexion des opérateurs de base **/
 
     connect(plus, SIGNAL(pressed()), this, SLOT(plusPressed()));
     connect(moins, SIGNAL(pressed()), this, SLOT(moinsPressed()));
@@ -61,7 +76,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(mul, SIGNAL(pressed()), this, SLOT(mulPressed()));
     connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
 
-    /** Layout des opérateurs numériques **/
+    /** Layout des opÃ©rateurs numÃ©riques **/
 
     divB = new QPushButton("DIV",this);
     neg = new QPushButton("NEG",this);
@@ -81,7 +96,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opnum->addWidget(im);
 
 
-    /** Connexion des op�rateurs num�riques **/
+    /** Connexion des opérateurs numériques **/
 
     connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
     connect(neg, SIGNAL(pressed()), this, SLOT(negPressed()));
@@ -91,7 +106,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(re, SIGNAL(pressed()), this, SLOT(rePressed()));
     connect(im, SIGNAL(pressed()), this, SLOT(imPressed()));
 
-    /** Layout des opérateurs logiques **/
+    /** Layout des opÃ©rateurs logiques **/
 
     oplog = new QVBoxLayout(this);
     andb = new QPushButton("AND",this);
@@ -114,7 +129,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oplog->addWidget(supeg);
     oplog->addWidget(infeg);
 
-    /** Connexion des op�rateurs logiques **/
+    /** Connexion des opérateurs logiques **/
 
     connect(andb, SIGNAL(pressed()), this, SLOT(andbPressed()));
     connect(orb, SIGNAL(pressed()), this, SLOT(orbPressed()));
@@ -126,18 +141,18 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(supeg, SIGNAL(pressed()), this, SLOT(supegPressed()));
     connect(infeg, SIGNAL(pressed()), this, SLOT(infegPressed()));
 
-    /** Layout des opérateurs conditionnels **/
+    /** Layout des opÃ©rateurs conditionnels **/
 
     opcond = new QVBoxLayout(this);
     ift = new QPushButton("IFT",this);
 
     opcond->addWidget(ift);
 
-    /** Connexion des op�rateurs conditionnels **/
+    /** Connexion des opérateurs conditionnels **/
 
     connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
 
-    /** Layout des opérateurs pile **/
+    /** Layout des opÃ©rateurs pile **/
 
     oppile = new QVBoxLayout(this);
     dup = new QPushButton("DUP",this);
@@ -158,7 +173,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oppile->addWidget(redo);
     oppile->addWidget(clear);
 
-    /** Connexion des op�rateurs de la pile **/
+    /** Connexion des opérateurs de la pile **/
 
     connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
     connect(drop, SIGNAL(pressed()), this, SLOT(dropPressed()));
@@ -169,7 +184,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
     connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
 
-    /** Layout du pav� num�rique **/
+    /** Layout du pavé numérique **/
 
     //Ligne 1
     paveNum1 = new QHBoxLayout(this);
@@ -250,7 +265,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
         connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
 
-        //connexion du pav� num�rique � la ligne de commande
+        //connexion du pavé numérique à la ligne de commande
         connect(un, SIGNAL(pressed()), this, SLOT(unPressed()));
         connect(deux, SIGNAL(pressed()), this, SLOT(deuxPressed()));
         connect(trois, SIGNAL(pressed()), this, SLOT(troisPressed()));
@@ -266,10 +281,10 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     setWindowTitle("UTComputer");
 }
 
- //! \brief la fonction refresh() permet de mettre � jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
+ //! \brief la fonction refresh() permet de mettre à jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
-    //l�  on efface tout ce qu'il y a dans l'affichage la pile
+    //lÃ  on efface tout ce qu'il y a dans l'affichage la pile
     for(unsigned int i=0;i<pile->getNbItemsToAffiche(); i++){
         vuepile->item(i,0)->setText("");
     }

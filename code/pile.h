@@ -92,9 +92,9 @@ public:
         iterator& operator++(){ --current; return *this; }
     };
     //! \brief Retourne un itérateur positionné sur le premier Item de la Pile
-    iterator begin() { return iterator(items); }
+    iterator begin() { return iterator(items+nb-1); }
     //! \brief Retourne un itérateur positionné après le dernier Item de la Pile
-    iterator end() { return iterator(items+nb); }
+    iterator end() { return iterator(items-1); }
 
 
     /**
@@ -119,9 +119,9 @@ public:
         const_iterator& operator++(){ --current; return *this; }
     };
     //! \brief Retourne un itérateur const positionné sur le premier Item de la Pile
-    const_iterator begin() const { return const_iterator(items); }
+    const_iterator begin() const { return const_iterator(items+nb-1); }
     //! \brief Retourne un itérateur const positionné après le dernier Item de la Pile
-    const_iterator end() const { return const_iterator(items+nb); }
+    const_iterator end() const { return const_iterator(items-1); }
 
     // === SIGNAUX ===
 

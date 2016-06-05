@@ -34,8 +34,8 @@ void Controleur::commande(const QString& c){
     operateur* op;
 
     if (estLitterale(c)=="entiere"){
-        littEntiere l(c.toInt());
-        littAff.push(littMng.addLitterale(&l));
+        littEntiere* l=new littEntiere(c.toInt());
+        littAff.push(littMng.addLitterale(l));
     }
     else if ((op = estOperateur(c)) != 0){
         if (op->getArite()==1){

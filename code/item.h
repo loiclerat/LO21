@@ -12,7 +12,7 @@ Description de la classe Item
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "litterale.h"
+#include "litteralemanager.h"
 
 /**
   \class Item
@@ -20,18 +20,18 @@ Description de la classe Item
  */
 
 class Item {
-    //! \brief Littérale associée à l'Item
+    //! \brief Littérale associée �  l'Item
     litterale* lit;
 
 public:
 
     //! \brief Constructeur
     Item():lit(0){}
-    //! \brief Associer une littérale à l'Item
+    //! \brief Associer une littérale �  l'Item
     void setLitterale(litterale& l) { lit=&l; }
     //! \brief Dissocier l'Item de la littérale associée
     void raz() { lit=0; }
-    //! \brief Retourne une référence vers la littérale associée à l'Item
+    //! \brief Retourne une référence vers la littérale associée �  l'Item
     litterale& getLitterale() const;
 };
 

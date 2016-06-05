@@ -13,10 +13,31 @@ Description de la classe litteraleManager et de ses itérateurs
 #ifndef litteraleMANAGER_H
 #define litteraleMANAGER_H
 
-#include "litterale.h"
-#include "littentiere.h"
-#include "littreelle.h"
-#include "littrat.h"
+#include <QString>
+#include <QTextStream>
+#include <QObject>
+#include <QDebug>
+
+#include "exceptions.h"
+#include <typeinfo>
+#include <iostream>
+#include <string>
+//#include <litteralemanager.h>
+
+
+using namespace std;
+
+class litterale{
+    friend class litteraleManager;
+public :
+    litterale(){}
+    virtual ~litterale(){}
+    virtual QString affichage(QString f="")const=0;//a definir
+    virtual void simplifier(){}/*permet de simplifier les litt num
+    *d�s leur cr�ation, �ventuellement les transformer en une autre litt num
+    *si possible.
+    */
+};
 
 class litteraleManager {
     litterale** litts;           //Liste des littérales
@@ -42,7 +63,7 @@ public:
 
     // Méthode addlitterale : surcharges pour chaque type de littérale
     // avec les bons paramètres pour les créer
-    litterale& addLitterale(litterale* l);
+    litterale& addLitterale(litterale *l);
     void removelitterale(litterale& l);
 
     static litteraleManager& getInstance();

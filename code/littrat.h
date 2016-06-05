@@ -23,7 +23,7 @@ public:
     void simplifier();
     int getNum()const { return num; }
     int getDen()const { return den; }
-    QString& affichage(QString f="")const{
+    QString affichage(QString f="")const{
         f.append(QString::number(getNum()));
         f.append("/");
         f.append(QString::number(getDen()));

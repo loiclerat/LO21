@@ -9,13 +9,14 @@
 #include "littreelle.h"
 
 
-class divent : public operateur_numerique{
+class divent : public operateur_numerique
+{
+    QString symbol;
 public:
-    divent():operateur_numerique(2, "DIV"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale& a){
-        throw ComputerException("Arité incorrecte pour cet opérateur");
-    }
+    divent(QString s):operateur_numerique(2,s){}
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 
 #endif // DIVENT_H

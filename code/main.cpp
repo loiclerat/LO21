@@ -92,8 +92,8 @@ int main(){
 
     return 0;
 }
-/*
 
+/*
 #include <QApplication>
 #include <QWidget>
 #include <QLineEdit>

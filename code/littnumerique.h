@@ -11,7 +11,7 @@ public :
     littNumerique(){}
     virtual ~littNumerique(){}
 
-    virtual QString& affichage(QString f="")const=0;//a definir
+    virtual QString affichage(QString f="")const=0;//a definir
     virtual void simplifier(){}
 
     virtual void NEG()=0;

@@ -17,7 +17,7 @@ public :
     int getValeur() const{return valeur;}
     void simplifier(){}
 
-    QString& affichage(QString f="")const{f.append(QString::number(getValeur())); return f;}
+    QString affichage(QString f="")const{f.append(QString::number(getValeur())); return f;}
     void NEG(){valeur=(-valeur);}
 
     /*==========*/

@@ -7,13 +7,13 @@
 #include "littentiere.h"
 #include "littreelle.h"
 
-class mul : public operateur_numerique{
+class mul : public operateur_numerique
+{
 public:
-    mul():operateur_numerique(2, "*"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale& a){
-        throw ComputerException("Arité incorrecte pour cet opérateur");
-    }
+    mul(QString s):operateur_numerique(2,s){}
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 
 

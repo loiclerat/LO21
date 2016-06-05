@@ -1,4 +1,4 @@
-/**
+﻿/**
 \file pile.h
 \date 03/06/2016
 \author Loïc Lerat, Andréa Vibert, Théo Hordequin
@@ -21,7 +21,7 @@ Description de la classe Pile ainsi que ses itérateurs et signaux
 
 /**
   \class Pile
-  \brief La classe Pile est chargée de l'affichage des littérales ainsi que des messages destinés �  l'utilisateur
+  \brief La classe Pile est chargée de l'affichage des littérales ainsi que des messages destinés à l'utilisateur
  */
 
 class Pile : public QObject {
@@ -33,9 +33,9 @@ class Pile : public QObject {
     unsigned int nb;    
     //! \brief Capacité de la Pile
     unsigned int nbMax;    
-    //! \brief Message destiné �  l'utilisateur
+    //! \brief Message destiné à l'utilisateur
     QString message;
-    //! \brief Nombre d'Items �  afficher
+    //! \brief Nombre d'Items à afficher
     unsigned int nbAffiche;
 
     //! \brief Agrandissement de la Pile lorsque l'on dépasse la capacité actuelle
@@ -56,18 +56,15 @@ public:
     bool estVide() const { return nb==0; }
     //! \brief Nombre d'Items dans la pile
     unsigned int taille() const { return nb; }
-    //! \brief Afficher la pile
-    //! \n L'affichage s'effectue dans un QTextStream selon le nombre d'éléments �  afficher
-    void affiche(QTextStream& f) const;
     //! \brief Retourne une référence vers la littérale au sommet de la Pile
     litterale& top() const;
-    //! \brief Définir le nombre d'éléments de la Pile �  afficher
+    //! \brief Définir le nombre d'éléments de la Pile à afficher
     void setNbItemsToAffiche(unsigned int n) { nb=n; }
-    //! \brief Nombre d'Items �  afficher
+    //! \brief Nombre d'Items à afficher
     unsigned int getNbItemsToAffiche() const { return nbAffiche; }
-    //! \brief Définir le message �  afficher �  l'utilisateur
+    //! \brief Définir le message à afficher à l'utilisateur
     void setMessage(const QString& m) { message=m; modificationEtat(); }
-    //! \brief Message �  afficher
+    //! \brief Message à afficher
     QString getMessage() const { return message; }
 
 
@@ -95,9 +92,9 @@ public:
         iterator& operator++(){ --current; return *this; }
     };
     //! \brief Retourne un itérateur positionné sur le premier Item de la Pile
-    iterator begin() { return iterator(items); }
+    iterator begin() { return iterator(items+nb-1); }
     //! \brief Retourne un itérateur positionné après le dernier Item de la Pile
-    iterator end() { return iterator(items+nb); }
+    iterator end() { return iterator(items-1); }
 
 
     /**
@@ -122,9 +119,9 @@ public:
         const_iterator& operator++(){ --current; return *this; }
     };
     //! \brief Retourne un itérateur const positionné sur le premier Item de la Pile
-    const_iterator begin() const { return const_iterator(items); }
+    const_iterator begin() const { return const_iterator(items+nb-1); }
     //! \brief Retourne un itérateur const positionné après le dernier Item de la Pile
-    const_iterator end() const { return const_iterator(items+nb); }
+    const_iterator end() const { return const_iterator(items-1); }
 
     // === SIGNAUX ===
 

@@ -10,12 +10,12 @@
 #include "littreelle.h"
 
 
-class mod : public operateur_numerique{
+class mod : public operateur_numerique
+{
 public:
-    mod():operateur_numerique(2, "%"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale& a){
-        throw ComputerException("Arité incorrecte pour cet opérateur");
-    }
+    mod(QString s):operateur_numerique(2,s){}
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 #endif // MOD_H

@@ -293,6 +293,6 @@ littNumerique* littReelle::operator/(littNumerique* a)
 void littReelle::simplifier()
 {
     if (this->decimale == 0) {
-        throw Exception("entier");
+        throw ComputerException("entier");
     }
 }

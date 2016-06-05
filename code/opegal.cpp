@@ -10,11 +10,11 @@ litterale& opegal::traitement(litteraleManager& mng, litterale& a, litterale& b)
         littnumber* res = (*(num1)-num2);
         if (res->isNull() == true) {
             littEntiere ret(1);
-            return mng.addLitterale(ret);
+            return mng.addLitterale(&ret);
         }
         else {
             littEntiere ret(0);
-            return mng.addLitterale(ret);
+            return mng.addLitterale(&ret);
         }
     }
     else {

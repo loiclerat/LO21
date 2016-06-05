@@ -12,7 +12,7 @@
 class opegalsup : public operateur_logique
 {
 public:
-    opegalsup(QString s):operateur_logique(2,">="){}
+    opegalsup():operateur_logique(2,">="){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
     litterale& traitement(litteraleManager& mng, litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}

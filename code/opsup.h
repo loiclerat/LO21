@@ -12,7 +12,7 @@
 class opsup : public operateur_logique
 {
 public:
-    opsup(QString s):operateur_logique(2,">"){}
+    opsup():operateur_logique(2,">"){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
     litterale& traitement(litteraleManager& mng, litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}

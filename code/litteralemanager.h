@@ -19,25 +19,12 @@ Description de la classe litteraleManager et de ses itérateurs
 #include <QDebug>
 
 #include "exceptions.h"
+#include"litterale.h"
 #include <typeinfo>
 #include <iostream>
 #include <string>
 //#include <litteralemanager.h>
 
-
-using namespace std;
-
-class litterale{
-    friend class litteraleManager;
-public :
-    litterale(){}
-    virtual ~litterale(){}
-    virtual QString affichage(QString f="")const=0;//a definir
-    virtual void simplifier(){}/*permet de simplifier les litt num
-    *d�s leur cr�ation, �ventuellement les transformer en une autre litt num
-    *si possible.
-    */
-};
 
 class litteraleManager {
     litterale** litts;           //Liste des littérales

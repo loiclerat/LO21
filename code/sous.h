@@ -7,15 +7,16 @@
 #include "littentiere.h"
 #include "littreelle.h"
 #include "littcomplexe.h"
-#include "opebinaire.h"
 
 
-class sous : public operateur_numerique, public binaire
-{
-    QString symbol;
+class sous : public operateur_numerique{
 public:
-    sous(QString s):symbol(s),operateur_numerique(2){}
-    litterale& traitement(litterale &a, litterale &b);
+    sous():operateur_numerique(2, "-"){}
+    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
+    litterale& traitement(litteraleManager& mng, litterale& a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");
+    }
 };
+
 
 #endif // SOUS_H

@@ -1,26 +1,72 @@
 #include "add.h"
 #include "exceptions.h"
 
+
+
+
+
 litterale& add::traitement(litteraleManager& mng, litterale &a, litterale &b){
 
-    // Création de pointeurs temporaires par downcasting
-    // Cela nous permet par la suite de déterminer le type de littérale des paramètres
-    littEntiere* a_ent = dynamic_cast<littEntiere*>(&a);
 
-    littEntiere* b_ent = dynamic_cast<littEntiere*>(&b);
+    littEntiere* ent1 = dynamic_cast<littEntiere*>(&a);
+    littrat* rat1 = dynamic_cast<littrat*>(&a);
+    littReelle* ree1 = dynamic_cast<littReelle*>(&a);
+    littcomplexe* comp1 = dynamic_cast<littcomplexe*>(&a);
 
-    // On vérifie le type des littérales passées en paramètre pour créer et renvoyer le bon type de littérale
-    if(a_ent != 0){       // a est une litterale entiere
-        if(b_ent!=0){     // b est une litterale entière
-            littEntiere res(a_ent->getValeur()+b_ent->getValeur());
+    littNumerique* lta1 = dynamic_cast<littNumerique*>(&b);
+    littcomplexe* lta2 = dynamic_cast<littcomplexe*>(&b);
+
+    if(ent1 != nullptr){
+        if(lta1!=nullptr){
+            littNumerique* res =  *(ent1)+lta1;
+            return mng.addLitterale(res);
+        }
+        else{
+            littnumber* res = *(ent1)+lta2;
             return mng.addLitterale(res);
         }
     }
+    else
+        if(rat1 != nullptr)
+        {
+            if(lta1!=nullptr){
+                littNumerique* res =  *(rat1)+lta1;
+                return mng.addLitterale(res);
+            }else{
+                littnumber* res = *(rat1)+lta2;
+                return mng.addLitterale(res);
+            }
+        }
+        else
+            if(ree1 != nullptr){
+                if(lta1!=nullptr){
+                    littNumerique* res =  *(ree1)+lta1;
+                    return mng.addLitterale(res);
+                }else{
+                    littnumber* res = *(ree1)+lta2;
+                    return mng.addLitterale(res);
+                }
+            }
+            else
+                if(comp1 != nullptr){
+                    if(lta1!=nullptr){
+                        littnumber* res =  *(comp1)+lta1;
+                        return mng.addLitterale(res);
+                    }else{
+                        littnumber* res = *(comp1)+lta2;
+                        return mng.addLitterale(res);
+                    }
+            }
+                else{
+                    throw ComputerException("Format incompatible du premier argument");
+                }
 
-    // Gestion des erreurs
-
-    // On désalloue les pointeurs temporaires
-    delete a_ent;
-    delete b_ent;
+    delete ent1;
+    delete rat1;
+    delete ree1;
+    delete comp1;
+    delete lta1;
+    delete lta2;
 
 }
+

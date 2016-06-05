@@ -8,15 +8,14 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
-#include "opebinaire.h"
 
 
-class mod : public operateur_numerique, public binaire
-{
-    QString symbol;
+class mod : public operateur_numerique{
 public:
-    mod(QString s):symbol(s),operateur_numerique(2){}
-    litterale& traitement(litterale &a, litterale &b);
+    mod():operateur_numerique(2, "%"){}
+    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
+    litterale& traitement(litteraleManager& mng, litterale& a){
+        throw ComputerException("Arité incorrecte pour cet opérateur");
+    }
 };
-
 #endif // MOD_H

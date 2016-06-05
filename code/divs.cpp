@@ -2,7 +2,7 @@
 #include "exceptions.h"
 
 
-litterale& divs::traitement(litterale &a, litterale &b){
+litterale& divs::traitement(litteraleManager& mng, litterale &a, litterale &b){
 
 
 
@@ -17,11 +17,11 @@ litterale& divs::traitement(litterale &a, litterale &b){
     if(ent1 != nullptr){
         if(lta1!=nullptr){
             littNumerique* res =  *(ent1)/lta1;
-            return *res;
+            return mng.addLitterale(res);
         }
         else{
             littnumber* res = *(ent1)/lta2;
-            return *res;
+            return mng.addLitterale(res);
         }
     }
     else
@@ -29,30 +29,30 @@ litterale& divs::traitement(litterale &a, litterale &b){
         {
             if(lta1!=nullptr){
                 littNumerique* res =  *(rat1)/lta1;
-                return *res;
+                return mng.addLitterale(res);
             }else{
                 littnumber* res = *(rat1)/lta2;
-                return *res;
+                return mng.addLitterale(res);
             }
         }
         else
             if(ree1 != nullptr){
                 if(lta1!=nullptr){
                     littNumerique* res =  *(ree1)/lta1;
-                    return *res;
+                    return mng.addLitterale(res);
                 }else{
                     littnumber* res = *(ree1)/lta2;
-                    return *res;
+                    return mng.addLitterale(res);
                 }
             }
             else
                 if(comp1 != nullptr){
                     if(lta1!=nullptr){
                         littnumber* res =  *(comp1)/lta1;
-                        return *res;
+                        return mng.addLitterale(res);
                     }else{
                         littnumber* res = *(comp1)/lta2;
-                        return *res;
+                        return mng.addLitterale(res);
                     }
             }
                 else{

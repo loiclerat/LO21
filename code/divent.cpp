@@ -1,6 +1,6 @@
 #include "divent.h"
 
-litterale& divent::traitement(litterale &a, litterale &b){
+litterale& divent::traitement(litteraleManager& mng, litterale &a, litterale &b){
 
     littEntiere* ent1 = dynamic_cast<littEntiere*>(&a);
     littNumerique* ent2 = dynamic_cast<littNumerique*>(&b);
@@ -12,7 +12,7 @@ litterale& divent::traitement(litterale &a, litterale &b){
                 if(rat1 != nullptr){
                     int a = rat1->getNum()/rat1->getDen();
                     littEntiere* resf = new littEntiere(a);
-                    return *resf;
+                    return mng.addLitterale(res);
                 }
                 else{
                     throw ComputerException("Format incompatible du second argument, nécessite entier");

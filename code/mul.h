@@ -10,9 +10,8 @@
 
 class mul : public operateur_numerique
 {
-    QString symbol;
 public:
-    mul(QString s):symbol(s),operateur_numerique(2){}
+    mul(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a, litterale &b);
 };
 

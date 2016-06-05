@@ -26,9 +26,9 @@ class operateurManager {
     operateur** ops;
     //! \brief Nombre d'operateur dans la liste
     unsigned int nb;
-
+public:
     //! \brief Opérateur d'addition
-    static add addition;
+    add addition;
 
 
     //! \brief Constructeur

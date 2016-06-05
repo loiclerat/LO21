@@ -7,14 +7,13 @@
 #include "littentiere.h"
 #include "littreelle.h"
 #include "littcomplexe.h"
-#include "opebinaire.h"
 
 
-class sous : public operateur_numerique, public binaire
+class sous : public operateur_numerique
 {
     QString symbol;
 public:
-    sous(QString s):symbol(s),operateur_numerique(2){}
+    sous(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a, litterale &b);
 };
 

@@ -8,14 +8,12 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
-#include "opeunaire.h"
 
 
-class num : public operateur_numerique, public unaire
+class num : public operateur_numerique
 {
-    QString symbol;
 public:
-    num(QString s):symbol(s),operateur_numerique(2){}
+    num(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a);
 };
 #endif // NUM_H

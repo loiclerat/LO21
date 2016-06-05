@@ -95,6 +95,34 @@ public :
 public slots:
     void refresh();
     void getNextCommande();
+
+    //SLOTS pour le pave numérique
+    void unPressed(){commande->insert("1");}
+    void deuxPressed(){commande->insert("2"); }
+    void troisPressed(){commande->insert("3");}
+    void quatrePressed(){commande->insert("4");}
+    void cinqPressed(){commande->insert("5"); }
+    void sixPressed(){commande->insert("6");}
+    void septPressed(){commande->insert("7");}
+    void huitPressed(){commande->insert("8");}
+    void neufPressed(){commande->insert("9");}
+    void zeroPressed(){commande->insert("0");}
+
+    //SLOTS pour les opérateurs de base
+    void plusPressed(){commande->insert("+");}
+    void moinsPressed(){commande->insert("-");}
+    void divPressed(){commande->insert("/");}
+    void mulPressed(){commande->insert("*");}
+
+    //SLOTS pour les opérateurs numériques
+    void divBPressed(){commande->insert("DIV");}
+    void negPressed(){commande->insert("NEG");}
+    void denPressed(){commande->insert("DEN");}
+    void numPressed(){commande->insert("NUM");}
+    void ccomplexPressed(){commande->insert("$");}
+    void rePressed(){commande->insert("RE");}
+    void imPressed(){commande->insert("IM");}
+
 };
 
 #endif // QCOMPUTER_H

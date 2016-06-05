@@ -10,14 +10,12 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
-#include "opeunaire.h"
 
 
-class neg : public operateur_numerique, public unaire
+class neg : public operateur_numerique
 {
-    QString symbol;
 public:
-    neg(QString s):symbol(s),operateur_numerique(2){}
+    neg(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a);
 };
 

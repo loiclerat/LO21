@@ -14,7 +14,6 @@
 
 // Initialisation de tous les opérateurs (attributs statiques)
 
-add operateurManager::addition = new add();
 
 
 

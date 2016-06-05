@@ -1,4 +1,4 @@
-#include "littreelle.h"
+/*#include "littreelle.h"
 #include "littentiere.h"
 #include "littrat.h"
 #include "add.h"
@@ -92,7 +92,7 @@ int main(){
 
     return 0;
 }
-/*
+*/
 
 #include <QApplication>
 #include <QWidget>
@@ -109,4 +109,4 @@ int main(int argc, char *argv[]) {
     fenetre.show();
     return app.exec();
 
-}*/
+}

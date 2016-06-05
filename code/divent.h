@@ -7,14 +7,13 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
-#include "opebinaire.h"
 
 
-class divent : public operateur_numerique, public binaire
+class divent : public operateur_numerique
 {
     QString symbol;
 public:
-    divent(QString s):symbol(s),operateur_numerique(2){}
+    divent(QString s):operateur_numerique(2,s){}
     litterale& traitement(litterale &a, litterale &b);
 };
 

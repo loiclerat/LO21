@@ -1,5 +1,10 @@
 #include "qcomputer.h"
 
+/****
+ * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
+ * si l'on veut valider la ligne par notre propre clavier
+ ****/
+
 QComputer::QComputer(QWidget* parent):QWidget(parent){
     this->setFixedSize(700, 650);
 
@@ -15,7 +20,6 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     commande = new QLineEdit(this);
     pile=new Pile;
     controleur = new Controleur(litteraleManager::getInstance(), operateurManager::getInstance(), *pile);
-    //clavier= new QVBoxLayout;//ajouter clavier ï¿½ la couche
 
     vuepile = new QTableWidget(9,2,this);
     vuepile->horizontalHeader()->setVisible(false);
@@ -47,6 +51,14 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(mul);
     opbasique->addWidget(entree);
 
+    /** Connexion des opérateurs de base **/
+
+    connect(plus, SIGNAL(pressed()), this, SLOT(plusPressed()));
+    connect(moins, SIGNAL(pressed()), this, SLOT(moinsPressed()));
+    connect(div, SIGNAL(pressed()), this, SLOT(divPressed()));
+    connect(mul, SIGNAL(pressed()), this, SLOT(mulPressed()));
+    connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
+
     /** Layout des opÃ©rateurs numÃ©riques **/
 
     divB = new QPushButton("DIV",this);
@@ -66,6 +78,16 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opnum->addWidget(re);
     opnum->addWidget(im);
 
+
+    /** Connexion des opérateurs numériques **/
+
+    connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
+    connect(neg, SIGNAL(pressed()), this, SLOT(negPressed()));
+    connect(den, SIGNAL(pressed()), this, SLOT(denPressed()));
+    connect(num, SIGNAL(pressed()), this, SLOT(numPressed()));
+    connect(ccomplex, SIGNAL(pressed()), this, SLOT(ccomplexPressed()));
+    connect(re, SIGNAL(pressed()), this, SLOT(rePressed()));
+    connect(im, SIGNAL(pressed()), this, SLOT(imPressed()));
 
     /** Layout des opÃ©rateurs logiques **/
 
@@ -89,6 +111,16 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oplog->addWidget(inf);
     oplog->addWidget(supeg);
     oplog->addWidget(infeg);
+
+    /** Connexion des opérateurs logiques **/
+
+    connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
+    connect(neg, SIGNAL(pressed()), this, SLOT(negPressed()));
+    connect(den, SIGNAL(pressed()), this, SLOT(denPressed()));
+    connect(num, SIGNAL(pressed()), this, SLOT(numPressed()));
+    connect(ccomplex, SIGNAL(pressed()), this, SLOT(ccomplexPressed()));
+    connect(re, SIGNAL(pressed()), this, SLOT(rePressed()));
+    connect(im, SIGNAL(pressed()), this, SLOT(imPressed()));
 
     /** Layout des opÃ©rateurs conditionnels **/
 
@@ -200,6 +232,17 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
         connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
 
+        //connexion du pavé numérique à la ligne de commande
+        connect(un, SIGNAL(pressed()), this, SLOT(unPressed()));
+        connect(deux, SIGNAL(pressed()), this, SLOT(deuxPressed()));
+        connect(trois, SIGNAL(pressed()), this, SLOT(troisPressed()));
+        connect(quatre, SIGNAL(pressed()), this, SLOT(quatrePressed()));
+        connect(cinq, SIGNAL(pressed()), this, SLOT(cinqPressed()));
+        connect(six, SIGNAL(pressed()), this, SLOT(sixPressed()));
+        connect(sept, SIGNAL(pressed()), this, SLOT(septPressed()));
+        connect(huit, SIGNAL(pressed()), this, SLOT(huitPressed()));
+        connect(neuf, SIGNAL(pressed()), this, SLOT(neufPressed()));
+        connect(zero, SIGNAL(pressed()), this, SLOT(zeroPressed()));
 
     setLayout(boxcomplete);
     setWindowTitle("UTComputer");
@@ -234,3 +277,4 @@ void QComputer::getNextCommande(){
     controleur->commande(c);
     commande->clear();
 }
+

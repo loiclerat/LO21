@@ -20,7 +20,7 @@ public :
     litterale(){}
     virtual ~litterale(){}
 
-    virtual QString& affichage(QString f="")const=0;//a definir
+    virtual QString affichage(QString f="")const=0;//a definir
     virtual void simplifier(){}/*permet de simplifier les litt num
     *d�s leur cr�ation, �ventuellement les transformer en une autre litt num
     *si possible.

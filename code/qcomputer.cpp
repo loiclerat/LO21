@@ -3,6 +3,8 @@
 /****
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
  * si l'on veut valider la ligne par notre propre clavier
+ *
+ * Commencé pour le + à prendre en compte le fait qu'une fois cliqué on empile direct, à voir si ça marche
  ****/
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
@@ -114,13 +116,15 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     /** Connexion des opérateurs logiques **/
 
-    connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
-    connect(neg, SIGNAL(pressed()), this, SLOT(negPressed()));
-    connect(den, SIGNAL(pressed()), this, SLOT(denPressed()));
-    connect(num, SIGNAL(pressed()), this, SLOT(numPressed()));
-    connect(ccomplex, SIGNAL(pressed()), this, SLOT(ccomplexPressed()));
-    connect(re, SIGNAL(pressed()), this, SLOT(rePressed()));
-    connect(im, SIGNAL(pressed()), this, SLOT(imPressed()));
+    connect(andb, SIGNAL(pressed()), this, SLOT(andbPressed()));
+    connect(orb, SIGNAL(pressed()), this, SLOT(orbPressed()));
+    connect(notb, SIGNAL(pressed()), this, SLOT(notbPressed()));
+    connect(egal, SIGNAL(pressed()), this, SLOT(egalPressed()));
+    connect(diff, SIGNAL(pressed()), this, SLOT(diffPressed()));
+    connect(sup, SIGNAL(pressed()), this, SLOT(supPressed()));
+    connect(inf, SIGNAL(pressed()), this, SLOT(infPressed()));
+    connect(supeg, SIGNAL(pressed()), this, SLOT(supegPressed()));
+    connect(infeg, SIGNAL(pressed()), this, SLOT(infegPressed()));
 
     /** Layout des opÃ©rateurs conditionnels **/
 
@@ -128,6 +132,10 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     ift = new QPushButton("IFT",this);
 
     opcond->addWidget(ift);
+
+    /** Connexion des opérateurs conditionnels **/
+
+    connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
 
     /** Layout des opÃ©rateurs pile **/
 
@@ -150,6 +158,16 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oppile->addWidget(redo);
     oppile->addWidget(clear);
 
+    /** Connexion des opérateurs de la pile **/
+
+    connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
+    connect(drop, SIGNAL(pressed()), this, SLOT(dropPressed()));
+    connect(swap, SIGNAL(pressed()), this, SLOT(swapPressed()));
+    connect(lastop, SIGNAL(pressed()), this, SLOT(lastopPressed()));
+    connect(lastarg, SIGNAL(pressed()), this, SLOT(lastargPressed()));
+    connect(undo, SIGNAL(pressed()), this, SLOT(undoPressed()));
+    connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
+    connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
 
     /** Layout du pavé numérique **/
 
@@ -249,15 +267,13 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 }
 
  //! \brief la fonction refresh() permet de mettre à jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
-void QComputer::refresh(){
-    //affichage etat pile
+void QComputer::refresh(){//affichage etat pile
 
     //lÃ  on efface tout ce qu'il y a dans l'affichage la pile
     for(unsigned int i=0;i<pile->getNbItemsToAffiche(); i++){
         vuepile->item(i,0)->setText("");
     }
     unsigned int nb=0;
-
     /*ici le item est une fonction de Qt et pas notre classe item:
     *"Returns the item for the given row and column if one has been set; otherwise returns 0."
     * setText a besoin d'un string

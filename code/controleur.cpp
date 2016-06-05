@@ -9,7 +9,7 @@ operateur* Controleur::estOperateur(const QString s){
     return 0;
 }
 
-QString estLitterale(const QString s){
+QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
     s.toInt(&ok);

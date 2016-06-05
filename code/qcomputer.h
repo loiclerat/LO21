@@ -109,7 +109,7 @@ public slots:
     void zeroPressed(){commande->insert("0");}
 
     //SLOTS pour les opérateurs de base
-    void plusPressed(){commande->insert("+");}
+    void plusPressed(){commande->insert("+");getNextCommande();}
     void moinsPressed(){commande->insert("-");}
     void divPressed(){commande->insert("/");}
     void mulPressed(){commande->insert("*");}
@@ -122,6 +122,31 @@ public slots:
     void ccomplexPressed(){commande->insert("$");}
     void rePressed(){commande->insert("RE");}
     void imPressed(){commande->insert("IM");}
+
+    //SLOTS pour les opérateurs logiques
+    void andbPressed(){commande->insert("AND");}
+    void orbPressed(){commande->insert("OR");}
+    void notbPressed(){commande->insert("NOT");}
+    void egalPressed(){commande->insert("=");}
+    void diffPressed(){commande->insert("!=");}
+    void supPressed(){commande->insert(">");}
+    void infPressed(){commande->insert("<");}
+    void supegPressed(){commande->insert(">=");}
+    void infegPressed(){commande->insert("=<");}
+
+    //SLOTS pour les opérateurs conditionnels
+    void iftPressed(){commande->insert("IFT");}
+
+    //SLOTS pour les opérateurs de la pile
+    void dupPressed(){commande->insert("DUP");}
+    void dropPressed(){commande->insert("DROP");}
+    void swapPressed(){commande->insert("SWAP");}
+    void lastopPressed(){commande->insert("LASTOP");}
+    void lastargPressed(){commande->insert("LASTARG");}
+    void undoPressed(){commande->insert("UNDO");}
+    void redoPressed(){commande->insert("REDO");}
+
+    void clearCommande(){commande->clear();}
 
 };
 

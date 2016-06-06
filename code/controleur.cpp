@@ -54,7 +54,7 @@ void Controleur::commande(const QString& c){
                 littAff.pop();
                 litterale& v2 = littAff.top();
                 littAff.pop();
-                littAff.push(op->traitement(littMng,v1, v2));
+                littAff.push(op->traitement(littMng,v2, v1));
             }
             else littAff.setMessage("Erreur : pas assez d'arguments");
         }

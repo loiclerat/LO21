@@ -32,6 +32,7 @@ class QComputer : public QWidget{
     QPushButton* moins;
     QPushButton* mul;
     QPushButton* div;
+    QPushButton* point;
     QPushButton* entree;
 
 
@@ -111,9 +112,10 @@ public slots:
 
     //SLOTS pour les opérateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
-    void moinsPressed(){commande->insert("-");}
+    void moinsPressed(){commande->insert("-");getNextCommande();}
     void divPressed(){commande->insert("/");}
     void mulPressed(){commande->insert("*");}
+    void pointPressed(){commande->insert(".");}
 
     //SLOTS pour les opérateurs numériques
     void divBPressed(){commande->insert("DIV");}

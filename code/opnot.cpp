@@ -6,7 +6,7 @@ litterale& opnot::traitement(litteraleManager& mng, litterale& a)
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
 
     if (num1 != 0) {
-        if (res->isNull()==true) {
+        if (a.isNull()==true) {
             littEntiere ret(1);
             return mng.addLitterale(&ret);
         }

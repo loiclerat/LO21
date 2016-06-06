@@ -10,6 +10,7 @@ protected:
 public:
     operateur(int a, QString s):arite(a), symbol(s){}
     int getArite(){return arite;}
+    QString getSymbol(){return symbol;}
 
     virtual litterale& traitement(litteraleManager& mng, litterale& a, litterale& b)=0;
     virtual litterale& traitement(litteraleManager& mng, litterale& a)=0;

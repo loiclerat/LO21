@@ -4,8 +4,10 @@
 
 operateur* Controleur::estOperateur(const QString s){
 
-    for(operateurManager::const_iterator it=opeMng.begin_const(); it!=opeMng.end_const(); ++it)
-            if (s==typeid(*it).name())   return &(*it);
+    for(operateurManager::const_iterator it=opeMng.begin_const(); it!=opeMng.end_const(); ++it){
+        qDebug()<<(*it).getSymbol();
+        if ((*it).getSymbol() == s)   return &(*it);
+    }
     return 0;
 }
 

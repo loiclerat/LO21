@@ -45,7 +45,10 @@ SOURCES += \
     opegalinf.cpp \
     opegalsup.cpp \
     opsup.cpp \
-    opinf.cpp
+    opinf.cpp \
+    opand.cpp \
+    opor.cpp \
+    opnot.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -88,5 +91,8 @@ HEADERS += \
     opegalinf.h \
     opegalsup.h \
     opsup.h \
-    opinf.h
+    opinf.h \
+    opand.h \
+    opor.h \
+    opnot.h
     qcomputer.h

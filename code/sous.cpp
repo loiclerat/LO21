@@ -11,7 +11,7 @@ litterale& sous::traitement(litteraleManager& mng, litterale& a, litterale& b)
     littNumerique* lta1 = dynamic_cast<littNumerique*>(&b);
     littcomplexe* lta2 = dynamic_cast<littcomplexe*>(&b);
 
-    // si a est un entier et que ltb est bien une litterale numerique
+    // si a est un entier et que lta1 est bien une litterale numerique
     if (ent1 != 0) {
         if (lta1 != 0) {
             littNumerique* res = *(ent1)-lta1;

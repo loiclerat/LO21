@@ -1,5 +1,5 @@
 #include "littentiere.h"
-
+/*
 littEntiere& littEntiere::operator+(littEntiere& b)
 {
     littEntiere* res = new littEntiere(this->valeur + b.valeur);
@@ -17,7 +17,7 @@ littEntiere& littEntiere::operator*(littEntiere& b)
     littEntiere* res = new littEntiere(this->valeur * b.valeur);
     return (*res); //int*int = int
 }
-
+*/
 littnumber* littEntiere::operator+(littnumber* a)
 {
     littNumerique* ltb = dynamic_cast<littNumerique*>(a);

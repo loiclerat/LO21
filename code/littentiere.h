@@ -1,3 +1,14 @@
+/**
+\file littentiere.h
+\date 03/06/2016
+\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\version 1.0
+\brief  Classe littentiere
+
+Description de la classe litterale entière
+
+**/
+
 #ifndef LITTENTIERE_H
 #define LITTENTIERE_H
 
@@ -6,17 +17,26 @@
 #include "littreelle.h"
 #include "littcomplexe.h"
 
+/**
+  \class littEntiere
+  \brief La classe concernant les littérales entières
+ */
+
 class littEntiere : public littNumerique {
-    int valeur;
+    int valeur; /*!< Entier correspondant à la valeur  */
 
 public:
+    //! \brief Constructeur de littérale entière
+    //! \param    val         int
     littEntiere(int val)
         : valeur(val)
     {
     }
-    //pas besoin de construct par recop, car celui par def suffit
-    littEntiere(const littEntiere&) {}
+    //! \brief Destructeur de littérale entière
     ~littEntiere() {}
+    //! \brief       Getter
+    //! \return    Un \e entier possédant le contenue de la littérale.
+    //!
     int getValeur() const { return valeur; }
     void simplifier() {}
 
@@ -43,18 +63,25 @@ public:
     }
 
     /*==========*/
-    littEntiere& operator+(littEntiere& b);
+    //littEntiere& operator+(littEntiere& b);
+
     littNumerique* operator+(littNumerique* a);
     littnumber* operator+(littnumber* a);
     /*==========*/
-    littEntiere& operator-(littEntiere& b);
+    //littEntiere& operator-(littEntiere& b);
     littNumerique* operator-(littNumerique* a);
     littnumber* operator-(littnumber* a);
     /*==========*/
-    littEntiere& operator*(littEntiere& b);
+    //littEntiere& operator*(littEntiere& b);
     littNumerique* operator*(littNumerique* a);
     littnumber* operator*(littnumber* a);
     /*==========*/
+    //! \brief       Operator / de la litterale concernant la division entière
+    //! \details    Surchage qui permet un niveau de granularité plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi un littérale numérique qui correspond à un rationnel
+    //! \param    a         littEntiere*
+    //! \return    Un \e littNumerique* -> pointeur vers une littérale numérique qui contient la construction concrète d'un objet fille.
+    //!
     littNumerique* operator/(littEntiere* b);
     littNumerique* operator/(littNumerique* a);
     littnumber* operator/(littnumber* a);

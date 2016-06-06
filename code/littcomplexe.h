@@ -1,3 +1,15 @@
+/**
+\file littcomplexe.h
+\date 03/06/2016
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
+\version 1.0
+\brief  Classe littcomplexe
+
+Description de la classe litterale complexe
+
+**/
+
+
 #ifndef LITTCOMPLEXE_H
 #define LITTCOMPLEXE_H
 
@@ -7,22 +19,40 @@
 #include "littrat.h"
 #include "littreelle.h"
 
-using namespace std;
-
+/**
+  \class littcomplexe
+  \brief La classe concernant les littérales complexes
+ */
 class littcomplexe : public littnumber {
     littNumerique* partRe;
     littNumerique* partIm;
 
 public:
+    //! \brief Constructeur de littérale complexe
+    //! \param    b             littNumerique*
+    //! \param    a             littNumerique*
     littcomplexe(littNumerique* a, littNumerique* b)
     {
         partRe = a;
         partIm = b;
     }
 
+    //! \brief Constructeur de recopie littérale complexe
     littcomplexe(littcomplexe const&);
 
+    //! \brief Destructeur de littérale complexe
+    ~littcomplexe()
+    {
+        delete partRe;
+        delete partIm;
+    }
+
+
+    //! \brief Getter de la partie réelle
+    //! \return    Un \e littNumerique* possédant le contenue de la partie réelle.
     littNumerique* getPartRe() const { return partRe; }
+    //! \brief Getter de la partie imaginaire
+    //! \return    Un \e littNumerique* possédant le contenue de la partie imaginaire.
     littNumerique* getPartIm() const { return partIm; }
 
     void simplifier() {}
@@ -54,13 +84,6 @@ public:
         f.append(getPartIm()->affichage());
         return f;
     }
-
-    ~littcomplexe()
-    {
-        delete partRe;
-        delete partIm;
-    }
-
     /*==========*/
     littnumber* operator+(littnumber* a);
     /*==========*/

@@ -223,34 +223,15 @@ littrat* littrat::operator+(littrat* b){
 }
 
 
-littrat& littrat::operator-(littrat& b){
-    littrat* res=new littrat(this->getNum()*b.den-this->getDen()*b.num,this->getDen()*b.den);
-    res->simplifier();
-    return (*res);
-}
-
 littrat* littrat::operator-(littrat* b){
         littrat* res=new littrat(this->getNum()*b->den-this->getDen()*b->num,this->getDen()*b->den);
         res->simplifier();
         return (res);
 }
-
-littrat& littrat::operator*(littrat& b){
-    littrat* res=new littrat(this->getNum()*b.num,this->getDen()*b.den);
-    res->simplifier();
-    return (*res);
-}
-
 littrat* littrat::operator*(littrat* b){
     littrat* res=new littrat(this->getNum()*b->num,this->getDen()*b->den);
     res->simplifier();
     return res;
-}
-
-littrat& littrat::operator/(littrat& b){
-    littrat* res=new littrat(this->getNum()*b.den,this->getDen()*b.num);
-    res->simplifier();
-    return (*res);
 }
 
 littrat* littrat::operator/(littrat* b){

@@ -113,8 +113,8 @@ public slots:
     //SLOTS pour les opérateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
     void moinsPressed(){commande->insert("-");getNextCommande();}
-    void divPressed(){commande->insert("/");}
-    void mulPressed(){commande->insert("*");}
+    void divPressed(){commande->insert("/");getNextCommande();}
+    void mulPressed(){commande->insert("*");getNextCommande();}
     void pointPressed(){commande->insert(".");}
 
     //SLOTS pour les opérateurs numériques

@@ -21,7 +21,6 @@ SOURCES += \
     controleur.cpp \
     item.cpp \
     littcomplexe.cpp \
-    litteralemanager.cpp \
     pile.cpp \
     littatome.cpp \
     alitt.cpp \
@@ -65,7 +64,6 @@ HEADERS += \
     exceptions.h \
     item.h \
     littcomplexe.h \
-    litteralemanager.h \
     pile.h \
     littatome.h \
     add.h \

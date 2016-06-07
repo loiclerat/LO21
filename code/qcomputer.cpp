@@ -1,4 +1,4 @@
-﻿#include "qcomputer.h"
+#include "qcomputer.h"
 
 /****
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
@@ -292,10 +292,6 @@ void QComputer::refresh(){//affichage etat pile
         vuepile->item(i,0)->setText("");
     }
     unsigned int nb=0;
-    /*ici le item est une fonction de Qt et pas notre classe item:
-    *"Returns the item for the given row and column if one has been set; otherwise returns 0."
-    * setText a besoin d'un string
-    */
     for (Pile::iterator it=pile->begin(); nb<pile->getNbItemsToAffiche() && it!=pile->end();++it, ++nb)
         vuepile->item(pile->getNbItemsToAffiche()-nb-1,0)->setText((*it).affichage());
 

@@ -1,4 +1,4 @@
-﻿/**
+/**
 \file item.cpp
 \date 03/06/2016
 \author LoÃƒÂ¯c Lerat, AndrÃƒÂ©a Vibert, ThÃƒÂ©o Hordequin
@@ -50,7 +50,7 @@ void Controleur::commande(const QString& c){
     // empilement de la ref
 
     operateur* op;
-
+try{
     if (estLitterale(c)!=""){
         if (estLitterale(c)=="entiere"){
             littEntiere* l=new littEntiere(c.toInt());
@@ -92,7 +92,10 @@ void Controleur::commande(const QString& c){
         }
     }
     else littAff.setMessage("Erreur : commande inconnue");
-
+}
+    catch(ComputerException& c){
+        littAff.setMessage(c.getInfo());
+    }
 
 }
 

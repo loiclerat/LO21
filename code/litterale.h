@@ -42,7 +42,7 @@ public :
     //! \param    f         QString
     //! \return    Un \e QString possédant tout l'affichage de la litterale.
     //!
-    virtual QString affichage(QString f="")const=0;//a definir
+    virtual QString affichage(QString f="")const=0;
     //! \brief       Simplificaiton de la litterale
     //!
     virtual void simplifier(){}/*permet de simplifier les litt num

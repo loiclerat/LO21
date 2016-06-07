@@ -41,7 +41,7 @@ public:
     }
     //! \brief Destructeur de littérale rationnelle
     ~littrat() {}
-    void simplifier();
+    litterale* simplifier();
 
     //! \brief Getter du numérateur
     //! \return    Un \e entier possédant le contenue du numérateur.

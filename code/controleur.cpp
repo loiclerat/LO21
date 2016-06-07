@@ -27,7 +27,7 @@ operateur* Controleur::estOperateur(const QString s){
 QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
-    if(s.toInt(&ok) || s=="0") return "entiere";//! \brief Test pour voir s'il s'agit d'une littEntiere
+    if(s.toInt(&ok) || s=="") return "entiere";//! \brief Test pour voir s'il s'agit d'une littEntiere
     else {
         if(s.toFloat(&ok)) return "reelle"; //! \brief Test pour voir s'il s'agit d'une littReelle
         else return "";
@@ -60,7 +60,7 @@ void Controleur::commande(const QString& c){
                 QStringList list = c.split(".");
                 QString ent=list[0]; QString dec=list[1];
                 if (dec=="") {
-                    littEntiere* l=new littEntiere(c.toInt());
+                    littEntiere* l=new littEntiere(ent.toInt());
                     littAff.push(littMng.addLitterale(l));
                 }
                 else {

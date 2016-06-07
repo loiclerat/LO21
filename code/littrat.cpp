@@ -1,7 +1,7 @@
 #include "littrat.h"
 
 
-void littrat::simplifier(){
+litterale* littrat::simplifier(){
     if (den==0) throw ComputerException("Denominateur = 0");
     int a=num, b=den;
     if (a<0) a=-a; if (b<0) b=-b;
@@ -10,6 +10,9 @@ void littrat::simplifier(){
     if (den<0) {
         den=-den;
         num=-num;
+    }
+    if (den==1){ //retourner un entier
+
     }
 }
 

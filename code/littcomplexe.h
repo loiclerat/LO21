@@ -55,7 +55,7 @@ public:
     //! \return    Un \e littNumerique* possédant le contenue de la partie imaginaire.
     littNumerique* getPartIm() const { return partIm; }
 
-    void simplifier() {}
+    litterale* simplifier();
 
     bool isNull(){
         if(partRe->isNull()==true){

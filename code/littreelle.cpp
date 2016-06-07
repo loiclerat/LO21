@@ -248,9 +248,10 @@ littNumerique* littReelle::operator/(littNumerique* a)
     }
 }
 
-void littReelle::simplifier()
+litterale *littReelle::simplifier()
 {
     if (this->decimale == 0) {
-        throw ComputerException("entier");
+        littEntiere* l = new littEntiere(this->getEntiere());
+        return l;
     }
 }

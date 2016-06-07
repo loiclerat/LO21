@@ -23,7 +23,7 @@ Description de la classe litterale entière
  */
 
 class littEntiere : public littNumerique {
-    int valeur; /*!< Entier correspondant à la valeur  */
+    int valeur; /*!< Entier correspondant �  la valeur  */
 
 public:
     //! \brief Constructeur de littérale entière
@@ -38,7 +38,6 @@ public:
     //! \return    Un \e entier possédant le contenue de la littérale.
     //!
     int getValeur() const { return valeur; }
-    void simplifier() {}
 
     bool isNull(){
         if(valeur==0){
@@ -78,7 +77,7 @@ public:
     /*==========*/
     //! \brief       Operator / de la litterale concernant la division entière
     //! \details    Surchage qui permet un niveau de granularité plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi un littérale numérique qui correspond à un rationnel
+    //!             renvoi un littérale numérique qui correspond �  un rationnel
     //! \param    a         littEntiere*
     //! \return    Un \e littNumerique* -> pointeur vers une littérale numérique qui contient la construction concrète d'un objet fille.
     //!

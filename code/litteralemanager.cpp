@@ -25,7 +25,10 @@ void litteraleManager::agrandissementCapacite() {
 
 litterale& litteraleManager::addLitterale(litterale *l){       //Ajout LittÃ©rale
     if (nb==nbMax) agrandissementCapacite();
-    litts[nb]=l;
+    litterale* val=l->simplifier();
+    litts[nb]=val;//ajout de la version simplifiée de la littérale
+    if(l!=val)
+        delete l;
     return *litts[nb++];
 }
 

@@ -6,6 +6,12 @@ littcomplexe::littcomplexe(littcomplexe const& source)
     this->partRe = source.getPartIm();
 }
 
+litterale* littcomplexe::simplifier(){
+    if (this->getPartIm()==0){
+        return (this->getPartRe());
+    }
+}
+
 littnumber* littcomplexe::operator+(littnumber* a)
 {
 

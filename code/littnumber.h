@@ -17,7 +17,7 @@ Description de la classe litterale nombre
 using namespace std;
 /**
   \class littnumber
-  \brief La classe correspond à toutes les littérales correspondant aux nombres
+  \brief La classe correspond �  toutes les littérales correspondant aux nombres
  */
 class littnumber : public litterale
 {
@@ -30,7 +30,7 @@ public:
     virtual ~littnumber(){}
 
     virtual QString affichage(QString f="")const=0;//a definir
-    virtual void simplifier(){}
+    virtual litterale* simplifier(){return this;}
     virtual bool isNull()=0;
     //! \brief       Détermine si la littérale nombre est positive.
     //! \return    Un \e booléen : true si la litterale est nulle, faux sinon.

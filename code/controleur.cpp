@@ -1,3 +1,14 @@
+/**
+\file item.cpp
+\date 03/06/2016
+\author LoÃƒÂ¯c Lerat, AndrÃƒÂ©a Vibert, ThÃƒÂ©o Hordequin
+\version 1.0
+\brief  DÃ©finition des mÃ©thodes de la classe Controleur
+
+
+**/
+
+
 #include "controleur.h"
 #include "exceptions.h"
 
@@ -11,12 +22,16 @@ operateur* Controleur::estOperateur(const QString s){
     return 0;
 }
 
+
+//! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaît pas la suite de symboles entrés
 QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
-    s.toInt(&ok);
-    if (ok) return "entiere";
-    else return "";
+    if(s.toInt(&ok) || s=="0") return "entiere";//! \brief Test pour voir s'il s'agit d'une littEntiere
+    else {
+        if(s.toFloat(&ok)) return "reelle"; //! \brief Test pour voir s'il s'agit d'une littReelle
+        else return "";
+    }
 }
 
 void Controleur::commande(const QString& c){
@@ -35,9 +50,25 @@ void Controleur::commande(const QString& c){
 
     operateur* op;
 
-    if (estLitterale(c)=="entiere"){
-        littEntiere* l=new littEntiere(c.toInt());
-        littAff.push(littMng.addLitterale(l));
+    if (estLitterale(c)!=""){
+        if (estLitterale(c)=="entiere"){
+            littEntiere* l=new littEntiere(c.toInt());
+            littAff.push(littMng.addLitterale(l));
+        }
+        else {
+            if (estLitterale(c)=="reelle"){
+                QStringList list = c.split(".");
+                QString ent=list[0]; QString dec=list[1];
+                if (dec=="") {
+                    littEntiere* l=new littEntiere(c.toInt());
+                    littAff.push(littMng.addLitterale(l));
+                }
+                else {
+                    littReelle* l=new littReelle(ent.toInt(),c.toFloat()-ent.toInt());
+                    littAff.push(littMng.addLitterale(l));
+                }
+            }
+        }
     }
     else if ((op = estOperateur(c)) != 0){
         if (op->getArite()==1){

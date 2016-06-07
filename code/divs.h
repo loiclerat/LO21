@@ -7,6 +7,7 @@
 #include "littrat.h"
 #include "littentiere.h"
 #include "littreelle.h"
+#include "littcomplexe.h"
 
 
 class divs : public operateur_numerique

@@ -113,8 +113,8 @@ public slots:
     //SLOTS pour les opérateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
     void moinsPressed(){commande->insert("-");getNextCommande();}
-    void divPressed(){commande->insert("/");}
-    void mulPressed(){commande->insert("*");}
+    void divPressed(){commande->insert("/");getNextCommande();}
+    void mulPressed(){commande->insert("*");getNextCommande();}
     void pointPressed(){commande->insert(".");}
 
     //SLOTS pour les opérateurs numériques
@@ -122,7 +122,7 @@ public slots:
     void negPressed(){commande->insert("NEG");}
     void denPressed(){commande->insert("DEN");}
     void numPressed(){commande->insert("NUM");}
-    void ccomplexPressed(){commande->insert("$");}
+    void ccomplexPressed(){commande->insert("$");getNextCommande();}
     void rePressed(){commande->insert("RE");}
     void imPressed(){commande->insert("IM");}
 

@@ -9,9 +9,7 @@
 #include "littcomplexe.h"
 
 
-class sous : public operateur_numerique
-{
-    QString symbol;
+class sous : public operateur_numerique{
 public:
     sous():operateur_numerique(2,"-"){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);

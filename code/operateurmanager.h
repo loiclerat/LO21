@@ -1,4 +1,4 @@
-﻿/**
+/**
 \file operateurmanager.h
 \date 03/06/2016
 \author Loïc Lerat, Andréa Vibert, Théo Hordequin
@@ -16,6 +16,9 @@ Description de la classe operateurManager et de ses itérateurs
 #include "operateur.h"
 #include "add.h"
 #include "sous.h"
+#include "mul.h"
+#include "divs.h"
+#include "dollar.h"
 #include <QString>
 
 /**

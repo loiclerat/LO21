@@ -6,9 +6,23 @@ littcomplexe::littcomplexe(littcomplexe const& source)
     this->partRe = source.getPartIm();
 }
 
-litterale* littcomplexe::simplifier(){
+litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littérale de sa partie réelle  si sa partie imaginaire est nulle
     if (this->getPartIm()==0){
-        return (this->getPartRe());
+        littEntiere* ent1 = dynamic_cast<littEntiere*>(this->getPartRe());
+        littrat* rat1 = dynamic_cast<littrat*>(this->getPartRe());
+        littReelle* ree1 = dynamic_cast<littReelle*>(this->getPartRe());
+        if (ent1 != 0) {
+            littEntiere* l = new littEntiere(ent1->getValeur());
+            return l;
+        }
+        else if (rat1 != 0) {
+            littrat* l = new littrat(rat1->getNum(),rat1->getDen());
+            return l;
+        }
+        else if (ree1 != 0) {
+            littReelle* l = new littReelle(ree1->getEntiere(), ree1->getDecimale());
+            return l;
+        }
     }
     else return this;
 }

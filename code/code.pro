@@ -78,8 +78,6 @@ HEADERS += \
     sous.h \
     divs.h \
     divent.h \
-    opeunaire.h \
-    opebinaire.h \
     mod.h \
     neg.h \
     den.h \

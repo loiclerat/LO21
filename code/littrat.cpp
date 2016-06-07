@@ -12,9 +12,10 @@ litterale* littrat::simplifier(){
         num=-num;
     }
     if (den==1){ //retourner un entier
-
-
+        littEntiere* l= new littEntiere(this->getNum());
+        return l;
     }
+    else return this;
 }
 
 littnumber* littrat::operator+(littnumber* a){

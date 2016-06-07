@@ -10,6 +10,7 @@ litterale* littcomplexe::simplifier(){
     if (this->getPartIm()==0){
         return (this->getPartRe());
     }
+    else return this;
 }
 
 littnumber* littcomplexe::operator+(littnumber* a)

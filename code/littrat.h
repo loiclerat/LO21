@@ -32,12 +32,6 @@ public:
     {
         num = n;
         den = d;
-        try {
-            simplifier();
-        }
-        catch (ComputerException e) {
-            e.getInfo();
-        }
     }
     //! \brief Destructeur de littérale rationnelle
     ~littrat() {}

@@ -31,11 +31,7 @@ public:
     //! \brief Constructeur de littérale complexe
     //! \param    b             littNumerique*
     //! \param    a             littNumerique*
-    littcomplexe(littNumerique* a, littNumerique* b)
-    {
-        partRe = a;
-        partIm = b;
-    }
+    littcomplexe(littNumerique* a, littNumerique* b):partRe(a),partIm(b){}
 
     //! \brief Constructeur de recopie littérale complexe
     littcomplexe(littcomplexe const&);

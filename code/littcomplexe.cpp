@@ -6,8 +6,8 @@ littcomplexe::littcomplexe(littcomplexe const& source)
     this->partRe = source.getPartIm();
 }
 
-litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littérale de sa partie réelle  si sa partie imaginaire est nulle
-    if (this->getPartIm()==0){
+litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littérale de sa partie réelle si sa partie imaginaire est nulle
+    if (this->getPartIm()->isNull()){
         littEntiere* ent1 = dynamic_cast<littEntiere*>(this->getPartRe());
         littrat* rat1 = dynamic_cast<littrat*>(this->getPartRe());
         littReelle* ree1 = dynamic_cast<littReelle*>(this->getPartRe());

@@ -1,4 +1,4 @@
-﻿#ifndef QCOMPUTER_H
+#ifndef QCOMPUTER_H
 #define QCOMPUTER_H
 
 #include <QWidget>
@@ -97,6 +97,9 @@ public slots:
     void refresh();
     void getNextCommande();
 
+    void clearCommande(){commande->clear();}
+    void clearMessage(){message->clear();}
+
     //SLOTS pour le pave numérique
     void unPressed(){commande->insert("1");}
     void deuxPressed(){commande->insert("2"); }
@@ -147,8 +150,6 @@ public slots:
     void lastargPressed(){commande->insert("LASTARG");}
     void undoPressed(){commande->insert("UNDO");}
     void redoPressed(){commande->insert("REDO");}
-
-    void clearCommande(){commande->clear();}
 
 };
 

@@ -305,6 +305,7 @@ void QComputer::refresh(){//affichage etat pile
 
 
 void QComputer::getNextCommande(){
+    clearMessage();
     //si c'est un nombre empile si operateur on applique
     QString c=commande->text();
     controleur->commande(c);

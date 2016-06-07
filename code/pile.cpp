@@ -22,13 +22,13 @@ void Pile::agrandissementCapacite() {
 
 //! \brief Ajouter une littérale au sommet de la pile
 void Pile::push(litterale& l){
-    modificationEtat();
     if (nb==nbMax) agrandissementCapacite();
     litterale* littSimplif=l.simplifier();
     items[nb].setLitterale(*littSimplif);
     if(&l!=littSimplif)// si on a procédé à une simplification, on supprime la variable initiale (par exemple : 3$0 donne un entier 3)
         delete &l;
     nb++;
+    modificationEtat();
 }
 
 //! \brief Dépiler la littérale au sommet de la pile

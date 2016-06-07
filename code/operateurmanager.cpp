@@ -1,4 +1,4 @@
-﻿/**
+/**
 \file operateurmanager.cpp
 \date 03/06/2016
 \author Loïc Lerat, Andréa Vibert, Théo Hordequin
@@ -17,15 +17,21 @@
 
 
 
-operateurManager::operateurManager():ops(new operateur*[2]),nb(2){
+operateurManager::operateurManager():ops(new operateur*[4]),nb(4){
 
-    //! \brief Op�rateur d'addition
+    //! \brief Op�rateur d'addition
     add* addition=new add();
-    //! \brief Op�rateur de soustraction
+    //! \brief Op�rateur de soustraction
     sous* soustraction= new sous();
+    //! \brief Op�rateur de multiplication
+    mul* multiplication= new mul();
+   // //! \brief Op�rateur de division
+    divs* division= new divs();
 
     ops[0] = addition;
     ops[1] = soustraction;
+    ops[2] = multiplication;
+    ops[3] = division;
 }
 
 

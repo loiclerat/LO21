@@ -13,9 +13,9 @@ class opre : public operateur_numerique
 {
 public:
     opre():operateur_numerique(1,"RE"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
+    litterale& traitement(litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
-    litterale& traitement(litteraleManager& mng, litterale &a);
+    litterale& traitement(litterale &a);
 };
 
 

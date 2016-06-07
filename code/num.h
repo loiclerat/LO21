@@ -15,9 +15,9 @@ class num : public operateur_numerique
 {
 public:
     num():operateur_numerique(1,"NUM"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
+    litterale& traitement(litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
-    litterale& traitement(litteraleManager& mng, litterale &a);
+    litterale& traitement(litterale &a);
 };
 
 

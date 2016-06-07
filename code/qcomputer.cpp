@@ -21,7 +21,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     message = new QLineEdit(this);
     commande = new QLineEdit(this);
     pile=new Pile;
-    controleur = new Controleur(litteraleManager::getInstance(), operateurManager::getInstance(), *pile);
+    controleur = new Controleur(operateurManager::getInstance(), *pile);
 
     vuepile = new QTableWidget(pile->getNbItemsToAffiche(),1,this);
     vuepile->horizontalHeader()->setVisible(false);

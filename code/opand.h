@@ -14,8 +14,8 @@ class opand : public operateur_logique
 {
 public:
     opand():operateur_logique(2,"AND"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale &a){
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 

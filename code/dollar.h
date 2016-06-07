@@ -14,8 +14,8 @@ class dollar : public operateur_numerique
 {
 public:
     dollar():operateur_numerique(2,"$"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale &a){
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 

@@ -13,8 +13,8 @@ class opnot : public operateur_logique
 {
 public:
     opnot():operateur_logique(2,"NOT"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
+    litterale& traitement(litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
-    litterale& traitement(litteraleManager& mng, litterale &a);
+    litterale& traitement(litterale &a);
 };
 #endif // OPNOT_H

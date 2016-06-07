@@ -7,15 +7,13 @@
 #include <QDebug>
 
 #include "pile.h"
-#include "litteralemanager.h"
 #include "operateurmanager.h"
 
 class Controleur {
-    litteraleManager& littMng;
     Pile& littAff;
     operateurManager& opeMng;
 public:
-    Controleur(litteraleManager& m, operateurManager& o, Pile& v):littMng(m), littAff(v), opeMng(o){}
+    Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o){}
     void commande(const QString& c);
 
 

@@ -13,8 +13,8 @@ class opor : public operateur_logique
 {
 public:
     opor():operateur_logique(2,"OR"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale &a){
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 

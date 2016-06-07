@@ -13,7 +13,7 @@
 class dollar : public operateur_numerique
 {
 public:
-    dollar(QString s):operateur_numerique(2,s){}
+    dollar():operateur_numerique(2,"$"){}
     litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
     litterale& traitement(litteraleManager& mng, litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}

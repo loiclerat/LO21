@@ -17,7 +17,7 @@
 
 
 
-operateurManager::operateurManager():ops(new operateur*[4]),nb(4){
+operateurManager::operateurManager():ops(new operateur*[5]),nb(5){
 
     //! \brief Opï¿½rateur d'addition
     add* addition=new add();
@@ -25,13 +25,16 @@ operateurManager::operateurManager():ops(new operateur*[4]),nb(4){
     sous* soustraction= new sous();
     //! \brief Opï¿½rateur de multiplication
     mul* multiplication= new mul();
-   // //! \brief Opï¿½rateur de division
+    //! \brief Opï¿½rateur de division
     divs* division= new divs();
+    //! \brief Opï¿½rateur de création de complexe
+    dollar* complexe= new dollar();
 
     ops[0] = addition;
     ops[1] = soustraction;
     ops[2] = multiplication;
     ops[3] = division;
+    ops[4] = complexe;
 }
 
 

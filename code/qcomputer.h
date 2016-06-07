@@ -122,7 +122,7 @@ public slots:
     void negPressed(){commande->insert("NEG");}
     void denPressed(){commande->insert("DEN");}
     void numPressed(){commande->insert("NUM");}
-    void ccomplexPressed(){commande->insert("$");}
+    void ccomplexPressed(){commande->insert("$");getNextCommande();}
     void rePressed(){commande->insert("RE");}
     void imPressed(){commande->insert("IM");}
 

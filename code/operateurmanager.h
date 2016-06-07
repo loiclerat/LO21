@@ -18,6 +18,7 @@ Description de la classe operateurManager et de ses itérateurs
 #include "sous.h"
 #include "mul.h"
 #include "divs.h"
+#include "dollar.h"
 #include <QString>
 
 /**

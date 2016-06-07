@@ -37,13 +37,7 @@ public:
     //! \brief Constructeur de littérale réelle ( arguments : e = entier (matisse), d = réel (décimale) )
     //! \param    e         int
     //! \param    d         float
-    littReelle(int e, float d)
-        : valeur(e + d)
-        , entiere(e)
-        , decimale(d)
-    {
-        simplifier();
-    }
+    littReelle(int e, float d): valeur(e + d), entiere(e), decimale(d){}
 
     //! \brief Constructeur de littérale réelle ( arguments : d = réelle (décimale))
     //! \param    d         float

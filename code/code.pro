@@ -48,7 +48,8 @@ SOURCES += \
     opinf.cpp \
     opand.cpp \
     opor.cpp \
-    opnot.cpp
+    opnot.cpp \
+    littprogramme.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -94,5 +95,6 @@ HEADERS += \
     opinf.h \
     opand.h \
     opor.h \
-    opnot.h
+    opnot.h \
+    littprogramme.h
     qcomputer.h

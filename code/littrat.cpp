@@ -13,6 +13,7 @@ litterale* littrat::simplifier(){
     }
     if (den==1){ //retourner un entier
 
+
     }
 }
 

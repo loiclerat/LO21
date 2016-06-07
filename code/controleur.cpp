@@ -48,7 +48,7 @@ void Controleur::commande(const QString& c){
     // appel de traitement avec les valeurs
     // crÃ©ation d'une litterale dans traitement puis retour de ref
     // empilement de la ref
-
+    littAff.setMessage("");
     operateur* op;
 try{
     if (estLitterale(c)!=""){

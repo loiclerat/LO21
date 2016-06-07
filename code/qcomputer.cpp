@@ -260,7 +260,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     message->setStyleSheet("color: blue;"
                            "background-color: grey;"
                            "selection-color: grey;"
-                           "selection-background-color: blue;");
+                           "selection-background-color: white;");
 
 
     /*connecter que la commande emet signal return pressed
@@ -297,15 +297,14 @@ void QComputer::refresh(){//affichage etat pile
 
     //.. et message utilisateur
     message->setText(pile->getMessage());
-    /*if(pile->getMessage()!=""){
-        QSound bells("mysounds/bells.wav");
-        bells.play();}*/
-
+    if(message->text()!=""){
+        QSound alarm("Chewbacca_noise.wav");
+        alarm.play();
+    }
 }
 
 
 void QComputer::getNextCommande(){
-    clearMessage();
     //si c'est un nombre empile si operateur on applique
     QString c=commande->text();
     controleur->commande(c);

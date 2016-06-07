@@ -98,7 +98,6 @@ public slots:
     void getNextCommande();
 
     void clearCommande(){commande->clear();}
-    void clearMessage(){message->clear();}
 
     //SLOTS pour le pave numérique
     void unPressed(){commande->insert("1");}

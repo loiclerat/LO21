@@ -29,12 +29,32 @@ operateurManager::operateurManager():ops(new operateur*[5]),nb(5){
     divs* division= new divs();
     //! \brief Opï¿½rateur de création de complexe
     dollar* complexe= new dollar();
+    //! \brief Opï¿½rateur pour obtenir le negatif
+    neg* negatif= new neg();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test ==
+    opegal* egalite= new opegal();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test !=
+    opdiff* difference= new opdiff();
+    //! \brief Opï¿½rateur pour obtenir resultat du test <=
+    opegalinf* inferouegal= new opegalinf();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    opegalsup* superouegal= new opegalsup();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    opinf* inferiorite= new opinf();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    opsup* superiorite= new opsup();
 
     ops[0] = addition;
     ops[1] = soustraction;
     ops[2] = multiplication;
     ops[3] = division;
     ops[4] = complexe;
+    ops[5] = negatif; //ne marche pas il faut des litt atome pour le faire
+    ops[6] = difference;
+    ops[7] = superiorite;
+    ops[8] = inferiorite;
+    ops[9] = superouegal;
+    ops[10] = inferouegal;
 }
 
 

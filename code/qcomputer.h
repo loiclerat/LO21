@@ -32,6 +32,7 @@ class QComputer : public QWidget{
     QPushButton* mul;
     QPushButton* div;
     QPushButton* point;
+    QPushButton* backspace;
     QPushButton* entree;
 
 
@@ -122,7 +123,7 @@ public slots:
 
     //SLOTS pour les opérateurs numériques
     void divBPressed(){commande->insert("DIV");}
-    void negPressed(){commande->insert("NEG");}
+    void negPressed(){commande->insert("NEG");getNextCommande();}
     void denPressed(){commande->insert("DEN");}
     void numPressed(){commande->insert("NUM");}
     void ccomplexPressed(){commande->insert("$");getNextCommande();}
@@ -134,11 +135,11 @@ public slots:
     void orbPressed(){commande->insert("OR");}
     void notbPressed(){commande->insert("NOT");}
     void egalPressed(){commande->insert("=");}
-    void diffPressed(){commande->insert("!=");}
-    void supPressed(){commande->insert(">");}
-    void infPressed(){commande->insert("<");}
-    void supegPressed(){commande->insert(">=");}
-    void infegPressed(){commande->insert("=<");}
+    void diffPressed(){commande->insert("!=");getNextCommande();}
+    void supPressed(){commande->insert(">");getNextCommande();}
+    void infPressed(){commande->insert("<");getNextCommande();}
+    void supegPressed(){commande->insert(">=");getNextCommande();}
+    void infegPressed(){commande->insert("=<");getNextCommande();}
 
     //SLOTS pour les opérateurs conditionnels
     void iftPressed(){commande->insert("IFT");}

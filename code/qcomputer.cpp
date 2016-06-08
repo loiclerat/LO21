@@ -4,7 +4,7 @@
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
  * si l'on veut valider la ligne par notre propre clavier
  *
- * Commencé pour le + à prendre en compte le fait qu'une fois cliqué on empile direct, à voir si ça marche
+ * Commencé pour le + �  prendre en compte le fait qu'une fois cliqué on empile direct, �  voir si ça marche
  ****/
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
@@ -257,7 +257,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
 
     message->setReadOnly(true);
-    message->setStyleSheet("color: blue;"
+    message->setStyleSheet("color: white;"
                            "background-color: grey;"
                            "selection-color: grey;"
                            "selection-background-color: white;");
@@ -268,7 +268,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
         connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
 
-        //connexion du pavé numérique à la ligne de commande
+        //connexion du pavé numérique �  la ligne de commande
         connect(un, SIGNAL(pressed()), this, SLOT(unPressed()));
         connect(deux, SIGNAL(pressed()), this, SLOT(deuxPressed()));
         connect(trois, SIGNAL(pressed()), this, SLOT(troisPressed()));
@@ -284,7 +284,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     setWindowTitle("UTComputer");
 }
 
- //! \brief la fonction refresh() permet de mettre à jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
+ //! \brief la fonction refresh() permet de mettre �  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
     //lÃ  on efface tout ce qu'il y a dans l'affichage la pile

@@ -19,6 +19,13 @@ Description de la classe operateurManager et de ses itérateurs
 #include "mul.h"
 #include "divs.h"
 #include "dollar.h"
+#include "neg.h"
+#include "opegal.h"
+#include "opdiff.h"
+#include "opegalinf.h"
+#include "opegalsup.h"
+#include "opinf.h"
+#include "opsup.h"
 #include <QString>
 
 /**
@@ -48,7 +55,7 @@ public:
         operateurManager* instance;
         //! \brief Constructeur
         Handler():instance(0){}
-        //! \brief Destructeur appelé à la fin du programme
+        //! \brief Destructeur appelé �  la fin du programme
         ~Handler(){ delete instance; }
     };
 

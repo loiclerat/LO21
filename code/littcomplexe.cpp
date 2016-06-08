@@ -113,7 +113,7 @@ littnumber* littcomplexe::operator/(littnumber* a)
     littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
     if (ent1 != 0) {
-
+        if (ent1->getValeur()==0) throw ComputerException("Denominateur = 0");
         littcomplexe* r = new littcomplexe(*(this->getPartRe()) / ent1, *(this->getPartIm()) / ent1);
         return r;
     }

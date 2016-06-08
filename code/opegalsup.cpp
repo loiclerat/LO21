@@ -7,7 +7,7 @@ litterale& opegalsup::traitement(litterale& a, litterale& b)
     littnumber* num2 = dynamic_cast<littnumber*>(&b);
 
     if (num1 != 0 && num2 != 0) {
-        littnumber* res = (*(num1)-num2);
+        littnumber* res = (*(num1)-(num2));
         if (res->isPos() == true || res->isNull()==true) {
             littEntiere* ret = new littEntiere(1);
             return *ret;

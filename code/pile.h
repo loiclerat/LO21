@@ -47,6 +47,8 @@ public:
     Pile():items(0),nb(0),nbMax(0),message(""),nbAffiche(4){}
     //! \brief Destructeur
     ~Pile();
+    Pile(Pile& p);
+    Pile& operator=(Pile& p);
 
     //! \brief Ajouter une littérale au sommet de la pile
     void push(litterale& l);
@@ -63,9 +65,13 @@ public:
     //! \brief Nombre d'Items à afficher
     unsigned int getNbItemsToAffiche() const { return nbAffiche; }
     //! \brief Définir le message à afficher à l'utilisateur
-    void setMessage(const QString& m) { message=m; modificationEtat(); }
+    void setMessage(const QString& m) { message=m; modificationEtat();}
     //! \brief Message à afficher
     QString getMessage() const { return message; }
+    //! \brief Capacité de la pile
+    unsigned int getCapacite() const { return nbMax; }
+    //! \brief Tableau d'Items
+    Item* getItems() const { return items; }
 
 
     // === ITERATEURS ===
@@ -90,11 +96,17 @@ public:
         bool operator!=(iterator it) const { return current!=it.current; }
         //! \brief Surcharge de l'opérateur ++ pour avancer vers l'Item suivant
         iterator& operator++(){ --current; return *this; }
+        //! \brief Surcharge de l'opérateur -- pour avancer vers l'Item suivant
+        iterator& operator--(){ ++current; return *this; }
     };
     //! \brief Retourne un itérateur positionné sur le premier Item de la Pile
     iterator begin() { return iterator(items+nb-1); }
     //! \brief Retourne un itérateur positionné après le dernier Item de la Pile
     iterator end() { return iterator(items-1); }
+    //! \brief Retourne un itérateur positionné sur le dernier Item de la Pile
+    iterator begin_inverse() { return iterator(items); }
+    //! \brief Retourne un itérateur positionné sur le dernier Item de la Pile
+    iterator end_inverse() { return iterator(items+nb); }
 
 
     /**

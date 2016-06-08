@@ -26,6 +26,8 @@ public:
 
     //! \brief Constructeur
     Item():lit(0){}
+    //! \brief Destructeur
+    ~Item(){}
     //! \brief Associer une littÃ©rale Ã  l'Item
     void setLitterale(litterale& l) { lit=&l; }
     //! \brief Dissocier l'Item de la littÃ©rale associÃ©e

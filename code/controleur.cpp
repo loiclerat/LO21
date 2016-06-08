@@ -70,6 +70,7 @@ try{
                 }
             }
         }
+        save();
     }
     else if ((op = estOperateur(c)) != 0){
         if (op->getArite()==1){
@@ -77,6 +78,7 @@ try{
                 litterale& v = littAff.top();
                 littAff.pop();
                 littAff.push(op->traitement(v));
+                save();
             }
             else littAff.setMessage("Erreur : pas assez d'arguments");
         }
@@ -87,6 +89,7 @@ try{
                 litterale& v2 = littAff.top();
                 littAff.pop();
                 littAff.push(op->traitement(v2, v1));
+                save();
             }
             else littAff.setMessage("Erreur : pas assez d'arguments");
         }
@@ -97,5 +100,15 @@ try{
         littAff.setMessage(c.getInfo());
     }
 
+}
+
+
+void Controleur::save(){
+    careTaker.add(saveEtatToMemento(littAff));
+    history_index++;
+    while (careTaker.taille()>history_index){
+        careTaker.pop();
+        qDebug()<<careTaker.taille();
+    }
 }
 

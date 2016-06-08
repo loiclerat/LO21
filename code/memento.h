@@ -6,36 +6,32 @@
 
 
 class Memento{
-    Pile etat;
+    Pile* etat;
 
 public:
+    Memento(Pile& p){ etat = new Pile(p); }
 
-    Memento(Pile p):etat(p){}
-    Pile getState();
-};
+    Pile& getEtat() const {return *etat;}
 
+    ~Memento(){delete etat;}
 
-
-class Originator {
-   Pile etat;
-
-public:
-
-   void setEtat(Pile etat){ this.etat = etat; }
-
-   Pile getEtat(){ return etat; }
-
-   Memento saveetatToMemento(){ return new Memento(etat); }
-
-   void getetatFromMemento(Memento Memento){ etat = Memento.getetat(); }
 };
 
 
 class CareTaker {
-
+    vector<Memento*> historique;
 
 public:
 
+    void add(Memento& etat){
+        historique.push_back(&etat);
+    }
+
+    Memento& get(unsigned int i) const { return *historique[i]; }
+
+    unsigned int taille() const { return historique.size(); }
+
+    void pop(){ historique.pop_back();}
 
 };
 

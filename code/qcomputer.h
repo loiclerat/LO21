@@ -101,6 +101,7 @@ public slots:
     void suivant();
 
     void clearCommande(){commande->clear();}
+    void backSpaceCommande(){commande->backspace();}
 
     //SLOTS pour le pave numérique
     void unPressed(){commande->insert("1");}

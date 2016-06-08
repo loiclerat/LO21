@@ -60,7 +60,8 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     div = new QPushButton("/",this);
     mul = new QPushButton("*",this);
     point = new QPushButton(".",this);
-    entree = new QPushButton("EntrÃ©e",this);
+    entree = new QPushButton("Entrer",this);
+    backspace = new QPushButton("Supp",this);
 
     opbasique = new QVBoxLayout(this);
     opbasique->addWidget(plus);
@@ -69,6 +70,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(mul);
     opbasique->addWidget(point);
     opbasique->addWidget(entree);
+    opbasique->addWidget(backspace);
 
     /** Connexion des opérateurs de base **/
 
@@ -78,6 +80,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(mul, SIGNAL(pressed()), this, SLOT(mulPressed()));
     connect(point, SIGNAL(pressed()), this, SLOT(pointPressed()));
     connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
+    connect(backspace, SIGNAL(pressed()), this, SLOT(backSpaceCommande()));
 
     /** Layout des opÃ©rateurs numÃ©riques **/
 

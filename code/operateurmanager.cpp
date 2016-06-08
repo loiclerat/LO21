@@ -14,10 +14,10 @@
 
 // Initialisation de tous les opérateurs (attributs statiques)
 
+unsigned int operateurManager::nb=12;
 
 
-
-operateurManager::operateurManager():ops(new operateur*[12]),nb(12){
+operateurManager::operateurManager():ops(new operateur*[nb]){
 
     //! \brief Op�rateur d'addition
     add* addition=new add();

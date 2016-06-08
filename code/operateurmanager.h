@@ -37,7 +37,7 @@ class operateurManager {
     //! \brief Liste des operateurs
     operateur** ops;
     //! \brief Nombre d'operateur dans la liste
-    unsigned int nb;
+    static unsigned int nb;
 public:
     //! \brief Constructeur
     operateurManager();

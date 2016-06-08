@@ -137,7 +137,7 @@ public slots:
     void andbPressed(){commande->insert("AND");}
     void orbPressed(){commande->insert("OR");}
     void notbPressed(){commande->insert("NOT");}
-    void egalPressed(){commande->insert("=");}
+    void egalPressed(){commande->insert("=");getNextCommande();}
     void diffPressed(){commande->insert("!=");getNextCommande();}
     void supPressed(){commande->insert(">");getNextCommande();}
     void infPressed(){commande->insert("<");getNextCommande();}

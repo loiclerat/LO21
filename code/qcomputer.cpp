@@ -311,3 +311,13 @@ void QComputer::getNextCommande(){
     commande->clear();
 }
 
+
+void QComputer::precedent(){
+    controleur->loadPrecedent();
+    refresh();
+}
+
+void QComputer::suivant(){
+    controleur->loadSuivant();
+    refresh();
+}

@@ -18,7 +18,9 @@ class Controleur {
     unsigned int history_index;
 
 public:
-    Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){}
+    Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
+        save();
+    }
     void commande(const QString& c);
 
     operateur* estOperateur(const QString s);
@@ -31,6 +33,8 @@ public:
     void getEtatFromMemento(Memento& m){ littAff = m.getEtat(); }
 
     void save();
+    void loadPrecedent();
+    void loadSuivant();
 
 
 };

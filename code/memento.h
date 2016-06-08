@@ -23,11 +23,15 @@ class CareTaker {
 
 public:
 
-    void add(Memento& etat){
-        historique.push_back(&etat);
+    void add(Memento& etat, unsigned int i){
+        if (i<historique.size()){
+            historique[i]=&etat;
+            qDebug()<<"bou";
+        }
+        else historique.push_back(&etat);
     }
 
-    Memento& get(unsigned int i) const { return *historique[i]; }
+    Memento& get(unsigned int i) const {return *historique[i];}
 
     unsigned int taille() const { return historique.size(); }
 

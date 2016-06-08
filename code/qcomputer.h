@@ -96,6 +96,8 @@ public :
 public slots:
     void refresh();
     void getNextCommande();
+    void precedent();
+    void suivant();
 
     void clearCommande(){commande->clear();}
 
@@ -147,8 +149,8 @@ public slots:
     void swapPressed(){commande->insert("SWAP");}
     void lastopPressed(){commande->insert("LASTOP");}
     void lastargPressed(){commande->insert("LASTARG");}
-    void undoPressed(){commande->insert("UNDO");}
-    void redoPressed(){commande->insert("REDO");}
+    void undoPressed(){precedent();}
+    void redoPressed(){suivant();}
 
 };
 

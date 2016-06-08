@@ -102,26 +102,28 @@ try{
 
 }
 
-
 void Controleur::save(){
-    careTaker.add(saveEtatToMemento(littAff), history_index);
-    history_index++;
-    while (careTaker.taille()>history_index){
-        careTaker.pop();
-    }
-}
+     qDebug()<<"save - "<<history_index;
+     careTaker.add(saveEtatToMemento(littAff), history_index);
+     history_index++;
+     while (careTaker.taille()>history_index){
+         careTaker.pop();
+         qDebug()<<"pop";
+     }
+ }
 
-void Controleur::loadPrecedent(){
-    if (history_index>1){
-        history_index--;
-        getEtatFromMemento(careTaker.get(history_index-1));
-    }
-}
+ void Controleur::loadPrecedent(){
+     if (history_index>1){
+         history_index--;
+         qDebug()<<"charger - "<<history_index-1;
+         getEtatFromMemento(careTaker.get(history_index-1));
+     }
+ }
 
-void Controleur::loadSuivant(){
-    if (history_index<careTaker.taille()){
-        history_index++;
-        getEtatFromMemento(careTaker.get(history_index-1));
-    }
-}
-
+ void Controleur::loadSuivant(){
+     if (history_index<careTaker.taille()){
+         history_index++;
+        qDebug()<<"charger - "<<history_index-1;
+         getEtatFromMemento(careTaker.get(history_index-1));
+     }
+ }

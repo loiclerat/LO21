@@ -93,5 +93,6 @@ HEADERS += \
     opand.h \
     opor.h \
     opnot.h \
-    littprogramme.h
+    littprogramme.h \
+    memento.h
     qcomputer.h

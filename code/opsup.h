@@ -13,8 +13,8 @@ class opsup : public operateur_logique
 {
 public:
     opsup():operateur_logique(2,">"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale &a){
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 

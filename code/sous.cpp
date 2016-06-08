@@ -1,7 +1,7 @@
 #include "sous.h"
 #include "exceptions.h"
 
-litterale& sous::traitement(litteraleManager& mng, litterale& a, litterale& b)
+litterale& sous::traitement(litterale& a, litterale& b)
 {
     littEntiere* ent1 = dynamic_cast<littEntiere*>(&a);
     littrat* rat1 = dynamic_cast<littrat*>(&a);
@@ -15,41 +15,41 @@ litterale& sous::traitement(litteraleManager& mng, litterale& a, litterale& b)
     if (ent1 != 0) {
         if (lta1 != 0) {
             littNumerique* res = *(ent1)-lta1;
-            return mng.addLitterale(res);
+            return *res;
         }
         else {
             littnumber* res = *(ent1)-lta2;
-            return mng.addLitterale(res);
+            return *res;
         }
     }
     else if (rat1 != 0) {
         if (lta1 != 0) {
             littNumerique* res = *(rat1)-lta1;
-            return mng.addLitterale(res);
+            return *res;
         }
         else {
             littnumber* res = *(rat1)-lta2;
-            return mng.addLitterale(res);
+            return *res;
         }
     }
     else if (ree1 != 0) {
         if (lta1 != 0) {
             littNumerique* res = *(ree1)-lta1;
-            return mng.addLitterale(res);
+            return *res;
         }
         else {
             littnumber* res = *(ree1)-lta2;
-            return mng.addLitterale(res);
+            return *res;
         }
     }
     else if (comp1 != 0) {
         if (lta1 != 0) {
             littnumber* res = *(comp1)-lta1;
-            return mng.addLitterale(res);
+            return *res;
         }
         else {
             littnumber* res = *(comp1)-lta2;
-            return mng.addLitterale(res);
+            return *res;
         }
     }
     else {

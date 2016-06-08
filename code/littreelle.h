@@ -37,23 +37,11 @@ public:
     //! \brief Constructeur de littérale réelle ( arguments : e = entier (matisse), d = réel (décimale) )
     //! \param    e         int
     //! \param    d         float
-    littReelle(int e, float d)
-        : valeur(e + d)
-        , entiere(e)
-        , decimale(d)
-    {
-        simplifier();
-    }
+    littReelle(int e, float d): valeur(e + d), entiere(e), decimale(d){}
 
     //! \brief Constructeur de littérale réelle ( arguments : d = réelle (décimale))
     //! \param    d         float
-    littReelle(float d)
-        : valeur(d)
-        , entiere(0)
-        , decimale(d)
-    {
-        simplifier();
-    } //Ex : ne prend que les .45 et le traduit directement comme un 0.45
+    littReelle(float d): valeur(d), entiere(0), decimale(d){} //Ex : ne prend que les .45 et le traduit directement comme un 0.45
 
     //pas de constructeur avec seulement e sinon on a un entier
 
@@ -69,7 +57,7 @@ public:
     //! \brief Getter de la décimale du réelle
     //! \return    Un \e entier possédant le contenue de la décimale.
     float getDecimale() const { return decimale; }
-    void simplifier();
+    litterale* simplifier();
 
     bool isNull(){
         if(valeur==0.0){

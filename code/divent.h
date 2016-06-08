@@ -14,8 +14,8 @@ class divent : public operateur_numerique
     QString symbol;
 public:
     divent():operateur_numerique(2,"DIV"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b);
-    litterale& traitement(litteraleManager& mng, litterale &a){
+    litterale& traitement(litterale &a, litterale &b);
+    litterale& traitement(litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
 };
 

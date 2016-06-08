@@ -1,7 +1,7 @@
 #include "opor.h"
 
 
-litterale& opor::traitement(litteraleManager& mng, litterale& a, litterale& b)
+litterale& opor::traitement(litterale& a, litterale& b)
 {
 
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
@@ -9,12 +9,12 @@ litterale& opor::traitement(litteraleManager& mng, litterale& a, litterale& b)
 
     if (num1 != 0 && num2 != 0) {
         if (num1->isNull() == true && num2->isNull()==true) {
-            littEntiere ret(0);
-            return mng.addLitterale(&ret);
+            littEntiere* ret = new littEntiere(1);
+            return *ret;
         }
         else {
-            littEntiere ret(1);
-            return mng.addLitterale(&ret);
+            littEntiere* ret = new littEntiere(0);
+            return *ret;
         }
     }
     else {

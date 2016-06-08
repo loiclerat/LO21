@@ -1,7 +1,7 @@
 #include "dollar.h"
 
 
-litterale& dollar::traitement(litteraleManager& mng, litterale &a, litterale &b){
+litterale& dollar::traitement(litterale &a, litterale &b){
 
     littNumerique* lta1 = dynamic_cast<littNumerique*>(&a);
     littNumerique* lta2 = dynamic_cast<littNumerique*>(&b);
@@ -9,7 +9,7 @@ litterale& dollar::traitement(litteraleManager& mng, litterale &a, litterale &b)
     if(lta1 != 0){
         if(lta2 != 0){
             littcomplexe* res = new littcomplexe(lta1,lta2);
-            return mng.addLitterale(res);
+            return *res;
         }
         else{
             throw ComputerException("Le second argument n'est pas une litterale numerique");

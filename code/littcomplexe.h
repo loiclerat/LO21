@@ -31,11 +31,7 @@ public:
     //! \brief Constructeur de littérale complexe
     //! \param    b             littNumerique*
     //! \param    a             littNumerique*
-    littcomplexe(littNumerique* a, littNumerique* b)
-    {
-        partRe = a;
-        partIm = b;
-    }
+    littcomplexe(littNumerique* a, littNumerique* b):partRe(a),partIm(b){}
 
     //! \brief Constructeur de recopie littérale complexe
     littcomplexe(littcomplexe const&);
@@ -55,7 +51,7 @@ public:
     //! \return    Un \e littNumerique* possédant le contenue de la partie imaginaire.
     littNumerique* getPartIm() const { return partIm; }
 
-    void simplifier() {}
+    litterale* simplifier();
 
     bool isNull(){
         if(partRe->isNull()==true){

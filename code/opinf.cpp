@@ -1,6 +1,6 @@
 #include "opinf.h"
 
-litterale& opinf::traitement(litteraleManager& mng, litterale& a, litterale& b)
+litterale& opinf::traitement(litterale& a, litterale& b)
 {
 
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
@@ -9,12 +9,12 @@ litterale& opinf::traitement(litteraleManager& mng, litterale& a, litterale& b)
     if (num1 != 0 && num2 != 0) {
         littnumber* res = (*(num1)-num2);
         if (res->isPos() == false && res->isNull() == false ) {
-            littEntiere ret(1);
-            return mng.addLitterale(&ret);
+            littEntiere* ret = new littEntiere(1);
+            return *ret;
         }
         else {
-            littEntiere ret(0);
-            return mng.addLitterale(&ret);
+            littEntiere* ret = new littEntiere(0);
+            return *ret;
         }
     }
     else {

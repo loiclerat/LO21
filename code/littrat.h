@@ -32,16 +32,10 @@ public:
     {
         num = n;
         den = d;
-        try {
-            simplifier();
-        }
-        catch (ComputerException e) {
-            e.getInfo();
-        }
     }
     //! \brief Destructeur de littérale rationnelle
     ~littrat() {}
-    void simplifier();
+    litterale* simplifier();
 
     //! \brief Getter du numérateur
     //! \return    Un \e entier possédant le contenue du numérateur.

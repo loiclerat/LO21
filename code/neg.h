@@ -16,9 +16,9 @@ class neg : public operateur_numerique
 {
 public:
     neg():operateur_numerique(1,"NEG"){}
-    litterale& traitement(litteraleManager& mng, litterale &a, litterale &b){
+    litterale& traitement(litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
-    litterale& traitement(litteraleManager& mng, litterale &a);
+    litterale& traitement(litterale &a);
 };
 
 

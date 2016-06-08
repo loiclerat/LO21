@@ -1,8 +1,8 @@
-#include "num.h"
+ï»¿#include "num.h"
 
 
 
-litterale& num::traitement(litteraleManager& mng, litterale &a){
+litterale& num::traitement(litterale &a){
 
     littrat* b = dynamic_cast<littrat*>(&a);
     littEntiere *c=dynamic_cast<littEntiere*>(&a);
@@ -10,14 +10,14 @@ litterale& num::traitement(litteraleManager& mng, litterale &a){
     if(b != 0)
     {
         littEntiere* t =  new littEntiere(b->getNum());
-        return mng.addLitterale(t);
+        return *t;
     }
     else{
         if(c!=0){
             littEntiere* t =  new littEntiere(c->getValeur());
-            return mng.addLitterale(t);
+            return *t;
         }
-        else throw ComputerException("On ne peut pas retourner le numérateur de cette littérale.");
+        else throw ComputerException("On ne peut pas retourner le numÃ©rateur de cette littÃ©rale.");
     }
 }
 

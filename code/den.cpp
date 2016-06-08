@@ -2,14 +2,14 @@
 
 
 
-litterale& den::traitement(litteraleManager& mng, litterale &a){
+litterale& den::traitement(litterale &a){
 
     littrat* b = dynamic_cast<littrat*>(&a);
 
     if(b != 0)
     {
-        littEntiere t(b->getDen());
-        return mng.addLitterale(&t);
+        littEntiere* t = new littEntiere(b->getDen());
+        return *t;
         }else {
             throw ComputerException("Ce n'est pas une litterale rationnelle");
 

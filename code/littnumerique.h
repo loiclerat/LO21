@@ -15,7 +15,7 @@ Description de la classe littérale numérique
 
 /**
   \class littNumerique
-  \brief La classe correspond à toutes les littérales correspondant aux littérales numériques
+  \brief La classe correspond �  toutes les littérales correspondant aux littérales numériques
  */
 class littNumerique : public littnumber{
 
@@ -27,7 +27,7 @@ public :
     //          Défini précédemment
     // **************************************** //
     virtual QString affichage(QString f="")const=0;//a definir
-    virtual void simplifier(){}
+    virtual litterale* simplifier(){return this;}
     virtual bool isNull()=0;
     virtual bool isPos()=0;
 

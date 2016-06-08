@@ -13,7 +13,6 @@
 #include "pile.h"
 #include "controleur.h"
 #include "operateurmanager.h"
-#include "litteralemanager.h"
 
 class QComputer : public QWidget{
     Q_OBJECT
@@ -97,8 +96,12 @@ public :
 public slots:
     void refresh();
     void getNextCommande();
+    void precedent();
+    void suivant();
 
-    //SLOTS pour le pave numérique
+    void clearCommande(){commande->clear();}
+
+    //SLOTS pour le pave numÃ©rique
     void unPressed(){commande->insert("1");}
     void deuxPressed(){commande->insert("2"); }
     void troisPressed(){commande->insert("3");}
@@ -110,14 +113,14 @@ public slots:
     void neufPressed(){commande->insert("9");}
     void zeroPressed(){commande->insert("0");}
 
-    //SLOTS pour les opérateurs de base
+    //SLOTS pour les opÃ©rateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
     void moinsPressed(){commande->insert("-");getNextCommande();}
     void divPressed(){commande->insert("/");getNextCommande();}
     void mulPressed(){commande->insert("*");getNextCommande();}
     void pointPressed(){commande->insert(".");}
 
-    //SLOTS pour les opérateurs numériques
+    //SLOTS pour les opÃ©rateurs numÃ©riques
     void divBPressed(){commande->insert("DIV");}
     void negPressed(){commande->insert("NEG");}
     void denPressed(){commande->insert("DEN");}
@@ -126,7 +129,7 @@ public slots:
     void rePressed(){commande->insert("RE");}
     void imPressed(){commande->insert("IM");}
 
-    //SLOTS pour les opérateurs logiques
+    //SLOTS pour les opÃ©rateurs logiques
     void andbPressed(){commande->insert("AND");}
     void orbPressed(){commande->insert("OR");}
     void notbPressed(){commande->insert("NOT");}
@@ -137,19 +140,17 @@ public slots:
     void supegPressed(){commande->insert(">=");}
     void infegPressed(){commande->insert("=<");}
 
-    //SLOTS pour les opérateurs conditionnels
+    //SLOTS pour les opÃ©rateurs conditionnels
     void iftPressed(){commande->insert("IFT");}
 
-    //SLOTS pour les opérateurs de la pile
+    //SLOTS pour les opÃ©rateurs de la pile
     void dupPressed(){commande->insert("DUP");}
     void dropPressed(){commande->insert("DROP");}
     void swapPressed(){commande->insert("SWAP");}
     void lastopPressed(){commande->insert("LASTOP");}
     void lastargPressed(){commande->insert("LASTARG");}
-    void undoPressed(){commande->insert("UNDO");}
-    void redoPressed(){commande->insert("REDO");}
-
-    void clearCommande(){commande->clear();}
+    void undoPressed(){precedent();}
+    void redoPressed(){suivant();}
 
 };
 

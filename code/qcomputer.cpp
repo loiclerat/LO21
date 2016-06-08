@@ -1,4 +1,4 @@
-﻿#include "qcomputer.h"
+#include "qcomputer.h"
 
 /****
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
@@ -21,7 +21,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     message = new QLineEdit(this);
     commande = new QLineEdit(this);
     pile=new Pile;
-    controleur = new Controleur(litteraleManager::getInstance(), operateurManager::getInstance(), *pile);
+    controleur = new Controleur(operateurManager::getInstance(), *pile);
 
     vuepile = new QTableWidget(pile->getNbItemsToAffiche(),1,this);
     vuepile->horizontalHeader()->setVisible(false);
@@ -260,7 +260,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     message->setStyleSheet("color: blue;"
                            "background-color: grey;"
                            "selection-color: grey;"
-                           "selection-background-color: blue;");
+                           "selection-background-color: white;");
 
 
     /*connecter que la commande emet signal return pressed
@@ -292,19 +292,15 @@ void QComputer::refresh(){//affichage etat pile
         vuepile->item(i,0)->setText("");
     }
     unsigned int nb=0;
-    /*ici le item est une fonction de Qt et pas notre classe item:
-    *"Returns the item for the given row and column if one has been set; otherwise returns 0."
-    * setText a besoin d'un string
-    */
     for (Pile::iterator it=pile->begin(); nb<pile->getNbItemsToAffiche() && it!=pile->end();++it, ++nb)
         vuepile->item(pile->getNbItemsToAffiche()-nb-1,0)->setText((*it).affichage());
 
     //.. et message utilisateur
     message->setText(pile->getMessage());
-    /*if(pile->getMessage()!=""){
-        QSound bells("mysounds/bells.wav");
-        bells.play();}*/
-
+    if(message->text()!=""){
+        QSound alarm("Chewbacca_noise.wav");
+        alarm.play();
+    }
 }
 
 
@@ -315,3 +311,13 @@ void QComputer::getNextCommande(){
     commande->clear();
 }
 
+
+void QComputer::precedent(){
+    controleur->loadPrecedent();
+    refresh();
+}
+
+void QComputer::suivant(){
+    controleur->loadSuivant();
+    refresh();
+}

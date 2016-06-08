@@ -1,4 +1,4 @@
-﻿/**
+/**
 \file litterale.h
 \date 03/06/2016
 \author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
@@ -45,7 +45,7 @@ public :
     virtual QString affichage(QString f="")const=0;
     //! \brief       Simplificaiton de la litterale
     //!
-    virtual void simplifier(){}/*permet de simplifier les litt num
+    virtual litterale* simplifier(){return this;}/*permet de simplifier les litt num
     *d�s leur cr�ation, �ventuellement les transformer en une autre litt num
     *si possible.
     */

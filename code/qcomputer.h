@@ -1,6 +1,7 @@
 #ifndef QCOMPUTER_H
 #define QCOMPUTER_H
 
+#include <QKeySequence>
 #include <QWidget>
 #include <QLineEdit>
 #include <QTextEdit>
@@ -24,6 +25,7 @@ class QComputer : public QWidget{
     QLineEdit* commande;
     QVBoxLayout* couchehaut;
     QTableWidget* vuepile;
+    QKeyEvent* ctrlZ;
 
     QHBoxLayout* couchebas;
     QVBoxLayout* opbasique;

@@ -17,7 +17,7 @@
 
 
 
-operateurManager::operateurManager():ops(new operateur*[5]),nb(5){
+operateurManager::operateurManager():ops(new operateur*[12]),nb(12){
 
     //! \brief Op�rateur d'addition
     add* addition=new add();
@@ -50,11 +50,12 @@ operateurManager::operateurManager():ops(new operateur*[5]),nb(5){
     ops[3] = division;
     ops[4] = complexe;
     ops[5] = negatif; //ne marche pas il faut des litt atome pour le faire
-    ops[6] = difference;
-    ops[7] = superiorite;
-    ops[8] = inferiorite;
-    ops[9] = superouegal;
-    ops[10] = inferouegal;
+    ops[6] = egalite;
+    ops[7] = difference;
+    ops[8] = superiorite;
+    ops[9] = inferiorite;
+    ops[10] = superouegal;
+    ops[11] = inferouegal;
 }
 
 

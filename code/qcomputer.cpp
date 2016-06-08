@@ -37,6 +37,11 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     vuepile->setVerticalHeaderLabels(liste);                        //on redéfini les labels pour mettre les ":"
 
 
+    /*ctrlZ = new QKeyEvent("Ctrl+z");
+    connect(ctrlZ, SIGNAL(), this, SLOT(precedent()));
+    * USAGE DU ctrl + Z
+*/
+
     // Allocation des cases du TableWidget
 
     for (unsigned int i=0 ; i<pile->getNbItemsToAffiche() ; i++)
@@ -61,7 +66,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     mul = new QPushButton("*",this);
     point = new QPushButton(".",this);
     entree = new QPushButton("Entrer",this);
-    backspace = new QPushButton("Supp",this);
+    backspace = new QPushButton("Supprimer",this);
 
     opbasique = new QVBoxLayout(this);
     opbasique->addWidget(plus);

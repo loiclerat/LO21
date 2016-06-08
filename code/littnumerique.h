@@ -32,7 +32,7 @@ public :
     virtual bool isPos()=0;
 
     virtual littnumber* operator+(littnumber* a)=0;
-    virtual littnumber* operator-(littnumber* a)=0;
+    littnumber* operator-(littnumber* a);
     virtual littnumber* operator*(littnumber* a)=0;
     virtual littnumber* operator/(littnumber* a)=0;
 
@@ -51,7 +51,6 @@ public :
     //! \return    Un \e littNumerique* -> pointeur vers une littérale numérique qui contient la construction concrète d'un objet fille.
     //!
     virtual littNumerique* operator-(littNumerique* a)=0;
-
     //! \brief       Operator * de la litterale concernant la multiplication
     //! \details    Surchage qui permet un niveau de granularité plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
     //! \param    a         littNumerique*

@@ -12,6 +12,13 @@ public:
 
     QString affichage(QString f="")const{
         f.append(str);
+        return f;
+    }
+
+    bool isNull(){
+        if(str == ""){
+            return true;
+        }else return false;
     }
 
 };

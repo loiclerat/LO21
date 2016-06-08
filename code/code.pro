@@ -48,7 +48,8 @@ SOURCES += \
     opand.cpp \
     opor.cpp \
     opnot.cpp \
-    littprogramme.cpp
+    littprogramme.cpp \
+    littnumerique.cpp
     qcomputer.cpp
 
 HEADERS += \

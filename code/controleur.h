@@ -25,6 +25,7 @@ public:
 
     operateur* estOperateur(const QString s);
     QString estLitterale(const QString s);
+    QString estLitteraleAtome(const QString s);
 
 
     // MEMENTO :

@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QPushButton>
 #include <QSound>
+#include <QRegExp>
 #include "pile.h"
 #include "controleur.h"
 #include "operateurmanager.h"

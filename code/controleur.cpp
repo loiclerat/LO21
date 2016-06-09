@@ -39,18 +39,27 @@ operateur* Controleur::estOperateur(const QString s)
     return 0;
 }
 
+QString Controleur::estLitteraleAtome(const QString s){
+    QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
+    if(rx.exactMatch(s)) return s; // ici �a devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
+    else return "";
+}
+
 //! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaît pas la suite de symboles entrés
 QString Controleur::estLitterale(const QString s)
 {
 
-    bool ok = false;
-    if (s.toInt(&ok) || s == "0")
-        return "entiere"; //! \brief Test pour voir s'il s'agit d'une littEntiere
+    bool ok=false;
+    if (!estLitteraleAtome(s).isEmpty()) return estLitteraleAtome(s);
     else {
-        if (s.toFloat(&ok))
-            return "reelle"; //! \brief Test pour voir s'il s'agit d'une littReelle
-        else
-            return "";
+        s.toInt(&ok);
+        if(ok) return "entiere";//! \brief Test pour voir s'il s'agit d'une littEntiere
+
+        else {
+            s.toFloat(&ok);
+            if(ok) return "reelle"; //! \brief Test pour voir s'il s'agit d'une littReelle
+            else return "";
+        }
     }
 }
 
@@ -112,6 +121,21 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
             if (t.length() == taille) {
                 for (int j = 0; j < taille; j++) {
                     qDebug() << (prog[j].split(']', QString::SkipEmptyParts));
+/*
+  try{
+    if (!estLitterale(c).isEmpty()){
+        if (estLitterale(c)=="entiere"){
+            littEntiere* l=new littEntiere(c.toInt());
+            littAff.push(*l);
+        }
+        else {
+            if (estLitterale(c)=="reelle"){
+                QStringList list = c.split(".");
+                QString ent=list[0]; QString dec=list[1];
+                if (dec=="") {
+                    littEntiere* l=new littEntiere(ent.toInt());// forge le int sur un
+                    littAff.push(*l);
+*/
                 }
             }
             else {
@@ -175,8 +199,11 @@ void Controleur::commande(const QString& c)
         else if (ope->getArite() == 1) {
             if (littAff.taille() >= 1) {
                 litterale& v = littAff.top();
-                littAff.pop();
-                littAff.push(ope->traitement(v));
+                litterale* ptr=&(ope->traitement(v));
+                if (ptr!=0){
+                    littAff.pop();
+                    littAff.push(*ptr);
+                }
                 save();
             }
             else
@@ -188,8 +215,10 @@ void Controleur::commande(const QString& c)
                 littAff.pop();
                 litterale& v2 = littAff.top();
                 littAff.pop();
-                littAff.push(ope->traitement(v2, v1));
+                litterale* ptr=&(ope->traitement(v2, v1));
+                littAff.push(*ptr);
                 save();
+                if (ptr==0) loadPrecedent();
             }
             else
                 littAff.setMessage("Erreur : pas assez d'arguments");

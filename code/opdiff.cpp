@@ -7,8 +7,8 @@ litterale& opdiff::traitement(litterale& a, litterale& b)
     littnumber* num2 = dynamic_cast<littnumber*>(&b);
 
     if (num1 != 0 && num2 != 0) {
-        littnumber* res = (*(num1)-num2);
-        if (res->isNull() == false) {
+        littnumber* res = (*(num1)-(num2));
+        if (res->isNull() == false) { //si la différence entre les deux n'est pas nulle alors les deux elem sont bien differents
             littEntiere* ret = new littEntiere(1);
             return *ret;
         }

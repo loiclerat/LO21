@@ -42,13 +42,7 @@ class CareTaker {
 public:
 
     //! \brief Ajout d'une sauvegarde dans l'historique
-    void add(Memento& etat, unsigned int i){
-             if (i<historique.size()){
-                 historique[i]=&etat;
-                 qDebug()<<"bou";
-            }
-            else historique.push_back(&etat);
-         }
+    void add(Memento& etat, unsigned int i);
 
     //! \brief Récupérer la ième sauvegarde dans l'historique
     Memento& get(unsigned int i) const {return *historique[i];}

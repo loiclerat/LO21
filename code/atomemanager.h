@@ -1,41 +1,19 @@
-/**
-\file operateurmanager.h
-\date 03/06/2016
-\author Loïc Lerat, Andréa Vibert, Théo Hordequin
-\version 1.0
-\brief  Operateur Manager
+#ifndef ATOMEMANAGER_H
+#define ATOMEMANAGER_H
 
-Description de la classe operateurManager et de ses itérateurs
-
-**/
-
-
-#ifndef OPERATEURMANAGER_H
-#define OPERATEURMANAGER_H
-
-#include "operateur.h"
-#include "add.h"
-#include "sous.h"
-#include "mul.h"
-#include "divs.h"
-#include "dollar.h"
-#include "neg.h"
-#include "opegal.h"
-#include "opdiff.h"
-#include "opegalinf.h"
-#include "opegalsup.h"
-#include "opinf.h"
-#include "opsup.h"
+#include "exceptions.h"
+#include "littatome.h"
 #include <QString>
+#include <QMap>
 
 /**
-  \class operateurManager
-  \brief La classe operateurManager est chargée de la gestion les operateurs
+  \class atomeManager
+  \brief La classe atomeManager est chargée de la gestion les atomes par une map
  */
-
-class operateurManager {
-    //! \brief Liste des operateurs
-    operateur** ops;
+/*
+class atomeManager {
+    //! \brief Liste des atomes
+    atome** ops;
     //! \brief Nombre d'operateur dans la liste
     static unsigned int nb;
 public:
@@ -73,12 +51,14 @@ public:
     // === ITERATEURS ===
 
     // Vérifier l'utilité du constructeur privé et du friend
-
+*/
     /**
       \class iterator
       \brief iterateur sur les objets operateur de operateurManager
       \n iterator permet un parcours séquentiel des éléments du manager en lecture et écriture
      */
+
+/*
     class iterator {
         //! \brief élément courant, sur lequel est positionné l'itérateur
         operateur** current;
@@ -99,12 +79,10 @@ public:
     //! \brief Retourne un itérateur positionné après le dernier operateur de la liste
     iterator end() { return iterator(ops+nb); }
 
-    /**
       \class const_iterator
       \brief iterateur const sur les objets operateur de operateurManager
       \n const_iterator permet un parcours séquentiel des éléments du manager en lecture seule
-     */
-    class const_iterator {
+  class const_iterator {
         //! \brief Constructeur
         operateur** current;
 
@@ -124,6 +102,5 @@ public:
     //! \brief Retourne un itérateur positionné après le dernier operateur de la liste
     const_iterator end_const() const { return const_iterator(ops+nb); }
 
-};
-
-#endif // OPERATEURMANAGER_H
+};*/
+#endif // ATOMEMANAGER_H

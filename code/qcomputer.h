@@ -1,6 +1,7 @@
 #ifndef QCOMPUTER_H
 #define QCOMPUTER_H
 
+#include <QKeySequence>
 #include <QWidget>
 #include <QLineEdit>
 #include <QTextEdit>
@@ -10,6 +11,8 @@
 #include <QDebug>
 #include <QPushButton>
 #include <QSound>
+#include <QRegExp>
+#include <QAction>
 #include "pile.h"
 #include "controleur.h"
 #include "operateurmanager.h"
@@ -24,6 +27,7 @@ class QComputer : public QWidget{
     QLineEdit* commande;
     QVBoxLayout* couchehaut;
     QTableWidget* vuepile;
+    QKeyEvent* ctrlZ;
 
     QHBoxLayout* couchebas;
     QVBoxLayout* opbasique;
@@ -32,6 +36,7 @@ class QComputer : public QWidget{
     QPushButton* mul;
     QPushButton* div;
     QPushButton* point;
+    QPushButton* backspace;
     QPushButton* entree;
 
 
@@ -89,6 +94,9 @@ class QComputer : public QWidget{
     QPushButton* neuf;
     QPushButton* zero;
 
+    QAction* annuler;
+    QAction* retablir;
+
 
 
 public :
@@ -100,6 +108,7 @@ public slots:
     void suivant();
 
     void clearCommande(){commande->clear();}
+    void backSpaceCommande(){commande->backspace();}
 
     //SLOTS pour le pave numérique
     void unPressed(){commande->insert("1");}
@@ -122,7 +131,7 @@ public slots:
 
     //SLOTS pour les opérateurs numériques
     void divBPressed(){commande->insert("DIV");}
-    void negPressed(){commande->insert("NEG");}
+    void negPressed(){commande->insert("NEG");getNextCommande();}
     void denPressed(){commande->insert("DEN");}
     void numPressed(){commande->insert("NUM");}
     void ccomplexPressed(){commande->insert("$");getNextCommande();}
@@ -133,12 +142,12 @@ public slots:
     void andbPressed(){commande->insert("AND");}
     void orbPressed(){commande->insert("OR");}
     void notbPressed(){commande->insert("NOT");}
-    void egalPressed(){commande->insert("=");}
-    void diffPressed(){commande->insert("!=");}
-    void supPressed(){commande->insert(">");}
-    void infPressed(){commande->insert("<");}
-    void supegPressed(){commande->insert(">=");}
-    void infegPressed(){commande->insert("=<");}
+    void egalPressed(){commande->insert("=");getNextCommande();}
+    void diffPressed(){commande->insert("!=");getNextCommande();}
+    void supPressed(){commande->insert(">");getNextCommande();}
+    void infPressed(){commande->insert("<");getNextCommande();}
+    void supegPressed(){commande->insert(">=");getNextCommande();}
+    void infegPressed(){commande->insert("=<");getNextCommande();}
 
     //SLOTS pour les opérateurs conditionnels
     void iftPressed(){commande->insert("IFT");}

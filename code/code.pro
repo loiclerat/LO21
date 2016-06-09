@@ -50,8 +50,9 @@ SOURCES += \
     opnot.cpp \
     littprogramme.cpp \
     littnumerique.cpp \
-    opeval.cpp
-    qcomputer.cpp
+    opeval.cpp \
+    atomemanager.cpp \
+    memento.cpp
 
 HEADERS += \
     litterale.h \
@@ -97,5 +98,6 @@ HEADERS += \
     littprogramme.h \
     memento.h \
     operande.h \
-    opeval.h
+    opeval.h \
+    atomemanager.h \
     qcomputer.h

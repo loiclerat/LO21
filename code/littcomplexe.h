@@ -37,11 +37,7 @@ public:
     littcomplexe(littcomplexe const&);
 
     //! \brief Destructeur de littérale complexe
-    ~littcomplexe()
-    {
-        delete partRe;
-        delete partIm;
-    }
+    ~littcomplexe(){}
 
 
     //! \brief Getter de la partie réelle

@@ -4,7 +4,7 @@
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
  * si l'on veut valider la ligne par notre propre clavier
  *
- * Commencé pour le + à prendre en compte le fait qu'une fois cliqué on empile direct, à voir si ça marche
+ * Commencé pour le + �  prendre en compte le fait qu'une fois cliqué on empile direct, �  voir si ça marche
  ****/
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
@@ -37,6 +37,16 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     vuepile->setVerticalHeaderLabels(liste);                        //on redéfini les labels pour mettre les ":"
 
 
+    annuler = new QAction(this);
+    annuler->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Z)); //d�claration du raccourci
+    connect(annuler, SIGNAL(triggered()), this, SLOT(precedent()));
+    this->addAction(annuler);
+
+    retablir = new QAction(this);
+    retablir->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Y)); //d�claration du raccourci
+    connect(retablir, SIGNAL(triggered()), this, SLOT(suivant()));
+    this->addAction(retablir);
+
     // Allocation des cases du TableWidget
 
     for (unsigned int i=0 ; i<pile->getNbItemsToAffiche() ; i++)
@@ -60,7 +70,8 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     div = new QPushButton("/",this);
     mul = new QPushButton("*",this);
     point = new QPushButton(".",this);
-    entree = new QPushButton("EntrÃ©e",this);
+    entree = new QPushButton("Entrer",this);
+    backspace = new QPushButton("Supprimer",this);
 
     opbasique = new QVBoxLayout(this);
     opbasique->addWidget(plus);
@@ -69,6 +80,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(mul);
     opbasique->addWidget(point);
     opbasique->addWidget(entree);
+    opbasique->addWidget(backspace);
 
     /** Connexion des opérateurs de base **/
 
@@ -78,6 +90,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(mul, SIGNAL(pressed()), this, SLOT(mulPressed()));
     connect(point, SIGNAL(pressed()), this, SLOT(pointPressed()));
     connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
+    connect(backspace, SIGNAL(pressed()), this, SLOT(backSpaceCommande()));
 
     /** Layout des opÃ©rateurs numÃ©riques **/
 
@@ -268,7 +281,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
         connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
 
-        //connexion du pavé numérique à la ligne de commande
+        //connexion du pavé numérique �  la ligne de commande
         connect(un, SIGNAL(pressed()), this, SLOT(unPressed()));
         connect(deux, SIGNAL(pressed()), this, SLOT(deuxPressed()));
         connect(trois, SIGNAL(pressed()), this, SLOT(troisPressed()));
@@ -284,7 +297,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     setWindowTitle("UTComputer");
 }
 
- //! \brief la fonction refresh() permet de mettre à jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
+ //! \brief la fonction refresh() permet de mettre �  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
     //lÃ  on efface tout ce qu'il y a dans l'affichage la pile
@@ -297,8 +310,10 @@ void QComputer::refresh(){//affichage etat pile
 
     //.. et message utilisateur
     message->setText(pile->getMessage());
-    if(message->text()!=""){
-        QSound alarm("Chewbacca_noise.wav");
+
+    //! \todo Mettre le bon chemin pour la piste audio
+    if (message->text() != ""){
+        QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si �a ne marche pas
         alarm.play();
     }
 }

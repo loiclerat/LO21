@@ -14,10 +14,10 @@
 
 // Initialisation de tous les opÃ©rateurs (attributs statiques)
 
+unsigned int operateurManager::nb=12;
 
 
-
-operateurManager::operateurManager():ops(new operateur*[5]),nb(5){
+operateurManager::operateurManager():ops(new operateur*[nb]){
 
     //! \brief Opï¿½rateur d'addition
     add* addition=new add();
@@ -29,12 +29,33 @@ operateurManager::operateurManager():ops(new operateur*[5]),nb(5){
     divs* division= new divs();
     //! \brief Opï¿½rateur de création de complexe
     dollar* complexe= new dollar();
+    //! \brief Opï¿½rateur pour obtenir le negatif
+    neg* negatif= new neg();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test ==
+    opegal* egalite= new opegal();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test !=
+    opdiff* difference= new opdiff();
+    //! \brief Opï¿½rateur pour obtenir resultat du test <=
+    opegalinf* inferouegal= new opegalinf();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    opegalsup* superouegal= new opegalsup();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    opinf* inferiorite= new opinf();
+    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    opsup* superiorite= new opsup();
 
     ops[0] = addition;
     ops[1] = soustraction;
     ops[2] = multiplication;
     ops[3] = division;
     ops[4] = complexe;
+    ops[5] = negatif; //ne marche pas il faut des litt atome pour le faire
+    ops[6] = egalite;
+    ops[7] = difference;
+    ops[8] = superiorite;
+    ops[9] = inferiorite;
+    ops[10] = superouegal;
+    ops[11] = inferouegal;
 }
 
 

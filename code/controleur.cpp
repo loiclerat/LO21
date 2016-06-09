@@ -92,6 +92,7 @@ try{
                     littAff.pop();
                     littAff.push(*ptr);
                 }
+                save();
             }
             else littAff.setMessage("Erreur : pas assez d'arguments");
         }

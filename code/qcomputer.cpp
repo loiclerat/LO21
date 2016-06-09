@@ -305,8 +305,9 @@ void QComputer::refresh(){//affichage etat pile
 
     //.. et message utilisateur
     message->setText(pile->getMessage());
-    if(message->text()!=""){
-        QSound alarm("Chewbacca_noise.wav");
+
+    if (message->text() != ""){
+        QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si ça ne marche pas
         alarm.play();
     }
 }

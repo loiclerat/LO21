@@ -21,7 +21,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     message = new QLineEdit(this);
     commande = new QLineEdit(this);
     pile=new Pile;
-    controleur = new Controleur(operateurManager::getInstance(), *pile);
+    controleur = &(Controleur::getInstance(pile));// new Controleur(operateurManager::getInstance(), *pile);
 
     vuepile = new QTableWidget(pile->getNbItemsToAffiche(),1,this);
     vuepile->horizontalHeader()->setVisible(false);
@@ -257,7 +257,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
 
     message->setReadOnly(true);
-    message->setStyleSheet("color: blue;"
+    message->setStyleSheet("color: white;"
                            "background-color: grey;"
                            "selection-color: grey;"
                            "selection-background-color: white;");

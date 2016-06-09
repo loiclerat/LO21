@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QSound>
 #include <QRegExp>
+#include <QAction>
 #include "pile.h"
 #include "controleur.h"
 #include "operateurmanager.h"
@@ -92,6 +93,9 @@ class QComputer : public QWidget{
     QPushButton* huit;
     QPushButton* neuf;
     QPushButton* zero;
+
+    QAction* annuler;
+    QAction* retablir;
 
 
 

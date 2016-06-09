@@ -49,7 +49,9 @@ SOURCES += \
     opor.cpp \
     opnot.cpp \
     littprogramme.cpp \
-    littnumerique.cpp
+    littnumerique.cpp \
+    atomemanager.cpp \
+    memento.cpp
     qcomputer.cpp
 
 HEADERS += \
@@ -94,5 +96,6 @@ HEADERS += \
     opor.h \
     opnot.h \
     littprogramme.h \
-    memento.h
+    memento.h \
+    atomemanager.h
     qcomputer.h

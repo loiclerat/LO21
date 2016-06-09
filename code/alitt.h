@@ -6,9 +6,9 @@
 
 class aLitt : public littatome
 {
-    litterale* litt;
+    litterale* pointeur;
 public:
-    aLitt(QString a, litterale* b):littatome(a),litt(b){}
+    aLitt(QString a, litterale* b):littatome(a),pointeur(b){}
 };
 
 #endif // ALITT_H

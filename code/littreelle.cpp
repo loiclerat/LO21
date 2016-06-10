@@ -254,4 +254,5 @@ litterale *littReelle::simplifier()
         littEntiere* l = new littEntiere(this->getEntiere());
         return l;
     }
+    else return this;
 }

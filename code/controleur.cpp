@@ -193,12 +193,12 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                 list.append(CreateConcrete(Programme));
             }
             else {
-                /*try {
+                try {
                     list.append(CreateConcrete(listOperande[i]));
                 }
                 catch (ComputerException& e) {
                     littAff.setMessage(e.getInfo());
-                }*/
+                }
             }
         }
         return list;
@@ -213,12 +213,12 @@ void Controleur::commande(const QString& c)
 
     QList<Operande*> list;
     list = FactoryMethod(c);
-
     for (int i = 0; i < list.size(); ++i) {
         litterale* lit = dynamic_cast<litterale*>(list[i]);
         operateur* ope = dynamic_cast<operateur*>(list[i]);
         if (lit != 0) {
             littAff.push(*lit);
+            qDebug()<<"PB";
             save();
         }
         else if (ope->getArite() == 1) {

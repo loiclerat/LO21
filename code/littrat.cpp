@@ -2,7 +2,7 @@
 
 
 litterale* littrat::simplifier(){
-    if (den==0) throw ComputerException("Denominateur = 0");
+    if (den==0) return 0;
     int a=num, b=den;
     if (a<0) a=-a; if (b<0) b=-b;
     while(a!=b){ if (a>b) a=a-b; else b=b-a; }

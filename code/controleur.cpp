@@ -74,6 +74,7 @@ QString Controleur::estLitterale(const QString s){
 Operande* Controleur::CreateConcrete(QString c)
 {
 
+
     operateur* op;
 /*
 try{
@@ -208,12 +209,12 @@ void Controleur::commande(const QString& c)
 
     QList<Operande*> list;
     list = FactoryMethod(c);
+    try{
     for (int i = 0; i < list.size(); ++i) {
         litterale* lit = dynamic_cast<litterale*>(list[i]);
         operateur* ope = dynamic_cast<operateur*>(list[i]);
         if (lit != 0) {
             littAff.push(*lit);
-            qDebug()<<"PB";
             save();
         }
         else if (ope->getArite() == 1) {
@@ -227,7 +228,7 @@ void Controleur::commande(const QString& c)
                 save();
             }
             else
-                littAff.setMessage("Erreur : pas assez d'arguments");
+                throw ComputerException("Erreur : pas assez d'arguments");
         }
         else if (ope->getArite() == 2) {
             if (littAff.taille() >= 2) {
@@ -241,10 +242,12 @@ void Controleur::commande(const QString& c)
                 if (ptr==0) loadPrecedent();
             }
             else
-                littAff.setMessage("Erreur : pas assez d'arguments");
+                throw ComputerException("Erreur : pas assez d'arguments");
         }
     }
-
+}catch (ComputerException& c){
+            littAff.setMessage(c.getInfo());
+    }
     // analyse c -> litterale ou operateur
     // si litterale : quel type ? -> addLitterale
     // si operateur : lequel ? (iterateur pour trouver l'operateur correspondant au symbol c -> traitement()

@@ -208,9 +208,12 @@ void Controleur::commande(const QString& c)
                 littAff.pop();
                 litterale& v2 = littAff.top();
                 littAff.pop();
-                litterale* ptr=&(*(ope->traitement(v2, v1).simplifier()));
+                litterale* ptr=(ope->traitement(v2, v1).simplifier());
+                save();
+
+                if (ptr==0){loadPrecedent(); throw ComputerException("Erreur : operation impossible");}
+
                 littAff.push(*ptr);
-                if (ptr==0){qDebug()<<"YOOOOOOOOOOOOO !"; loadPrecedent();}
             }
             else
                 throw ComputerException("Erreur : pas assez d'arguments");

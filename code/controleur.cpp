@@ -13,28 +13,39 @@
 #include "exceptions.h"
 #include <QStringList>
 
+Controleur::Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
+    QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
+    for(operateurManager::iterator it=opeMng.begin(); it!=opeMng.end(); ++it){
+        if (rx.exactMatch((*it).getSymbol())) mapAtome.insert((*it).getSymbol(), &(*it));
+    }
+    save();
+}
 
 operateur* Controleur::estOperateur(const QString s){
 
     for(operateurManager::const_iterator it=opeMng.begin_const(); it!=opeMng.end_const(); ++it){
-        qDebug()<<(*it).getSymbol();
         if ((*it).getSymbol() == s)   return &(*it);
     }
     return 0;
 }
 
 QString Controleur::estLitteraleAtome(const QString s){
-    QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
+   /*/ QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
     if(rx.exactMatch(s)) return s; // ici �a devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
-    else return "";
+    else return "";*/
+
+    operande* resRecherche= mapAtome.value(s,0);
+    if(resRecherche) return mapAtome[s];
+    else return 0;
+
 }
 
 //! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaît pas la suite de symboles entrés
 QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
-    if (!estLitteraleAtome(s).isEmpty()) return estLitteraleAtome(s);
-    else {
+
+
         s.toInt(&ok);
         if(ok) return "entiere";//! \brief Test pour voir s'il s'agit d'une littEntiere
 
@@ -44,7 +55,6 @@ QString Controleur::estLitterale(const QString s){
             else return "";
         }
     }
-}
 
 void Controleur::commande(const QString& c){
 
@@ -62,6 +72,15 @@ void Controleur::commande(const QString& c){
     littAff.setMessage("");
     operateur* op;
 try{
+
+        if(estLitteraleAtome(c)){
+            operateur* ope = dynamic_cast<operateur*>(c);
+            litterale* litt = dynamic_cast<litterale*>(c);
+
+            if(ope) c=ope->getSymbol();
+            else if (litt) c=litt->affichage();
+        }
+
     if (!estLitterale(c).isEmpty()){
         if (estLitterale(c)=="entiere"){
             littEntiere* l=new littEntiere(c.toInt());

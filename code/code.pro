@@ -23,7 +23,6 @@ SOURCES += \
     littcomplexe.cpp \
     pile.cpp \
     littatome.cpp \
-    alitt.cpp \
     aoperateur.cpp \
     add.cpp \
     operateurmanager.cpp \
@@ -68,7 +67,6 @@ HEADERS += \
     item.h \
     littcomplexe.h \
     pile.h \
-    littatome.h \
     add.h \
     alitt.h \
     aoperateur.h \
@@ -97,5 +95,6 @@ HEADERS += \
     opnot.h \
     littprogramme.h \
     memento.h \
-    atomemanager.h
+    atomemanager.h \
+    littatome.h
     qcomputer.h

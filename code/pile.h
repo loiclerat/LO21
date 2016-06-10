@@ -41,12 +41,15 @@ class Pile : public QObject {
     //! \brief Agrandissement de la Pile lorsque l'on dépasse la capacité actuelle
     void agrandissementCapacite();
 
+
 public:
 
     //! \brief Constructeur
     Pile():items(0),nb(0),nbMax(0),message(""),nbAffiche(4){}
     //! \brief Destructeur
     ~Pile();
+
+
     Pile(Pile& p);
     Pile& operator=(Pile& p);
 

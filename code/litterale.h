@@ -23,6 +23,7 @@ Description de la classe Litterale
 #include <typeinfo>
 #include <iostream>
 #include <string>
+#include "operande.h"
 
 
 using namespace std;
@@ -31,7 +32,7 @@ using namespace std;
   \class litterale
   \brief La classe est la classe mère de tous les types de littérales
  */
-class litterale{
+class litterale : public Operande{
 public :
     //! \brief Constructeur
     litterale(){}

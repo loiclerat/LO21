@@ -15,6 +15,10 @@ public:
         return f;
     }
 
+    QString getStr(){
+        return str;
+    }
+
     bool isNull(){
         if(str == ""){
             return true;

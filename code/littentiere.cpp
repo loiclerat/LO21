@@ -44,8 +44,8 @@ littNumerique* littEntiere::operator+(littNumerique* a)
     littrat* rat1 = dynamic_cast<littrat*>(a);
 
     if (ent1 != 0) {
-        valeur = valeur + ent1->getValeur();
-        return this;
+        littEntiere* r = new littEntiere(valeur + ent1->getValeur());
+        return r;
     }
     else if (rat1 != 0) {
         littrat* r = new littrat(this->valeur + rat1->getNum(), rat1->getDen());

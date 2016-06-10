@@ -5,29 +5,63 @@
 #include <QTextStream>
 #include <QObject>
 #include <QDebug>
+<<<<<<< HEAD
 #include <QMap>
+=======
+#include <QList>
+>>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
 
 #include "operateurmanager.h"
 #include "memento.h"
+#include "operande.h"
 
 class Controleur {
+    static Controleur* cinstance;
     Pile& littAff;
     operateurManager& opeMng;
     CareTaker careTaker;
 
     unsigned int history_index;
 
+<<<<<<< HEAD
     // QMAP littAtome :
     QMap<QString, operateur*> mapAtome;
 
 public:
     Controleur(operateurManager& o, Pile& v);
+=======
+    Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
+        save();
+    }
+
+    Controleur(Controleur& c):littAff(c.littAff), opeMng(c.opeMng), careTaker(), history_index(0) {}
+    ~Controleur() {}
+
+public:
+
+
+
+    //! \brief Récupérer l'instance unique d'operateurManager
+    static Controleur& getInstance(Pile *pile = 0);
+    //! \brief Libération de l'instance
+    static void libererInstance();
+
+
+>>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
     void commande(const QString& c);
 
     operateur* estOperateur(const QString s);
     QString estLitterale(const QString s);
     QString estLitteraleAtome(const QString s);
 
+    Pile& getterPile(){
+        return littAff;
+    }
+
+    // FABRIQUE :
+
+    QList<Operande*> FactoryMethod(QString str);
+    Operande* CreateConcrete(QString str);
 
     // MEMENTO :
 

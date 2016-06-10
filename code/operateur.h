@@ -2,7 +2,7 @@
 #define OPERATEUR_H
 #include "litterale.h"
 
-class operateur {
+class operateur : public Operande {
 protected:
     int arite;
     QString symbol;

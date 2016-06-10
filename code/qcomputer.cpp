@@ -21,7 +21,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     message = new QLineEdit(this);
     commande = new QLineEdit(this);
     pile=new Pile;
-    controleur = new Controleur(operateurManager::getInstance(), *pile);
+    controleur = &(Controleur::getInstance(pile));// new Controleur(operateurManager::getInstance(), *pile);
 
     vuepile = new QTableWidget(pile->getNbItemsToAffiche(),1,this);
     vuepile->horizontalHeader()->setVisible(false);
@@ -37,10 +37,15 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     vuepile->setVerticalHeaderLabels(liste);                        //on redÃ©fini les labels pour mettre les ":"
 
 
-    /*ctrlZ = new QKeyEvent("Ctrl+z");
-    connect(ctrlZ, SIGNAL(), this, SLOT(precedent()));
-    * USAGE DU ctrl + Z
-*/
+    annuler = new QAction(this);
+    annuler->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Z)); //déclaration du raccourci
+    connect(annuler, SIGNAL(triggered()), this, SLOT(precedent()));
+    this->addAction(annuler);
+
+    retablir = new QAction(this);
+    retablir->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Y)); //déclaration du raccourci
+    connect(retablir, SIGNAL(triggered()), this, SLOT(suivant()));
+    this->addAction(retablir);
 
     // Allocation des cases du TableWidget
 
@@ -306,6 +311,7 @@ void QComputer::refresh(){//affichage etat pile
     //.. et message utilisateur
     message->setText(pile->getMessage());
 
+    //! \todo Mettre le bon chemin pour la piste audio
     if (message->text() != ""){
         QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si ça ne marche pas
         alarm.play();

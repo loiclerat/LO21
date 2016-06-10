@@ -72,11 +72,7 @@ QString Controleur::estLitterale(const QString s){
 
 Operande* Controleur::CreateConcrete(QString c)
 {
-
-
     operateur* op;
-
-try{
         Operande* at=estLitteraleAtome(c);
         if(at){
             operateur* ope = dynamic_cast<operateur*>(at);
@@ -114,13 +110,8 @@ try{
             return (op);
         }
         else {
-            littAff.setMessage("Erreur : commande inconnue");
-            throw ComputerException("Ceci n'est pas une littérale ou un opérateur");
+            throw ComputerException("Ceci n'est pas une litterale ou un operateur");
         }
-    }
-    catch (ComputerException& e) {
-        littAff.setMessage(e.getInfo());
-    }
 }
 
 QList<Operande*> Controleur::FactoryMethod(QString str)
@@ -219,8 +210,7 @@ void Controleur::commande(const QString& c)
                 littAff.pop();
                 litterale* ptr=&(*(ope->traitement(v2, v1).simplifier()));
                 littAff.push(*ptr);
-                save();
-                if (ptr==0) loadPrecedent();
+                if (ptr==0){qDebug()<<"YOOOOOOOOOOOOO !"; loadPrecedent();}
             }
             else
                 throw ComputerException("Erreur : pas assez d'arguments");

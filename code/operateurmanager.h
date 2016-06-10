@@ -26,6 +26,18 @@ Description de la classe operateurManager et de ses itérateurs
 #include "opegalsup.h"
 #include "opinf.h"
 #include "opsup.h"
+#include "mod.h"
+#include "den.h"
+#include "divent.h"
+#include "mod.h"
+#include "num.h"
+#include "opand.h"
+#include "opeval.h"
+#include "opim.h"
+#include "opnot.h"
+#include "opor.h"
+#include "opre.h"
+
 #include <QString>
 
 /**

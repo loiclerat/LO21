@@ -139,9 +139,9 @@ public slots:
     void imPressed(){commande->insert("IM");}
 
     //SLOTS pour les opérateurs logiques
-    void andbPressed(){commande->insert("AND");}
-    void orbPressed(){commande->insert("OR");}
-    void notbPressed(){commande->insert("NOT");}
+    void andbPressed(){commande->insert("AND");getNextCommande();}
+    void orbPressed(){commande->insert("OR");getNextCommande();}
+    void notbPressed(){commande->insert("NOT");getNextCommande();}
     void egalPressed(){commande->insert("=");getNextCommande();}
     void diffPressed(){commande->insert("!=");getNextCommande();}
     void supPressed(){commande->insert(">");getNextCommande();}
@@ -153,11 +153,11 @@ public slots:
     void iftPressed(){commande->insert("IFT");}
 
     //SLOTS pour les opérateurs de la pile
-    void dupPressed(){commande->insert("DUP");}
-    void dropPressed(){commande->insert("DROP");}
-    void swapPressed(){commande->insert("SWAP");}
-    void lastopPressed(){commande->insert("LASTOP");}
-    void lastargPressed(){commande->insert("LASTARG");}
+    void dupPressed(){commande->insert("DUP");getNextCommande();}
+    void dropPressed(){commande->insert("DROP");getNextCommande();}
+    void swapPressed(){commande->insert("SWAP");getNextCommande();}
+    void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
+    void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
     void undoPressed(){precedent();}
     void redoPressed(){suivant();}
 

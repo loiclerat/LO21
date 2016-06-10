@@ -43,6 +43,10 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     opinf* inferiorite= new opinf();
     //! \brief Op�rateur pour obtenir le resultat du test >=
     opsup* superiorite= new opsup();
+    //! \brief Op�rateur pour obtenir le resultat de DIV
+    divent* diventiere= new divent();
+    //! \brief Op�rateur pour obtenir le resultat de DIV
+    den* denominateur= new den();
 
     ops[0] = addition;
     ops[1] = soustraction;
@@ -56,9 +60,37 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[9] = inferiorite;
     ops[10] = superouegal;
     ops[11] = inferouegal;
+    ops[12] = diventiere;
+    ops[13] = denominateur;
+
 }
+/*
+void numPressed(){commande->insert("NUM");}
+void ccomplexPressed(){commande->insert("$");getNextCommande();}
+void rePressed(){commande->insert("RE");}
+void imPressed(){commande->insert("IM");}
 
+//SLOTS pour les opérateurs logiques
+void andbPressed(){commande->insert("AND");getNextCommande();}
+void orbPressed(){commande->insert("OR");getNextCommande();}
+void notbPressed(){commande->insert("NOT");getNextCommande();}
+void egalPressed(){commande->insert("=");getNextCommande();}
+void diffPressed(){commande->insert("!=");getNextCommande();}
+void supPressed(){commande->insert(">");getNextCommande();}
+void infPressed(){commande->insert("<");getNextCommande();}
+void supegPressed(){commande->insert(">=");getNextCommande();}
+void infegPressed(){commande->insert("=<");getNextCommande();}
 
+//SLOTS pour les opérateurs conditionnels
+void iftPressed(){commande->insert("IFT");}
+
+//SLOTS pour les opérateurs de la pile
+void dupPressed(){commande->insert("DUP");getNextCommande();}
+void dropPressed(){commande->insert("DROP");getNextCommande();}
+void swapPressed(){commande->insert("SWAP");getNextCommande();}
+void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
+void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
+*/
 //! \brief Initialisation de l'attribut statique handler
 operateurManager::Handler operateurManager::handler=operateurManager::Handler();
 

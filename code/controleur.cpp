@@ -45,12 +45,11 @@ operateur* Controleur::estOperateur(const QString s)
 }
 
 Operande* Controleur::estLitteraleAtome(const QString s){
-    /*QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
-    if(rx.exactMatch(s)) return s; // ici ça devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
-    else return "";*/
-
-    Operande* resRecherche= mapAtome.value(s,0);
-    if(resRecherche) return mapAtome[s];
+    QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
+    if(rx.exactMatch(s)){//si on colle exactement avec le format Capitale puis suite de capitale et/ou chiffres alors on le cherche
+        Operande* resRecherche= mapAtome.value(s,0);
+        if(resRecherche) return mapAtome[s];
+    }
     else return 0;
 }
 
@@ -75,18 +74,16 @@ Operande* Controleur::CreateConcrete(QString c)
 {
 
     operateur* op;
-/*
-try{
 
-        if(estLitteraleAtome(c)){
-            operateur* ope = dynamic_cast<operateur*>(c);
-            litterale* litt = dynamic_cast<litterale*>(c);
+try{
+        Operande* at=estLitteraleAtome(c);
+        if(at){
+            operateur* ope = dynamic_cast<operateur*>(at);
+            litterale* litt = dynamic_cast<litterale*>(at);
 
             if(ope) c=ope->getSymbol();
             else if (litt) c=litt->affichage();
         }
-*/
-    try {
         if (estLitterale(c) != "") {
             if (estLitterale(c) == "entiere") {
                 littEntiere* l = new littEntiere(c.toInt());

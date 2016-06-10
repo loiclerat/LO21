@@ -44,19 +44,14 @@ operateur* Controleur::estOperateur(const QString s)
     return 0;
 }
 
-QString Controleur::estLitteraleAtome(const QString s){
-   /* // QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
+Operande* Controleur::estLitteraleAtome(const QString s){
+    /*QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
     if(rx.exactMatch(s)) return s; // ici �a devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
-    else return "";
+    else return "";*/
 
-    operande* resRecherche= mapAtome.value(s,0);
+    Operande* resRecherche= mapAtome.value(s,0);
     if(resRecherche) return mapAtome[s];
     else return 0;
-
-=======*/
-    QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
-    if(rx.exactMatch(s)) return s; // ici �a devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
-    else return "";
 }
 
 //! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaît pas la suite de symboles entrés
@@ -125,8 +120,8 @@ try{
             throw ComputerException("Ceci n'est pas une littérale ou un opérateur");
         }
     }
-    catch (ComputerException& c) {
-        littAff.setMessage(c.getInfo());
+    catch (ComputerException& e) {
+        littAff.setMessage(e.getInfo());
     }
 }
 
@@ -203,8 +198,8 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
         }
         return list;
     }
-    catch (ComputerException& c) {
-        littAff.setMessage(c.getInfo());
+    catch (ComputerException& e) {
+        littAff.setMessage(e.getInfo());
     }
 }
 

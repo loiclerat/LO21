@@ -20,16 +20,12 @@ class Controleur {
     unsigned int history_index;
 
     // QMAP littAtome :
-    QMap<QString, operateur*> mapAtome;
+    QMap<QString, Operande*> mapAtome;
 
 public:
     Controleur(operateurManager& o, Pile& v);
     Controleur(Controleur& c):littAff(c.littAff), opeMng(c.opeMng), careTaker(), history_index(0) {}
     ~Controleur() {}
-
-public:
-
-
 
     //! \brief Récupérer l'instance unique d'operateurManager
     static Controleur& getInstance(Pile *pile = 0);
@@ -41,7 +37,7 @@ public:
 
     operateur* estOperateur(const QString s);
     QString estLitterale(const QString s);
-    QString estLitteraleAtome(const QString s);
+    Operande *estLitteraleAtome(const QString s);
 
     Pile& getterPile(){
         return littAff;
@@ -60,7 +56,6 @@ public:
     void save();
     void loadPrecedent();
     void loadSuivant();
-
 
 };
 

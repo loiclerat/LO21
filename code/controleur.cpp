@@ -138,22 +138,6 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
             if (t.length() == taille) {
                 for (int j = 0; j < taille; j++) {
                     qDebug() << (prog[j].split(']', QString::SkipEmptyParts));
-/*
-  try{
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
-    if (!estLitterale(c).isEmpty()){
-        if (estLitterale(c)=="entiere"){
-            littEntiere* l=new littEntiere(c.toInt());
-            littAff.push(*l);
-        }
-        else {
-            if (estLitterale(c)=="reelle"){
-                QStringList list = c.split(".");
-                QString ent=list[0]; QString dec=list[1];
-                if (dec=="") {
-                    littEntiere* l=new littEntiere(ent.toInt());// forge le int sur un
-                    littAff.push(*l);
-*/
                 }
             }
             else {
@@ -217,7 +201,7 @@ void Controleur::commande(const QString& c)
         else if (ope->getArite() == 1) {
             if (littAff.taille() >= 1) {
                 litterale& v = littAff.top();
-                litterale* ptr=&(ope->traitement(v));
+                litterale* ptr=&(*(ope->traitement(v).simplifier()));
                 if (ptr!=0){
                     littAff.pop();
                     littAff.push(*ptr);
@@ -233,7 +217,7 @@ void Controleur::commande(const QString& c)
                 littAff.pop();
                 litterale& v2 = littAff.top();
                 littAff.pop();
-                litterale* ptr=&(ope->traitement(v2, v1));
+                litterale* ptr=&(*(ope->traitement(v2, v1).simplifier()));
                 littAff.push(*ptr);
                 save();
                 if (ptr==0) loadPrecedent();

@@ -22,10 +22,11 @@ class Controleur {
     // QMAP littAtome :
     QMap<QString, Operande*> mapAtome;
 
-public:
     Controleur(operateurManager& o, Pile& v);
     Controleur(Controleur& c):littAff(c.littAff), opeMng(c.opeMng), careTaker(), history_index(0) {}
     ~Controleur() {}
+
+public:
 
     //! \brief Récupérer l'instance unique d'operateurManager
     static Controleur& getInstance(Pile *pile = 0);

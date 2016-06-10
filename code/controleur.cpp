@@ -13,7 +13,9 @@
 #include "littprogramme.h"
 #include <QStringList>
 
-<<<<<<< HEAD
+Controleur* Controleur::cinstance = 0;
+
+
 Controleur::Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
     QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
     for(operateurManager::iterator it=opeMng.begin(); it!=opeMng.end(); ++it){
@@ -21,8 +23,6 @@ Controleur::Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), care
     }
     save();
 }
-=======
-Controleur* Controleur::cinstance = 0;
 
 //! \brief Récupérer l'instance unique d'operateurManager
 Controleur& Controleur::getInstance(Pile* pile){
@@ -36,44 +36,32 @@ void Controleur::libererInstance(){
     cinstance=0;
 }
 
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
-
 operateur* Controleur::estOperateur(const QString s)
 {
-
-<<<<<<< HEAD
     for(operateurManager::const_iterator it=opeMng.begin_const(); it!=opeMng.end_const(); ++it){
         if ((*it).getSymbol() == s)   return &(*it);
-=======
-    for (operateurManager::const_iterator it = opeMng.begin_const(); it != opeMng.end_const(); ++it) {
-        qDebug() << (*it).getSymbol();
-        if ((*it).getSymbol() == s)
-            return &(*it);
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
     }
     return 0;
 }
 
 QString Controleur::estLitteraleAtome(const QString s){
-<<<<<<< HEAD
-   /*/ QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
+   /* // QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
     if(rx.exactMatch(s)) return s; // ici �a devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
-    else return "";*/
+    else return "";
 
     operande* resRecherche= mapAtome.value(s,0);
     if(resRecherche) return mapAtome[s];
     else return 0;
 
-=======
+=======*/
     QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
     if(rx.exactMatch(s)) return s; // ici �a devrait retourner l'intitule de la litterale/de l'operateur/du programme dans l'atome manager
     else return "";
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
 }
 
 //! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaît pas la suite de symboles entrés
-QString Controleur::estLitterale(const QString s)
-{
+
+QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
 
@@ -92,7 +80,7 @@ Operande* Controleur::CreateConcrete(QString c)
 {
 
     operateur* op;
-<<<<<<< HEAD
+/*
 try{
 
         if(estLitteraleAtome(c)){
@@ -102,8 +90,7 @@ try{
             if(ope) c=ope->getSymbol();
             else if (litt) c=litt->affichage();
         }
-
-=======
+*/
     try {
         if (estLitterale(c) != "") {
             if (estLitterale(c) == "entiere") {
@@ -206,12 +193,12 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                 list.append(CreateConcrete(Programme));
             }
             else {
-                try {
+                /*try {
                     list.append(CreateConcrete(listOperande[i]));
                 }
                 catch (ComputerException& e) {
                     littAff.setMessage(e.getInfo());
-                }
+                }*/
             }
         }
         return list;

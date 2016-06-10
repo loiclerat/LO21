@@ -95,12 +95,7 @@ HEADERS += \
     opnot.h \
     littprogramme.h \
     memento.h \
-<<<<<<< HEAD
-    atomemanager.h \
-    littatome.h
-=======
     operande.h \
     opeval.h \
     atomemanager.h \
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
     qcomputer.h

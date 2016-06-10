@@ -5,12 +5,8 @@
 #include <QTextStream>
 #include <QObject>
 #include <QDebug>
-<<<<<<< HEAD
 #include <QMap>
-=======
 #include <QList>
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
-
 #include "operateurmanager.h"
 #include "memento.h"
 #include "operande.h"
@@ -23,17 +19,11 @@ class Controleur {
 
     unsigned int history_index;
 
-<<<<<<< HEAD
     // QMAP littAtome :
     QMap<QString, operateur*> mapAtome;
 
 public:
     Controleur(operateurManager& o, Pile& v);
-=======
-    Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
-        save();
-    }
-
     Controleur(Controleur& c):littAff(c.littAff), opeMng(c.opeMng), careTaker(), history_index(0) {}
     ~Controleur() {}
 
@@ -47,7 +37,6 @@ public:
     static void libererInstance();
 
 
->>>>>>> b6997e9ae25813241a6d08ce296ffc826f94b27e
     void commande(const QString& c);
 
     operateur* estOperateur(const QString s);

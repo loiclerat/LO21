@@ -1,23 +1,5 @@
 #include "littentiere.h"
-/*
-littEntiere& littEntiere::operator+(littEntiere& b)
-{
-    littEntiere* res = new littEntiere(this->valeur + b.valeur);
-    return (*res); // int + int = int
-}
 
-littEntiere& littEntiere::operator-(littEntiere& b)
-{
-    littEntiere* res = new littEntiere(this->valeur - b.valeur);
-    return (*res); // int - int = int
-}
-
-littEntiere& littEntiere::operator*(littEntiere& b)
-{
-    littEntiere* res = new littEntiere(this->valeur * b.valeur);
-    return (*res); //int*int = int
-}
-*/
 littnumber* littEntiere::operator+(littnumber* a)
 {
     littNumerique* ltb = dynamic_cast<littNumerique*>(a);
@@ -118,7 +100,9 @@ littnumber* littEntiere::operator*(littnumber* a)
         return res;
     }
     else {
-        littcomplexe* res2 = new littcomplexe((*this) * ltc->getPartRe(), (*this) * ltc->getPartIm());
+        littEntiere* un = new littEntiere(this->getValeur());
+        littEntiere* deux = new littEntiere(this->getValeur());
+        littcomplexe* res2 = new littcomplexe(*un * ltc->getPartRe(), *deux * ltc->getPartIm());
         return res2;
     }
 }
@@ -180,6 +164,7 @@ littNumerique* littEntiere::operator/(littNumerique* a)
         littEntiere* res = new littEntiere(0);
         return res;
     }
+
     littEntiere* ent1 = dynamic_cast<littEntiere*>(a);
 
     littrat* rat1 = dynamic_cast<littrat*>(a);

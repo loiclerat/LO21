@@ -9,6 +9,7 @@ CONFIG += c++11
 TARGET = code
 CONFIG += console
 CONFIG -= app_bundle
+QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter
 
 TEMPLATE = app
 
@@ -50,7 +51,8 @@ SOURCES += \
     littnumerique.cpp \
     opeval.cpp \
     atomemanager.cpp \
-    memento.cpp
+    memento.cpp \
+    opift.cpp
 
 HEADERS += \
     litterale.h \
@@ -60,7 +62,6 @@ HEADERS += \
     littrat.h \
     operateur_numerique.h \
     operateur.h \
-    qcomputer.h \
     controleur.h \
     exceptions.h \
     item.h \
@@ -95,4 +96,6 @@ HEADERS += \
     operande.h \
     opeval.h \
     atomemanager.h \
-    qcomputer.h
+    qcomputer.h \
+    opift.h \
+    operateur_conditionnel.h

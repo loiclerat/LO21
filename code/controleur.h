@@ -130,7 +130,6 @@ public:
 
     //! \brief Méthode loadSuivant qui permet de revenir à l'état suivant de la pile
     void loadSuivant();
-    void reload();
 
     //! \brief Méthode reload qui permet de recharger à l'état de la pile
     void reload();

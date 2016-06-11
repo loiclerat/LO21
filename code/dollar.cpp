@@ -9,8 +9,6 @@ litterale& dollar::traitement(litterale &a, litterale &b){
     if(lta1 != 0){
         if(lta2 != 0){
             littcomplexe* res = new littcomplexe(lta1,lta2);
-            delete lta1;
-            delete lta2;
             return *res;
         }
         else{

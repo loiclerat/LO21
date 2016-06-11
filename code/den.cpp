@@ -9,7 +9,6 @@ litterale& den::traitement(litterale &a){
     if(b != 0)
     {
         littEntiere* t = new littEntiere(b->getDen());
-        delete b;
         return *t;
         }else {
             throw ComputerException("Ce n'est pas une litterale qui peut être mise en négatif");

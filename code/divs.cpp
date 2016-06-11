@@ -15,18 +15,10 @@ litterale& divs::traitement(litterale &a, litterale &b){
     if(ent1 != 0){
         if(lta1!=0){
             littNumerique* res =  *(ent1)/lta1;
-            delete rat1;
-            delete ree1;
-            delete comp1;
-            delete lta2;
             return *res;
         }
         else{
             littnumber* res = *(ent1)/lta2;
-            delete rat1;
-            delete ree1;
-            delete comp1;
-            delete lta1;
             return *res;
         }
     }
@@ -35,10 +27,6 @@ litterale& divs::traitement(litterale &a, litterale &b){
         {
             if(lta1!=0){
                 littNumerique* res =  *(rat1)/lta1;
-                delete ent1;
-                delete ree1;
-                delete comp1;
-                delete lta2;
                 return *res;
             }else{
                 littnumber* res = *(rat1)/lta2;

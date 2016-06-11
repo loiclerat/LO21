@@ -13,6 +13,7 @@ litterale* littrat::simplifier(){
     }
     if (den==1){ //retourner un entier
         littEntiere* l= new littEntiere(this->getNum());
+        delete this;
         return l;
     }
     else return this;
@@ -168,6 +169,7 @@ littNumerique* littrat::operator*(littNumerique* a)
         return 0;
     }
 }
+
 littnumber* littrat::operator/(littnumber* a){
     if(this->getNum()==0){
         littrat* res=new littrat(0);
@@ -227,12 +229,12 @@ littrat* littrat::operator+(littrat* b){
         return (res);
 }
 
-
 littrat* littrat::operator-(littrat* b){
         littrat* res=new littrat(this->getNum()*b->den-this->getDen()*b->num,this->getDen()*b->den);
         res->simplifier();
         return (res);
 }
+
 littrat* littrat::operator*(littrat* b){
     littrat* res=new littrat(this->getNum()*b->num,this->getDen()*b->den);
     res->simplifier();

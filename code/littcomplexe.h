@@ -24,7 +24,13 @@ Description de la classe litterale complexe
   \brief La classe concernant les littérales complexes
  */
 class littcomplexe : public littnumber {
+
+    //! \brief Attribut :
+    //! partRe : \e littNumerique* concernant la partie réelle du complexe
     littNumerique* partRe;
+
+    //! \brief Attribut :
+    //! partIm : \e littNumerique* concernant la partie imaginaire du complexe
     littNumerique* partIm;
 
 public:

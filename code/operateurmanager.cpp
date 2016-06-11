@@ -1,10 +1,9 @@
 /**
 \file operateurmanager.cpp
 \date 03/06/2016
-\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
+\author Lo??c Lerat, Andr?©a Vibert, Th?©o Hordequin
 \version 1.0
-\brief  Definition des mÃ©thodes de la classe operateurManager
-
+\brief  Definition des m?©thodes de la classe operateurManager
 **/
 
 
@@ -12,36 +11,36 @@
 #include "exceptions.h"
 
 
-// Initialisation de tous les opÃ©rateurs (attributs statiques)
+// Initialisation de tous les op?©rateurs (attributs statiques)
 
 unsigned int operateurManager::nb=19;
 
 
 operateurManager::operateurManager():ops(new operateur*[nb]){
 
-    //! \brief Opï¿½rateur d'addition
+    //! \brief Op??½rateur d'addition
     add* addition=new add();
-    //! \brief Opï¿½rateur de soustraction
+    //! \brief Op??½rateur de soustraction
     sous* soustraction= new sous();
-    //! \brief Opï¿½rateur de multiplication
+    //! \brief Op??½rateur de multiplication
     mul* multiplication= new mul();
-    //! \brief Opï¿½rateur de division
+    //! \brief Op??½rateur de division
     divs* division= new divs();
-    //! \brief Opï¿½rateur de création de complexe
+    //! \brief Op??½rateur de création de complexe
     dollar* complexe= new dollar();
-    //! \brief Opï¿½rateur pour obtenir le negatif
+    //! \brief Op??½rateur pour obtenir le negatif
     neg* negatif= new neg();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test ==
+    //! \brief Op??½rateur pour obtenir le resultat du test ==
     opegal* egalite= new opegal();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test !=
+    //! \brief Op??½rateur pour obtenir le resultat du test !=
     opdiff* difference= new opdiff();
-    //! \brief Opï¿½rateur pour obtenir resultat du test <=
+    //! \brief Op??½rateur pour obtenir resultat du test <=
     opegalinf* inferouegal= new opegalinf();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    //! \brief Op??½rateur pour obtenir le resultat du test >=
     opegalsup* superouegal= new opegalsup();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    //! \brief Op??½rateur pour obtenir le resultat du test >=
     opinf* inferiorite= new opinf();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    //! \brief Op??½rateur pour obtenir le resultat du test >=
     opsup* superiorite= new opsup();
 
     //! \brief Opï¿½rateur pour obtenir le resultat de la division entière
@@ -78,7 +77,7 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[2] = multiplication;
     ops[3] = division;
     ops[4] = complexe;
-    ops[5] = negatif; //ne marche pas il faut des litt atome pour le faire
+    ops[5] = negatif; //ne marche pas pour complexe
     ops[6] = egalite;
     ops[7] = difference;
     ops[8] = superiorite;
@@ -109,13 +108,13 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
 operateurManager::Handler operateurManager::handler=operateurManager::Handler();
 
 
-//! \brief RÃ©cupÃ©rer l'instance unique d'operateurManager
+//! \brief R?©cup?©rer l'instance unique d'operateurManager
 operateurManager& operateurManager::getInstance(){
     if (handler.instance==0) handler.instance=new operateurManager;
     return *handler.instance;
 }
 
-//! \brief LibÃ©ration de l'instance
+//! \brief Lib?©ration de l'instance
 void operateurManager::libererInstance(){
     delete handler.instance;
     handler.instance=0;

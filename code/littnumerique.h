@@ -15,13 +15,11 @@ Description de la classe littérale numérique
 
 /**
   \class littNumerique
-  \brief La classe correspond �  toutes les littérales correspondant aux littérales numériques
+  \brief La classe correspond �  toutes les littérales correspondant aux littérales numériques
  */
 class littNumerique : public littnumber{
 
 public :
-    littNumerique(){}
-    virtual ~littNumerique(){}
 
     // **************************************** //
     //          Défini précédemment

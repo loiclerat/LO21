@@ -14,4 +14,5 @@ littnumber* littnumber::operator-(littnumber* a){
             littnumber* resf = *(num)-a;
             return resf;
         }
+    return 0;
 }

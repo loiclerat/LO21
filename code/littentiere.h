@@ -23,7 +23,9 @@ Description de la classe litterale entière
  */
 
 class littEntiere : public littNumerique {
-    int valeur; /*!< Entier correspondant �  la valeur  */
+    //! \brief Attribut :
+    //! valeur : \e int concernant la valeur du littérale entier
+    int valeur;
 
 public:
     //! \brief Constructeur de littérale entière
@@ -62,22 +64,18 @@ public:
     }
 
     /*==========*/
-    //littEntiere& operator+(littEntiere& b);
-
     littNumerique* operator+(littNumerique* a);
     littnumber* operator+(littnumber* a);
     /*==========*/
-    //littEntiere& operator-(littEntiere& b);
     littNumerique* operator-(littNumerique* a);
     littnumber* operator-(littnumber* a);
     /*==========*/
-    //littEntiere& operator*(littEntiere& b);
     littNumerique* operator*(littNumerique* a);
     littnumber* operator*(littnumber* a);
     /*==========*/
     //! \brief       Operator / de la litterale concernant la division entière
     //! \details    Surchage qui permet un niveau de granularité plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi un littérale numérique qui correspond �  un rationnel
+    //!             renvoi un littérale numérique qui correspond �  un rationnel
     //! \param    a         littEntiere*
     //! \return    Un \e littNumerique* -> pointeur vers une littérale numérique qui contient la construction concrète d'un objet fille.
     //!

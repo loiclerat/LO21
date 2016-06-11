@@ -10,9 +10,16 @@
 #include "littreelle.h"
 
 
+/**
+  \class mod
+  \brief La classe d'opérateur qui renvoye le résultat du modulo de 2 litterales
+  (MOD)
+ */
+
 class mod : public operateur_numerique
 {
 public:
+    //! \brief Constructeur de l'opérateur -> appel du construteur d'opérateur numerique
     mod():operateur_numerique(2,"MOD"){}
     litterale& traitement(litterale &a, litterale &b);
     litterale& traitement(litterale &a){

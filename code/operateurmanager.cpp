@@ -77,7 +77,7 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[2] = multiplication;
     ops[3] = division;
     ops[4] = complexe;
-    ops[5] = negatif; //ne marche pas il faut des litt atome pour le faire
+    ops[5] = negatif; //ne marche pas pour complexe
     ops[6] = egalite;
     ops[7] = difference;
     ops[8] = superiorite;

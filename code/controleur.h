@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QMap>
 #include <QList>
+#include <QRegExp>
 #include "operateurmanager.h"
 #include "memento.h"
 #include "operande.h"
@@ -125,13 +126,13 @@ public:
     //! \brief Méthode save qui sauvegarde l'état de la pile
     void save();
 
-    //! \brief Méthode loadPrecedent qui permet de revenir à l'état précédent de la pile
+    //! \brief Méthode loadPrecedent qui permet de revenir �  l'état précédent de la pile
     void loadPrecedent();
 
-    //! \brief Méthode loadSuivant qui permet de revenir à l'état suivant de la pile
+    //! \brief Méthode loadSuivant qui permet de revenir �  l'état suivant de la pile
     void loadSuivant();
 
-    //! \brief Méthode reload qui permet de recharger à l'état de la pile
+    //! \brief Méthode reload qui permet de recharger �  l'état de la pile
     void reload();
 };
 

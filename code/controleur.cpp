@@ -25,7 +25,7 @@ Controleur& Controleur::getInstance(Pile* pile){
 void Controleur::libererInstance(){
     //Libère l'instance de Controleur
     delete cinstance;
-    //Met à 0 l'attribut de Controleur -> permet d'en créer une nouvelle par la suite
+    //Met �  0 l'attribut de Controleur -> permet d'en créer une nouvelle par la suite
     cinstance=0;
 }
 
@@ -150,7 +150,7 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                 //On commence un programme
                 openCroch++;
                 QString Programme = "";
-                //On l'ajoute à la Qstring qui va être renvoyer à Create Concrete
+                //On l'ajoute �  la Qstring qui va être renvoyer �  Create Concrete
                 Programme += listOperande[i];
                 while (openCroch != closenCroch && i < listOperande.length() - 1) {
                     i++;
@@ -161,7 +161,7 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                     // Stocke dans une liste les opérandes du programme
                     Programme += " " + listOperande[i];
                 }
-                //On passe la QString du progrmame à CreateConcrete afin de créer l'objet Programme
+                //On passe la QString du progrmame �  CreateConcrete afin de créer l'objet Programme
                 list.append(CreateConcrete(Programme));
             }
             //Sinon c'est une litterale ou un operateur basique
@@ -234,28 +234,18 @@ void Controleur::commande(const QString& c)
 }catch (ComputerException& c){
             littAff.setMessage(c.getInfo());
     }
-    // analyse c -> litterale ou operateur
-    // si litterale : quel type ? -> addLitterale
-    // si operateur : lequel ? (iterateur pour trouver l'operateur correspondant au symbol c -> traitement()
-    // setMessage...
-
-    // Gestion de la pile dans le controlleur
-
-    // DÃ©pilement selon aritÃ©
-    // appel de traitement avec les valeurs
-    // crÃ©ation d'une litterale dans traitement puis retour de ref
-    // empilement de la ref
 }
 
 void Controleur::save()
 {
-    qDebug() << "save - " << history_index;
-    careTaker.add(saveEtatToMemento(littAff), history_index);
-    history_index++;
     while (careTaker.taille() > history_index) {
         careTaker.pop();
         qDebug() << "pop";
     }
+    qDebug() << "save - " << history_index;
+    careTaker.add(saveEtatToMemento(littAff), history_index);
+    history_index++;
+
 }
 
 void Controleur::loadPrecedent()

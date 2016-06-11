@@ -7,6 +7,7 @@ littcomplexe::littcomplexe(littcomplexe const& source)
 }
 
 litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littérale de sa partie réelle si sa partie imaginaire est nulle
+
     if (this->getPartIm()->isNull()){
         littEntiere* ent1 = dynamic_cast<littEntiere*>(this->getPartRe());
         littrat* rat1 = dynamic_cast<littrat*>(this->getPartRe());
@@ -17,14 +18,23 @@ litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littéral
         }
         else if (rat1 != 0) {
             littrat* l = new littrat(rat1->getNum(),rat1->getDen());
-            return l;
+            return l->simplifier();
         }
         else if (ree1 != 0) {
             littReelle* l = new littReelle(ree1->getEntiere(), ree1->getDecimale());
-            return l;
+            return l->simplifier();
         }
     }
-    else return this;
+    else{
+        littcomplexe* l = new littcomplexe(dynamic_cast<littNumerique*>(this->getPartRe()->simplifier()), dynamic_cast<littNumerique*>(this->getPartIm()->simplifier()));
+        if (l->getPartIm() == 0 || l->getPartRe() == 0){
+            qDebug()<<"Yo le zéro";
+            return 0;
+        }
+        return l;
+    }
+
+    return this;
 }
 
 littnumber* littcomplexe::operator+(littnumber* a)
@@ -113,7 +123,6 @@ littnumber* littcomplexe::operator/(littnumber* a)
     littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
     if (ent1 != 0) {
-        if (ent1->getValeur()==0) throw ComputerException("Denominateur = 0");
         littcomplexe* r = new littcomplexe(*(this->getPartRe()) / ent1, *(this->getPartIm()) / ent1);
         return r;
     }

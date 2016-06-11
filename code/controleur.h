@@ -57,6 +57,7 @@ public:
     void save();
     void loadPrecedent();
     void loadSuivant();
+    void reload();
 
 };
 

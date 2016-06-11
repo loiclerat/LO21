@@ -14,7 +14,7 @@
 
 // Initialisation de tous les opÃ©rateurs (attributs statiques)
 
-unsigned int operateurManager::nb=12;
+unsigned int operateurManager::nb=19;
 
 
 operateurManager::operateurManager():ops(new operateur*[nb]){
@@ -43,10 +43,35 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     opinf* inferiorite= new opinf();
     //! \brief Opï¿½rateur pour obtenir le resultat du test >=
     opsup* superiorite= new opsup();
-    //! \brief Opï¿½rateur pour obtenir le resultat de DIV
+
+    //! \brief Opï¿½rateur pour obtenir le resultat de la division entière
     divent* diventiere= new divent();
-    //! \brief Opï¿½rateur pour obtenir le resultat de DIV
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un rationnel
     den* denominateur= new den();
+    //! \brief Opï¿½rateur pour obtenir le numérateur d'un rationnel
+    num* numerateur= new num();
+    //! \brief Opï¿½rateur pour obtenir la partie réelle d'un complexe
+    opre* partieReelle= new opre();
+    //! \brief Opï¿½rateur pour obtenir la partie imaginaire d'un complexe
+    opim* partieImaginaire= new opim();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un ET
+    opand* et= new opand();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un OU
+    opor* ou= new opor();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un NOT
+    opnot* non= new opnot();
+
+    // Opérateurs à créer
+   /* //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
+    den* duplication= new den();
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
+    den* depilement= new den();
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
+    den* interversion= new den();
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
+    den* lastop= new den();
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
+    den* lastarg= new den();*/
 
     ops[0] = addition;
     ops[1] = soustraction;
@@ -60,37 +85,26 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[9] = inferiorite;
     ops[10] = superouegal;
     ops[11] = inferouegal;
+
     ops[12] = diventiere;
     ops[13] = denominateur;
+    ops[14] = numerateur;
+    ops[15] = partieReelle;
+    ops[16] = partieImaginaire;
+    ops[17] = et;
+    ops[18] = ou;
+    ops[19] = non;
+   /* ops[20] = ift;
+    ops[21] = duplication;
+    ops[22] = depilement;
+    ops[23] = interversion;
+    ops[24] = lastop;
+    ops[25] = lastarg;*/
 
 }
-/*
-void numPressed(){commande->insert("NUM");}
-void ccomplexPressed(){commande->insert("$");getNextCommande();}
-void rePressed(){commande->insert("RE");}
-void imPressed(){commande->insert("IM");}
 
-//SLOTS pour les opÃ©rateurs logiques
-void andbPressed(){commande->insert("AND");getNextCommande();}
-void orbPressed(){commande->insert("OR");getNextCommande();}
-void notbPressed(){commande->insert("NOT");getNextCommande();}
-void egalPressed(){commande->insert("=");getNextCommande();}
-void diffPressed(){commande->insert("!=");getNextCommande();}
-void supPressed(){commande->insert(">");getNextCommande();}
-void infPressed(){commande->insert("<");getNextCommande();}
-void supegPressed(){commande->insert(">=");getNextCommande();}
-void infegPressed(){commande->insert("=<");getNextCommande();}
 
-//SLOTS pour les opÃ©rateurs conditionnels
-void iftPressed(){commande->insert("IFT");}
 
-//SLOTS pour les opÃ©rateurs de la pile
-void dupPressed(){commande->insert("DUP");getNextCommande();}
-void dropPressed(){commande->insert("DROP");getNextCommande();}
-void swapPressed(){commande->insert("SWAP");getNextCommande();}
-void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
-void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
-*/
 //! \brief Initialisation de l'attribut statique handler
 operateurManager::Handler operateurManager::handler=operateurManager::Handler();
 

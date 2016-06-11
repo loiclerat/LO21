@@ -179,6 +179,8 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
 void Controleur::commande(const QString& c)
 {
 
+    littAff.setMessage("");
+
     QList<Operande*> list;
     list = FactoryMethod(c);
     try{
@@ -208,12 +210,11 @@ void Controleur::commande(const QString& c)
                 littAff.pop();
                 litterale& v2 = littAff.top();
                 littAff.pop();
-                litterale* ptr=(ope->traitement(v2, v1).simplifier());
-                save();
-
-                if (ptr==0){loadPrecedent(); throw ComputerException("Erreur : operation impossible");}
-
+                litterale* ptr=&(*(ope->traitement(v2, v1).simplifier()));
+                qDebug()<<ptr;
+                if (ptr==0){ reload(); throw ComputerException("Erreur : operation impossible");}
                 littAff.push(*ptr);
+                save();
             }
             else
                 throw ComputerException("Erreur : pas assez d'arguments");
@@ -259,6 +260,14 @@ void Controleur::loadSuivant()
 {
     if (history_index < careTaker.taille()) {
         history_index++;
+        qDebug() << "charger - " << history_index - 1;
+        getEtatFromMemento(careTaker.get(history_index - 1));
+    }
+}
+
+void Controleur::reload()
+{
+    if (history_index > 1) {
         qDebug() << "charger - " << history_index - 1;
         getEtatFromMemento(careTaker.get(history_index - 1));
     }

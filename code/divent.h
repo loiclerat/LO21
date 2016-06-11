@@ -11,7 +11,6 @@
 
 class divent : public operateur_numerique
 {
-    QString symbol;
 public:
     divent():operateur_numerique(2,"DIV"){}
     litterale& traitement(litterale &a, litterale &b);

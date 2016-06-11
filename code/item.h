@@ -26,6 +26,10 @@ public:
 
     //! \brief Constructeur
     Item():lit(0){}
+    Item& operator=(Item& i){
+        if (this != &i)
+            lit = &i.getLitterale();
+    }
     //! \brief Destructeur
     ~Item(){}
     //! \brief Associer une littÃ©rale Ã  l'Item

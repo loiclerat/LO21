@@ -5,8 +5,6 @@
 #include <QString>
 #include "litterale.h"
 #include "operateur_conditionnel.h"
-#include "littprogramme.h"
-#include "littentiere.h"
 #include "opeval.h"
 
 /**

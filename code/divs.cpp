@@ -1,5 +1,4 @@
 #include "divs.h"
-#include "exceptions.h"
 
 
 litterale& divs::traitement(litterale &a, litterale &b){

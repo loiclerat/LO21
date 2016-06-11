@@ -4,9 +4,6 @@
 #include <QString>
 #include "operateur_logique.h"
 #include "litterale.h"
-#include "littrat.h"
-#include "littentiere.h"
-#include "littreelle.h"
 
 /**
   \class opegalsup

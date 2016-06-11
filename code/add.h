@@ -1,12 +1,9 @@
 #ifndef ADD_H
 #define ADD_H
 #include <QString>
+#include "exceptions.h"
 #include "operateur_numerique.h"
 #include "litterale.h"
-#include "littrat.h"
-#include "littentiere.h"
-#include "littreelle.h"
-
 /**
   \class add
   \brief La classe d'opérateur qui effectue l'addition entre 2 littérales

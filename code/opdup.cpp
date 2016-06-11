@@ -6,5 +6,5 @@ void opdup::traitement(){
         litterale& adup = pile.top();
         litterale& ret = adup;
         pile.push(ret);
-        return 0;
+        //return 0;
 }

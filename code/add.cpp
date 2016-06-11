@@ -1,5 +1,4 @@
 #include "add.h"
-#include "exceptions.h"
 
 litterale& add::traitement(litterale& a, litterale& b)
 {

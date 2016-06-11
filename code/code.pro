@@ -16,19 +16,13 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    littentiere.cpp \
-    littreelle.cpp \
-    littrat.cpp \
     qcomputer.cpp \
     controleur.cpp \
     item.cpp \
-    littcomplexe.cpp \
     pile.cpp \
-    littatome.cpp \
     add.cpp \
     operateurmanager.cpp \
     mul.cpp \
-    littnumber.cpp \
     sous.cpp \
     divs.cpp \
     divent.cpp \
@@ -48,33 +42,25 @@ SOURCES += \
     opand.cpp \
     opor.cpp \
     opnot.cpp \
-    littprogramme.cpp \
-    littnumerique.cpp \
     opeval.cpp \
-    atomemanager.cpp \
     memento.cpp \
     opift.cpp \
     opdup.cpp \
-    parametres.cpp
+    parametres.cpp \
+    litterale.cpp
 
 HEADERS += \
     litterale.h \
-    littentiere.h \
-    littnumerique.h \
-    littreelle.h \
-    littrat.h \
     operateur_numerique.h \
     operateur.h \
     controleur.h \
     exceptions.h \
     item.h \
-    littcomplexe.h \
     pile.h \
     add.h \
     num.h \
     operateurmanager.h \
     mul.h \
-    littnumber.h \
     sous.h \
     divs.h \
     divent.h \
@@ -94,11 +80,9 @@ HEADERS += \
     opand.h \
     opor.h \
     opnot.h \
-    littprogramme.h \
     memento.h \
     operande.h \
     opeval.h \
-    atomemanager.h \
     qcomputer.h \
     opift.h \
     operateur_conditionnel.h \

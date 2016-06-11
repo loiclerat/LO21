@@ -9,9 +9,8 @@
 **/
 
 #include "item.h"
-#include "exceptions.h"
 
-//! \brief Retourne une référence vers la littérale associée à l'Item
+//! \brief Retourne une référence vers la littérale associée �  l'Item
 litterale& Item::getLitterale() const {
         if (lit==0) throw ComputerException("Item : tentative d'acces a une litterale inexistante");
         return *lit;

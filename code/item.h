@@ -1,4 +1,4 @@
-﻿/**
+/**
 \file item.h
 \date 03/06/2016
 \author LoÃƒÂ¯c Lerat, AndrÃƒÂ©a Vibert, ThÃƒÂ©o Hordequin
@@ -12,6 +12,7 @@ Description de la classe Item
 #ifndef ITEM_H
 #define ITEM_H
 #include "litterale.h"
+#include "exceptions.h"
 
 /**
   \class Item

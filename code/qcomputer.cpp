@@ -4,7 +4,7 @@
  * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
  * si l'on veut valider la ligne par notre propre clavier
  *
- * Commencé pour le + �  prendre en compte le fait qu'une fois cliqué on empile direct, �  voir si ça marche
+ * CommencÃ© pour le + ï¿½  prendre en compte le fait qu'une fois cliquÃ© on empile direct, ï¿½  voir si Ã§a marche
  ****/
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
@@ -14,6 +14,13 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     boxcomplete = new QVBoxLayout();
 
+    /** Layout des parametres **/
+
+    parametres = new QPushButton("Paramètres", this);
+    coucheparametres = new QVBoxLayout();
+    coucheparametres->addWidget(parametres);
+
+    connect(parametres, SIGNAL(pressed()), this, SLOT(parametresPressed()));
 
     /** Layout du haut **/
 
@@ -34,16 +41,16 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
             str+=" :";
             liste<<str;
         }
-    vuepile->setVerticalHeaderLabels(liste);                        //on redéfini les labels pour mettre les ":"
+    vuepile->setVerticalHeaderLabels(liste);                        //on redÃ©fini les labels pour mettre les ":"
 
 
     annuler = new QAction(this);
-    annuler->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Z)); //d�claration du raccourci
+    annuler->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Z)); //dï¿½claration du raccourci
     connect(annuler, SIGNAL(triggered()), this, SLOT(precedent()));
     this->addAction(annuler);
 
     retablir = new QAction(this);
-    retablir->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Y)); //d�claration du raccourci
+    retablir->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Y)); //dï¿½claration du raccourci
     connect(retablir, SIGNAL(triggered()), this, SLOT(suivant()));
     this->addAction(retablir);
 
@@ -63,7 +70,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     couchebas = new QHBoxLayout();
 
-    /** Layout des opÃ©rateurs de bases **/
+    /** Layout des opÃƒÂ©rateurs de bases **/
 
     plus = new QPushButton("+",this);
     moins = new QPushButton("-",this);
@@ -82,7 +89,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(entree);
     opbasique->addWidget(backspace);
 
-    /** Connexion des opérateurs de base **/
+    /** Connexion des opÃ©rateurs de base **/
 
     connect(plus, SIGNAL(pressed()), this, SLOT(plusPressed()));
     connect(moins, SIGNAL(pressed()), this, SLOT(moinsPressed()));
@@ -92,8 +99,9 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
     connect(backspace, SIGNAL(pressed()), this, SLOT(backSpaceCommande()));
 
-    /** Layout des opÃ©rateurs numÃ©riques **/
+    /** Layout des opÃƒÂ©rateurs numÃƒÂ©riques **/
 
+    mod = new QPushButton("MOD",this);
     divB = new QPushButton("DIV",this);
     neg = new QPushButton("NEG",this);
     den = new QPushButton("DEN",this);
@@ -103,6 +111,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     im = new QPushButton("IM",this);
 
     opnum = new QVBoxLayout();
+    opnum->addWidget(mod);
     opnum->addWidget(divB);
     opnum->addWidget(neg);
     opnum->addWidget(den);
@@ -112,8 +121,9 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opnum->addWidget(im);
 
 
-    /** Connexion des opérateurs numériques **/
+    /** Connexion des opÃ©rateurs numÃ©riques **/
 
+    connect(mod, SIGNAL(pressed()), this, SLOT(modPressed()));
     connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
     connect(neg, SIGNAL(pressed()), this, SLOT(negPressed()));
     connect(den, SIGNAL(pressed()), this, SLOT(denPressed()));
@@ -122,7 +132,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(re, SIGNAL(pressed()), this, SLOT(rePressed()));
     connect(im, SIGNAL(pressed()), this, SLOT(imPressed()));
 
-    /** Layout des opÃ©rateurs logiques **/
+    /** Layout des opÃƒÂ©rateurs logiques **/
 
     oplog = new QVBoxLayout();
     andb = new QPushButton("AND",this);
@@ -145,7 +155,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oplog->addWidget(supeg);
     oplog->addWidget(infeg);
 
-    /** Connexion des opérateurs logiques **/
+    /** Connexion des opÃ©rateurs logiques **/
 
     connect(andb, SIGNAL(pressed()), this, SLOT(andbPressed()));
     connect(orb, SIGNAL(pressed()), this, SLOT(orbPressed()));
@@ -157,18 +167,18 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(supeg, SIGNAL(pressed()), this, SLOT(supegPressed()));
     connect(infeg, SIGNAL(pressed()), this, SLOT(infegPressed()));
 
-    /** Layout des opÃ©rateurs conditionnels **/
+    /** Layout des opÃƒÂ©rateurs conditionnels **/
 
     opcond = new QVBoxLayout();
     ift = new QPushButton("IFT",this);
 
     opcond->addWidget(ift);
 
-    /** Connexion des opérateurs conditionnels **/
+    /** Connexion des opÃ©rateurs conditionnels **/
 
     connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
 
-    /** Layout des opÃ©rateurs pile **/
+    /** Layout des opÃƒÂ©rateurs pile **/
 
     oppile = new QVBoxLayout();
     dup = new QPushButton("DUP",this);
@@ -189,7 +199,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oppile->addWidget(redo);
     oppile->addWidget(clear);
 
-    /** Connexion des opérateurs de la pile **/
+    /** Connexion des opÃ©rateurs de la pile **/
 
     connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
     connect(drop, SIGNAL(pressed()), this, SLOT(dropPressed()));
@@ -200,7 +210,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
     connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
 
-    /** Layout du pavé numérique **/
+    /** Layout du pavÃ© numÃ©rique **/
 
     //Ligne 1
     paveNum1 = new QHBoxLayout();
@@ -265,6 +275,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     /** Layout principal **/
 
+    boxcomplete->addLayout(coucheparametres);
     boxcomplete->addLayout(couchehaut);
     boxcomplete->addLayout(couchebas);
 
@@ -281,7 +292,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
         connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
 
-        //connexion du pavé numérique �  la ligne de commande
+        //connexion du pavÃ© numÃ©rique ï¿½  la ligne de commande
         connect(un, SIGNAL(pressed()), this, SLOT(unPressed()));
         connect(deux, SIGNAL(pressed()), this, SLOT(deuxPressed()));
         connect(trois, SIGNAL(pressed()), this, SLOT(troisPressed()));
@@ -297,10 +308,10 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     setWindowTitle("UTComputer");
 }
 
- //! \brief la fonction refresh() permet de mettre �  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
+ //! \brief la fonction refresh() permet de mettre ï¿½  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
-    //lÃ  on efface tout ce qu'il y a dans l'affichage la pile
+    //lÃƒ  on efface tout ce qu'il y a dans l'affichage la pile
     for(unsigned int i=0;i<pile->getNbItemsToAffiche(); i++){
         vuepile->item(i,0)->setText("");
     }
@@ -313,7 +324,7 @@ void QComputer::refresh(){//affichage etat pile
 
     //! \todo Mettre le bon chemin pour la piste audio
     if (message->text() != ""){
-        QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si �a ne marche pas
+        QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si ï¿½a ne marche pas
         alarm.play();
     }
 }
@@ -335,4 +346,12 @@ void QComputer::precedent(){
 void QComputer::suivant(){
     controleur->loadSuivant();
     refresh();
+}
+
+
+
+// Affichage de la fenêtre de gestion des paramètres
+void QComputer::parametresPressed(){
+    para = new Parametres();
+    para->show();
 }

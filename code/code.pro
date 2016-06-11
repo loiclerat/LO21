@@ -54,7 +54,8 @@ SOURCES += \
     atomemanager.cpp \
     memento.cpp \
     opift.cpp \
-    opdup.cpp
+    opdup.cpp \
+    parametres.cpp
 
 HEADERS += \
     litterale.h \
@@ -102,4 +103,5 @@ HEADERS += \
     opift.h \
     operateur_conditionnel.h \
     operateur_pile.h \
-    opdup.h
+    opdup.h \
+    parametres.h

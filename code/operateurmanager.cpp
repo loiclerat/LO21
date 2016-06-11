@@ -13,8 +13,7 @@
 
 // Initialisation de tous les op?©rateurs (attributs statiques)
 
-unsigned int operateurManager::nb=23;
-
+unsigned int operateurManager::nb=24;
 
 operateurManager::operateurManager():ops(new operateur*[nb]){
 
@@ -65,6 +64,9 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     opIft* ift= new opIft();
     //! \brief Opï¿½rateur pour obtenir le résultat d'un DUP
     opdup* dup= new opdup();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un modulo
+    mod* modulo= new mod();
+
 
     // Opérateurs à créer
    /* //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
@@ -102,7 +104,11 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[20] = ift;
     ops[21] = dup;
     ops[22] = eval;
-   /* ops[23] = interversion;
+    ops[23] = modulo;
+   /* ops[20] = ift;
+    ops[21] = duplication;
+    ops[22] = depilement;
+    ops[23] = interversion;
     ops[24] = lastop;
     ops[25] = lastarg;*/
 

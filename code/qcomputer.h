@@ -16,6 +16,7 @@
 #include "pile.h"
 #include "controleur.h"
 #include "operateurmanager.h"
+#include "parametres.h"
 
 class QComputer : public QWidget{
     Q_OBJECT
@@ -28,6 +29,9 @@ class QComputer : public QWidget{
     QVBoxLayout* couchehaut;
     QTableWidget* vuepile;
     QKeyEvent* ctrlZ;
+    QVBoxLayout* coucheparametres;
+    QPushButton* parametres;
+    Parametres* para;
 
     QHBoxLayout* couchebas;
     QVBoxLayout* opbasique;
@@ -41,6 +45,7 @@ class QComputer : public QWidget{
 
 
     QVBoxLayout* opnum;
+    QPushButton* mod;
     QPushButton* divB;
     QPushButton* neg;
     QPushButton* den;
@@ -110,6 +115,8 @@ public slots:
     void clearCommande(){commande->clear();}
     void backSpaceCommande(){commande->backspace();}
 
+    void parametresPressed();
+
     //SLOTS pour le pave numérique
     void unPressed(){commande->insert("1");}
     void deuxPressed(){commande->insert("2"); }
@@ -130,6 +137,7 @@ public slots:
     void pointPressed(){commande->insert(".");}
 
     //SLOTS pour les opérateurs numériques
+    void modPressed(){commande->insert("MOD");getNextCommande();}
     void divBPressed(){commande->insert("DIV");getNextCommande();}
     void negPressed(){commande->insert("NEG");getNextCommande();}
     void denPressed(){commande->insert("DEN");getNextCommande();}

@@ -56,12 +56,9 @@ public:
     litterale* simplifier();
 
     bool isNull(){
-        if(partRe->isNull()==true){
-            if(partIm->isNull()==true){
-                return true;
-            }else return false;
-        }
-        else return false;
+        if(partRe->isNull()==true)
+            if(partIm->isNull()==true) return true;
+        return false;
     }
 
     bool isPos(){

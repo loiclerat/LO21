@@ -1,10 +1,9 @@
 /**
 \file operateurmanager.cpp
 \date 03/06/2016
-\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
+\author Lo??c Lerat, Andr?©a Vibert, Th?©o Hordequin
 \version 1.0
-\brief  Definition des mÃ©thodes de la classe operateurManager
-
+\brief  Definition des m?©thodes de la classe operateurManager
 **/
 
 
@@ -12,41 +11,66 @@
 #include "exceptions.h"
 
 
-// Initialisation de tous les opÃ©rateurs (attributs statiques)
+// Initialisation de tous les op?©rateurs (attributs statiques)
 
-unsigned int operateurManager::nb=12;
+unsigned int operateurManager::nb=19;
 
 
 operateurManager::operateurManager():ops(new operateur*[nb]){
 
-    //! \brief Opï¿½rateur d'addition
+    //! \brief Op??½rateur d'addition
     add* addition=new add();
-    //! \brief Opï¿½rateur de soustraction
+    //! \brief Op??½rateur de soustraction
     sous* soustraction= new sous();
-    //! \brief Opï¿½rateur de multiplication
+    //! \brief Op??½rateur de multiplication
     mul* multiplication= new mul();
-    //! \brief Opï¿½rateur de division
+    //! \brief Op??½rateur de division
     divs* division= new divs();
-    //! \brief Opï¿½rateur de création de complexe
+    //! \brief Op??½rateur de création de complexe
     dollar* complexe= new dollar();
-    //! \brief Opï¿½rateur pour obtenir le negatif
+    //! \brief Op??½rateur pour obtenir le negatif
     neg* negatif= new neg();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test ==
+    //! \brief Op??½rateur pour obtenir le resultat du test ==
     opegal* egalite= new opegal();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test !=
+    //! \brief Op??½rateur pour obtenir le resultat du test !=
     opdiff* difference= new opdiff();
-    //! \brief Opï¿½rateur pour obtenir resultat du test <=
+    //! \brief Op??½rateur pour obtenir resultat du test <=
     opegalinf* inferouegal= new opegalinf();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    //! \brief Op??½rateur pour obtenir le resultat du test >=
     opegalsup* superouegal= new opegalsup();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    //! \brief Op??½rateur pour obtenir le resultat du test >=
     opinf* inferiorite= new opinf();
-    //! \brief Opï¿½rateur pour obtenir le resultat du test >=
+    //! \brief Op??½rateur pour obtenir le resultat du test >=
     opsup* superiorite= new opsup();
-    //! \brief Opï¿½rateur pour obtenir le resultat de DIV
+
+    //! \brief Op??½rateur pour obtenir le resultat de la division enti?re
     divent* diventiere= new divent();
-    //! \brief Opï¿½rateur pour obtenir le resultat de DIV
+    //! \brief Op??½rateur pour obtenir le dénominateur d'un rationnel
     den* denominateur= new den();
+    //! \brief Op??½rateur pour obtenir le numérateur d'un rationnel
+    num* numerateur= new num();
+    //! \brief Op??½rateur pour obtenir la partie réelle d'un complexe
+    opre* partieReelle= new opre();
+    //! \brief Op??½rateur pour obtenir la partie imaginaire d'un complexe
+    opim* partieImaginaire= new opim();
+    //! \brief Op??½rateur pour obtenir le résultat d'un ET
+    opand* et= new opand();
+    //! \brief Op??½rateur pour obtenir le résultat d'un OU
+    opor* ou= new opor();
+    //! \brief Op??½rateur pour obtenir le résultat d'un NOT
+    opnot* non= new opnot();
+
+    // Opérateurs ? créer
+   /* //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    den* duplication= new den();
+    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    den* depilement= new den();
+    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    den* interversion= new den();
+    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    den* lastop= new den();
+    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    den* lastarg= new den();*/
 
     ops[0] = addition;
     ops[1] = soustraction;
@@ -60,48 +84,37 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[9] = inferiorite;
     ops[10] = superouegal;
     ops[11] = inferouegal;
+
     ops[12] = diventiere;
     ops[13] = denominateur;
+    ops[14] = numerateur;
+    ops[15] = partieReelle;
+    ops[16] = partieImaginaire;
+    ops[17] = et;
+    ops[18] = ou;
+    ops[19] = non;
+   /* ops[20] = ift;
+    ops[21] = duplication;
+    ops[22] = depilement;
+    ops[23] = interversion;
+    ops[24] = lastop;
+    ops[25] = lastarg;*/
 
 }
-/*
-void numPressed(){commande->insert("NUM");}
-void ccomplexPressed(){commande->insert("$");getNextCommande();}
-void rePressed(){commande->insert("RE");}
-void imPressed(){commande->insert("IM");}
 
-//SLOTS pour les opÃ©rateurs logiques
-void andbPressed(){commande->insert("AND");getNextCommande();}
-void orbPressed(){commande->insert("OR");getNextCommande();}
-void notbPressed(){commande->insert("NOT");getNextCommande();}
-void egalPressed(){commande->insert("=");getNextCommande();}
-void diffPressed(){commande->insert("!=");getNextCommande();}
-void supPressed(){commande->insert(">");getNextCommande();}
-void infPressed(){commande->insert("<");getNextCommande();}
-void supegPressed(){commande->insert(">=");getNextCommande();}
-void infegPressed(){commande->insert("=<");getNextCommande();}
 
-//SLOTS pour les opÃ©rateurs conditionnels
-void iftPressed(){commande->insert("IFT");}
 
-//SLOTS pour les opÃ©rateurs de la pile
-void dupPressed(){commande->insert("DUP");getNextCommande();}
-void dropPressed(){commande->insert("DROP");getNextCommande();}
-void swapPressed(){commande->insert("SWAP");getNextCommande();}
-void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
-void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
-*/
 //! \brief Initialisation de l'attribut statique handler
 operateurManager::Handler operateurManager::handler=operateurManager::Handler();
 
 
-//! \brief RÃ©cupÃ©rer l'instance unique d'operateurManager
+//! \brief R?©cup?©rer l'instance unique d'operateurManager
 operateurManager& operateurManager::getInstance(){
     if (handler.instance==0) handler.instance=new operateurManager;
     return *handler.instance;
 }
 
-//! \brief LibÃ©ration de l'instance
+//! \brief Lib?©ration de l'instance
 void operateurManager::libererInstance(){
     delete handler.instance;
     handler.instance=0;

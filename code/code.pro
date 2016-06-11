@@ -23,7 +23,6 @@ SOURCES += \
     littcomplexe.cpp \
     pile.cpp \
     littatome.cpp \
-    aoperateur.cpp \
     add.cpp \
     operateurmanager.cpp \
     mul.cpp \
@@ -68,8 +67,6 @@ HEADERS += \
     littcomplexe.h \
     pile.h \
     add.h \
-    alitt.h \
-    aoperateur.h \
     num.h \
     operateurmanager.h \
     mul.h \

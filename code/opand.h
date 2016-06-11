@@ -9,10 +9,16 @@
 #include "littentiere.h"
 #include "littreelle.h"
 
+/**
+  \class opand
+  \brief La classe d'opérateur qui renvoye la resultat de l'opérateur AND
+  (AND)
+ */
 
 class opand : public operateur_logique
 {
 public:
+    //! \brief Constructeur de l'opérateur -> appel du construteur d'opérateur logique
     opand():operateur_logique(2,"AND"){}
     litterale& traitement(litterale &a, litterale &b);
     litterale& traitement(litterale &a){

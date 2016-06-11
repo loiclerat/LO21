@@ -21,7 +21,11 @@ Description de la classe litterale rationnelle
   \brief La classe des littérales rationnelles
  */
 class littrat : public littNumerique {
+    //! \brief Attribut :
+    //! num : \e int concernant le numerateur de la littérale rationnelle
     int num;
+    //! \brief Attribut :
+    //! den : \e int concernant le denominateur de la littérale rationnelle
     int den;
 
 public:

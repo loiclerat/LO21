@@ -8,10 +8,16 @@
 #include "littentiere.h"
 #include "littreelle.h"
 
+/**
+  \class opinf
+  \brief La classe d'opérateur qui renvoye le résultat de la comparaison par le signe inférieur
+  (<)
+ */
 
 class opinf : public operateur_logique
 {
 public:
+    //! \brief Constructeur de l'opérateur -> appel du construteur d'opérateur logique
     opinf():operateur_logique(2,"<"){}
     litterale& traitement(litterale &a, litterale &b);
     litterale& traitement(litterale &a){

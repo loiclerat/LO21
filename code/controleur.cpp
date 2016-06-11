@@ -15,24 +15,17 @@
 
 Controleur* Controleur::cinstance = 0;
 
-
-Controleur::Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
-    QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
-    for(operateurManager::iterator it=opeMng.begin(); it!=opeMng.end(); ++it){
-        if (rx.exactMatch((*it).getSymbol())) mapAtome.insert((*it).getSymbol(), &(*it));
-    }
-    save();
-}
-
-//! \brief Récupérer l'instance unique d'operateurManager
 Controleur& Controleur::getInstance(Pile* pile){
+    //Si l'instance n'existe pas, on crée un nouveau controleur avec l'instance d'OperateurManager et la pile
     if (cinstance==0) cinstance=new Controleur(operateurManager::getInstance(),*pile);
+    //Sinon on retourne l'instance de Controleur
     return *cinstance;
 }
 
-//! \brief Libération de l'instance
 void Controleur::libererInstance(){
+    //Libère l'instance de Controleur
     delete cinstance;
+    //Met à 0 l'attribut de Controleur -> permet d'en créer une nouvelle par la suite
     cinstance=0;
 }
 
@@ -53,8 +46,6 @@ Operande* Controleur::estLitteraleAtome(const QString s){
     else return 0;
 }
 
-//! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaît pas la suite de symboles entrés
-
 QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
@@ -72,46 +63,55 @@ QString Controleur::estLitterale(const QString s){
 
 Operande* Controleur::CreateConcrete(QString c)
 {
+    //Pointeur vers operateur si le QString est un operateur
     operateur* op;
-        Operande* at=estLitteraleAtome(c);
-        if(at){
-            operateur* ope = dynamic_cast<operateur*>(at);
-            litterale* litt = dynamic_cast<litterale*>(at);
 
-            if(ope) c=ope->getSymbol();
-            else if (litt) c=litt->affichage();
+    //Pointeur vers l'opérande si le QString est un atome
+    Operande* at = estLitteraleAtome(c);
+
+    //Si c'est un atome
+    if (at) {
+        //Polymorphisme -> dynamic_cast afin de savoir quel est le type concret de at
+        operateur* ope = dynamic_cast<operateur*>(at);
+        litterale* litt = dynamic_cast<litterale*>(at);
+
+        if (ope)
+            c = ope->getSymbol();
+        else if (litt)
+            c = litt->affichage();
+    }
+    if (estLitterale(c) != "") {
+        if (estLitterale(c) == "entiere") {
+            littEntiere* l = new littEntiere(c.toInt());
+            return (l);
         }
-        if (estLitterale(c) != "") {
-            if (estLitterale(c) == "entiere") {
-                littEntiere* l = new littEntiere(c.toInt());
-                return (l);
-            }
-            else {
-                if (estLitterale(c) == "reelle") {
-                    QStringList list = c.split(".");
-                    QString ent = list[0];
-                    QString dec = list[1];
-                    if (dec == "") {
-                        littEntiere* l = new littEntiere(ent.toInt());
-                        return (l);
-                    }
-                    else {
-                        littReelle* l = new littReelle(ent.toInt(), c.toFloat() - ent.toInt());
-                        return (l);
-                    }
+        else {
+            if (estLitterale(c) == "reelle") {
+                QStringList list = c.split(".");
+                QString ent = list[0];
+                QString dec = list[1];
+                if (dec == "") {
+                    littEntiere* l = new littEntiere(ent.toInt());
+                    return (l);
+                }
+                else {
+                    littReelle* l = new littReelle(ent.toInt(), c.toFloat() - ent.toInt());
+                    return (l);
                 }
             }
         }
-        else if (c[0] == '[') {
-            littProgramme* p = new littProgramme(c);
-            return p;
-        }
-        else if ((op = estOperateur(c)) != 0) {
-            return (op);
-        }
-        else {
-            throw ComputerException("Ceci n'est pas une litterale ou un operateur");
-        }
+    }
+    //Si le premier caractère de la QString est un [ , alors c'est un programme, on le créer puis on le retourne
+    else if (c[0] == '[') {
+        littProgramme* p = new littProgramme(c);
+        return p;
+    }
+    else if ((op = estOperateur(c)) != 0) {
+        return (op);
+    }
+    else {
+        throw ComputerException("Ceci n'est pas une litterale ou un operateur");
+    }
 }
 
 QList<Operande*> Controleur::FactoryMethod(QString str)
@@ -119,9 +119,9 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
     QList<Operande*> list;
     QStringList prog;
     QStringList t;
-    QString finalp;
-    bool ok;
+
     try {
+        //Procédure pour savoir si c'est un programme, si il est bien écrit, présence d'autant de [ que de ]
         prog = str.split('[');
         if (prog.length() != 0) {
             int taille = prog.length();
@@ -136,30 +136,37 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
             }
         }
 
+        //Regexp afin de supprimer les esapces
         QRegExp rx("(\\ )");
 
+        //listOperande contient tous les caractères splités entre les espaces
         QStringList listOperande = str.split(rx, QString::SkipEmptyParts);
-        qDebug() << listOperande;
-        int openPar = 0;
-        int closenPar = 0;
+
+        //Entiers pour gérer les programmes
+        int openCroch = 0;
+        int closenCroch = 0;
+
+        //Boucle qui parcours toute la liste d'opérande
         for (int i = 0; i < listOperande.length(); i++) {
-            //int i = 0;
             if (listOperande[i] == "[") {
-                openPar++;
+                //On commence un programme
+                openCroch++;
                 QString Programme = "";
+                //On l'ajoute à la Qstring qui va être renvoyer à Create Concrete
                 Programme += listOperande[i];
-                while (openPar != closenPar && i < listOperande.length() - 1) {
+                while (openCroch != closenCroch && i < listOperande.length() - 1) {
                     i++;
                     if (listOperande[i] == "[")
-                        openPar++;
+                        openCroch++;
                     if (listOperande[i] == "]")
-                        closenPar++;
-                    // Stocker dans une liste les opérandes du programme
+                        closenCroch++;
+                    // Stocke dans une liste les opérandes du programme
                     Programme += " " + listOperande[i];
                 }
-                qDebug() << Programme;
+                //On passe la QString du progrmame à CreateConcrete afin de créer l'objet Programme
                 list.append(CreateConcrete(Programme));
             }
+            //Sinon c'est une litterale ou un operateur basique
             else {
                 try {
                     list.append(CreateConcrete(listOperande[i]));
@@ -179,45 +186,50 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
 void Controleur::commande(const QString& c)
 {
 
+    //Liste d'opérande qui va être créer avec la FactoryMethode
     QList<Operande*> list;
     list = FactoryMethod(c);
     try{
-    for (int i = 0; i < list.size(); ++i) {
-        litterale* lit = dynamic_cast<litterale*>(list[i]);
-        operateur* ope = dynamic_cast<operateur*>(list[i]);
-        if (lit != 0) {
-            littAff.push(*lit);
-            save();
-        }
-        else if (ope->getArite() == 1) {
-            if (littAff.taille() >= 1) {
-                litterale& v = littAff.top();
-                litterale* ptr=&(*(ope->traitement(v).simplifier()));
-                if (ptr!=0){
-                    littAff.pop();
-                    littAff.push(*ptr);
+        //Boucle qui va parcourir toute la liste d'opérande
+        for (int i = 0; i < list.size(); ++i) {
+            //Si l'opérande passée dans la liste est une litterale (Polymorphisme)
+                litterale* lit = dynamic_cast<litterale*>(list[i]);
+                //Si l'opérande passée dans la liste est un opérateur (Polymorphisme)
+                operateur* ope = dynamic_cast<operateur*>(list[i]);
+                //Si c'est une littérale, on empile
+                if (lit != 0) {
+                    littAff.push(*lit);
+                    save();
                 }
-                save();
-            }
-            else
-                throw ComputerException("Erreur : pas assez d'arguments");
-        }
-        else if (ope->getArite() == 2) {
-            if (littAff.taille() >= 2) {
-                litterale& v1 = littAff.top();
-                littAff.pop();
-                litterale& v2 = littAff.top();
-                littAff.pop();
-                litterale* ptr=(ope->traitement(v2, v1).simplifier());
-                save();
-
-                if (ptr==0){loadPrecedent(); throw ComputerException("Erreur : operation impossible");}
-
-                littAff.push(*ptr);
-            }
-            else
-                throw ComputerException("Erreur : pas assez d'arguments");
-        }
+                //Sinon on regarde l'arité de l'operateur
+                else if (ope->getArite() == 1) {
+                    if (littAff.taille() >= 1) {
+                        litterale& v = littAff.top();
+                        litterale* ptr=&(*(ope->traitement(v).simplifier()));
+                        if (ptr!=0){
+                            littAff.pop();
+                            littAff.push(*ptr);
+                        }
+                        save();
+                    }
+                    else
+                        throw ComputerException("Erreur : pas assez d'arguments");
+                }
+                else if (ope->getArite() == 2) {
+                    if (littAff.taille() >= 2) {
+                        litterale& v1 = littAff.top();
+                        littAff.pop();
+                        litterale& v2 = littAff.top();
+                        littAff.pop();
+                        litterale* ptr=&(*(ope->traitement(v2, v1).simplifier()));
+                        qDebug()<<ptr;
+                        if (ptr==0){ reload(); throw ComputerException("Erreur : operation impossible");}
+                        littAff.push(*ptr);
+                        save();
+                    }
+                    else
+                        throw ComputerException("Erreur : pas assez d'arguments");
+                }
     }
 }catch (ComputerException& c){
             littAff.setMessage(c.getInfo());
@@ -259,6 +271,14 @@ void Controleur::loadSuivant()
 {
     if (history_index < careTaker.taille()) {
         history_index++;
+        qDebug() << "charger - " << history_index - 1;
+        getEtatFromMemento(careTaker.get(history_index - 1));
+    }
+}
+
+void Controleur::reload()
+{
+    if (history_index > 1) {
         qDebug() << "charger - " << history_index - 1;
         getEtatFromMemento(careTaker.get(history_index - 1));
     }

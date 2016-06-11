@@ -8,7 +8,7 @@ litterale& opor::traitement(litterale& a, litterale& b)
     littnumber* num2 = dynamic_cast<littnumber*>(&b);
 
     if (num1 != 0 && num2 != 0) {
-        if (num1->isNull() == true && num2->isNull()==true) {
+        if (num1->isNull() == false && num2->isNull()==false) {
             littEntiere* ret = new littEntiere(1);
             return *ret;
         }

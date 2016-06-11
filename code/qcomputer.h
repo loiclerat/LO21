@@ -41,6 +41,7 @@ class QComputer : public QWidget{
 
 
     QVBoxLayout* opnum;
+    QPushButton* mod;
     QPushButton* divB;
     QPushButton* neg;
     QPushButton* den;
@@ -130,6 +131,7 @@ public slots:
     void pointPressed(){commande->insert(".");}
 
     //SLOTS pour les opérateurs numériques
+    void modPressed(){commande->insert("MOD");getNextCommande();}
     void divBPressed(){commande->insert("DIV");getNextCommande();}
     void negPressed(){commande->insert("NEG");getNextCommande();}
     void denPressed(){commande->insert("DEN");getNextCommande();}

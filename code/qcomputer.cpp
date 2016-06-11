@@ -94,6 +94,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     /** Layout des opÃ©rateurs numÃ©riques **/
 
+    mod = new QPushButton("MOD",this);
     divB = new QPushButton("DIV",this);
     neg = new QPushButton("NEG",this);
     den = new QPushButton("DEN",this);
@@ -103,6 +104,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     im = new QPushButton("IM",this);
 
     opnum = new QVBoxLayout();
+    opnum->addWidget(mod);
     opnum->addWidget(divB);
     opnum->addWidget(neg);
     opnum->addWidget(den);
@@ -114,6 +116,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     /** Connexion des opérateurs numériques **/
 
+    connect(mod, SIGNAL(pressed()), this, SLOT(modPressed()));
     connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
     connect(neg, SIGNAL(pressed()), this, SLOT(negPressed()));
     connect(den, SIGNAL(pressed()), this, SLOT(denPressed()));

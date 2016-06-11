@@ -1,3 +1,14 @@
+/**
+\file neg.h
+\date 03/06/2016
+\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\version 1.0
+\brief  Classe littentiere
+
+Description de l'op�rateur NEG
+
+**/
+
 #ifndef NEG_H
 #define NEG_H
 

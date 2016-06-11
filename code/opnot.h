@@ -2,6 +2,7 @@
 #define OPNOT_H
 
 #include <QString>
+#include <QDebug>
 #include "operateur_logique.h"
 #include "litterale.h"
 #include "littrat.h"
@@ -18,9 +19,9 @@ class opnot : public operateur_logique
 {
 public:
     //! \brief Constructeur de l'opérateur -> appel du construteur d'opérateur logique
-    opnot():operateur_logique(2,"NOT"){}
+    opnot():operateur_logique(1,"NOT"){}
+    litterale& traitement(litterale &a);
     litterale& traitement(litterale &a, litterale &b){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
-    litterale& traitement(litterale &a);
 };
 #endif // OPNOT_H

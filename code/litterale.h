@@ -34,11 +34,6 @@ using namespace std;
  */
 class litterale : public Operande{
 public :
-    //! \brief Constructeur
-    litterale(){}
-    //! \brief Destructeur
-    virtual ~litterale(){}
-
     //! \brief       Affichage de la litterale
     //! \param    f         QString
     //! \return    Un \e QString possédant tout l'affichage de la litterale.

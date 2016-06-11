@@ -8,6 +8,8 @@ litterale& divent::traitement(litterale &a, litterale &b){
     if(ent1 != 0 && ent2!=0)
     {
             littNumerique* res =  (*(ent1)/ent2);
+            delete ent1;
+            delete ent2;
             littrat* rat1 = dynamic_cast<littrat*>(res);
                 if(rat1 != 0){
                     int a = rat1->getNum()/rat1->getDen();

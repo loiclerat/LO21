@@ -21,11 +21,6 @@ class littNumerique : public littnumber{
 
 public :
 
-    //! \brief  Constructeur de la litterale numerique
-    littNumerique(){}
-    //! \brief  Destructeur de la litterale numerique
-    virtual ~littNumerique(){}
-
     // **************************************** //
     //          Défini précédemment
     // **************************************** //

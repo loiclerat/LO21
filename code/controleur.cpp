@@ -49,8 +49,6 @@ Operande* Controleur::estLitteraleAtome(const QString s){
 QString Controleur::estLitterale(const QString s){
 
     bool ok=false;
-
-
         s.toInt(&ok);
         if(ok) return "entiere";//! \brief Test pour voir s'il s'agit d'une littEntiere
 
@@ -124,10 +122,10 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
         //Procédure pour savoir si c'est un programme, si il est bien écrit, présence d'autant de [ que de ]
         prog = str.split('[');
         if (prog.length() != 0) {
-            int taille = prog.length();
+            unsigned int taille = prog.length();
             t = str.split(']');
             if (t.length() == taille) {
-                for (int j = 0; j < taille; j++) {
+                for (unsigned int j = 0; j < taille; j++) {
                     qDebug() << (prog[j].split(']', QString::SkipEmptyParts));
                 }
             }
@@ -143,11 +141,11 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
         QStringList listOperande = str.split(rx, QString::SkipEmptyParts);
 
         //Entiers pour gérer les programmes
-        int openCroch = 0;
-        int closenCroch = 0;
+        unsigned int openCroch = 0;
+        unsigned int closenCroch = 0;
 
         //Boucle qui parcours toute la liste d'opérande
-        for (int i = 0; i < listOperande.length(); i++) {
+        for (unsigned int i = 0; i < listOperande.length(); i++) {
             if (listOperande[i] == "[") {
                 //On commence un programme
                 openCroch++;
@@ -192,7 +190,7 @@ void Controleur::commande(const QString& c)
     list = FactoryMethod(c);
     try{
         //Boucle qui va parcourir toute la liste d'opérande
-        for (int i = 0; i < list.size(); ++i) {
+        for (unsigned int i = 0; i < list.size(); ++i) {
             //Si l'opérande passée dans la liste est une litterale (Polymorphisme)
                 litterale* lit = dynamic_cast<litterale*>(list[i]);
                 //Si l'opérande passée dans la liste est un opérateur (Polymorphisme)

@@ -11,7 +11,7 @@ litterale& den::traitement(litterale &a){
         littEntiere* t = new littEntiere(b->getDen());
         return *t;
         }else {
-            throw ComputerException("Ce n'est pas une litterale rationnelle");
+            throw ComputerException("Ce n'est pas une litterale qui peut être mise en négatif");
 
         }
 }

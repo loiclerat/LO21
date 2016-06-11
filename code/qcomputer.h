@@ -130,13 +130,13 @@ public slots:
     void pointPressed(){commande->insert(".");}
 
     //SLOTS pour les opérateurs numériques
-    void divBPressed(){commande->insert("DIV");}
+    void divBPressed(){commande->insert("DIV");getNextCommande();}
     void negPressed(){commande->insert("NEG");getNextCommande();}
-    void denPressed(){commande->insert("DEN");}
-    void numPressed(){commande->insert("NUM");}
+    void denPressed(){commande->insert("DEN");getNextCommande();}
+    void numPressed(){commande->insert("NUM");getNextCommande();}
     void ccomplexPressed(){commande->insert("$");getNextCommande();}
-    void rePressed(){commande->insert("RE");}
-    void imPressed(){commande->insert("IM");}
+    void rePressed(){commande->insert("RE");getNextCommande();}
+    void imPressed(){commande->insert("IM");getNextCommande();}
 
     //SLOTS pour les opérateurs logiques
     void andbPressed(){commande->insert("AND");getNextCommande();}

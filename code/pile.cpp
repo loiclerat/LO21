@@ -59,6 +59,10 @@ void Pile::agrandissementCapacite() {
 void Pile::push(litterale& l){
     if (nb==nbMax) agrandissementCapacite();
     items[nb].setLitterale(l);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 075aefeaf00422346407acba802da24e79d1bdda
     nb++;
     modificationEtat();
 }

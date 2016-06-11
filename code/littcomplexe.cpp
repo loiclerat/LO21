@@ -6,7 +6,11 @@ littcomplexe::littcomplexe(littcomplexe const& source)
     this->partRe = source.getPartIm();
 }
 
+<<<<<<< HEAD
 litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une litt?rale de sa partie r?elle si sa partie imaginaire est nulle
+=======
+litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littérale de sa partie réelle si sa partie imaginaire est nulle
+>>>>>>> 075aefeaf00422346407acba802da24e79d1bdda
 
     if (this->getPartIm()->isNull()){
         littEntiere* ent1 = dynamic_cast<littEntiere*>(this->getPartRe());
@@ -28,6 +32,10 @@ litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une litt?ral
     else{
         littcomplexe* l = new littcomplexe(dynamic_cast<littNumerique*>(this->getPartRe()->simplifier()), dynamic_cast<littNumerique*>(this->getPartIm()->simplifier()));
         if (l->getPartIm() == 0 || l->getPartRe() == 0){
+<<<<<<< HEAD
+=======
+            qDebug()<<"Yo le zéro";
+>>>>>>> 075aefeaf00422346407acba802da24e79d1bdda
             return 0;
         }
         return l;

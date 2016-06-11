@@ -43,33 +43,33 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     //! \brief Op??½rateur pour obtenir le resultat du test >=
     opsup* superiorite= new opsup();
 
-    //! \brief Op??½rateur pour obtenir le resultat de la division enti?re
+    //! \brief Opï¿½rateur pour obtenir le resultat de la division entière
     divent* diventiere= new divent();
-    //! \brief Op??½rateur pour obtenir le dénominateur d'un rationnel
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un rationnel
     den* denominateur= new den();
-    //! \brief Op??½rateur pour obtenir le numérateur d'un rationnel
+    //! \brief Opï¿½rateur pour obtenir le numérateur d'un rationnel
     num* numerateur= new num();
-    //! \brief Op??½rateur pour obtenir la partie réelle d'un complexe
+    //! \brief Opï¿½rateur pour obtenir la partie réelle d'un complexe
     opre* partieReelle= new opre();
-    //! \brief Op??½rateur pour obtenir la partie imaginaire d'un complexe
+    //! \brief Opï¿½rateur pour obtenir la partie imaginaire d'un complexe
     opim* partieImaginaire= new opim();
-    //! \brief Op??½rateur pour obtenir le résultat d'un ET
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un ET
     opand* et= new opand();
-    //! \brief Op??½rateur pour obtenir le résultat d'un OU
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un OU
     opor* ou= new opor();
-    //! \brief Op??½rateur pour obtenir le résultat d'un NOT
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un NOT
     opnot* non= new opnot();
 
-    // Opérateurs ? créer
-   /* //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    // Opérateurs à créer
+   /* //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
     den* duplication= new den();
-    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
     den* depilement= new den();
-    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
     den* interversion= new den();
-    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
     den* lastop= new den();
-    //! \brief Op??½rateur pour obtenir le dénominateur d'un complexe
+    //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
     den* lastarg= new den();*/
 
     ops[0] = addition;

@@ -187,6 +187,7 @@ void Controleur::commande(const QString& c)
 {
 
     //Liste d'opérande qui va être créer avec la FactoryMethode
+    littAff.setMessage("");
     QList<Operande*> list;
     list = FactoryMethod(c);
     try{
@@ -230,7 +231,8 @@ void Controleur::commande(const QString& c)
                     else
                         throw ComputerException("Erreur : pas assez d'arguments");
                 }
-    }
+            }
+
 }catch (ComputerException& c){
             littAff.setMessage(c.getInfo());
     }

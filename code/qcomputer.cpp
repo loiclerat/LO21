@@ -14,6 +14,13 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     boxcomplete = new QVBoxLayout();
 
+    /** Layout des parametres **/
+
+    parametres = new QPushButton("Paramètres", this);
+    coucheparametres = new QVBoxLayout();
+    coucheparametres->addWidget(parametres);
+
+    connect(parametres, SIGNAL(pressed()), this, SLOT(parametresPressed()));
 
     /** Layout du haut **/
 
@@ -268,6 +275,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     /** Layout principal **/
 
+    boxcomplete->addLayout(coucheparametres);
     boxcomplete->addLayout(couchehaut);
     boxcomplete->addLayout(couchebas);
 
@@ -338,4 +346,12 @@ void QComputer::precedent(){
 void QComputer::suivant(){
     controleur->loadSuivant();
     refresh();
+}
+
+
+
+// Affichage de la fenêtre de gestion des paramètres
+void QComputer::parametresPressed(){
+    para = new Parametres();
+    para->show();
 }

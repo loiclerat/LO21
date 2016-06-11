@@ -50,6 +50,7 @@ public :
     //!
     virtual bool isNull()=0;
 
+    virtual litterale& operator=(litterale& a)=0;
 };
 
 #endif // LITTERALE_H

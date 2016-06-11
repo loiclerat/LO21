@@ -150,7 +150,7 @@ public slots:
     void infegPressed(){commande->insert("=<");getNextCommande();}
 
     //SLOTS pour les opérateurs conditionnels
-    void iftPressed(){commande->insert("IFT");}
+    void iftPressed(){commande->insert("IFT");getNextCommande();}
 
     //SLOTS pour les opérateurs de la pile
     void dupPressed(){commande->insert("DUP");getNextCommande();}

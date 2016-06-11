@@ -35,6 +35,8 @@ Description de la classe operateurManager et de ses it??rateurs
 #include "opnot.h"
 #include "opor.h"
 #include "opre.h"
+#include "opift.h"
+#include "opdup.h"
 
 #include <QString>
 
@@ -106,7 +108,7 @@ public:
     };
     //! \brief Retourne un it??rateur positionn?? sur le premier operateur de la liste
     iterator begin() { return iterator(ops); }
-    //! \brief Retourne un it??rateur positionn?? apr?Ns le dernier operateur de la liste
+    //! \brief Retourne un it??rateur positionn?? apr?ï¿½Ns le dernier operateur de la liste
     iterator end() { return iterator(ops+nb); }
 
     /**
@@ -131,7 +133,7 @@ public:
     };
     //! \brief Retourne un it??rateur positionn?? sur le premier operateur de la liste
     const_iterator begin_const() const { return const_iterator(ops); }
-    //! \brief Retourne un it??rateur positionn?? apr?Ns le dernier operateur de la liste
+    //! \brief Retourne un it??rateur positionn?? apr?ï¿½Ns le dernier operateur de la liste
     const_iterator end_const() const { return const_iterator(ops+nb); }
 
 };

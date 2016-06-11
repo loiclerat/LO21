@@ -50,6 +50,13 @@ public:
         }else return false;
     }
 
+    litterale& operator=(litterale& a){
+        littProgramme* le = dynamic_cast<littProgramme*>(&a);
+        if(le != 0){
+            littProgramme* ret = new littProgramme(le->getStr());
+            return *ret;
+        }
+    }
 };
 
 #endif // LITTPROGRAMME_H

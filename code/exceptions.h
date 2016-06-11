@@ -34,6 +34,8 @@ public:
     //! \brief Getter de la classe ComputerException afin de récupérer le message d'erreur
     //! \return  \e QString de l'erreur
     QString getInfo() const { return info; }
+
+    ~ComputerException(){}
 };
 
 #endif // EXCEPTIONS_H

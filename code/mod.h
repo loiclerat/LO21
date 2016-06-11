@@ -24,5 +24,8 @@ public:
     litterale& traitement(litterale &a, litterale &b);
     litterale& traitement(litterale &a){
         throw ComputerException("Arité incorrecte pour cet opérateur");}
+    void traitement(){
+        throw ComputerException("Arité incorrecte pour cet opérateur");
+    }
 };
 #endif // MOD_H

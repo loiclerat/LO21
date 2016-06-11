@@ -25,7 +25,7 @@ class Controleur {
     //! \brief Référence vers l'perateur manager
     operateurManager& opeMng;
     //! \brief CareTaker pour le memento
-    CareTaker careTaker;    
+    CareTaker careTaker;
     //! \brief Entier d'indexation de l'historique
     unsigned int history_index;
     //! \brief Map d'Atome que comprend l'application
@@ -126,13 +126,13 @@ public:
     //! \brief Méthode save qui sauvegarde l'état de la pile
     void save();
 
-    //! \brief Méthode loadPrecedent qui permet de revenir �  l'état précédent de la pile
+    //! \brief Méthode loadPrecedent qui permet de revenir �  l'état précédent de la pile
     void loadPrecedent();
 
-    //! \brief Méthode loadSuivant qui permet de revenir �  l'état suivant de la pile
+    //! \brief Méthode loadSuivant qui permet de revenir �  l'état suivant de la pile
     void loadSuivant();
 
-    //! \brief Méthode reload qui permet de recharger �  l'état de la pile
+    //! \brief Méthode reload qui permet de recharger �  l'état de la pile
     void reload();
 };
 

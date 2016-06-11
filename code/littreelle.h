@@ -120,6 +120,25 @@ public:
     littNumerique* operator/(littNumerique* b);
     littnumber* operator/(littnumber* b);
     /*==========*/
+
+    litterale& operator=(litterale& a){
+        littReelle* le = dynamic_cast<littReelle*>(&a);
+        if(le != 0){
+            littReelle* ret = new littReelle(le->getValeur());
+            return *ret;
+        }
+    }
+
+    littNumerique& operator=(littNumerique& a){
+        littReelle* le = dynamic_cast<littReelle*>(&a);
+        if(le != 0){
+            littReelle* ret = new littReelle(le->getValeur());
+            return *ret;
+        }
+    }
+
+
+
 };
 
 #endif // LITTREELLE_H

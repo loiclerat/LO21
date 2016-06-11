@@ -83,6 +83,24 @@ public:
     littNumerique* operator/(littNumerique* a);
     littnumber* operator/(littnumber* a);
     /*==========*/
+
+    litterale& operator=(litterale& a){
+        littEntiere* le = dynamic_cast<littEntiere*>(&a);
+        if(le != 0){
+            littEntiere* ret = new littEntiere(le->getValeur());
+            return *ret;
+        }
+    }
+
+    littNumerique& operator=(littNumerique& a){
+        littEntiere* le = dynamic_cast<littEntiere*>(&a);
+        if(le != 0){
+            littEntiere* ret = new littEntiere(le->getValeur());
+            return *ret;
+        }
+    }
+
+
 };
 
 #endif //LITTENTIERE_H

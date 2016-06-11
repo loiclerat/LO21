@@ -9,11 +9,15 @@
 
 #include "pile.h"
 #include "exceptions.h"
+#include "littprogramme.h"
+#include "littnumber.h"
+#include "littnumerique.h"
 #include "littentiere.h"
 #include "littatome.h"
 #include "littcomplexe.h"
 #include "littrat.h"
 #include "littreelle.h"
+#include "controleur.h"
 #include <typeinfo>
 
 
@@ -83,3 +87,4 @@ litterale& Pile::top() const {
     if (nb==0) throw ComputerException("aucune litterale sur la pile");
     return items[nb-1].getLitterale();
 }
+

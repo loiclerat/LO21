@@ -76,7 +76,6 @@ public:
     //! \brief Tableau d'Items
     Item* getItems() const { return items; }
 
-
     // === ITERATEURS ===
 
     /**

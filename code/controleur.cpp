@@ -25,7 +25,7 @@ Controleur& Controleur::getInstance(Pile* pile){
 void Controleur::libererInstance(){
     //Libère l'instance de Controleur
     delete cinstance;
-    //Met �  0 l'attribut de Controleur -> permet d'en créer une nouvelle par la suite
+    //Met �  0 l'attribut de Controleur -> permet d'en créer une nouvelle par la suite
     cinstance=0;
 }
 
@@ -150,7 +150,7 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                 //On commence un programme
                 openCroch++;
                 QString Programme = "";
-                //On l'ajoute �  la Qstring qui va être renvoyer �  Create Concrete
+                //On l'ajoute �  la Qstring qui va être renvoyer �  Create Concrete
                 Programme += listOperande[i];
                 while (openCroch != closenCroch && i < listOperande.length() - 1) {
                     i++;
@@ -161,7 +161,7 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                     // Stocke dans une liste les opérandes du programme
                     Programme += " " + listOperande[i];
                 }
-                //On passe la QString du progrmame �  CreateConcrete afin de créer l'objet Programme
+                //On passe la QString du progrmame �  CreateConcrete afin de créer l'objet Programme
                 list.append(CreateConcrete(Programme));
             }
             //Sinon c'est une litterale ou un operateur basique
@@ -201,6 +201,14 @@ void Controleur::commande(const QString& c)
                     save();
                 }
                 //Sinon on regarde l'arité de l'operateur
+                else if (ope->getArite() == 0) {
+                if (littAff.taille() >= 0) {
+                    ope->traitement();
+                    save();
+                }
+                else
+                    throw ComputerException("Erreur : pas assez d'element sur la pile");
+                }
                 else if (ope->getArite() == 1) {
                     if (littAff.taille() >= 1) {
                         litterale& v = littAff.top();
@@ -232,7 +240,8 @@ void Controleur::commande(const QString& c)
             }
 
 }catch (ComputerException& c){
-            littAff.setMessage(c.getInfo());
+        reload();
+        littAff.setMessage(c.getInfo());
     }
 }
 

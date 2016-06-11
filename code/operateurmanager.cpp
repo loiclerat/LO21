@@ -13,7 +13,7 @@
 
 // Initialisation de tous les op?©rateurs (attributs statiques)
 
-unsigned int operateurManager::nb=19;
+unsigned int operateurManager::nb=23;
 
 
 operateurManager::operateurManager():ops(new operateur*[nb]){
@@ -59,6 +59,12 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     opor* ou= new opor();
     //! \brief Opï¿½rateur pour obtenir le résultat d'un NOT
     opnot* non= new opnot();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un EVAL
+    opeval* eval= new opeval();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un IFT
+    opIft* ift= new opIft();
+    //! \brief Opï¿½rateur pour obtenir le résultat d'un DUP
+    opdup* dup= new opdup();
 
     // Opérateurs à créer
    /* //! \brief Opï¿½rateur pour obtenir le dénominateur d'un complexe
@@ -93,10 +99,10 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[17] = et;
     ops[18] = ou;
     ops[19] = non;
-   /* ops[20] = ift;
-    ops[21] = duplication;
-    ops[22] = depilement;
-    ops[23] = interversion;
+    ops[20] = ift;
+    ops[21] = dup;
+    ops[22] = eval;
+   /* ops[23] = interversion;
     ops[24] = lastop;
     ops[25] = lastarg;*/
 

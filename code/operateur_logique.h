@@ -30,6 +30,7 @@ public:
 
     virtual litterale& traitement(litterale& a, litterale& b) = 0;
     virtual litterale& traitement(litterale& a) = 0;
+    virtual void traitement() = 0;
 };
 
 #endif // OPERATEUR_LOGIQUE_H

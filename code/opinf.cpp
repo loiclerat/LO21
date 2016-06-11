@@ -3,6 +3,8 @@
 litterale& opinf::traitement(litterale& a, litterale& b)
 {
 
+    qDebug()<<"LE A VAUT : "<<a.affichage();
+    qDebug()<<"LE B VAUT : "<<b.affichage();
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
     littnumber* num2 = dynamic_cast<littnumber*>(&b);
 
@@ -18,6 +20,6 @@ litterale& opinf::traitement(litterale& a, litterale& b)
         }
     }
     else {
-        throw ComputerException("Format incompatible des argument, nécessite un nombre");
+        throw ComputerException("Format incompatible des arguments, nécessite deux nombres");
     }
 }

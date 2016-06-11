@@ -62,5 +62,7 @@ public :
     //! \return    Un \e littNumerique* -> pointeur vers une littérale numérique qui contient la construction concrète d'un objet fille.
     //!
     virtual littNumerique* operator/(littNumerique* a)=0;
+
+    virtual littNumerique& operator=(littNumerique& a)=0;
 };
 #endif // LITTNUMERIQUE_H

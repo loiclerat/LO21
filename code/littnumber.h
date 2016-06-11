@@ -24,6 +24,7 @@ class littnumber : public litterale
 public:
     virtual ~littnumber(){}
 
+
     virtual QString affichage(QString f="")const=0;//a definir
     virtual litterale* simplifier(){return this;}
     virtual bool isNull()=0;

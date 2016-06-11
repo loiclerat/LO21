@@ -24,3 +24,4 @@ littnumber* littNumerique::operator-(littnumber* a){
                 throw ComputerException("operation impossible");
     }
 }
+

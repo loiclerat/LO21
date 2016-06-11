@@ -55,6 +55,12 @@ public:
     //! \param a litterale& -> littérale en argument
     //! \return  un \e litterale& correspondant à une référence vers une litterale crée par le traitement
     virtual litterale& traitement(litterale& a) = 0;
+
+
+    //! \brief  Traitement de l'opérateur, méthode qui exécute le fonctionnement de l'opérateur || Cas arité 0. Elle est redéfini dans toutes les classes filles
+    //!
+    virtual void traitement() = 0;
+
 };
 
 #endif // OPERATEUR_H

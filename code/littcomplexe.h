@@ -90,6 +90,19 @@ public:
     littnumber* operator*(littnumber* a);
     /*==========*/
     littnumber* operator/(littnumber* a);
+
+    litterale& operator=(litterale& a){
+        littcomplexe* lc = dynamic_cast<littcomplexe*>(&a);
+
+        if(lc != 0){
+            littNumerique* re = lc->getPartRe();
+            littNumerique* im = lc->getPartIm();
+            littcomplexe* res = new littcomplexe(re,im);
+            return *res;
+        }
+
+    }
+
 };
 
 #endif // LITTCOMPLEXE_H

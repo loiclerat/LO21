@@ -10,6 +10,7 @@ TARGET = code
 CONFIG += console
 CONFIG -= app_bundle
 QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter
+QMAKE_CXXFLAGS_WARN_ON += -Wno-return-type
 
 TEMPLATE = app
 
@@ -52,7 +53,8 @@ SOURCES += \
     opeval.cpp \
     atomemanager.cpp \
     memento.cpp \
-    opift.cpp
+    opift.cpp \
+    opdup.cpp
 
 HEADERS += \
     litterale.h \
@@ -98,4 +100,6 @@ HEADERS += \
     atomemanager.h \
     qcomputer.h \
     opift.h \
-    operateur_conditionnel.h
+    operateur_conditionnel.h \
+    operateur_pile.h \
+    opdup.h

@@ -252,6 +252,7 @@ litterale *littReelle::simplifier()
 {
     if (this->decimale == 0) {
         littEntiere* l = new littEntiere(this->getEntiere());
+        delete this;
         return l;
     }
     else return this;

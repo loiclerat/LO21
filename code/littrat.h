@@ -118,6 +118,23 @@ public:
     littNumerique* operator/(littNumerique* a);
     littnumber* operator/(littnumber* a);
     /*==========*/
+
+    litterale& operator=(litterale& a){
+        littrat* le = dynamic_cast<littrat*>(&a);
+        if(le != 0){
+            littrat* ret = new littrat(le->getNum(),le->getDen());
+            return *ret;
+        }
+    }
+
+    littNumerique& operator=(littNumerique& a){
+        littrat* le = dynamic_cast<littrat*>(&a);
+        if(le != 0){
+            littrat* ret = new littrat(le->getNum(),le->getDen());
+            return *ret;
+        }
+    }
+
 };
 
 #endif // LITTRAT_H

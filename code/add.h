@@ -22,6 +22,9 @@ public:
     litterale& traitement(litterale& a){
         throw ComputerException("Arité incorrecte pour cet opérateur");
     }
+    void traitement(){
+        throw ComputerException("Arité incorrecte pour cet opérateur");
+    }
 };
 
 #endif // ADD_H

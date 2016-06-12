@@ -43,12 +43,8 @@ class QComputer : public QWidget{
     QVBoxLayout* couchehaut;
 
     QTableWidget* vuepile;
-<<<<<<< HEAD
-
 
     //! \brief Couche permettant l'accès à la fenêtre de paramétrage de l'interface grâce à un boutton cliquable
-=======
->>>>>>> 026441aad8440ca482b45ac275b38a1125eeface
     QVBoxLayout* coucheparametres;
     QPushButton* parametres;
     Parametres* para;

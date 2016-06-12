@@ -13,7 +13,7 @@ Description de la classe Operateur
 #define OPERATEUR_H
 #include "litterale.h"
 #include "QString"
-#include "QException"
+#include "exceptions.h"
 #include "pile.h"
 #include "operande.h"
 

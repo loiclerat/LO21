@@ -171,38 +171,31 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(supeg, SIGNAL(pressed()), this, SLOT(supegPressed()));
     connect(infeg, SIGNAL(pressed()), this, SLOT(infegPressed()));
 
-    /** Layout des opÃƒÂ©rateurs conditionnels **/
 
-    opcond = new QVBoxLayout();
+    /** Layout des opÃƒÂ©rateurs pile et conditionnels **/
+
     ift = new QPushButton("IFT",this);
-
-    opcond->addWidget(ift);
-
-    /** Connexion des opÃ©rateurs conditionnels **/
-
-    connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
-
-    /** Layout des opÃƒÂ©rateurs pile **/
-
     oppile = new QVBoxLayout();
     dup = new QPushButton("DUP",this);
     undo = new QPushButton("UNDO",this);
     redo = new QPushButton("REDO",this);
     clear = new QPushButton("CLEAR",this);
 
+
+    oppile->addWidget(ift);
     oppile->addWidget(dup);
     oppile->addWidget(undo);
     oppile->addWidget(redo);
     oppile->addWidget(clear);
 
     /** Connexion des opÃ©rateurs de la pile **/
-
+    connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
     connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
     connect(undo, SIGNAL(pressed()), this, SLOT(undoPressed()));
     connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
     connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
 
-    /** Layout du pavÃ© numÃ©rique **/
+    /** Layout du pavÃ© numÃ©rique et conditionnels **/
 
     //Ligne 1
     paveNum1 = new QHBoxLayout();
@@ -262,7 +255,6 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     couchebas->addLayout(opbasique);
     couchebas->addLayout(opnum);
     couchebas->addLayout(oplog);
-    couchebas->addLayout(opcond);
     couchebas->addLayout(oppile);
 
     /** Layout principal **/

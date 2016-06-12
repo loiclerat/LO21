@@ -35,20 +35,26 @@ Description de la classe QComputer
 class QComputer : public QWidget{
     Q_OBJECT
 
+    //! \brief Pointeur vers la pile pour communiquer avec elle, notamment pour les messages d'erreur
     Pile* pile;
+    //! \brief Pointeur vers le controleur qui va gérer notre programme
     Controleur* controleur;
-    QVBoxLayout* boxcomplete;
+    //! \brief Ligne permettant d'afficher les messages d'erreurs sans que l'on puisse les modifier
     QLineEdit* message;
+    //! \brief Ligne dre commande sur laquelle l'utilisateur rentre les instructions
     QLineEdit* commande;
-    QVBoxLayout* couchehaut;
-
+    //! \brief Vision
     QTableWidget* vuepile;
+
+    //! \brief Layout de l'intégralite de la fenêtre
+    QVBoxLayout* boxcomplete;
 
     //! \brief Couche permettant l'accès à la fenêtre de paramétrage de l'interface grâce à un boutton cliquable
     QVBoxLayout* coucheparametres;
     QPushButton* parametres;
     Parametres* para;
 
+    QVBoxLayout* couchehaut;
     QHBoxLayout* couchebas;
     //! \brief Ensemble des opérateurs basiques
     QVBoxLayout* opbasique;
@@ -85,13 +91,14 @@ class QComputer : public QWidget{
     QPushButton* supeg;
     QPushButton* infeg;
 
-//! \brief Ensemble des opérateurs conditionnels
-    QVBoxLayout* opcond;
     //! \brief Opérateur permettant d'évaluer le deuxième élément dépilé sous condition sur le premier argument
-    QPushButton* ift;
 
-//! \brief Opérateurs de pile
+
+//! \brief Opérateurs de pile et opérateurs conditionnels
     QVBoxLayout* oppile;
+
+   // QVBoxLayout* opcond;
+    QPushButton* ift;
     //! \brief DUP pour empiler la littérale qui est sur le dessus de la pile
     QPushButton* dup;
     QPushButton* drop;

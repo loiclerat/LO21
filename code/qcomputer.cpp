@@ -81,8 +81,8 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     div = new QPushButton("/",this);
     mul = new QPushButton("*",this);
     point = new QPushButton(".",this);
-    entree = new QPushButton("Entrer",this);
     backspace = new QPushButton("Supprimer",this);
+    clear = new QPushButton("CLEAR",this);
 
     opbasique = new QVBoxLayout();
     opbasique->addWidget(plus);
@@ -90,8 +90,8 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(div);
     opbasique->addWidget(mul);
     opbasique->addWidget(point);
-    opbasique->addWidget(entree);
     opbasique->addWidget(backspace);
+    opbasique->addWidget(clear);
 
     /** Connexion des opÃ©rateurs de base **/
 
@@ -100,8 +100,8 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     connect(div, SIGNAL(pressed()), this, SLOT(divPressed()));
     connect(mul, SIGNAL(pressed()), this, SLOT(mulPressed()));
     connect(point, SIGNAL(pressed()), this, SLOT(pointPressed()));
-    connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
     connect(backspace, SIGNAL(pressed()), this, SLOT(backSpaceCommande()));
+    connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
 
     /** Layout des opÃƒÂ©rateurs numÃƒÂ©riques **/
 
@@ -179,21 +179,20 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     dup = new QPushButton("DUP",this);
     undo = new QPushButton("UNDO",this);
     redo = new QPushButton("REDO",this);
-    clear = new QPushButton("CLEAR",this);
+    eval = new QPushButton("EVAL",this);
 
-
+    oppile->addWidget(eval);
     oppile->addWidget(ift);
     oppile->addWidget(dup);
     oppile->addWidget(undo);
     oppile->addWidget(redo);
-    oppile->addWidget(clear);
 
     /** Connexion des opÃ©rateurs de la pile **/
     connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
     connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
     connect(undo, SIGNAL(pressed()), this, SLOT(undoPressed()));
     connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
-    connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
+    connect(eval, SIGNAL(pressed()), this, SLOT(evalPressed()));
 
     /** Layout du pavÃ© numÃ©rique et conditionnels **/
 
@@ -239,15 +238,34 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     //Ligne 4
     paveNum4 = new QHBoxLayout();
     zero = new QPushButton("0", this);
-    //zero->setFixedSize(30,30);
     paveNum4->addWidget(zero);
+
+    //Ligne 6
+    paveNum6 = new QHBoxLayout();
+    entree = new QPushButton("Entr�e", this);
+    paveNum6->addWidget(entree);
+
+    //Ligne 5
+    paveNum5 = new QHBoxLayout();
+    crochetGauche = new QPushButton("[", this);
+    crochetGauche->setFixedSize(30,30);
+    crochetDroit = new QPushButton("]", this);
+    crochetDroit->setFixedSize(30,30);
+    space = new QPushButton("_", this);
+    space->setFixedSize(30,30);
+
+    paveNum5->addWidget(crochetGauche);
+    paveNum5->addWidget(space);
+    paveNum5->addWidget(crochetDroit);
 
     //PAVE complet
     paveNum = new QVBoxLayout();
+    paveNum->addLayout(paveNum5);
     paveNum->addLayout(paveNum1);
     paveNum->addLayout(paveNum2);
     paveNum->addLayout(paveNum3);
     paveNum->addLayout(paveNum4);
+    paveNum->addLayout(paveNum6);
 
     /** Construction des layouts **/
 
@@ -286,6 +304,10 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(huit, SIGNAL(pressed()), this, SLOT(huitPressed()));
         connect(neuf, SIGNAL(pressed()), this, SLOT(neufPressed()));
         connect(zero, SIGNAL(pressed()), this, SLOT(zeroPressed()));
+        connect(crochetGauche, SIGNAL(pressed()), this, SLOT(crochetGauchePressed()));
+        connect(crochetDroit, SIGNAL(pressed()), this, SLOT(crochetDroitPressed()));
+        connect(space, SIGNAL(pressed()), this, SLOT(spacePressed()));
+        connect(entree, SIGNAL(pressed()), this, SLOT(getNextCommande()));
 
     setLayout(boxcomplete);
     setWindowTitle("UTComputer");

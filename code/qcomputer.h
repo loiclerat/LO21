@@ -105,6 +105,8 @@ class QComputer : public QWidget{
     QPushButton* redo;
     //! \brief CLEAR pour nettoyer tout ce qui se trouve dans la ligne de saisie de texte
     QPushButton* clear;
+    //! \brief EVAL pour évaluer une littérale Programme
+    QPushButton* eval;
 
 //! \brief Pavé numérique permettant de saisir tous les chiffres
     QVBoxLayout* paveNum;
@@ -112,6 +114,8 @@ class QComputer : public QWidget{
     QHBoxLayout* paveNum2;
     QHBoxLayout* paveNum3;
     QHBoxLayout* paveNum4;
+    QHBoxLayout* paveNum5;
+    QHBoxLayout* paveNum6;
 
     QPushButton* un;
     QPushButton* deux;
@@ -123,6 +127,9 @@ class QComputer : public QWidget{
     QPushButton* huit;
     QPushButton* neuf;
     QPushButton* zero;
+    QPushButton* crochetDroit;
+    QPushButton* crochetGauche;
+    QPushButton* space;
 
 
     //! \brief Correspond à un UNDO, permet de signaler au controleur un retour à l'état précédent de la pile
@@ -163,6 +170,9 @@ public slots:
     void huitPressed(){commande->insert("8");}
     void neufPressed(){commande->insert("9");}
     void zeroPressed(){commande->insert("0");}
+    void crochetGauchePressed(){commande->insert("[ ");}
+    void crochetDroitPressed(){commande->insert(" ]");}
+    void spacePressed(){commande->insert(" ");}
 
     //SLOTS pour les opÃ©rateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
@@ -201,6 +211,7 @@ public slots:
     void swapPressed(){commande->insert("SWAP");getNextCommande();}
     void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
     void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
+    void evalPressed(){commande->insert("EVAL");getNextCommande();}
     void undoPressed(){precedent();}
     void redoPressed(){suivant();}
 

@@ -14,6 +14,7 @@ Parametres::Parametres(unsigned int& c, unsigned int& s, QWidget *parent):QWidge
     clavier = new QCheckBox("Affichage du clavier cliquable", this);
     clavier->setChecked(clav == 2);
     nbitem = new QSpinBox(this);
+    nbitem->setValue(Pile::getNbItemsToAffiche());
     submit = new QPushButton("Appliquer", this);
 
     nbitem->setMaximum(10);

@@ -41,9 +41,9 @@ class QComputer : public QWidget{
     Controleur* controleur;
     //! \brief Ligne permettant d'afficher les messages d'erreurs sans que l'on puisse les modifier
     QLineEdit* message;
-    //! \brief Ligne dre commande sur laquelle l'utilisateur rentre les instructions
+    //! \brief Ligne de commande sur laquelle l'utilisateur rentre les instructions
     QLineEdit* commande;
-    //! \brief Vision
+    //! \brief Vision de la pile en fonction du nombre de ligne à afficher
     QTableWidget* vuepile;
 
     //! \brief Layout de l'intégralite de la fenêtre
@@ -91,20 +91,14 @@ class QComputer : public QWidget{
     QPushButton* supeg;
     QPushButton* infeg;
 
-    //! \brief Opérateur permettant d'évaluer le deuxième élément dépilé sous condition sur le premier argument
 
 
 //! \brief Opérateurs de pile et opérateurs conditionnels
     QVBoxLayout* oppile;
-
-   // QVBoxLayout* opcond;
+    //! \brief Opérateur permettant d'évaluer le deuxième élément dépilé sous condition sur le premier argument
     QPushButton* ift;
     //! \brief DUP pour empiler la littérale qui est sur le dessus de la pile
     QPushButton* dup;
-    QPushButton* drop;
-    QPushButton* swap;
-    QPushButton* lastop;
-    QPushButton* lastarg;
     //! \brief UNDO pour retouner à l'état précédent de la pile
     QPushButton* undo;
     //! \brief REDO pour rétablir l'état suivant de la pile

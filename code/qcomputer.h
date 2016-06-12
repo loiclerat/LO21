@@ -6,7 +6,7 @@
 \brief  Interface graphique sur Qt permettant l'affichage de la calculatrice
 
 
-Description de la classe QComputer
+Description de la classe QComputer, ses attributs, slots et méthodes
 **/
 
 #ifndef QCOMPUTER_H
@@ -138,25 +138,36 @@ class QComputer : public QWidget{
     QKeyEvent* ctrlZ;
     QAction* retablir;
 
+    //! \brief Etat de l'affichage du clavier (2 : visible, -1 : caché, 1 : en cours d'affichage, 0 en cours masquage)
     unsigned int showClavier;
+    //! \brief Etat de l'activation des sons (2 : activés, -1 : désactivés, 1 : en cours d'activation, 0 en cours de désactivation)
     unsigned int sons;
 
 
 
 public :
+    //! \brief Constructeur
     explicit QComputer(QWidget *parent = 0);
 
 public slots:
+    //! \brief Rafraîchit l'affichage de la pile
     void refresh();
+    //! \brief Récupère la commande entrée par l'utilisateur et appelle le Controleur pour effectuer les traitements
     void getNextCommande();
+    //! \brief Revenir à l'étape précédente
     void precedent();
+    //! \brief Revenir à l'étape suivante
     void suivant();
 
+    //! \brief Effacement de la ligne de commande
     void clearCommande(){commande->clear();}
+    //! \brief Effacement du dernier caractère de la ligne de commande
     void backSpaceCommande(){commande->backspace();}
 
+    //! \brief Affichage ou non du clavier
     void vueClavier(bool visible);
 
+    //! \brief Affichage de la fenêtre d'édition des paramètres
     void parametresPressed();
 
     //SLOTS pour le pave numérique

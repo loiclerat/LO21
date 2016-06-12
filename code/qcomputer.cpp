@@ -1,3 +1,15 @@
+/**
+\file qcomputer.cpp
+\date 03/06/2016
+\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\version 1.0
+\brief  Interface graphique sur Qt permettant l'affichage de la calculatrice
+
+
+Définition des méthodes de la classe QComputer
+**/
+
+
 #include "qcomputer.h"
 
 
@@ -309,6 +321,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
  //! \brief la fonction refresh() permet de mettre é  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
+    // Affichage ou non du clavier
     if (showClavier == 1){
         vueClavier(true);
         showClavier = 2;
@@ -318,10 +331,12 @@ void QComputer::refresh(){//affichage etat pile
         showClavier = -1;
     }
 
+    //Suppression des lignes en trop dans le QTableWidget par rapport au nbItemsToAffiche de la Pile
     while (vuepile->rowCount() > pile->getNbItemsToAffiche()){
         qDebug()<<vuepile->rowCount();
         vuepile->removeRow(0);
     }
+    //Ajout des lignes manquantes dans le QTableWidget par rapport au nbItemsToAffiche de la Pile
     bool ajout = false;
     while (vuepile->rowCount() < pile->getNbItemsToAffiche()){
         vuepile->insertRow(vuepile->rowCount());

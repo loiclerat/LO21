@@ -687,6 +687,10 @@ littNumerique* littReelle::operator/(littNumerique* a)
     littReelle* ree1 = dynamic_cast<littReelle*>(a);
 
     if (ent1 != 0) {
+        if (ent1->isNull()){
+            littrat* res = new littrat(ent1->getValeur(), 0);
+            return res;
+        }
         float c = 0.0 + ent1->getValeur();
         c = this->getValeur() / c;
         littReelle* res = new littReelle(c);

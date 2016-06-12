@@ -1,23 +1,12 @@
 #ifndef PARAMETRES_H
 #define PARAMETRES_H
 
-#include <QKeySequence>
 #include <QWidget>
-#include <QLineEdit>
-#include <QTextEdit>
-#include <QTableWidget>
 #include <QVBoxLayout>
-#include <QHeaderView>
-#include <QDebug>
 #include <QPushButton>
-#include <QSound>
-#include <QRegExp>
-#include <QAction>
 #include <QCheckBox>
 #include <QSpinBox>
 #include "pile.h"
-#include "controleur.h"
-#include "operateurmanager.h"
 
 class Parametres : public QWidget{
     Q_OBJECT
@@ -28,11 +17,16 @@ class Parametres : public QWidget{
     QPushButton* submit;
     QVBoxLayout* couche;
 
+    unsigned int& clav;
+    unsigned int& sons;
+
 public:
-    explicit Parametres(QWidget *parent = 0);
+    explicit Parametres(unsigned int& c, unsigned int& s, QWidget *parent = 0);
 
 public slots:
     void submitPressed();
+signals:
+    void ferme();
 
 };
 

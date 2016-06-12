@@ -28,7 +28,6 @@ class QComputer : public QWidget{
     QLineEdit* commande;
     QVBoxLayout* couchehaut;
     QTableWidget* vuepile;
-    QKeyEvent* ctrlZ;
     QVBoxLayout* coucheparametres;
     QPushButton* parametres;
     Parametres* para;
@@ -102,10 +101,14 @@ class QComputer : public QWidget{
     QAction* annuler;
     QAction* retablir;
 
+    unsigned int showClavier;
+    unsigned int sons;
+
 
 
 public :
     explicit QComputer(QWidget *parent = 0);
+
 public slots:
     void refresh();
     void getNextCommande();
@@ -114,6 +117,8 @@ public slots:
 
     void clearCommande(){commande->clear();}
     void backSpaceCommande(){commande->backspace();}
+
+    void vueClavier(bool visible);
 
     void parametresPressed();
 

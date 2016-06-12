@@ -7,6 +7,7 @@
  * CommencÃ© pour le + ï¿½  prendre en compte le fait qu'une fois cliquÃ© on empile direct, ï¿½  voir si Ã§a marche
  ****/
 
+
 QComputer::QComputer(QWidget* parent):QWidget(parent){
     this->setFixedSize(700, 650);
 
@@ -19,6 +20,9 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     parametres = new QPushButton("Paramètres", this);
     coucheparametres = new QVBoxLayout();
     coucheparametres->addWidget(parametres);
+
+    showClavier = 2;
+    sons = 2;
 
     connect(parametres, SIGNAL(pressed()), this, SLOT(parametresPressed()));
 
@@ -279,7 +283,6 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     boxcomplete->addLayout(couchehaut);
     boxcomplete->addLayout(couchebas);
 
-
     message->setReadOnly(true);
     message->setStyleSheet("color: white;"
                            "background-color: grey;"
@@ -311,6 +314,36 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
  //! \brief la fonction refresh() permet de mettre ï¿½  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
+    if (showClavier == 1){
+        vueClavier(true);
+        showClavier = 2;
+    }
+    else if (showClavier == 0){
+        vueClavier(false);
+        showClavier = -1;
+    }
+
+    while (vuepile->rowCount() > pile->getNbItemsToAffiche()){
+        qDebug()<<vuepile->rowCount();
+        vuepile->removeRow(0);
+    }
+    bool ajout = false;
+    while (vuepile->rowCount() < pile->getNbItemsToAffiche()){
+        vuepile->insertRow(vuepile->rowCount());
+        vuepile->setItem(vuepile->rowCount()-1, 0, new QTableWidgetItem(""));
+        qDebug()<<vuepile->rowCount();
+        ajout = true;
+    }
+    if (ajout){
+    QStringList liste;
+        for (unsigned int i=pile->getNbItemsToAffiche() ; i>0 ; i--){
+            QString str = QString::number(i);                            //liste de string
+            str+=" :";
+            liste<<str;
+        }
+    vuepile->setVerticalHeaderLabels(liste);                        //on redÃ©fini les labels pour mettre les ":"
+    }
+
     //lÃƒ  on efface tout ce qu'il y a dans l'affichage la pile
     for(unsigned int i=0;i<pile->getNbItemsToAffiche(); i++){
         vuepile->item(i,0)->setText("");
@@ -323,10 +356,15 @@ void QComputer::refresh(){//affichage etat pile
     message->setText(pile->getMessage());
 
     //! \todo Mettre le bon chemin pour la piste audio
-    if (message->text() != ""){
+    if (message->text() != "" && sons == 2){
         QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si ï¿½a ne marche pas
         alarm.play();
     }
+
+    if (sons == 1)
+        sons = 2;
+    else if (showClavier == 0)
+        sons = -1;
 }
 
 
@@ -352,6 +390,54 @@ void QComputer::suivant(){
 
 // Affichage de la fenêtre de gestion des paramètres
 void QComputer::parametresPressed(){
-    para = new Parametres();
+    para = new Parametres(showClavier, sons);
+    connect(para, SIGNAL(ferme()), this, SLOT(refresh()));
     para->show();
+}
+
+void QComputer::vueClavier(bool visible){
+
+    plus->setVisible(visible);
+    moins->setVisible(visible);
+    mul->setVisible(visible);
+    div->setVisible(visible);
+    point->setVisible(visible);
+    backspace->setVisible(visible);
+    entree->setVisible(visible);
+    mod->setVisible(visible);
+    divB->setVisible(visible);
+    neg->setVisible(visible);
+    den->setVisible(visible);
+    num->setVisible(visible);
+    ccomplex->setVisible(visible);
+    re->setVisible(visible);
+    im->setVisible(visible);
+    andb->setVisible(visible);
+    orb->setVisible(visible);
+    notb->setVisible(visible);
+    egal->setVisible(visible);
+    diff->setVisible(visible);
+    sup->setVisible(visible);
+    inf->setVisible(visible);
+    supeg->setVisible(visible);
+    infeg->setVisible(visible);
+    ift->setVisible(visible);
+    dup->setVisible(visible);
+    drop->setVisible(visible);
+    swap->setVisible(visible);
+    lastop->setVisible(visible);
+    lastarg->setVisible(visible);
+    undo->setVisible(visible);
+    redo->setVisible(visible);
+    clear->setVisible(visible);
+    un->setVisible(visible);
+    deux->setVisible(visible);
+    trois->setVisible(visible);
+    quatre->setVisible(visible);
+    cinq->setVisible(visible);
+    six->setVisible(visible);
+    sept->setVisible(visible);
+    huit->setVisible(visible);
+    neuf->setVisible(visible);
+    zero->setVisible(visible);
 }

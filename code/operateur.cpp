@@ -255,9 +255,7 @@ litterale& neg::traitement(litterale &a){
         if(comp1!=0){//si c'est un entier nouvelle littérale entière avec l'opposé en valeur
             littEntiere x(-1);
             littNumerique * temp1 = x*(comp1->getPartRe()); //construction de cette nouvelle littNumerique dans la surcharge d'operateur * de littEntiere
-            qDebug()<<temp1->affichage();
             littNumerique * temp2 = x*(comp1->getPartIm());
-            qDebug()<<temp2->affichage();
             littcomplexe* res= new littcomplexe(temp1,temp2);
             return *res;
         }
@@ -436,19 +434,13 @@ litterale& opor::traitement(litterale& a, litterale& b)
 litterale& opnot::traitement(litterale& a)
 {
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
-    qDebug()<<"on est dans NOT= "<<num1->affichage();
 
     if (num1 != 0) {
-        qDebug()<<"on a un number = "<<num1->affichage();
         if (num1->isNull()==true) {
             littEntiere* ret = new littEntiere(1);
             return *ret;
-
-            qDebug()<<"NOT doit valoir 1 = "<<num1->affichage();
         }
         else {
-
-            qDebug()<<"NOT doit valoir 0  = "<<num1->affichage();
             littEntiere* ret = new littEntiere(0);
             return *ret;
         }
@@ -548,8 +540,6 @@ litterale& opegalsup::traitement(litterale& a, litterale& b)
 
 litterale& opinf::traitement(litterale& a, litterale& b)
 {
-    qDebug()<<"LE A VAUT : "<<a.affichage();
-    qDebug()<<"LE B VAUT : "<<b.affichage();
     littnumber* num1 = dynamic_cast<littnumber*>(&a);
     littnumber* num2 = dynamic_cast<littnumber*>(&b);
 
@@ -597,8 +587,6 @@ litterale& opIft::traitement(litterale& a, litterale& b)
     littEntiere* booleen = dynamic_cast<littEntiere*>(&a);
     littProgramme* prog = dynamic_cast<littProgramme*>(&b);
 
-    qDebug()<<"PREMIER ARGUMENT "<<booleen->affichage();
-    qDebug()<<"SECOND ARGUMENT "<<prog->affichage();
 
     if (booleen != 0 && prog != 0) {
         if(booleen->getValeur()==1){
@@ -626,7 +614,6 @@ void opdup::traitement(){
 
 litterale& opeval::traitement(litterale& a)
 {
-    qDebug()<<"ON ENTRE DANS LE EVAL avec pour argument : "<<a.affichage();
     littProgramme* pg = dynamic_cast<littProgramme*>(&a);
 
     if (pg != 0) {

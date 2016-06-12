@@ -43,9 +43,12 @@ class QComputer : public QWidget{
     QVBoxLayout* couchehaut;
 
     QTableWidget* vuepile;
+<<<<<<< HEAD
 
 
     //! \brief Couche permettant l'accès à la fenêtre de paramétrage de l'interface grâce à un boutton cliquable
+=======
+>>>>>>> 026441aad8440ca482b45ac275b38a1125eeface
     QVBoxLayout* coucheparametres;
     QPushButton* parametres;
     Parametres* para;
@@ -131,10 +134,14 @@ class QComputer : public QWidget{
     QKeyEvent* ctrlZ;
     QAction* retablir;
 
+    unsigned int showClavier;
+    unsigned int sons;
+
 
 
 public :
     explicit QComputer(QWidget *parent = 0);
+
 public slots:
     void refresh();
     void getNextCommande();
@@ -143,6 +150,8 @@ public slots:
 
     void clearCommande(){commande->clear();}
     void backSpaceCommande(){commande->backspace();}
+
+    void vueClavier(bool visible);
 
     void parametresPressed();
 

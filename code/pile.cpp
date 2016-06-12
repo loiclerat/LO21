@@ -13,13 +13,10 @@
 #include "controleur.h"
 #include <typeinfo>
 
+unsigned int Pile::nbAffiche = 5;
 
 
-
-
-
-
-Pile::Pile(Pile& p):QObject(), nb(p.taille()), nbMax(p.getCapacite()), nbAffiche(p.getNbItemsToAffiche()), items(new Item[p.nbMax]) {
+Pile::Pile(Pile& p):QObject(), nb(p.taille()), nbMax(p.getCapacite()), items(new Item[p.nbMax]) {
     unsigned int i=0;
     for (iterator it = p.begin_inverse() ; it != p.end_inverse()  ; --it){
         items[i].setLitterale(*it);

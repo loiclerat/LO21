@@ -1,9 +1,8 @@
 #include "parametres.h"
+#include <QDebug>
 
 
-Parametres::Parametres(QWidget *parent):QWidget(parent){
-
-
+Parametres::Parametres(unsigned int& c, unsigned int& s, QWidget *parent):QWidget(parent), clav(c), sons(s){
 
     this->setFixedSize(400, 250);
     setWindowTitle("UTComputer");
@@ -11,7 +10,9 @@ Parametres::Parametres(QWidget *parent):QWidget(parent){
     couche = new QVBoxLayout();
 
     son = new QCheckBox("Son des messages d'erreur (ON/OFF)", this);
+    son->setChecked(sons == 2);
     clavier = new QCheckBox("Affichage du clavier cliquable", this);
+    clavier->setChecked(clav == 2);
     nbitem = new QSpinBox(this);
     submit = new QPushButton("Appliquer", this);
 
@@ -29,5 +30,12 @@ Parametres::Parametres(QWidget *parent):QWidget(parent){
 
 
 void Parametres::submitPressed(){
+    if (clavier->isChecked() == true)clav = 1;
+    else clav = 0;
+    if (son->isChecked() == true) sons = 1;
+    else sons = 0;
+    Pile::setNbItemsToAffiche(nbitem->value());
+    emit ferme();
     this->close();
 }
+

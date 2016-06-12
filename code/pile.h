@@ -36,7 +36,7 @@ class Pile : public QObject {
     //! \brief Message destiné à l'utilisateur
     QString message;
     //! \brief Nombre d'Items à afficher
-    unsigned int nbAffiche;
+    static unsigned int nbAffiche;
 
     //! \brief Agrandissement de la Pile lorsque l'on dépasse la capacité actuelle
     void agrandissementCapacite();
@@ -45,7 +45,7 @@ class Pile : public QObject {
 public:
 
     //! \brief Constructeur
-    Pile():items(0),nb(0),nbMax(0),message(""),nbAffiche(4){}
+    Pile():items(0),nb(0),nbMax(0),message(""){}
     //! \brief Destructeur
     ~Pile();
 
@@ -64,9 +64,9 @@ public:
     //! \brief Retourne une référence vers la littérale au sommet de la Pile
     litterale& top() const;
     //! \brief Définir le nombre d'éléments de la Pile à afficher
-    void setNbItemsToAffiche(unsigned int n) { nbAffiche=n; }
+    static void setNbItemsToAffiche(unsigned int n) { nbAffiche=n; }
     //! \brief Nombre d'Items à afficher
-    unsigned int getNbItemsToAffiche() const { return nbAffiche; }
+    static unsigned int getNbItemsToAffiche() { return Pile::nbAffiche; }
     //! \brief Définir le message à afficher à l'utilisateur
     void setMessage(const QString& m) { message=m; modificationEtat();}
     //! \brief Message à afficher

@@ -2,7 +2,7 @@
 #define OPERANDE_H
 /**
   \class Operande
-  \brief La classe est la classe mÃ¨re de toutes les littÃ©rales et opÃ©rateurs
+  \brief La classe est la classe mère de toutes les littérales et opérateurs
  */
 class Operande {
 public:

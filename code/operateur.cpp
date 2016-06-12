@@ -312,8 +312,8 @@ litterale& divent::traitement(litterale &a, litterale &b){
             littEntiere* resf = new littEntiere(a);
             return *resf;
         }
-        else  throw ComputerException("Format incompatible du second argument, nÃ©cessite entier");
-    }else  throw ComputerException("Format incompatible du second argument, nÃ©cessite entier");
+        else  throw ComputerException("Format incompatible du second argument, nécessite entier");
+    }else  throw ComputerException("Format incompatible du second argument, nécessite entier");
 }
 
 /******************* MOD : Modulo *****************************/
@@ -330,8 +330,8 @@ litterale& mod::traitement(litterale &a, litterale &b){
                 if(rat1 != 0){
                     littEntiere* resf = new littEntiere(ent1->getValeur()%rat1->getDen());
                     return *resf;
-                }else throw ComputerException("Format incompatible du second argument, nÃ©cessite entier");
-     }else throw ComputerException("Format incompatible du second argument, nÃ©cessite entier");
+                }else throw ComputerException("Format incompatible du second argument, nécessite entier");
+     }else throw ComputerException("Format incompatible du second argument, nécessite entier");
 }
 /************************ NUM : Numérateur *****************************/
 
@@ -406,7 +406,7 @@ litterale& opand::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /***************** OR : OU logique *******************************/
@@ -426,7 +426,7 @@ litterale& opor::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 
@@ -445,7 +445,7 @@ litterale& opnot::traitement(litterale& a)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /*************** = : Egalité *************************************/
@@ -467,7 +467,7 @@ litterale& opegal::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /************** != : différence ***********************************/
@@ -490,7 +490,7 @@ litterale& opdiff::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /************* <= : opérateur inférieur ou égal ******************/
@@ -512,7 +512,7 @@ litterale& opegalinf::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /************ => : operateur egal ou supérieur *******************/
@@ -533,7 +533,7 @@ litterale& opegalsup::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /**************** > : superiorite *************************************/
@@ -554,7 +554,7 @@ litterale& opinf::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des arguments, nÃ©cessite deux nombres");
+    else throw ComputerException("Format incompatible des arguments, nécessite deux nombres");
 }
 
 /******************** < : inferiorite *****************************/
@@ -576,7 +576,7 @@ litterale& opsup::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre");
 }
 
 /************** IFT : Opérateur conditionnel If then ******************/
@@ -598,7 +598,7 @@ litterale& opIft::traitement(litterale& a, litterale& b)
         }
         else throw ComputerException("La valeur est 0, on abandonne");
     }
-    else throw ComputerException("Format incompatible des argument, nÃ©cessite un nombre et un programme");
+    else throw ComputerException("Format incompatible des argument, nécessite un nombre et un programme");
 }
 
 /************* DUP : double la dernière littérale ***************/
@@ -618,7 +618,7 @@ litterale& opeval::traitement(litterale& a)
 
     if (pg != 0) {
         QString final = pg->getStr();
-        final = final.remove(0,1); //Retire 1 caractere , Ã  partir du 0 eme caractere
+        final = final.remove(0,1); //Retire 1 caractere , à partir du 0 eme caractere
         final = final.remove(final.length()-1,1);
         Controleur& ctrl = Controleur::getInstance();
         Pile& p = ctrl.getterPile();

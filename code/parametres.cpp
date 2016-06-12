@@ -19,9 +19,11 @@ Parametres::Parametres(unsigned int& c, unsigned int& s, QWidget *parent):QWidge
 
     nbitem->setMaximum(10);
     nbitem->setMinimum(2);
-
+    label = new QLabel("Nombre d'éléments de la pile à afficher : ", this);
+    label->setFixedSize(400, 20);
     couche->addWidget(son);
     couche->addWidget(clavier);
+    couche->addWidget(label);
     couche->addWidget(nbitem);
     couche->addWidget(submit);;
     setLayout(couche);

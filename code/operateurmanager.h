@@ -1,10 +1,10 @@
 /**
 \file operateurmanager.h
 \date 03/06/2016
-\author Lo??c Lerat, Andr??a Vibert, Th??o Hordequin
+\author Loéc Lerat, Andréa Vibert, Théo Hordequin
 \version 1.0
 \brief  Operateur Manager
-Description de la classe operateurManager et de ses it??rateurs
+Description de la classe operateurManager et de ses itérateurs
 **/
 
 
@@ -16,7 +16,7 @@ Description de la classe operateurManager et de ses it??rateurs
 
 /**
   \class operateurManager
-  \brief La classe operateurManager est charg??e de la gestion les operateurs
+  \brief La classe operateurManager est chargée de la gestion les operateurs
  */
 
 class operateurManager {
@@ -31,7 +31,7 @@ public:
     ~operateurManager();
     //! \brief Constructeur par recopie
     operateurManager(const operateurManager& m);
-    //! \brief Op??rateur d'affectation
+    //! \brief Opérateur d'affectation
     operateurManager& operator=(const operateurManager& m);
 
     //! \struct Handler
@@ -41,7 +41,7 @@ public:
         operateurManager* instance;
         //! \brief Constructeur
         Handler():instance(0){}
-        //! \brief Destructeur appel?? ?  la fin du programme
+        //! \brief Destructeur appelé ?  la fin du programme
         ~Handler(){ delete instance; }
     };
 
@@ -50,45 +50,45 @@ public:
 
 public:
 
-    //! \brief R??cup??rer l'instance unique d'operateurManager
+    //! \brief Récupérer l'instance unique d'operateurManager
     static operateurManager& getInstance();
-    //! \brief Lib??ration de l'instance
+    //! \brief Libération de l'instance
     static void libererInstance();
 
 
     // === ITERATEURS ===
 
-    // V??rifier l'utilit?? du constructeur priv?? et du friend
+    // Vérifier l'utilité du constructeur privé et du friend
 
     /**
       \class iterator
       \brief iterateur sur les objets operateur de operateurManager
-      \n iterator permet un parcours s??quentiel des ??l??ments du manager en lecture et ??criture
+      \n iterator permet un parcours séquentiel des éléments du manager en lecture et écriture
      */
     class iterator {
-        //! \brief ??l??ment courant, sur lequel est positionn?? l'it??rateur
+        //! \brief élément courant, sur lequel est positionné l'itérateur
         operateur** current;
 
     public:
 
         //! \brief Constructeur
         iterator(operateur** u):current(u){}
-        //! \brief Surcharge de l'op??rateur " * " pour r??cup??rer l'operateur point?? par l'??l??ment courant
+        //! \brief Surcharge de l'opérateur " * " pour récupérer l'operateur pointé par l'élément courant
         operateur& operator*() const { return **current; }
-        //! \brief Surcharge de l'opr??ateur " != " pour comparer deux it??rateurs
+        //! \brief Surcharge de l'opréateur " != " pour comparer deux itérateurs
         bool operator!=(iterator it) const { return current!=it.current; }
-        //! \brief Surcharge de l'op??rateur " ++ " pour avancer vers l'??l??ment suivant
+        //! \brief Surcharge de l'opérateur " ++ " pour avancer vers l'élément suivant
         iterator& operator++(){ ++current; return *this; }
     };
-    //! \brief Retourne un it??rateur positionn?? sur le premier operateur de la liste
+    //! \brief Retourne un itérateur positionné sur le premier operateur de la liste
     iterator begin() { return iterator(ops); }
-    //! \brief Retourne un it??rateur positionn?? apr?ï¿½Ns le dernier operateur de la liste
+    //! \brief Retourne un itérateur positionné aprèNs le dernier operateur de la liste
     iterator end() { return iterator(ops+nb); }
 
     /**
       \class const_iterator
       \brief iterateur const sur les objets operateur de operateurManager
-      \n const_iterator permet un parcours s??quentiel des ??l??ments du manager en lecture seule
+      \n const_iterator permet un parcours séquentiel des éléments du manager en lecture seule
      */
     class const_iterator {
         //! \brief Constructeur
@@ -98,16 +98,16 @@ public:
 
         //! \brief Constructeur
         const_iterator(operateur** u):current(u){}
-        //! \brief Surcharge de l'op??rateur " * " pour r??cup??rer l'operateur point?? par l'??l??ment courant
+        //! \brief Surcharge de l'opérateur " * " pour récupérer l'operateur pointé par l'élément courant
         operateur& operator*() const { return **current; }
-        //! \brief Surcharge de l'opr??ateur " != " pour comparer deux it??rateurs
+        //! \brief Surcharge de l'opréateur " != " pour comparer deux itérateurs
         bool operator!=(const_iterator it) const { return current!=it.current; }
-        //! \brief Surcharge de l'op??rateur " ++ " pour avancer vers l'??l??ment suivant
+        //! \brief Surcharge de l'opérateur " ++ " pour avancer vers l'élément suivant
         const_iterator& operator++(){ ++current; return *this; }
     };
-    //! \brief Retourne un it??rateur positionn?? sur le premier operateur de la liste
+    //! \brief Retourne un itérateur positionné sur le premier operateur de la liste
     const_iterator begin_const() const { return const_iterator(ops); }
-    //! \brief Retourne un it??rateur positionn?? apr?ï¿½Ns le dernier operateur de la liste
+    //! \brief Retourne un itérateur positionné après le dernier operateur de la liste
     const_iterator end_const() const { return const_iterator(ops+nb); }
 
 };

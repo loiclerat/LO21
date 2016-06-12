@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QCheckBox>
 #include <QSpinBox>
+#include <QLabel>
 #include "pile.h"
 
 class Parametres : public QWidget{
@@ -16,6 +17,7 @@ class Parametres : public QWidget{
     QSpinBox* nbitem;
     QPushButton* submit;
     QVBoxLayout* couche;
+    QLabel* label;
 
     unsigned int& clav;
     unsigned int& sons;

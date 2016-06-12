@@ -17,15 +17,15 @@
 
 /**
   \class Controleur
-  \brief La classe articulant l'application, gÃ¨re le lien entre les objets et la calculatrice (Singleton)
+  \brief La classe articulant l'application, gère le lien entre les objets et la calculatrice (Singleton)
  */
 
 class Controleur {
     //! \brief Instance de controleur
     static Controleur* cinstance;
-    //! \brief RÃ©fÃ©rence vers la pile
+    //! \brief Référence vers la pile
     Pile& littAff;
-    //! \brief RÃ©fÃ©rence vers l'perateur manager
+    //! \brief Référence vers l'perateur manager
     operateurManager& opeMng;
     //! \brief CareTaker pour le memento
     CareTaker careTaker;
@@ -36,7 +36,7 @@ class Controleur {
     QMap<QString, Operande*> mapAtome;
 
 
-    //! \brief Constructeur en privÃ© de la classe Controleur - initialise les atomes et crÃ©ation de l'historique
+    //! \brief Constructeur en privé de la classe Controleur - initialise les atomes et création de l'historique
     //! \param[in] o - Operateur manager&
 
     Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
@@ -46,9 +46,9 @@ class Controleur {
         }
         save();
     }
-    //! \brief Constructeur de recopie de la classe Controleur en privÃ© (Singleton)
+    //! \brief Constructeur de recopie de la classe Controleur en privé (Singleton)
     Controleur(Controleur& c):littAff(c.littAff), opeMng(c.opeMng), careTaker(), history_index(0) {}
-    //! \brief Destructeur de la classe Controleur en privÃ© (Singleton)
+    //! \brief Destructeur de la classe Controleur en privé (Singleton)
     ~Controleur() {}
 
 public:
@@ -56,15 +56,15 @@ public:
     //=========================================================//
     //===============Gestion de l'instance=================//
     //=========================================================//
-    //! \brief RÃ©cupÃ©rer l'instance unique de Controleur
+    //! \brief Rcupérer l'instance unique de Controleur
     //! \param pile de type Pile
     //! \return \e Controleur&, l'attribut static d'instance de controleur
     static Controleur& getInstance(Pile *pile = 0);
 
-    //! \brief LibÃ©ration de l'instance
+    //! \brief Libération de l'instance
     static void libererInstance();
 
-    //! \brief MÃ©thode getterPile afin de rÃ©cupÃ©rer l'attribut de Pile pour pouvoir la manipuler
+    //! \brief Méthode getterPile afin de récupérer l'attribut de Pile pour pouvoir la manipuler
     //! \return \e Pile&, pointeur vers la pile
     Pile& getterPile(){
         return littAff;
@@ -74,69 +74,69 @@ public:
     //=========================================================//
     //===============Gestion de l'application=================//
     //=========================================================//
-    //! \brief MÃ©thode commande de Controleur
+    //! \brief Méthode commande de Controleur
     //! \param c de type const QString&
     void commande(const QString& c);
 
 
     //=========================================================//
-    //===============DÃ©termination de la ligne de commande=================//
+    //===============Détermination de la ligne de commande=================//
     //=========================================================//
-    //! \brief MÃ©thode estOperateur afin de savoir si la QString passÃ©e en paramÃ¨tre est un operateur
+    //! \brief Méthode estOperateur afin de savoir si la QString passée en paramètre est un operateur
     //! \param s de type const QString
     //! \return \e operateur* qui pointe l'operateur en question
     operateur* estOperateur(const QString s);
 
-    //! \brief Retourne une chaine de caractÃ¨re correspondant au type de littÃ©rale que le manager de littÃ©rales devra crÃ©er ou une chaine de caractÃ¨re nulle s'il ne reconnaÃ®t pas la suite de symboles entrÃ©s
+    //! \brief Retourne une chaine de caractère correspondant au type de littérale que le manager de littérales devra créer ou une chaine de caractère nulle s'il ne reconnaÃ®t pas la suite de symboles entrés
     //! \brief Test pour voir s'il s'agit d'une littEntiere
     //! \brief Test pour voir s'il s'agit d'une littReelle
     //! \param s de type const QString
     //! \return \e QString contenant le type de la litterale
     QString estLitterale(const QString s);
 
-    //! \brief MÃ©thode estLitteraleAtome afin de savoir si la QString passÃ©e en paramÃ¨tre est un atome
+    //! \brief Méthode estLitteraleAtome afin de savoir si la QString passée en paramètre est un atome
     //! \param s de type const QString
     //! \return \e Operande* qui pointe vers l'operande en question
     Operande *estLitteraleAtome(const QString s);
 
 
     //=========================================================//
-    //===============Fabrique et crÃ©ation d'opÃ©rande=================//
+    //===============Fabrique et création d'opérande=================//
     //=========================================================//
 
-    //! \brief MÃ©thode FactoryMethod qui crÃ©e une liste d'opÃ©rande afin de les Ã©valuer dans la mÃ©thode commande()
+    //! \brief Méthode FactoryMethod qui crée une liste d'opérande afin de les évaluer dans la méthode commande()
     //! \param str de type const QString
     //! \return \e QList d'Operande*, pour les traiter dans la calculatrice
     QList<Operande*> FactoryMethod(QString str);
 
-    //! \brief MÃ©thode CreateConcrete qui crÃ©e l'opÃ©rande en dÃ©duisant son type de la QString passÃ© en paramÃ¨tre
+    //! \brief Méthode CreateConcrete qui crée l'opérande en déduisant son type de la QString passé en paramètre
     //! \param str de type const QString
-    //! \return \e Operande*, pointeur vers l'opÃ©rande crÃ©e
+    //! \return \e Operande*, pointeur vers l'opérande crée
     Operande* CreateConcrete(QString str);
 
     //=========================================================//
     //===============Memento=================//
     //=========================================================//
 
-    //! \brief MÃ©thode saveEtatToMemento qui crÃ©e l'Ã©tat du memento
+    //! \brief Méthode saveEtatToMemento qui crée l'état du memento
     //! \param p de type const Pile&
-    //! \return \e Memento&, rÃ©fÃ©rence vers l'objet Memento crÃ©e
+    //! \return \e Memento&, référence vers l'objet Memento crée
     Memento& saveEtatToMemento(Pile& p){ return *(new Memento(p));}
 
-    //! \brief MÃ©thode getEtatFromMemento qui transmet l'Ã©tat de la pile au memento
+    //! \brief Méthode getEtatFromMemento qui transmet l'état de la pile au memento
     //! \param m de type const Memento
     void getEtatFromMemento(Memento& m){ littAff = m.getEtat(); }
 
-    //! \brief MÃ©thode save qui sauvegarde l'Ã©tat de la pile
+    //! \brief Méthode save qui sauvegarde l'état de la pile
     void save();
 
-    //! \brief MÃ©thode loadPrecedent qui permet de revenir ï¿½  l'Ã©tat prÃ©cÃ©dent de la pile
+    //! \brief Méthode loadPrecedent qui permet de revenir à  l'état précédent de la pile
     void loadPrecedent();
 
-    //! \brief MÃ©thode loadSuivant qui permet de revenir ï¿½  l'Ã©tat suivant de la pile
+    //! \brief Méthode loadSuivant qui permet de revenir à  l'état suivant de la pile
     void loadSuivant();
 
-    //! \brief MÃ©thode reload qui permet de recharger ï¿½  l'Ã©tat de la pile
+    //! \brief Méthode reload qui permet de recharger l'état courant de la pile
     void reload();
 };
 

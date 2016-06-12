@@ -1,12 +1,5 @@
 #include "qcomputer.h"
 
-/****
- * Pour l'instant si on tape des chose sur le clavier virtuel, il faut cliquer sur la ligne de commande
- * si l'on veut valider la ligne par notre propre clavier
- *
- * CommencÃ© pour le + ï¿½  prendre en compte le fait qu'une fois cliquÃ© on empile direct, ï¿½  voir si Ã§a marche
- ****/
-
 
 QComputer::QComputer(QWidget* parent):QWidget(parent){
     this->setFixedSize(700, 650);
@@ -17,7 +10,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     /** Layout des parametres **/
 
-    parametres = new QPushButton("Paramètres", this);
+    parametres = new QPushButton("Param�tres", this);
     coucheparametres = new QVBoxLayout();
     coucheparametres->addWidget(parametres);
 
@@ -45,16 +38,16 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
             str+=" :";
             liste<<str;
         }
-    vuepile->setVerticalHeaderLabels(liste);                        //on redÃ©fini les labels pour mettre les ":"
+    vuepile->setVerticalHeaderLabels(liste);                        //on red�fini les labels pour mettre les ":"
 
 
     annuler = new QAction(this);
-    annuler->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Z)); //dï¿½claration du raccourci
+    annuler->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Z)); //d�claration du raccourci
     connect(annuler, SIGNAL(triggered()), this, SLOT(precedent()));
     this->addAction(annuler);
 
     retablir = new QAction(this);
-    retablir->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Y)); //dï¿½claration du raccourci
+    retablir->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Y)); //d�claration du raccourci
     connect(retablir, SIGNAL(triggered()), this, SLOT(suivant()));
     this->addAction(retablir);
 
@@ -93,7 +86,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opbasique->addWidget(backspace);
     opbasique->addWidget(clear);
 
-    /** Connexion des opÃ©rateurs de base **/
+    /** Connexion des op�rateurs de base **/
 
     connect(plus, SIGNAL(pressed()), this, SLOT(plusPressed()));
     connect(moins, SIGNAL(pressed()), this, SLOT(moinsPressed()));
@@ -125,7 +118,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     opnum->addWidget(im);
 
 
-    /** Connexion des opÃ©rateurs numÃ©riques **/
+    /** Connexion des op�rateurs num�riques **/
 
     connect(mod, SIGNAL(pressed()), this, SLOT(modPressed()));
     connect(divB, SIGNAL(pressed()), this, SLOT(divBPressed()));
@@ -159,7 +152,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oplog->addWidget(supeg);
     oplog->addWidget(infeg);
 
-    /** Connexion des opÃ©rateurs logiques **/
+    /** Connexion des op�rateurs logiques **/
 
     connect(andb, SIGNAL(pressed()), this, SLOT(andbPressed()));
     connect(orb, SIGNAL(pressed()), this, SLOT(orbPressed()));
@@ -187,14 +180,14 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     oppile->addWidget(undo);
     oppile->addWidget(redo);
 
-    /** Connexion des opÃ©rateurs de la pile **/
+    /** Connexion des op�rateurs de la pile **/
     connect(ift, SIGNAL(pressed()), this, SLOT(iftPressed()));
     connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
     connect(undo, SIGNAL(pressed()), this, SLOT(undoPressed()));
     connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
     connect(eval, SIGNAL(pressed()), this, SLOT(evalPressed()));
 
-    /** Layout du pavÃ© numÃ©rique et conditionnels **/
+    /** Layout du pav� num�rique et conditionnels **/
 
     //Ligne 1
     paveNum1 = new QHBoxLayout();
@@ -293,7 +286,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
         connect(commande, SIGNAL(returnPressed()),this,SLOT(getNextCommande()));
         connect(pile,SIGNAL(modificationEtat()),this,SLOT(refresh()));
 
-        //connexion du pavÃ© numÃ©rique ï¿½  la ligne de commande
+        //connexion du pav� num�rique �  la ligne de commande
         connect(un, SIGNAL(pressed()), this, SLOT(unPressed()));
         connect(deux, SIGNAL(pressed()), this, SLOT(deuxPressed()));
         connect(trois, SIGNAL(pressed()), this, SLOT(troisPressed()));
@@ -313,7 +306,7 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     setWindowTitle("UTComputer");
 }
 
- //! \brief la fonction refresh() permet de mettre ï¿½  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
+ //! \brief la fonction refresh() permet de mettre �  jour l'affichage de la calculatrice en fct de ce que l'on a dans la pile
 void QComputer::refresh(){//affichage etat pile
 
     if (showClavier == 1){
@@ -343,10 +336,10 @@ void QComputer::refresh(){//affichage etat pile
             str+=" :";
             liste<<str;
         }
-    vuepile->setVerticalHeaderLabels(liste);                        //on redÃ©fini les labels pour mettre les ":"
+    vuepile->setVerticalHeaderLabels(liste);                        //on red�fini les labels pour mettre les ":"
     }
 
-    //lÃƒ  on efface tout ce qu'il y a dans l'affichage la pile
+    //l�  on efface tout ce qu'il y a dans l'affichage la pile
     for(unsigned int i=0;i<pile->getNbItemsToAffiche(); i++){
         vuepile->item(i,0)->setText("");
     }
@@ -359,7 +352,7 @@ void QComputer::refresh(){//affichage etat pile
 
     //! \todo Mettre le bon chemin pour la piste audio
     if (message->text() != "" && sons == 2){
-        QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si ï¿½a ne marche pas
+        QSound alarm("code/Chewbacca.wav");  // Mettre le bon chemin si �a ne marche pas
         alarm.play();
     }
 
@@ -390,7 +383,7 @@ void QComputer::suivant(){
 
 
 
-// Affichage de la fenêtre de gestion des paramètres
+// Affichage de la fen�tre de gestion des param�tres
 void QComputer::parametresPressed(){
     para = new Parametres(showClavier, sons);
     connect(para, SIGNAL(ferme()), this, SLOT(refresh()));
@@ -438,4 +431,8 @@ void QComputer::vueClavier(bool visible){
     huit->setVisible(visible);
     neuf->setVisible(visible);
     zero->setVisible(visible);
+    crochetDroit->setVisible(visible);
+    crochetGauche->setVisible(visible);
+    eval->setVisible(visible);
+    space->setVisible(visible);
 }

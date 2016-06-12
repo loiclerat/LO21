@@ -16,11 +16,11 @@ Description de la classe Item
 
 /**
   \class Item
-  \brief La classe Item est chargÃƒÂ©e de "stocker" un littÃƒÂ©rale pour ÃƒÂªtre ensuitÃƒÂ© empilÃƒÂ© sur la Pile
+  \brief La classe Item est chargée de "stocker" un littérale pour être ensuité empilé sur la Pile
  */
 
 class Item {
-    //! \brief LittÃƒÂ©rale associÃƒÂ©e Ãƒ  l'Item
+    //! \brief Littérale associée à l'Item
     litterale* lit;
 
 public:
@@ -33,11 +33,11 @@ public:
     }
     //! \brief Destructeur
     ~Item(){}
-    //! \brief Associer une littÃƒÂ©rale Ãƒ  l'Item
+    //! \brief Associer une littérale à l'Item
     void setLitterale(litterale& l) { lit=&l; }
-    //! \brief Dissocier l'Item de la littÃƒÂ©rale associÃƒÂ©e
+    //! \brief Dissocier l'Item de la littérale associée
     void raz() { lit=0; }
-    //! \brief Retourne une rÃƒÂ©fÃƒÂ©rence vers la littÃƒÂ©rale associÃƒÂ©e Ãƒ  l'Item
+    //! \brief Retourne une référence vers la littérale associée à l'Item
     litterale& getLitterale() const;
 };
 

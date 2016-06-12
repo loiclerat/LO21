@@ -3,7 +3,7 @@
 \date 03/06/2016
 \author LoÃƒÆ’Ã‚Â¯c Lerat, AndrÃƒÆ’Ã‚Â©a Vibert, ThÃƒÆ’Ã‚Â©o Hordequin
 \version 1.0
-\brief  DÃƒÂ©finition des mÃƒÂ©thodes de la classe Controleur
+\brief  Définition des méthodes de la classe Controleur
 
 
 **/
@@ -13,16 +13,16 @@
 Controleur* Controleur::cinstance = 0;
 
 Controleur& Controleur::getInstance(Pile* pile){
-    //Si l'instance n'existe pas, on crÃ©e un nouveau controleur avec l'instance d'OperateurManager et la pile
+    //Si l'instance n'existe pas, on crée un nouveau controleur avec l'instance d'OperateurManager et la pile
     if (cinstance==0) cinstance=new Controleur(operateurManager::getInstance(),*pile);
     //Sinon on retourne l'instance de Controleur
     return *cinstance;
 }
 
 void Controleur::libererInstance(){
-    //LibÃ¨re l'instance de Controleur
+    //Libère l'instance de Controleur
     delete cinstance;
-    //Met ï¿½  0 l'attribut de Controleur -> permet d'en crÃ©er une nouvelle par la suite
+    //Met à  0 l'attribut de Controleur -> permet d'en créer une nouvelle par la suite
     cinstance=0;
 }
 
@@ -61,7 +61,7 @@ Operande* Controleur::CreateConcrete(QString c)
     //Pointeur vers operateur si le QString est un operateur
     operateur* op;
 
-    //Pointeur vers l'opÃ©rande si le QString est un atome
+    //Pointeur vers l'opérande si le QString est un atome
     Operande* at = estLitteraleAtome(c);
 
     //Si c'est un atome
@@ -96,7 +96,7 @@ Operande* Controleur::CreateConcrete(QString c)
             }
         }
     }
-    //Si le premier caractÃ¨re de la QString est un [ , alors c'est un programme, on le crÃ©er puis on le retourne
+    //Si le premier caractère de la QString est un [ , alors c'est un programme, on le créer puis on le retourne
     else if (c[0] == '[') {
         littProgramme* p = new littProgramme(c);
         return p;
@@ -112,7 +112,7 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
     QStringList t;
 
     try {
-        //ProcÃ©dure pour savoir si c'est un programme, si il est bien Ã©crit, prÃ©sence d'autant de [ que de ]
+        //Procédure pour savoir si c'est un programme, si il est bien écrit, présence d'autant de [ que de ]
         prog = str.split('[');
         if (prog.length() != 0) {
             unsigned int taille = prog.length();
@@ -130,20 +130,20 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
         //Regexp afin de supprimer les esapces
         QRegExp rx("(\\ )");
 
-        //listOperande contient tous les caractÃ¨res splitÃ©s entre les espaces
+        //listOperande contient tous les caractères splités entre les espaces
         QStringList listOperande = str.split(rx, QString::SkipEmptyParts);
 
-        //Entiers pour gÃ©rer les programmes
+        //Entiers pour gérer les programmes
         unsigned int openCroch = 0;
         unsigned int closenCroch = 0;
 
-        //Boucle qui parcours toute la liste d'opÃ©rande
+        //Boucle qui parcours toute la liste d'opérande
         for (unsigned int i = 0; i < listOperande.length(); i++) {
             if (listOperande[i] == "[") {
                 //On commence un programme
                 openCroch++;
                 QString Programme = "";
-                //On l'ajoute ï¿½  la Qstring qui va Ãªtre renvoyer ï¿½  Create Concrete
+                //On l'ajoute à  la Qstring qui va être renvoyer à  Create Concrete
                 Programme += listOperande[i];
                 while (openCroch != closenCroch && i < listOperande.length() - 1) {
                     i++;
@@ -151,10 +151,10 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                         openCroch++;
                     if (listOperande[i] == "]")
                         closenCroch++;
-                    // Stocke dans une liste les opÃ©randes du programme
+                    // Stocke dans une liste les opérandes du programme
                     Programme += " " + listOperande[i];
                 }
-                //On passe la QString du progrmame ï¿½  CreateConcrete afin de crÃ©er l'objet Programme
+                //On passe la QString du progrmame à  CreateConcrete afin de créer l'objet Programme
                 list.append(CreateConcrete(Programme));
             }
             //Sinon c'est une litterale ou un operateur basique
@@ -177,23 +177,23 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
 void Controleur::commande(const QString& c)
 {
 
-    //Liste d'opÃ©rande qui va Ãªtre crÃ©er avec la FactoryMethode
+    //Liste d'opérande qui va être créer avec la FactoryMethode
     littAff.setMessage("");
     QList<Operande*> list;
     list = FactoryMethod(c);
     try{
-        //Boucle qui va parcourir toute la liste d'opÃ©rande
+        //Boucle qui va parcourir toute la liste d'opérande
         for (unsigned int i = 0; i < list.size(); ++i) {
-            //Si l'opÃ©rande passÃ©e dans la liste est une litterale (Polymorphisme)
+            //Si l'opérande passée dans la liste est une litterale (Polymorphisme)
                 litterale* lit = dynamic_cast<litterale*>(list[i]);
-                //Si l'opÃ©rande passÃ©e dans la liste est un opÃ©rateur (Polymorphisme)
+                //Si l'opérande passée dans la liste est un opérateur (Polymorphisme)
                 operateur* ope = dynamic_cast<operateur*>(list[i]);
-                //Si c'est une littÃ©rale, on empile
+                //Si c'est une littérale, on empile
                 if (lit != 0) {
                     littAff.push(*lit);
                     save();
                 }
-                //Sinon on regarde l'aritÃ© de l'operateur
+                //Sinon on regarde l'arité de l'operateur
                 else if (ope->getArite() == 0) {
                 if (littAff.taille() >= 0) {
                     ope->traitement();

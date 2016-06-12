@@ -1,16 +1,16 @@
 /**
 \file item.cpp
 \date 03/06/2016
-\author LoÃƒÂ¯c Lerat, AndrÃƒÂ©a Vibert, ThÃƒÂ©o Hordequin
+\author LoÃƒÂ¯c Lerat, Andréa Vibert, Théo Hordequin
 \version 1.0
-\brief  DÃ©finition des mÃ©thodes de la classe Item
+\brief  Définition des méthodes de la classe Item
 
 
 **/
 
 #include "item.h"
 
-//! \brief Retourne une rÃ©fÃ©rence vers la littÃ©rale associÃ©e Ã  l'Item
+//! \brief Retourne une référence vers la littérale associée à l'Item
 litterale& Item::getLitterale() const {
         if (lit==0) throw ComputerException("Item : tentative d'acces a une litterale inexistante");
         return *lit;

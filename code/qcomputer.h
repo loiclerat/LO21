@@ -159,7 +159,7 @@ public slots:
 
     void parametresPressed();
 
-    //SLOTS pour le pave numÃ©rique
+    //SLOTS pour le pave numérique
     void unPressed(){commande->insert("1");}
     void deuxPressed(){commande->insert("2"); }
     void troisPressed(){commande->insert("3");}
@@ -174,14 +174,14 @@ public slots:
     void crochetDroitPressed(){commande->insert(" ]");}
     void spacePressed(){commande->insert(" ");}
 
-    //SLOTS pour les opÃ©rateurs de base
+    //SLOTS pour les opérateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
     void moinsPressed(){commande->insert("-");getNextCommande();}
     void divPressed(){commande->insert("/");getNextCommande();}
     void mulPressed(){commande->insert("*");getNextCommande();}
     void pointPressed(){commande->insert(".");}
 
-    //SLOTS pour les opÃ©rateurs numÃ©riques
+    //SLOTS pour les opérateurs numériques
     void modPressed(){commande->insert("MOD");getNextCommande();}
     void divBPressed(){commande->insert("DIV");getNextCommande();}
     void negPressed(){commande->insert("NEG");getNextCommande();}
@@ -191,7 +191,7 @@ public slots:
     void rePressed(){commande->insert("RE");getNextCommande();}
     void imPressed(){commande->insert("IM");getNextCommande();}
 
-    //SLOTS pour les opÃ©rateurs logiques
+    //SLOTS pour les opérateurs logiques
     void andbPressed(){commande->insert("AND");getNextCommande();}
     void orbPressed(){commande->insert("OR");getNextCommande();}
     void notbPressed(){commande->insert("NOT");getNextCommande();}
@@ -202,10 +202,10 @@ public slots:
     void supegPressed(){commande->insert(">=");getNextCommande();}
     void infegPressed(){commande->insert("=<");getNextCommande();}
 
-    //SLOTS pour les opÃ©rateurs conditionnels
+    //SLOTS pour les opérateurs conditionnels
     void iftPressed(){commande->insert("IFT");getNextCommande();}
 
-    //SLOTS pour les opÃ©rateurs de la pile
+    //SLOTS pour les opérateurs de la pile
     void dupPressed(){commande->insert("DUP");getNextCommande();}
     void dropPressed(){commande->insert("DROP");getNextCommande();}
     void swapPressed(){commande->insert("SWAP");getNextCommande();}

@@ -9,9 +9,6 @@
 **/
 
 #include "controleur.h"
-#include "exceptions.h"
-#include "litterale.h"
-#include <QStringList>
 
 Controleur* Controleur::cinstance = 0;
 

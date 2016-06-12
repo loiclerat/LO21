@@ -8,8 +8,6 @@
 
 
 #include "operateurmanager.h"
-#include "exceptions.h"
-
 
 // Initialisation de tous les op?©rateurs (attributs statiques)
 
@@ -85,7 +83,7 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[2] = multiplication;
     ops[3] = division;
     ops[4] = complexe;
-    ops[5] = negatif; //ne marche pas pour complexe
+    ops[5] = negatif;
     ops[6] = egalite;
     ops[7] = difference;
     ops[8] = superiorite;
@@ -105,16 +103,7 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
     ops[21] = dup;
     ops[22] = eval;
     ops[23] = modulo;
-   /* ops[20] = ift;
-    ops[21] = duplication;
-    ops[22] = depilement;
-    ops[23] = interversion;
-    ops[24] = lastop;
-    ops[25] = lastarg;*/
-
 }
-
-
 
 //! \brief Initialisation de l'attribut statique handler
 operateurManager::Handler operateurManager::handler=operateurManager::Handler();

@@ -8,6 +8,9 @@
 #include <QMap>
 #include <QList>
 #include <QRegExp>
+#include <QStringList>
+#include "exceptions.h"
+#include "litterale.h"
 #include "operateurmanager.h"
 #include "memento.h"
 #include "operande.h"
@@ -35,6 +38,7 @@ class Controleur {
 
     //! \brief Constructeur en privé de la classe Controleur - initialise les atomes et création de l'historique
     //! \param[in] o - Operateur manager&
+
     Controleur(operateurManager& o, Pile& v):littAff(v), opeMng(o), careTaker(), history_index(0){
         QRegExp rx("^[A-Z]([A-Z]|[0-9])*");
         for(operateurManager::iterator it=opeMng.begin(); it!=opeMng.end(); ++it){

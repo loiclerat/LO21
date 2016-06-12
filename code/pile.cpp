@@ -9,14 +9,7 @@
 
 #include "pile.h"
 #include "exceptions.h"
-#include "littprogramme.h"
-#include "littnumber.h"
-#include "littnumerique.h"
-#include "littentiere.h"
-#include "littatome.h"
-#include "littcomplexe.h"
-#include "littrat.h"
-#include "littreelle.h"
+#include "litterale.h"
 #include "controleur.h"
 #include <typeinfo>
 

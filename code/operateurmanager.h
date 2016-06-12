@@ -12,32 +12,6 @@ Description de la classe operateurManager et de ses it??rateurs
 #define OPERATEURMANAGER_H
 
 #include "operateur.h"
-#include "add.h"
-#include "sous.h"
-#include "mul.h"
-#include "divs.h"
-#include "dollar.h"
-#include "neg.h"
-#include "opegal.h"
-#include "opdiff.h"
-#include "opegalinf.h"
-#include "opegalsup.h"
-#include "opinf.h"
-#include "opsup.h"
-#include "mod.h"
-#include "den.h"
-#include "divent.h"
-#include "mod.h"
-#include "num.h"
-#include "opand.h"
-#include "opeval.h"
-#include "opim.h"
-#include "opnot.h"
-#include "opor.h"
-#include "opre.h"
-#include "opift.h"
-#include "opdup.h"
-
 #include <QString>
 
 /**

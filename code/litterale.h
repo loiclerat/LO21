@@ -380,8 +380,6 @@ public:
     //! \param    d         float
     littReelle(float d): valeur(d), entiere(0), decimale(d){} //Ex : ne prend que les .45 et le traduit directement comme un 0.45
 
-    //pas de constructeur avec seulement e sinon on a un entier
-
     //! \brief Destructeur de littérale réelle
     ~littReelle() {}
 

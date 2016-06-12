@@ -280,14 +280,21 @@ littNumerique* littrat::operator+(littNumerique* a)
             res=*this+rat1;
             return res;
         }else if(ree1!=0){
-            float val = this->getNum()/this->getDen();
-            littReelle* a = new littReelle(val);
-            littReelle* res(*a+ree1);
+            qDebug()<<"num ="<<(this->getNum());
+            qDebug()<<"den ="<<(this->getDen());
+            qDebug()<<"div ="<<static_cast<float>((this->getNum()))/(this->getDen());
+            float val = static_cast<float>(this->getNum())/this->getDen();
+            qDebug()<<"get val ="<<ree1->getValeur();
+            float sum= val+ree1->getValeur();
+            qDebug()<<"SUM ="<<sum;
+            int ent = static_cast<int>(sum);
+
+            qDebug()<<"ent ="<<ent;
+            float dec = val+ree1->getValeur()-ent;
+            littReelle* res = new littReelle(ent, dec);
             return res;
         }
-        else {
-            return 0;
-        }
+        else return 0;
 }
 
 littnumber* littrat::operator-(littnumber* a){

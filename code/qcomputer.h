@@ -1,3 +1,14 @@
+/**
+\file qcomputer.h
+\date 03/06/2016
+\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\version 1.0
+\brief  Interface graphique sur Qt permettant l'affichage de la calculatrice
+
+
+Description de la classe QComputer
+**/
+
 #ifndef QCOMPUTER_H
 #define QCOMPUTER_H
 
@@ -18,6 +29,9 @@
 #include "operateurmanager.h"
 #include "parametres.h"
 
+
+//! \class QObject
+//! \brief Fenetre graphique sur Qt servant d'interface entre l'utilisateur et notre programme
 class QComputer : public QWidget{
     Q_OBJECT
 
@@ -27,23 +41,29 @@ class QComputer : public QWidget{
     QLineEdit* message;
     QLineEdit* commande;
     QVBoxLayout* couchehaut;
+
     QTableWidget* vuepile;
-    QKeyEvent* ctrlZ;
+
+
+    //! \brief Couche permettant l'accès à la fenêtre de paramétrage de l'interface grâce à un boutton cliquable
     QVBoxLayout* coucheparametres;
     QPushButton* parametres;
     Parametres* para;
 
     QHBoxLayout* couchebas;
+    //! \brief Ensemble des opérateurs basiques
     QVBoxLayout* opbasique;
     QPushButton* plus;
     QPushButton* moins;
     QPushButton* mul;
     QPushButton* div;
     QPushButton* point;
+    //! \brief Permet de supprimer le dernier symbole saisi sur la ligne de commande
     QPushButton* backspace;
+    //! \brief Soumet la ligne de commande au controleur du programme
     QPushButton* entree;
 
-
+//! \brief Ensemble des opérateurs numériques
     QVBoxLayout* opnum;
     QPushButton* mod;
     QPushButton* divB;
@@ -54,7 +74,7 @@ class QComputer : public QWidget{
     QPushButton* re;
     QPushButton* im;
 
-
+//! \brief Ensemble des opérateurs logiques
     QVBoxLayout* oplog;
     QPushButton* andb;
     QPushButton* orb;
@@ -66,22 +86,27 @@ class QComputer : public QWidget{
     QPushButton* supeg;
     QPushButton* infeg;
 
-
+//! \brief Ensemble des opérateurs conditionnels
     QVBoxLayout* opcond;
+    //! \brief Opérateur permettant d'évaluer le deuxième élément dépilé sous condition sur le premier argument
     QPushButton* ift;
 
-
+//! \brief Opérateurs de pile
     QVBoxLayout* oppile;
+    //! \brief DUP pour empiler la littérale qui est sur le dessus de la pile
     QPushButton* dup;
-    QPushButton* drop;
+    /*QPushButton* drop;
     QPushButton* swap;
     QPushButton* lastop;
-    QPushButton* lastarg;
+    QPushButton* lastarg;*/
+    //! \brief UNDO pour retouner à l'état précédent de la pile
     QPushButton* undo;
+    //! \brief REDO pour rétablir l'état suivant de la pile
     QPushButton* redo;
+    //! \brief CLEAR pour nettoyer tout ce qui se trouve dans la ligne de saisie de texte
     QPushButton* clear;
 
-
+//! \brief Pavé numérique permettant de saisir tous les chiffres
     QVBoxLayout* paveNum;
     QHBoxLayout* paveNum1;
     QHBoxLayout* paveNum2;
@@ -99,7 +124,11 @@ class QComputer : public QWidget{
     QPushButton* neuf;
     QPushButton* zero;
 
+
+    //! \brief Correspond à un UNDO, permet de signaler au controleur un retour à l'état précédent de la pile
     QAction* annuler;
+    //! \brief Evenement permettant de faire un UNDO (action annuler précédente) grâce au raccourci clavier Ctrl + Z
+    QKeyEvent* ctrlZ;
     QAction* retablir;
 
 
@@ -162,10 +191,10 @@ public slots:
 
     //SLOTS pour les opÃ©rateurs de la pile
     void dupPressed(){commande->insert("DUP");getNextCommande();}
-    void dropPressed(){commande->insert("DROP");getNextCommande();}
+    /*void dropPressed(){commande->insert("DROP");getNextCommande();}
     void swapPressed(){commande->insert("SWAP");getNextCommande();}
     void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
-    void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
+    void lastargPressed(){commande->insert("LASTARG");getNextCommande();}*/
     void undoPressed(){precedent();}
     void redoPressed(){suivant();}
 

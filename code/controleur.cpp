@@ -101,12 +101,8 @@ Operande* Controleur::CreateConcrete(QString c)
         littProgramme* p = new littProgramme(c);
         return p;
     }
-    else if ((op = estOperateur(c)) != 0) {
-        return (op);
-    }
-    else {
-        throw ComputerException("Ceci n'est pas une litterale ou un operateur");
-    }
+    else if ((op = estOperateur(c)) != 0) return (op);
+    else  throw ComputerException("Ceci n'est pas une litterale ou un operateur");
 }
 
 QList<Operande*> Controleur::FactoryMethod(QString str)
@@ -126,9 +122,7 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
                     qDebug() << (prog[j].split(']', QString::SkipEmptyParts));
                 }
             }
-            else {
-                throw ComputerException("le prog n'est pas valide");
-            }
+            else throw ComputerException("le prog n'est pas valide");
         }
 
         //Regexp afin de supprimer les esapces
@@ -180,7 +174,6 @@ QList<Operande*> Controleur::FactoryMethod(QString str)
 
 void Controleur::commande(const QString& c)
 {
-
     //Liste d'opérande qui va être créer avec la FactoryMethode
     littAff.setMessage("");
     QList<Operande*> list;

@@ -39,7 +39,7 @@ public :
     //! \return    Un \e QString possédant tout l'affichage de la litterale.
     //!
     virtual QString affichage(QString f="")const=0;
-    //! \brief       Simplificaiton de la litterale
+    //! \brief       Simplification de la litterale
     //!
     virtual litterale* simplifier(){return this;}/*permet de simplifier les litt num
     *d�s leur cr�ation, �ventuellement les transformer en une autre litt num
@@ -96,19 +96,6 @@ public:
 
 };
 
-
-/**
-\file littNumerique.h
-\date 03/06/2016
-\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
-\version 1.0
-\brief  Classe littcomplexe
-
-Description de la classe littérale numérique
-
-**/
-
-
 /**
   \class littNumerique
   \brief La classe correspond �  toutes les littérales correspondant aux littérales numériques
@@ -162,16 +149,6 @@ public :
     virtual littNumerique& operator=(littNumerique& a)=0;
 };
 
-/**
-\file littentiere.h
-\date 03/06/2016
-\author Loïc Lerat, Andréa Vibert, Théo Hordequin
-\version 1.0
-\brief  Classe littentiere
-
-Description de la classe litterale entière
-
-**/
 
 /**
   \class littEntiere
@@ -259,19 +236,6 @@ public:
 
 };
 
-
-/**
-\file littrat.h
-\date 03/06/2016
-\author Loïc Lerat, Andréa Vibert, Théo Hordequin
-\version 1.0
-\brief  Classe littrat
-
-Description de la classe litterale rationnelle
-
-**/
-
-
 /**
   \class littrat
   \brief La classe des littérales rationnelles
@@ -309,20 +273,14 @@ public:
 
     bool isNull()
     {
-        if (num == 0) {
-            return true;
-        }
-        else
-            return false;
+        if (num == 0) return true;
+        else return false;
     }
 
     bool isPos()
     {
-        if (num > 0) {
-            return true;
-        }
-        else
-            return false;
+        if (num > 0) return true;
+        else return false;
     }
 
     QString affichage(QString f = "") const
@@ -517,17 +475,6 @@ public:
     }
 };
 
-/**
-\file littcomplexe.h
-\date 03/06/2016
-\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
-\version 1.0
-\brief  Classe littcomplexe
-
-Description de la classe litterale complexe
-
-**/
-
 
 /**
   \class littcomplexe
@@ -610,17 +557,6 @@ public:
 };
 
 
-/**
-\file littprogramme.h
-\date 03/06/2016
-\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
-\version 1.0
-\brief  Classe littProgramme
-
-Description de la classe littérale programme
-
-**/
-
 
 /**
   \class littProgramme
@@ -653,9 +589,8 @@ public:
     }
 
     bool isNull(){
-        if(str == ""){
-            return true;
-        }else return false;
+        if(str == "")return true;
+        else return false;
     }
 
     litterale& operator=(litterale& a){

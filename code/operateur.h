@@ -73,10 +73,7 @@ public:
     //! \brief  Constructeur de l'opérateur numerique -> fait appel au constructeur de la classe operateur
     //! \param  f QString
     //! \param  a int
-    operateur_numerique(int a, QString s)
-        : operateur(a, s)
-    {
-    }
+    operateur_numerique(int a, QString s): operateur(a, s){}
 
     virtual litterale& traitement(litterale& a, litterale& b) = 0;
     virtual litterale& traitement(litterale& a) = 0;

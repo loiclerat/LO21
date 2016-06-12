@@ -83,7 +83,7 @@ public:
     //===============Détermination de la ligne de commande=================//
     //=========================================================//
     //! \brief Méthode estOperateur afin de savoir si la QString passée en paramètre est un operateur
-    //! \param c de type const QString
+    //! \param s de type const QString
     //! \return \e operateur* qui pointe l'operateur en question
     operateur* estOperateur(const QString s);
 

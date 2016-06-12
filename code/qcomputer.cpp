@@ -186,19 +186,11 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
 
     oppile = new QVBoxLayout();
     dup = new QPushButton("DUP",this);
-    drop = new QPushButton("DROP",this);
-    swap = new QPushButton("SWAP",this);
-    lastop = new QPushButton("LASTOP",this);
-    lastarg = new QPushButton("LASTARG",this);
     undo = new QPushButton("UNDO",this);
     redo = new QPushButton("REDO",this);
     clear = new QPushButton("CLEAR",this);
 
     oppile->addWidget(dup);
-    oppile->addWidget(drop);
-    oppile->addWidget(swap);
-    oppile->addWidget(lastop);
-    oppile->addWidget(lastarg);
     oppile->addWidget(undo);
     oppile->addWidget(redo);
     oppile->addWidget(clear);
@@ -206,10 +198,6 @@ QComputer::QComputer(QWidget* parent):QWidget(parent){
     /** Connexion des opÃ©rateurs de la pile **/
 
     connect(dup, SIGNAL(pressed()), this, SLOT(dupPressed()));
-    connect(drop, SIGNAL(pressed()), this, SLOT(dropPressed()));
-    connect(swap, SIGNAL(pressed()), this, SLOT(swapPressed()));
-    connect(lastop, SIGNAL(pressed()), this, SLOT(lastopPressed()));
-    connect(lastarg, SIGNAL(pressed()), this, SLOT(lastargPressed()));
     connect(undo, SIGNAL(pressed()), this, SLOT(undoPressed()));
     connect(redo, SIGNAL(pressed()), this, SLOT(redoPressed()));
     connect(clear, SIGNAL(pressed()), this, SLOT(clearCommande()));
@@ -423,10 +411,6 @@ void QComputer::vueClavier(bool visible){
     infeg->setVisible(visible);
     ift->setVisible(visible);
     dup->setVisible(visible);
-    drop->setVisible(visible);
-    swap->setVisible(visible);
-    lastop->setVisible(visible);
-    lastarg->setVisible(visible);
     undo->setVisible(visible);
     redo->setVisible(visible);
     clear->setVisible(visible);

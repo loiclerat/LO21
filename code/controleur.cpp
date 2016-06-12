@@ -101,7 +101,7 @@ Operande* Controleur::CreateConcrete(QString c)
         littProgramme* p = new littProgramme(c);
         return p;
     }
-    else if ((op = estOperateur(c)) != 0) {return (op);
+    else if ((op = estOperateur(c)) != 0) return (op);
     else  throw ComputerException("Ceci n'est pas une litterale ou un operateur");
 }
 

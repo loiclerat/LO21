@@ -94,10 +94,10 @@ class QComputer : public QWidget{
     QVBoxLayout* oppile;
     //! \brief DUP pour empiler la littérale qui est sur le dessus de la pile
     QPushButton* dup;
-    /*QPushButton* drop;
+    QPushButton* drop;
     QPushButton* swap;
     QPushButton* lastop;
-    QPushButton* lastarg;*/
+    QPushButton* lastarg;
     //! \brief UNDO pour retouner à l'état précédent de la pile
     QPushButton* undo;
     //! \brief REDO pour rétablir l'état suivant de la pile
@@ -196,10 +196,10 @@ public slots:
 
     //SLOTS pour les opÃ©rateurs de la pile
     void dupPressed(){commande->insert("DUP");getNextCommande();}
-    /*void dropPressed(){commande->insert("DROP");getNextCommande();}
+    void dropPressed(){commande->insert("DROP");getNextCommande();}
     void swapPressed(){commande->insert("SWAP");getNextCommande();}
     void lastopPressed(){commande->insert("LASTOP");getNextCommande();}
-    void lastargPressed(){commande->insert("LASTARG");getNextCommande();}*/
+    void lastargPressed(){commande->insert("LASTARG");getNextCommande();}
     void undoPressed(){precedent();}
     void redoPressed(){suivant();}
 

@@ -1,5 +1,14 @@
-#include "operateur.h"
+Ôªø/**
+\file operateur.cpp
+\date 03/06/2016
+\author Lo√Øc Lerat, Andr√©a Vibert, Th√©o Hordequin
+\version 1.0
 
+D√©finitions des m√©thodes des classes d'Op√©rateurs
+
+**/
+
+#include "operateur.h"
 #include "controleur.h"
 
 
@@ -227,32 +236,32 @@ litterale& divs::traitement(litterale &a, litterale &b){
         }
     }
 }
-/***************** NEG : nÈgatif **************************/
+/***************** NEG : n√©gatif **************************/
 
 litterale& neg::traitement(litterale &a){
 
     littnumber* b = dynamic_cast<littnumber*>(&a);
 
     if(b != 0)
-    {// Si la littÈrale sur laquelle est le NEG est une littÈrale number alors on fait les calculs pour avoir l'opposÈ
+    {// Si la litt√©rale sur laquelle est le NEG est une litt√©rale number alors on fait les calculs pour avoir l'oppos√©
         littEntiere* ent1 = dynamic_cast<littEntiere*>(&a);
         littrat* rat1 = dynamic_cast<littrat*>(&a);
         littReelle* ree1 = dynamic_cast<littReelle*>(&a);
         littcomplexe* comp1 = dynamic_cast<littcomplexe*>(&a);
 
-        if(ent1!=0){//si c'est un entier nouvelle littÈrale entiËre avec l'opposÈ en valeur
+        if(ent1!=0){//si c'est un entier nouvelle litt√©rale enti√®re avec l'oppos√© en valeur
             littEntiere* res= new littEntiere(-1*ent1->getValeur());
             return *res;
         }
-        if(rat1!=0){//si c'est un rationnel nouvelle littÈrale rationnelle avec l'opposÈ en valeur
+        if(rat1!=0){//si c'est un rationnel nouvelle litt√©rale rationnelle avec l'oppos√© en valeur
             littrat* res= new littrat(-1*rat1->getNum());
             return *res;
         }
-        if(ree1!=0){//si c'est un entier nouvelle littÈrale rÈelle avec l'opposÈ de la partie entiËre
+        if(ree1!=0){//si c'est un entier nouvelle litt√©rale r√©elle avec l'oppos√© de la partie enti√®re
             littReelle* res= new littReelle(-1*ree1->getEntiere(),-1*ree1->getDecimale());
             return *res;
         }
-        if(comp1!=0){//si c'est un entier nouvelle littÈrale entiËre avec l'opposÈ en valeur
+        if(comp1!=0){//si c'est un entier nouvelle litt√©rale enti√®re avec l'oppos√© en valeur
             littEntiere x(-1);
             littNumerique * temp1 = x*(comp1->getPartRe()); //construction de cette nouvelle littNumerique dans la surcharge d'operateur * de littEntiere
             littNumerique * temp2 = x*(comp1->getPartIm());
@@ -294,7 +303,7 @@ litterale& den::traitement(litterale &a){
         littEntiere* t = new littEntiere(1);
         return *t;
     }
-    throw ComputerException("Cet objet n'a pas de dÈnominateur (rÈelle ou complexe)");
+    throw ComputerException("Cet objet n'a pas de d√©nominateur (r√©elle ou complexe)");
 }
 
 /***************DIV : Division entiere **************************************/
@@ -312,8 +321,8 @@ litterale& divent::traitement(litterale &a, litterale &b){
             littEntiere* resf = new littEntiere(a);
             return *resf;
         }
-        else  throw ComputerException("Format incompatible du second argument, nÈcessite entier");
-    }else  throw ComputerException("Format incompatible du second argument, nÈcessite entier");
+        else  throw ComputerException("Format incompatible du second argument, n√©cessite entier");
+    }else  throw ComputerException("Format incompatible du second argument, n√©cessite entier");
 }
 
 /******************* MOD : Modulo *****************************/
@@ -330,10 +339,10 @@ litterale& mod::traitement(litterale &a, litterale &b){
                 if(rat1 != 0){
                     littEntiere* resf = new littEntiere(ent1->getValeur()%rat1->getDen());
                     return *resf;
-                }else throw ComputerException("Format incompatible du second argument, nÈcessite entier");
-     }else throw ComputerException("Format incompatible du second argument, nÈcessite entier");
+                }else throw ComputerException("Format incompatible du second argument, n√©cessite entier");
+     }else throw ComputerException("Format incompatible du second argument, n√©cessite entier");
 }
-/************************ NUM : NumÈrateur *****************************/
+/************************ NUM : Num√©rateur *****************************/
 
 litterale& num::traitement(litterale &a){
 
@@ -350,7 +359,7 @@ litterale& num::traitement(litterale &a){
             littEntiere* t =  new littEntiere(c->getValeur());
             return *t;
         }
-        else throw ComputerException("On ne peut pas retourner le numÈrateur de cette littÈrale.");
+        else throw ComputerException("On ne peut pas retourner le num√©rateur de cette litt√©rale.");
     }
 }
 
@@ -370,7 +379,7 @@ litterale& opim::traitement(litterale& a)
     }
     else throw ComputerException("Ce n'est pas un nombre !");
 }
-/***************** RE : Partie rÈelle ********************************/
+/***************** RE : Partie r√©elle ********************************/
 
 litterale& opre::traitement(litterale& a)
 {
@@ -406,7 +415,7 @@ litterale& opand::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
 /***************** OR : OU logique *******************************/
@@ -426,7 +435,7 @@ litterale& opor::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
 
@@ -445,10 +454,10 @@ litterale& opnot::traitement(litterale& a)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
-/*************** = : EgalitÈ *************************************/
+/*************** = : Egalit√© *************************************/
 
 litterale& opegal::traitement(litterale& a, litterale& b)
 {
@@ -467,10 +476,10 @@ litterale& opegal::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
-/************** != : diffÈrence ***********************************/
+/************** != : diff√©rence ***********************************/
 
 
 litterale& opdiff::traitement(litterale& a, litterale& b)
@@ -481,7 +490,7 @@ litterale& opdiff::traitement(litterale& a, litterale& b)
 
     if (num1 != 0 && num2 != 0) {
         littnumber* res = (*(num1)-(num2));
-        if (res->isNull() == false) { //si la diffÈrence entre les deux n'est pas nulle alors les deux elem sont bien differents
+        if (res->isNull() == false) { //si la diff√©rence entre les deux n'est pas nulle alors les deux elem sont bien differents
             littEntiere* ret = new littEntiere(1);
             return *ret;
         }
@@ -490,10 +499,10 @@ litterale& opdiff::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
-/************* <= : opÈrateur infÈrieur ou Ègal ******************/
+/************* <= : op√©rateur inf√©rieur ou √©gal ******************/
 
 litterale& opegalinf::traitement(litterale& a, litterale& b)
 {
@@ -512,10 +521,10 @@ litterale& opegalinf::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
-/************ => : operateur egal ou supÈrieur *******************/
+/************ => : operateur egal ou sup√©rieur *******************/
 litterale& opegalsup::traitement(litterale& a, litterale& b)
 {
 
@@ -533,7 +542,7 @@ litterale& opegalsup::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
 /**************** > : superiorite *************************************/
@@ -554,7 +563,7 @@ litterale& opinf::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des arguments, nÈcessite deux nombres");
+    else throw ComputerException("Format incompatible des arguments, n√©cessite deux nombres");
 }
 
 /******************** < : inferiorite *****************************/
@@ -576,10 +585,10 @@ litterale& opsup::traitement(litterale& a, litterale& b)
             return *ret;
         }
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre");
 }
 
-/************** IFT : OpÈrateur conditionnel If then ******************/
+/************** IFT : Op√©rateur conditionnel If then ******************/
 
 litterale& opIft::traitement(litterale& a, litterale& b)
 {
@@ -598,10 +607,10 @@ litterale& opIft::traitement(litterale& a, litterale& b)
         }
         else throw ComputerException("La valeur est 0, on abandonne");
     }
-    else throw ComputerException("Format incompatible des argument, nÈcessite un nombre et un programme");
+    else throw ComputerException("Format incompatible des argument, n√©cessite un nombre et un programme");
 }
 
-/************* DUP : double la derniËre littÈrale ***************/
+/************* DUP : double la derni√®re litt√©rale ***************/
 void opdup::traitement(){
         Controleur& ctrl = Controleur::getInstance();
         Pile& pile = ctrl.getterPile();
@@ -618,7 +627,7 @@ litterale& opeval::traitement(litterale& a)
 
     if (pg != 0) {
         QString final = pg->getStr();
-        final = final.remove(0,1); //Retire 1 caractere , ‡ partir du 0 eme caractere
+        final = final.remove(0,1); //Retire 1 caractere , √† partir du 0 eme caractere
         final = final.remove(final.length()-1,1);
         Controleur& ctrl = Controleur::getInstance();
         Pile& p = ctrl.getterPile();

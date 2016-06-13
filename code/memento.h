@@ -1,10 +1,10 @@
-/**
+ï»¿/**
 \file memento.h
 \date 03/06/2016
-\author LoÃ¯c Lerat, Andréa Vibert, Théo Hordequin
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
 
-Description de la classe Memento et CareTaker implémentant le design pattern Memento
+Description de la classe Memento et CareTaker implÃ©mentant le design pattern Memento
 
 **/
 
@@ -15,20 +15,20 @@ Description de la classe Memento et CareTaker implémentant le design pattern Mem
 #include <vector>
 
 //! \class Memento
-//! \brief Permet la sauvegarde et la récupération d'un état de la pile
+//! \brief Permet la sauvegarde et la rÃ©cupÃ©ration d'un Ã©tat de la pile
 class Memento{
     //! \brief Pointeur sur Pile
     Pile* etat;
 
 public:
     //! \brief Constructeur
-    //! \n Sauvegarde de la pile passée en paramètre dans un Memento
+    //! \n Sauvegarde de la pile passÃ©e en paramÃ¨tre dans un Memento
     Memento(Pile& p){ etat = new Pile(p); }
 
-    //! \brief Récupérer la pile sauvegardée dans le Memento
+    //! \brief RÃ©cupÃ©rer la pile sauvegardÃ©e dans le Memento
     Pile& getEtat() const {return *etat;}
 
-    //! \brief Destructeur : on détruit la pile sauvegardée
+    //! \brief Destructeur : on dÃ©truit la pile sauvegardÃ©e
     ~Memento(){delete etat;}
 
 };
@@ -44,13 +44,13 @@ public:
     //! \brief Ajout d'une sauvegarde dans l'historique
     void add(Memento& etat, unsigned int i);
 
-    //! \brief Récupérer la ième sauvegarde dans l'historique
+    //! \brief RÃ©cupÃ©rer la iÃ¨me sauvegarde dans l'historique
     Memento& get(unsigned int i) const {return *historique[i];}
 
     //! \brief Taille de l'historique
     unsigned int taille() const { return historique.size(); }
 
-    //! \brief Suppression de la dernière sauvegarde dans l'historique
+    //! \brief Suppression de la derniÃ¨re sauvegarde dans l'historique
     void pop(){ historique.pop_back();}
 
 };

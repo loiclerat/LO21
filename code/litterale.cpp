@@ -1,3 +1,14 @@
+Ôªø/**
+\file litterale.cpp
+\date 03/06/2016
+\author Lo√Øc Lerat, Andr√©a Vibert, Th√©o Hordequin
+\version 1.0
+\brief  Elements de la Pile
+
+D√©finition des m√©thodes des classes de Litt√©rales
+
+**/
+
 #include "litterale.h"
 
 littnumber* littnumber::operator-(littnumber* a){
@@ -482,9 +493,9 @@ littReelle* littReelle::operator+(littReelle* b)
 {
     int ent;
     float val, dec;
-    val = b->getValeur() + this->getValeur(); // addition des valeurs rÈelles
-    ent = static_cast<int>(val); // partie entiere de la valeur rÈelle de la soustraction
-    dec = val - ent; // partie dÈcimale de la valeur rÈelle de l'addition
+    val = b->getValeur() + this->getValeur(); // addition des valeurs r√©elles
+    ent = static_cast<int>(val); // partie entiere de la valeur r√©elle de la soustraction
+    dec = val - ent; // partie d√©cimale de la valeur r√©elle de l'addition
     littReelle* res = new littReelle(ent, dec);
     return res; // float + float = float
 }
@@ -494,9 +505,9 @@ littReelle* littReelle::operator-(littReelle* b)
 {
     int ent;
     float val, dec;
-    val = this->valeur - b->valeur; // soustraction des valeurs rÈelles
-    ent = static_cast<int>(val); // partie entiere de la valeur rÈelle de la soustraction
-    dec = val - ent; // partie dÈcimale de la valeur rÈelle de la soustraction
+    val = this->valeur - b->valeur; // soustraction des valeurs r√©elles
+    ent = static_cast<int>(val); // partie entiere de la valeur r√©elle de la soustraction
+    dec = val - ent; // partie d√©cimale de la valeur r√©elle de la soustraction
     littReelle* res = new littReelle(this->valeur - b->valeur);
     return res; // reel - reel = reel, ou pas mais le constructeur simplifiera
 }
@@ -645,7 +656,7 @@ littReelle* littReelle::operator*(littReelle* b)
 {
     int ent;
     float val, dec;
-    val = this->valeur * b->valeur; //multiplication des valeurs rÈelles
+    val = this->valeur * b->valeur; //multiplication des valeurs r√©elles
     ent = static_cast<int>(val);
     dec = val - ent;
     littReelle* res = new littReelle(ent, dec);
@@ -738,7 +749,7 @@ littcomplexe::littcomplexe(littcomplexe const& source)
 }
 
 
-litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une littÈrale de sa partie rÈelle si sa partie imaginaire est nulle
+litterale* littcomplexe::simplifier(){ //simplifie un complexe dans une litt√©rale de sa partie r√©elle si sa partie imaginaire est nulle
 
 
     if (this->getPartIm()->isNull()){

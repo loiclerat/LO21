@@ -1,11 +1,11 @@
-/**
+ï»¿/**
 \file parametres.h
 \date 03/06/2016
-\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
-\brief  Fenêtre de gestion des paramètres
+\brief  FenÃªtre de gestion des paramÃ¨tres
 
-Description de la classe Paramètres ainsi que ses slots et signaux
+Description de la classe ParamÃ¨tres ainsi que ses slots et signaux
 
 **/
 
@@ -28,16 +28,16 @@ class Parametres : public QWidget{
     QCheckBox* son;
     //! \brief Affichage du clavier
     QCheckBox* clavier;
-    //! \brief Nombre d'items de la Pile à afficher
+    //! \brief Nombre d'items de la Pile Ã  afficher
     QSpinBox* nbitem;
-    //! \brief Application des changements et fermeture de la fenêtre
+    //! \brief Application des changements et fermeture de la fenÃªtre
     QPushButton* submit;
     QVBoxLayout* couche;
     QLabel* label;
 
-    //! \brief Référence vers la variable d'état d'affichage du clavier de QComputer
+    //! \brief RÃ©fÃ©rence vers la variable d'Ã©tat d'affichage du clavier de QComputer
     unsigned int& clav;
-    //! \brief Référence vers la variable d'état d'activation des sons de QComputer
+    //! \brief RÃ©fÃ©rence vers la variable d'Ã©tat d'activation des sons de QComputer
     unsigned int& sons;
 
 public:
@@ -47,12 +47,12 @@ public:
 
 public slots:
 
-    //! \brief Application des changements et fermeture de la fenêtre
+    //! \brief Application des changements et fermeture de la fenÃªtre
     void submitPressed();
 
 signals:
 
-    //! \brief Signal envoyé à QComputer lors de la fermeture
+    //! \brief Signal envoyÃ© Ã  QComputer lors de la fermeture
     void ferme();
 
 };

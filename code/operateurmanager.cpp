@@ -1,81 +1,81 @@
-/**
+ï»¿/**
 \file operateurmanager.cpp
 \date 03/06/2016
-\author Loéc Lerat, Andréa Vibert, Théo Hordequin
+\author LoÃ©c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
-\brief  Definition des méthodes de la classe operateurManager
+\brief  Definition des mÃ©thodes de la classe operateurManager
 **/
 
 
 #include "operateurmanager.h"
 
-// Initialisation de tous les opérateurs (attributs statiques)
+// Initialisation de tous les opÃ©rateurs (attributs statiques)
 
 unsigned int operateurManager::nb=24;
 
 operateurManager::operateurManager():ops(new operateur*[nb]){
 
-    //! \brief Opé½rateur d'addition
+    //! \brief OpÃ©rateur d'addition
     add* addition=new add();
-    //! \brief Opé½rateur de soustraction
+    //! \brief OpÃ©rateur de soustraction
     sous* soustraction= new sous();
-    //! \brief Opé½rateur de multiplication
+    //! \brief OpÃ©rateur de multiplication
     mul* multiplication= new mul();
-    //! \brief Opé½rateur de division
+    //! \brief OpÃ©rateur de division
     divs* division= new divs();
-    //! \brief Opé½rateur de création de complexe
+    //! \brief OpÃ©rateur de crÃ©ation de complexe
     dollar* complexe= new dollar();
-    //! \brief Opé½rateur pour obtenir le negatif
+    //! \brief OpÃ©rateur pour obtenir le negatif
     neg* negatif= new neg();
-    //! \brief Opé½rateur pour obtenir le resultat du test ==
+    //! \brief OpÃ©rateur pour obtenir le resultat du test ==
     opegal* egalite= new opegal();
-    //! \brief Opé½rateur pour obtenir le resultat du test !=
+    //! \brief OpÃ©rateur pour obtenir le resultat du test !=
     opdiff* difference= new opdiff();
-    //! \brief Opé½rateur pour obtenir resultat du test <=
+    //! \brief OpÃ©rateur pour obtenir resultat du test <=
     opegalinf* inferouegal= new opegalinf();
-    //! \brief Opé½rateur pour obtenir le resultat du test >=
+    //! \brief OpÃ©rateur pour obtenir le resultat du test >=
     opegalsup* superouegal= new opegalsup();
-    //! \brief Opé½rateur pour obtenir le resultat du test >=
+    //! \brief OpÃ©rateur pour obtenir le resultat du test >=
     opinf* inferiorite= new opinf();
-    //! \brief Opé½rateur pour obtenir le resultat du test >=
+    //! \brief OpÃ©rateur pour obtenir le resultat du test >=
     opsup* superiorite= new opsup();
 
-    //! \brief Opérateur pour obtenir le resultat de la division entière
+    //! \brief OpÃ©rateur pour obtenir le resultat de la division entiÃ¨re
     divent* diventiere= new divent();
-    //! \brief Opérateur pour obtenir le dénominateur d'un rationnel
+    //! \brief OpÃ©rateur pour obtenir le dÃ©nominateur d'un rationnel
     den* denominateur= new den();
-    //! \brief Opérateur pour obtenir le numérateur d'un rationnel
+    //! \brief OpÃ©rateur pour obtenir le numÃ©rateur d'un rationnel
     num* numerateur= new num();
-    //! \brief Opérateur pour obtenir la partie réelle d'un complexe
+    //! \brief OpÃ©rateur pour obtenir la partie rÃ©elle d'un complexe
     opre* partieReelle= new opre();
-    //! \brief Opérateur pour obtenir la partie imaginaire d'un complexe
+    //! \brief OpÃ©rateur pour obtenir la partie imaginaire d'un complexe
     opim* partieImaginaire= new opim();
-    //! \brief Opérateur pour obtenir le résultat d'un ET
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un ET
     opand* et= new opand();
-    //! \brief Opérateur pour obtenir le résultat d'un OU
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un OU
     opor* ou= new opor();
-    //! \brief Opérateur pour obtenir le résultat d'un NOT
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un NOT
     opnot* non= new opnot();
-    //! \brief Opérateur pour obtenir le résultat d'un EVAL
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un EVAL
     opeval* eval= new opeval();
-    //! \brief Opérateur pour obtenir le résultat d'un IFT
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un IFT
     opIft* ift= new opIft();
-    //! \brief Opérateur pour obtenir le résultat d'un DUP
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un DUP
     opdup* dup= new opdup();
-    //! \brief Opérateur pour obtenir le résultat d'un modulo
+    //! \brief OpÃ©rateur pour obtenir le rÃ©sultat d'un modulo
     mod* modulo= new mod();
 
 
-    // Opérateurs à créer
-   /* //! \brief Opérateur pour obtenir le dénominateur d'un complexe
+    // OpÃ©rateurs Ã  crÃ©er
+   /* //! \brief OpÃ©rateur pour obtenir le dÃ©nominateur d'un complexe
     den* duplication= new den();
-    //! \brief Opérateur pour obtenir le dénominateur d'un complexe
+    //! \brief OpÃ©rateur pour obtenir le dÃ©nominateur d'un complexe
     den* depilement= new den();
-    //! \brief Opérateur pour obtenir le dénominateur d'un complexe
+    //! \brief OpÃ©rateur pour obtenir le dÃ©nominateur d'un complexe
     den* interversion= new den();
-    //! \brief Opérateur pour obtenir le dénominateur d'un complexe
+    //! \brief OpÃ©rateur pour obtenir le dÃ©nominateur d'un complexe
     den* lastop= new den();
-    //! \brief Opérateur pour obtenir le dénominateur d'un complexe
+    //! \brief OpÃ©rateur pour obtenir le dÃ©nominateur d'un complexe
     den* lastarg= new den();*/
 
     ops[0] = addition;
@@ -109,13 +109,13 @@ operateurManager::operateurManager():ops(new operateur*[nb]){
 operateurManager::Handler operateurManager::handler=operateurManager::Handler();
 
 
-//! \brief Récupérer l'instance unique d'operateurManager
+//! \brief RÃ©cupÃ©rer l'instance unique d'operateurManager
 operateurManager& operateurManager::getInstance(){
     if (handler.instance==0) handler.instance=new operateurManager;
     return *handler.instance;
 }
 
-//! \brief Libération de l'instance
+//! \brief LibÃ©ration de l'instance
 void operateurManager::libererInstance(){
     delete handler.instance;
     handler.instance=0;

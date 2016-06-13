@@ -1,9 +1,9 @@
-/**
+Ôªø/**
 \file pile.cpp
 \date 03/06/2016
-\author Lo√Øc Lerat, AndrÈa Vibert, ThÈo Hordequin
+\author Lo√Øc Lerat, Andr√©a Vibert, Th√©o Hordequin
 \version 1.0
-\brief  DÈfinition des mÈthodes de Pile
+\brief  D√©finition des m√©thodes de Pile
 
 **/
 
@@ -39,7 +39,7 @@ Pile& Pile::operator=(Pile& p){
 
 
 
-//! \brief Agrandissement de la Pile lorsque l'on dÈpasse la capacitÈ actuelle
+//! \brief Agrandissement de la Pile lorsque l'on d√©passe la capacit√© actuelle
 void Pile::agrandissementCapacite() {
     Item* newtab=new Item[(nbMax+1)*2];
     for(unsigned int i=0; i<nb; i++) newtab[i]=items[i];
@@ -49,7 +49,7 @@ void Pile::agrandissementCapacite() {
     delete[] old;
 }
 
-//! \brief Ajouter une littÈrale au sommet de la pile
+//! \brief Ajouter une litt√©rale au sommet de la pile
 void Pile::push(litterale& l){
     if (nb==nbMax) agrandissementCapacite();
     items[nb].setLitterale(l);
@@ -57,7 +57,7 @@ void Pile::push(litterale& l){
     modificationEtat();
 }
 
-//! \brief DÈpiler la littÈrale au sommet de la pile
+//! \brief D√©piler la litt√©rale au sommet de la pile
 void Pile::pop(){
     nb--;
     items[nb].raz();
@@ -71,7 +71,7 @@ Pile::~Pile(){
     delete[] items;
 }
 
-//! \brief Retourne une rÈfÈrence vers la littÈrale au sommet de la Pile
+//! \brief Retourne une r√©f√©rence vers la litt√©rale au sommet de la Pile
 litterale& Pile::top() const {
 
     if (nb==0) throw ComputerException("aucune litterale sur la pile");

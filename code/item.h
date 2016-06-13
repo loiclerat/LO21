@@ -1,7 +1,7 @@
-/**
+ï»¿/**
 \file item.h
 \date 03/06/2016
-\author LoÃƒÆ’Ã‚Â¯c Lerat, AndrÃƒÆ’Ã‚Â©a Vibert, ThÃƒÆ’Ã‚Â©o Hordequin
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
 \brief  Elements de la Pile
 
@@ -16,11 +16,11 @@ Description de la classe Item
 
 /**
   \class Item
-  \brief La classe Item est chargée de "stocker" un littérale pour être ensuité empilé sur la Pile
+  \brief La classe Item est chargÃ©e de "stocker" un littÃ©rale pour Ãªtre ensuitÃ© empilÃ© sur la Pile
  */
 
 class Item {
-    //! \brief Littérale associée à l'Item
+    //! \brief LittÃ©rale associÃ©e Ã  l'Item
     litterale* lit;
 
 public:
@@ -33,11 +33,11 @@ public:
     }
     //! \brief Destructeur
     ~Item(){}
-    //! \brief Associer une littérale à l'Item
+    //! \brief Associer une littÃ©rale Ã  l'Item
     void setLitterale(litterale& l) { lit=&l; }
-    //! \brief Dissocier l'Item de la littérale associée
+    //! \brief Dissocier l'Item de la littÃ©rale associÃ©e
     void raz() { lit=0; }
-    //! \brief Retourne une référence vers la littérale associée à l'Item
+    //! \brief Retourne une rÃ©fÃ©rence vers la littÃ©rale associÃ©e Ã  l'Item
     litterale& getLitterale() const;
 };
 

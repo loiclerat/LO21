@@ -1,10 +1,10 @@
-/**
+ï»¿/**
 \file memento.cpp
 \date 03/06/2016
-\author LoÃ¯c Lerat, Andréa Vibert, Théo Hordequin
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
 
-Définition des méthodes des classes Memento et CareTaker
+DÃ©finition des mÃ©thodes des classes Memento et CareTaker
 
 **/
 
@@ -12,10 +12,10 @@ Définition des méthodes des classes Memento et CareTaker
 
 //! \brief Ajout d'une sauvegarde dans l'historique
 void CareTaker::add(Memento& etat, unsigned int i){
-    // Cas où l'on a changé l'état de la pile après un "Undo" (donc à partir d'un ancien état)
+    // Cas oÃ¹ l'on a changÃ© l'Ã©tat de la pile aprÃ¨s un "Undo" (donc Ã  partir d'un ancien Ã©tat)
     if (i<historique.size()){
         historique[i]=&etat;
     }
-    // Cas où l'on est sur l'état le plus récent
+    // Cas oÃ¹ l'on est sur l'Ã©tat le plus rÃ©cent
     else historique.push_back(&etat);
 }

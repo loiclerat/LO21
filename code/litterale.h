@@ -1,7 +1,7 @@
-/**
+Ôªø/**
 \file litterale.h
 \date 03/06/2016
-\author Lo√É¬Øc Lerat, AndrÈa Vibert, ThÈo Hordequin
+\author Lo√Øc Lerat, Andr√©a Vibert, Th√©o Hordequin
 \version 1.0
 \brief  Classe litterale
 
@@ -30,23 +30,23 @@ using namespace std;
 
 /**
   \class litterale
-  \brief La classe est la classe mËre de tous les types de littÈrales
+  \brief La classe est la classe m√®re de tous les types de litt√©rales
  */
 class litterale : public Operande{
 public :
     //! \brief       Affichage de la litterale
     //! \param    f         QString
-    //! \return    Un \e QString possÈdant tout l'affichage de la litterale.
+    //! \return    Un \e QString poss√©dant tout l'affichage de la litterale.
     //!
     virtual QString affichage(QString f="")const=0;
     //! \brief       Simplification de la litterale
     //!
     virtual litterale* simplifier(){return this;}/*permet de simplifier les litt num
-    *d‡s leur cr‡ation, ‡ventuellement les transformer en une autre litt num
+    *d√†s leur cr√†ation, √†ventuellement les transformer en une autre litt num
     *si possible.
     */
-    //! \brief       DÈtermine si la litterale est nulle ou non.
-    //! \return    Un \e boolÈen : true si la litterale est nulle, faux sinon.
+    //! \brief       D√©termine si la litterale est nulle ou non.
+    //! \return    Un \e bool√©en : true si la litterale est nulle, faux sinon.
     //!
     virtual bool isNull()=0;
 
@@ -55,7 +55,7 @@ public :
 
 /**
   \class littnumber
-  \brief La classe correspond ?  toutes les litt?rales correspondant aux nombres
+  \brief La classe correspond √®  toutes les litt√®rales correspondant aux nombres
  */
 class littnumber : public litterale
 {
@@ -66,30 +66,30 @@ public:
     virtual QString affichage(QString f="")const=0;//a definir
     virtual litterale* simplifier(){return this;}
     virtual bool isNull()=0;
-    //! \brief       D?termine si la litt?rale nombre est positive.
-    //! \return    Un \e bool?en : true si la litterale est nulle, faux sinon.
+    //! \brief       D√®termine si la litt√®rale nombre est positive.
+    //! \return    Un \e bool√®en : true si la litterale est nulle, faux sinon.
     //!
     virtual bool isPos()=0;
 
     //! \brief       Operator + de la litterale concernant l'addition
     //! \param    a         littnumber*
-    //! \return    Un \e littnumber* -> pointeur vers une litt?rale number qui contient la construction concr?te d'un objet fille.
+    //! \return    Un \e littnumber* -> pointeur vers une litt√®rale number qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littnumber* operator+(littnumber* a)=0;
     //! \brief       Operator - de la litterale concernant la soustraction
     //! \param    a         littnumber*
-    //! \return    Un \e littnumber* -> pointeur vers une litt?rale number qui contient la construction concr?te d'un objet fille.
+    //! \return    Un \e littnumber* -> pointeur vers une litt√®rale number qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littnumber* operator-(littnumber* a)=0;
 
     //! \brief       Operator + de la litterale concernant la multiplication
     //! \param    a         littnumber*
-    //! \return    Un \e littnumber* -> pointeur vers une litt?rale number qui contient la construction concr?te d'un objet fille.
+    //! \return    Un \e littnumber* -> pointeur vers une litt√®rale number qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littnumber* operator*(littnumber* a)=0;
     //! \brief       Operator + de la litterale concernant la division
     //! \param    a         littnumber*
-    //! \return    Un \e littnumber* -> pointeur vers une litt?rale number qui contient la construction concr?te d'un objet fille.
+    //! \return    Un \e littnumber* -> pointeur vers une litt√®rale number qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littnumber* operator/(littnumber* a)=0;
 
@@ -98,14 +98,14 @@ public:
 
 /**
   \class littNumerique
-  \brief La classe correspond ‡  toutes les littÈrales correspondant aux littÈrales numÈriques
+  \brief La classe correspond √†  toutes les litt√©rales correspondant aux litt√©rales num√©riques
  */
 class littNumerique : public littnumber{
 
 public :
 
     // **************************************** //
-    //          DÈfini prÈcÈdemment
+    //          D√©fini pr√©c√©demment
     // **************************************** //
     virtual QString affichage(QString f="")const=0;//a definir
     virtual litterale* simplifier(){return this;}
@@ -120,29 +120,29 @@ public :
     // **************************************** //
 
     //! \brief       Operator + de la litterale concernant l'addition
-    //! \details    Surchage qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
+    //! \details    Surchage qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
     //! \param    a         littNumerique*
-    //! \return    Un \e littNumerique* -> pointeur vers une littÈrale numÈrique qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littNumerique* -> pointeur vers une litt√©rale num√©rique qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littNumerique* operator+(littNumerique* a)=0;
 
     //! \brief       Operator - de la litterale concernant la soustraction
-    //! \details    Surchage qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
+    //! \details    Surchage qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
     //! \param    a         littNumerique*
-    //! \return    Un \e littNumerique* -> pointeur vers une littÈrale numÈrique qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littNumerique* -> pointeur vers une litt√©rale num√©rique qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littNumerique* operator-(littNumerique* a)=0;
     //! \brief       Operator * de la litterale concernant la multiplication
-    //! \details    Surchage qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
+    //! \details    Surchage qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
     //! \param    a         littNumerique*
-    //! \return    Un \e littNumerique* -> pointeur vers une littÈrale numÈrique qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littNumerique* -> pointeur vers une litt√©rale num√©rique qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littNumerique* operator*(littNumerique* a)=0;
 
     //! \brief       Operator / de la litterale concernant la division
-    //! \details    Surchage qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
+    //! \details    Surchage qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument).
     //! \param    a         littNumerique*
-    //! \return    Un \e littNumerique* -> pointeur vers une littÈrale numÈrique qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littNumerique* -> pointeur vers une litt√©rale num√©rique qui contient la construction concr√®te d'un objet fille.
     //!
     virtual littNumerique* operator/(littNumerique* a)=0;
 
@@ -152,25 +152,25 @@ public :
 
 /**
   \class littEntiere
-  \brief La classe concernant les littÈrales entiËres
+  \brief La classe concernant les litt√©rales enti√®res
  */
 
 class littEntiere : public littNumerique {
     //! \brief Attribut :
-    //! valeur : \e int concernant la valeur du littÈrale entier
+    //! valeur : \e int concernant la valeur du litt√©rale entier
     int valeur;
 
 public:
-    //! \brief Constructeur de littÈrale entiËre
+    //! \brief Constructeur de litt√©rale enti√®re
     //! \param    val         int
     littEntiere(int val)
         : valeur(val)
     {
     }
-    //! \brief Destructeur de littÈrale entiËre
+    //! \brief Destructeur de litt√©rale enti√®re
     ~littEntiere() {}
     //! \brief       Getter
-    //! \return    Un \e entier possÈdant le contenue de la littÈrale.
+    //! \return    Un \e entier poss√©dant le contenue de la litt√©rale.
     //!
     int getValeur() const { return valeur; }
 
@@ -206,11 +206,11 @@ public:
     littNumerique* operator*(littNumerique* a);
     littnumber* operator*(littnumber* a);
     /*==========*/
-    //! \brief       Operator / de la litterale concernant la division entiËre
-    //! \details    Surchage qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi un littÈrale numÈrique qui correspond ‡  un rationnel
+    //! \brief       Operator / de la litterale concernant la division enti√®re
+    //! \details    Surchage qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi un litt√©rale num√©rique qui correspond √†  un rationnel
     //! \param    a         littEntiere*
-    //! \return    Un \e littNumerique* -> pointeur vers une littÈrale numÈrique qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littNumerique* -> pointeur vers une litt√©rale num√©rique qui contient la construction concr√®te d'un objet fille.
     //!
     littNumerique* operator/(littEntiere* b);
     littNumerique* operator/(littNumerique* a);
@@ -238,18 +238,18 @@ public:
 
 /**
   \class littrat
-  \brief La classe des littÈrales rationnelles
+  \brief La classe des litt√©rales rationnelles
  */
 class littrat : public littNumerique {
     //! \brief Attribut :
-    //! num : \e int concernant le numerateur de la littÈrale rationnelle
+    //! num : \e int concernant le numerateur de la litt√©rale rationnelle
     int num;
     //! \brief Attribut :
-    //! den : \e int concernant le denominateur de la littÈrale rationnelle
+    //! den : \e int concernant le denominateur de la litt√©rale rationnelle
     int den;
 
 public:
-    //! \brief Constructeur de littÈrale rationnelle (arguments : n = numÈrateur, d = dÈnominateur
+    //! \brief Constructeur de litt√©rale rationnelle (arguments : n = num√©rateur, d = d√©nominateur
     //! \param    n         int
     //! \param    d         int
     littrat(int n = 0, int d = 1)
@@ -257,18 +257,18 @@ public:
         num = n;
         den = d;
     }
-    //! \brief Destructeur de littÈrale rationnelle
+    //! \brief Destructeur de litt√©rale rationnelle
     ~littrat() {}
     litterale* simplifier();
 
-    //! \brief Getter du numÈrateur
-    //! \return    Un \e entier possÈdant le contenue du numÈrateur.
+    //! \brief Getter du num√©rateur
+    //! \return    Un \e entier poss√©dant le contenue du num√©rateur.
     int getNum() const { return num; }
-    //! \brief Getter du dÈnominateur
-    //! \return    Un \e entier possÈdant le contenue du dÈnominateur.
+    //! \brief Getter du d√©nominateur
+    //! \return    Un \e entier poss√©dant le contenue du d√©nominateur.
     int getDen() const { return den; }
-    //! \brief Getter de la valeur rÈelle
-    //! \return    Un \e float possÈdant le contenue du rationnelle.
+    //! \brief Getter de la valeur r√©elle
+    //! \return    Un \e float poss√©dant le contenue du rationnelle.
     float getValeur() const { return num / den; }
 
     bool isNull()
@@ -293,40 +293,40 @@ public:
 
     /*==========*/
     //! \brief       Operator + de la litterale concernant l'addition
-    //! \details    Surchage qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littrat*
-    //! \return    Un \e littrat* -> pointeur vers une littÈrale rationnelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littrat* -> pointeur vers une litt√©rale rationnelle qui contient la construction concr√®te d'un objet fille.
     //!
     littrat* operator+(littrat* b);
     littNumerique* operator+(littNumerique* a);
     littnumber* operator+(littnumber* a);
     /*==========*/
     //! \brief       Operator - de la litterale concernant la soustraction
-    //! \details    Surchage de la classe qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littrat*
-    //! \return    Un \e littrat* -> pointeur vers une littÈrale rationnelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littrat* -> pointeur vers une litt√©rale rationnelle qui contient la construction concr√®te d'un objet fille.
     //!
     littrat* operator-(littrat* b);
     littNumerique* operator-(littNumerique* a);
     littnumber* operator-(littnumber* a);
     /*==========*/
     //! \brief       Operator * de la litterale concernant la multiplication
-    //! \details    Surchage de la classe qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littrat*
-    //! \return    Un \e littrat* -> pointeur vers une littÈrale rationnelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littrat* -> pointeur vers une litt√©rale rationnelle qui contient la construction concr√®te d'un objet fille.
     //!
     littrat* operator*(littrat* b);
     littNumerique* operator*(littNumerique* a);
     littnumber* operator*(littnumber* a);
     /*==========*/
     //! \brief       Operator / de la litterale concernant la division
-    //! \details    Surchage de la classe qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littrat*
-    //! \return    Un \e littrat* -> pointeur vers une littÈrale rationnelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littrat* -> pointeur vers une litt√©rale rationnelle qui contient la construction concr√®te d'un objet fille.
     //!
     littrat* operator/(littrat* b);
     littNumerique* operator/(littNumerique* a);
@@ -353,17 +353,17 @@ public:
 /**
 \file littreelle.h
 \date 03/06/2016
-\author Lo√Øc Lerat, AndrÈa Vibert, ThÈo Hordequin
+\author Lo√É¬Øc Lerat, Andr√©a Vibert, Th√©o Hordequin
 \version 1.0
 \brief  Classe littreelle
 
-Description de la classe litterale rÈelle
+Description de la classe litterale r√©elle
 
 **/
 
 /**
   \class littReelle
-  \brief La classe correspond aux littÈrales rÈelles
+  \brief La classe correspond aux litt√©rales r√©elles
  */
 class littReelle : public littNumerique {
     float valeur;
@@ -371,26 +371,26 @@ class littReelle : public littNumerique {
     float decimale;
 
 public:
-    //! \brief Constructeur de littÈrale rÈelle ( arguments : e = entier (matisse), d = rÈel (dÈcimale) )
+    //! \brief Constructeur de litt√©rale r√©elle ( arguments : e = entier (matisse), d = r√©el (d√©cimale) )
     //! \param    e         int
     //! \param    d         float
     littReelle(int e, float d): valeur(e + d), entiere(e), decimale(d){}
 
-    //! \brief Constructeur de littÈrale rÈelle ( arguments : d = rÈelle (dÈcimale))
+    //! \brief Constructeur de litt√©rale r√©elle ( arguments : d = r√©elle (d√©cimale))
     //! \param    d         float
     littReelle(float d): valeur(d), entiere(0), decimale(d){} //Ex : ne prend que les .45 et le traduit directement comme un 0.45
 
-    //! \brief Destructeur de littÈrale rÈelle
+    //! \brief Destructeur de litt√©rale r√©elle
     ~littReelle() {}
 
-    //! \brief Getter de la valeur du rÈelle
-    //! \return    Un \e float possÈdant le contenue de la littÈrale.
+    //! \brief Getter de la valeur du r√©elle
+    //! \return    Un \e float poss√©dant le contenue de la litt√©rale.
     float getValeur() const { return valeur; }
-    //! \brief Getter de la matisse du rÈelle
-    //! \return    Un \e entier possÈdant le contenue de la matisse.
+    //! \brief Getter de la matisse du r√©elle
+    //! \return    Un \e entier poss√©dant le contenue de la matisse.
     int getEntiere() const { return entiere; }
-    //! \brief Getter de la dÈcimale du rÈelle
-    //! \return    Un \e entier possÈdant le contenue de la dÈcimale.
+    //! \brief Getter de la d√©cimale du r√©elle
+    //! \return    Un \e entier poss√©dant le contenue de la d√©cimale.
     float getDecimale() const { return decimale; }
     litterale* simplifier();
 
@@ -416,40 +416,40 @@ public:
 
     /*==========*/
     //! \brief       Operator + de la litterale concernant l'addition
-    //! \details    Surchage de la classe spÈcifique qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe sp√©cifique qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littReelle*
-    //! \return    Un \e littReelle* -> pointeur vers une littÈrale rÈelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littReelle* -> pointeur vers une litt√©rale r√©elle qui contient la construction concr√®te d'un objet fille.
     //!
     littReelle* operator+(littReelle* b);
     littNumerique* operator+(littNumerique* b);
     littnumber* operator+(littnumber* b);
     /*==========*/
     //! \brief       Operator - de la litterale concernant la soustraction
-    //! \details    Surchage de la classe spÈcifique qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe sp√©cifique qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littReelle*
-    //! \return    Un \e littReelle* -> pointeur vers une littÈrale rÈelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littReelle* -> pointeur vers une litt√©rale r√©elle qui contient la construction concr√®te d'un objet fille.
     //!
     littReelle* operator-(littReelle* b);
     littNumerique* operator-(littNumerique* b);
     littnumber* operator-(littnumber* b);
     /*==========*/
     //! \brief       Operator * de la litterale concernant la multiplication
-    //! \details    Surchage de la classe spÈcifique qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe sp√©cifique qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littReelle*
-    //! \return    Un \e littReelle* -> pointeur vers une littÈrale rÈelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littReelle* -> pointeur vers une litt√©rale r√©elle qui contient la construction concr√®te d'un objet fille.
     //!
     littReelle* operator*(littReelle* b);
     littNumerique* operator*(littNumerique* b);
     littnumber* operator*(littnumber* b);
     /*==========*/
     //! \brief       Operator / de la litterale concernant la division
-    //! \details    Surchage de la classe spÈcifique qui permet un niveau de granularitÈ plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
-    //!             renvoi une littÈrale rationnelle
+    //! \details    Surchage de la classe sp√©cifique qui permet un niveau de granularit√© plus fin afin de construire l'objet qui convient en sorti d'operateur. (resp argument)
+    //!             renvoi une litt√©rale rationnelle
     //! \param    b         littReelle*
-    //! \return    Un \e littReelle* -> pointeur vers une littÈrale rÈelle qui contient la construction concrËte d'un objet fille.
+    //! \return    Un \e littReelle* -> pointeur vers une litt√©rale r√©elle qui contient la construction concr√®te d'un objet fille.
     //!
     littReelle* operator/(littReelle* b);
     littNumerique* operator/(littNumerique* b);
@@ -476,12 +476,12 @@ public:
 
 /**
   \class littcomplexe
-  \brief La classe concernant les littÈrales complexes
+  \brief La classe concernant les litt√©rales complexes
  */
 class littcomplexe : public littnumber {
 
     //! \brief Attribut :
-    //! partRe : \e littNumerique* concernant la partie rÈelle du complexe
+    //! partRe : \e littNumerique* concernant la partie r√©elle du complexe
     littNumerique* partRe;
 
     //! \brief Attribut :
@@ -489,23 +489,23 @@ class littcomplexe : public littnumber {
     littNumerique* partIm;
 
 public:
-    //! \brief Constructeur de littÈrale complexe
+    //! \brief Constructeur de litt√©rale complexe
     //! \param    b             littNumerique*
     //! \param    a             littNumerique*
     littcomplexe(littNumerique* a, littNumerique* b):partRe(a),partIm(b){}
 
-    //! \brief Constructeur de recopie littÈrale complexe
+    //! \brief Constructeur de recopie litt√©rale complexe
     littcomplexe(littcomplexe const&);
 
-    //! \brief Destructeur de littÈrale complexe
+    //! \brief Destructeur de litt√©rale complexe
     ~littcomplexe(){}
 
 
-    //! \brief Getter de la partie rÈelle
-    //! \return    Un \e littNumerique* possÈdant le contenue de la partie rÈelle.
+    //! \brief Getter de la partie r√©elle
+    //! \return    Un \e littNumerique* poss√©dant le contenue de la partie r√©elle.
     littNumerique* getPartRe() const { return partRe; }
     //! \brief Getter de la partie imaginaire
-    //! \return    Un \e littNumerique* possÈdant le contenue de la partie imaginaire.
+    //! \return    Un \e littNumerique* poss√©dant le contenue de la partie imaginaire.
     littNumerique* getPartIm() const { return partIm; }
 
     litterale* simplifier();
@@ -558,20 +558,20 @@ public:
 
 /**
   \class littProgramme
-  \brief La classe des littÈrales programmes
+  \brief La classe des litt√©rales programmes
  */
 class littProgramme : public litterale
 {
     //! \brief Attribut :
-    //! str : \e QString concernant la chaine de caractËre du programme
+    //! str : \e QString concernant la chaine de caract√®re du programme
     QString str;
 public:
 
-    //! \brief Constructeur de littÈrale programme
+    //! \brief Constructeur de litt√©rale programme
     //! \param    s         QString
     littProgramme(QString s):str(s){}
 
-    //! \brief Destructeur de littÈrale programme
+    //! \brief Destructeur de litt√©rale programme
     ~littProgramme(){}
 
     QString affichage(QString f="")const{
@@ -580,7 +580,7 @@ public:
     }
 
     //! \brief       Getter
-    //! \return    Un \e QString possÈdant le contenue de la littÈrale.
+    //! \return    Un \e QString poss√©dant le contenue de la litt√©rale.
     //!
     QString getStr(){
         return str;

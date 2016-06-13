@@ -1,12 +1,12 @@
-/**
+ï»¿/**
 \file qcomputer.h
 \date 03/06/2016
-\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
 \brief  Interface graphique sur Qt permettant l'affichage de la calculatrice
 
 
-Description de la classe QComputer, ses attributs, slots et méthodes
+Description de la classe QComputer, ses attributs, slots et mÃ©thodes
 **/
 
 #ifndef QCOMPUTER_H
@@ -37,26 +37,26 @@ class QComputer : public QWidget{
 
     //! \brief Pointeur vers la pile pour communiquer avec elle, notamment pour les messages d'erreur
     Pile* pile;
-    //! \brief Pointeur vers le controleur qui va gérer notre programme
+    //! \brief Pointeur vers le controleur qui va gÃ©rer notre programme
     Controleur* controleur;
     //! \brief Ligne permettant d'afficher les messages d'erreurs sans que l'on puisse les modifier
     QLineEdit* message;
     //! \brief Ligne de commande sur laquelle l'utilisateur rentre les instructions
     QLineEdit* commande;
-    //! \brief Vision de la pile en fonction du nombre de ligne à afficher
+    //! \brief Vision de la pile en fonction du nombre de ligne Ã  afficher
     QTableWidget* vuepile;
 
-    //! \brief Layout de l'intégralite de la fenêtre
+    //! \brief Layout de l'intÃ©gralite de la fenÃªtre
     QVBoxLayout* boxcomplete;
 
-    //! \brief Couche permettant l'accès à la fenêtre de paramétrage de l'interface grâce à un boutton cliquable
+    //! \brief Couche permettant l'accÃ¨s Ã  la fenÃªtre de paramÃ©trage de l'interface grÃ¢ce Ã  un boutton cliquable
     QVBoxLayout* coucheparametres;
     QPushButton* parametres;
     Parametres* para;
 
     QVBoxLayout* couchehaut;
     QHBoxLayout* couchebas;
-    //! \brief Ensemble des opérateurs basiques
+    //! \brief Ensemble des opÃ©rateurs basiques
     QVBoxLayout* opbasique;
     QPushButton* plus;
     QPushButton* moins;
@@ -68,7 +68,7 @@ class QComputer : public QWidget{
     //! \brief Soumet la ligne de commande au controleur du programme
     QPushButton* entree;
 
-//! \brief Ensemble des opérateurs numériques
+//! \brief Ensemble des opÃ©rateurs numÃ©riques
     QVBoxLayout* opnum;
     QPushButton* mod;
     QPushButton* divB;
@@ -79,7 +79,7 @@ class QComputer : public QWidget{
     QPushButton* re;
     QPushButton* im;
 
-//! \brief Ensemble des opérateurs logiques
+//! \brief Ensemble des opÃ©rateurs logiques
     QVBoxLayout* oplog;
     QPushButton* andb;
     QPushButton* orb;
@@ -93,22 +93,22 @@ class QComputer : public QWidget{
 
 
 
-//! \brief Opérateurs de pile et opérateurs conditionnels
+//! \brief OpÃ©rateurs de pile et opÃ©rateurs conditionnels
     QVBoxLayout* oppile;
-    //! \brief Opérateur permettant d'évaluer le deuxième élément dépilé sous condition sur le premier argument
+    //! \brief OpÃ©rateur permettant d'Ã©valuer le deuxiÃ¨me Ã©lÃ©ment dÃ©pilÃ© sous condition sur le premier argument
     QPushButton* ift;
-    //! \brief DUP pour empiler la littérale qui est sur le dessus de la pile
+    //! \brief DUP pour empiler la littÃ©rale qui est sur le dessus de la pile
     QPushButton* dup;
-    //! \brief UNDO pour retouner à l'état précédent de la pile
+    //! \brief UNDO pour retouner Ã  l'Ã©tat prÃ©cÃ©dent de la pile
     QPushButton* undo;
-    //! \brief REDO pour rétablir l'état suivant de la pile
+    //! \brief REDO pour rÃ©tablir l'Ã©tat suivant de la pile
     QPushButton* redo;
     //! \brief CLEAR pour nettoyer tout ce qui se trouve dans la ligne de saisie de texte
     QPushButton* clear;
-    //! \brief EVAL pour évaluer une littérale Programme
+    //! \brief EVAL pour Ã©valuer une littÃ©rale Programme
     QPushButton* eval;
 
-//! \brief Pavé numérique permettant de saisir tous les chiffres
+//! \brief PavÃ© numÃ©rique permettant de saisir tous les chiffres
     QVBoxLayout* paveNum;
     QHBoxLayout* paveNum1;
     QHBoxLayout* paveNum2;
@@ -132,15 +132,15 @@ class QComputer : public QWidget{
     QPushButton* space;
 
 
-    //! \brief Correspond à un UNDO, permet de signaler au controleur un retour à l'état précédent de la pile
+    //! \brief Correspond Ã  un UNDO, permet de signaler au controleur un retour Ã  l'Ã©tat prÃ©cÃ©dent de la pile
     QAction* annuler;
-    //! \brief Evenement permettant de faire un UNDO (action annuler précédente) grâce au raccourci clavier Ctrl + Z
+    //! \brief Evenement permettant de faire un UNDO (action annuler prÃ©cÃ©dente) grÃ¢ce au raccourci clavier Ctrl + Z
     QKeyEvent* ctrlZ;
     QAction* retablir;
 
-    //! \brief Etat de l'affichage du clavier (2 : visible, -1 : caché, 1 : en cours d'affichage, 0 en cours masquage)
+    //! \brief Etat de l'affichage du clavier (2 : visible, -1 : cachÃ©, 1 : en cours d'affichage, 0 en cours masquage)
     unsigned int showClavier;
-    //! \brief Etat de l'activation des sons (2 : activés, -1 : désactivés, 1 : en cours d'activation, 0 en cours de désactivation)
+    //! \brief Etat de l'activation des sons (2 : activÃ©s, -1 : dÃ©sactivÃ©s, 1 : en cours d'activation, 0 en cours de dÃ©sactivation)
     unsigned int sons;
 
 
@@ -150,27 +150,27 @@ public :
     explicit QComputer(QWidget *parent = 0);
 
 public slots:
-    //! \brief Rafraîchit l'affichage de la pile
+    //! \brief RafraÃ®chit l'affichage de la pile
     void refresh();
-    //! \brief Récupère la commande entrée par l'utilisateur et appelle le Controleur pour effectuer les traitements
+    //! \brief RÃ©cupÃ¨re la commande entrÃ©e par l'utilisateur et appelle le Controleur pour effectuer les traitements
     void getNextCommande();
-    //! \brief Revenir à l'étape précédente
+    //! \brief Revenir Ã  l'Ã©tape prÃ©cÃ©dente
     void precedent();
-    //! \brief Revenir à l'étape suivante
+    //! \brief Revenir Ã  l'Ã©tape suivante
     void suivant();
 
     //! \brief Effacement de la ligne de commande
     void clearCommande(){commande->clear();}
-    //! \brief Effacement du dernier caractère de la ligne de commande
+    //! \brief Effacement du dernier caractÃ¨re de la ligne de commande
     void backSpaceCommande(){commande->backspace();}
 
     //! \brief Affichage ou non du clavier
     void vueClavier(bool visible);
 
-    //! \brief Affichage de la fenêtre d'édition des paramètres
+    //! \brief Affichage de la fenÃªtre d'Ã©dition des paramÃ¨tres
     void parametresPressed();
 
-    //SLOTS pour le pave numérique
+    //SLOTS pour le pave numÃ©rique
     void unPressed(){commande->insert("1");}
     void deuxPressed(){commande->insert("2"); }
     void troisPressed(){commande->insert("3");}
@@ -185,14 +185,14 @@ public slots:
     void crochetDroitPressed(){commande->insert(" ]");}
     void spacePressed(){commande->insert(" ");}
 
-    //SLOTS pour les opérateurs de base
+    //SLOTS pour les opÃ©rateurs de base
     void plusPressed(){commande->insert("+");getNextCommande();}
     void moinsPressed(){commande->insert("-");getNextCommande();}
     void divPressed(){commande->insert("/");getNextCommande();}
     void mulPressed(){commande->insert("*");getNextCommande();}
     void pointPressed(){commande->insert(".");}
 
-    //SLOTS pour les opérateurs numériques
+    //SLOTS pour les opÃ©rateurs numÃ©riques
     void modPressed(){commande->insert("MOD");getNextCommande();}
     void divBPressed(){commande->insert("DIV");getNextCommande();}
     void negPressed(){commande->insert("NEG");getNextCommande();}
@@ -202,7 +202,7 @@ public slots:
     void rePressed(){commande->insert("RE");getNextCommande();}
     void imPressed(){commande->insert("IM");getNextCommande();}
 
-    //SLOTS pour les opérateurs logiques
+    //SLOTS pour les opÃ©rateurs logiques
     void andbPressed(){commande->insert("AND");getNextCommande();}
     void orbPressed(){commande->insert("OR");getNextCommande();}
     void notbPressed(){commande->insert("NOT");getNextCommande();}
@@ -213,10 +213,10 @@ public slots:
     void supegPressed(){commande->insert(">=");getNextCommande();}
     void infegPressed(){commande->insert("=<");getNextCommande();}
 
-    //SLOTS pour les opérateurs conditionnels
+    //SLOTS pour les opÃ©rateurs conditionnels
     void iftPressed(){commande->insert("IFT");getNextCommande();}
 
-    //SLOTS pour les opérateurs de la pile
+    //SLOTS pour les opÃ©rateurs de la pile
     void dupPressed(){commande->insert("DUP");getNextCommande();}
     void dropPressed(){commande->insert("DROP");getNextCommande();}
     void swapPressed(){commande->insert("SWAP");getNextCommande();}

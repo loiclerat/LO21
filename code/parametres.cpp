@@ -1,12 +1,12 @@
-/**
+ï»¿/**
 \file parametres.cpp
 \date 03/06/2016
-\author Loïc Lerat, Andréa Vibert, Théo Hordequin
+\author LoÃ¯c Lerat, AndrÃ©a Vibert, ThÃ©o Hordequin
 \version 1.0
-\brief  Fenêtre d'édition des paramètres de QComputer
+\brief  FenÃªtre d'Ã©dition des paramÃ¨tres de QComputer
 
 
-Définition des méthodes de la classe Parametres
+DÃ©finition des mÃ©thodes de la classe Parametres
 **/
 
 #include "parametres.h"
@@ -22,8 +22,8 @@ Parametres::Parametres(unsigned int& c, unsigned int& s, QWidget *parent):QWidge
 
     couche = new QVBoxLayout();
 
-    // Paramètres modifiables initialisés en fonction de l'état de QComputer
-    // transmit via les références clav et sons
+    // ParamÃ¨tres modifiables initialisÃ©s en fonction de l'Ã©tat de QComputer
+    // transmit via les rÃ©fÃ©rences clav et sons
 
     son = new QCheckBox("Son des messages d'erreur (ON/OFF)", this);
     son->setChecked(sons == 2);
@@ -38,7 +38,7 @@ Parametres::Parametres(unsigned int& c, unsigned int& s, QWidget *parent):QWidge
 
     nbitem->setMaximum(10);
     nbitem->setMinimum(2);
-    label = new QLabel("Nombre d'éléments de la pile à afficher : ", this);
+    label = new QLabel("Nombre d'Ã©lÃ©ments de la pile Ã  afficher : ", this);
     label->setFixedSize(400, 20);
     couche->addWidget(son);
     couche->addWidget(clavier);
@@ -56,7 +56,7 @@ void Parametres::submitPressed(){
     else clav = 0;                              // 0 signifie "en cours de masquage"
     if (son->isChecked() == true) sons = 1;     // 1 signifie "en cours d'activation"
     else sons = 0;                              // 0 signifie "en cours de desactivation"
-    Pile::setNbItemsToAffiche(nbitem->value()); // Nombre d'éléments de la PIle à afficher
+    Pile::setNbItemsToAffiche(nbitem->value()); // Nombre d'Ã©lÃ©ments de la PIle Ã  afficher
     emit ferme();
     this->close();
 }
